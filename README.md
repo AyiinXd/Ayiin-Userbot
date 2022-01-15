@@ -1,4 +1,4 @@
-# Zenx-Userbot Telegram
+# 𝐙𝐞𝐧 - Userbot 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/mrismanaziz/Man-Userbot)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green)](https://GitHub.com/mrismanaziz/Man-Userbot/graphs/commit-activity)
 [![CodeFactor](https://www.codefactor.io/repository/github/mrismanaziz/Man-Userbot/badge)](https://www.codefactor.io/repository/github/mrismanaziz/Man-Userbot)
@@ -6,6 +6,11 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/mrismanaziz/man-userbot)](https://hub.docker.com/r/mrismanaziz/man-userbot/tags)
 [![GitHub Forks](https://img.shields.io/github/forks/mrismanaziz/Man-Userbot?&logo=github)](https://github.com/mrismanaziz/Man-Userbot/fork)
 [![GitHub Stars](https://img.shields.io/github/stars/mrismanaziz/Man-Userbot?&logo=github)](https://github.com/mrismanaziz/Man-Userbot/stargazers)
+
+
+<p align="center">
+  <img src="https://telegra.ph/file/32eeead2aec7a7a28571a.jpg">
+</p>
 
 Zenx-Userbot adalah userbot Telegram modular yang berjalan di Python3 dengan database sqlalchemy.
 
