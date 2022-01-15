@@ -12,7 +12,7 @@
   <img src="https://telegra.ph/file/32eeead2aec7a7a28571a.jpg">
 </p>
 
-Zenx-Userbot adalah userbot Telegram modular yang berjalan di Python3 dengan database sqlalchemy.
+Zenx-Userbot adalah userbot Telegram hanya untuk bersenang - senang.
 
 ## Disclaimer
 
