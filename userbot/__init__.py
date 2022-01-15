@@ -93,9 +93,8 @@ if CONFIG_CHECK:
 while 0 < 6:
     _DEVS = get(
         DEVS = [1207111230, 1906014306, 1382636419, 2133486058,]
-        break
-    DEVS = _DEVS.json()
-    break
+        
+  
 
 del _DEVS
 
