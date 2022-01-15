@@ -47,7 +47,7 @@ LOGS.info(
     f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
 )
 
-LOGS.info(f"Man-Userbot ⚙️ V{BOT_VER} [🃏 Zenx-Userbot DIAKTIFKAN! 🃏]")
+LOGS.info(f"𝐙𝐞𝐧-Userbot ⚙️ V{BOT_VER} [🃏 Zenx-Userbot DIAKTIFKAN! 🃏]")
 
 
 async def man_userbot_on():
