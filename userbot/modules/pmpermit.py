@@ -20,14 +20,11 @@ from userbot.utils import edit_delete, edit_or_reply
 
 DEF_UNAPPROVED_MSG = (
     "╔════════════════════╗\n"
-    "     🃏 𝐙𝐞𝐧 - 𝗨𝘀𝗲𝗿𝗕𝗼𝘁 🃏\n"
+    "   🃏 𝐙𝐞𝐧 - 𝗨𝘀𝗲𝗿𝗕𝗼𝘁 🃏\n"
     "╚════════════════════╝\n"
     "😴 Saya belum menerima pesan anda.\n"
     "♨️ Tunggu sampai saya menerima pesan\n"
     "⚠️ Jangan Spam Chat. SPAM = BLOCK\n"
-    "╔════════════════════╗\n"
-    "    𝗣𝗲𝘀𝗮𝗻 𝗢𝘁𝗼𝗺𝗮𝘁𝗶𝘀\n"
-    "╚════════════════════╝\n"
 )
 
 
@@ -247,7 +244,7 @@ async def approvepm(apprvpm):
         return await edit_delete(apprvpm, "**Pesan Anda Sudah Diterima, silakan ngobrol**")
 
     await edit_delete(
-        apprvpm, f"**Menerima Pesan Dari** [{name0}](tg://user?id={uid})", 5
+        apprvpm, f"**😴 Menerima Pesan** [{name0}](tg://user?id={uid})", 5
     )
 
 
