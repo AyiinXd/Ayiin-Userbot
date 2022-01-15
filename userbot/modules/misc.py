@@ -53,7 +53,7 @@ async def sleepybot(time):
             f"**Anda menyuruh bot untuk tidur selama** {str_counter}.",
         )
     sleep(counter)
-    await xx.edit("**Oke, saya sudah bangun sekarang.**")
+    await xx.edit("**Oke, Saya siap membantu mu**")
 
 
 @man_cmd(pattern="shutdown$")
@@ -66,9 +66,9 @@ async def shutdown_bot(event):
         await event.client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**Man-Userbot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**𝐙𝐞𝐧-Userbot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await edit_or_reply(event, "**Man-Userbot Berhasil di matikan!**")
+    await edit_or_reply(event, "**𝐙𝐞𝐧-Userbot Berhasil di matikan!**")
     if HEROKU_APP is not None:
         HEROKU_APP.process_formation()["worker"].scale(0)
     else:
@@ -79,10 +79,10 @@ async def shutdown_bot(event):
 async def restart_bot(event):
     if event.sender_id in SUDO_USERS:
         return
-    await edit_or_reply(event, "**Man-Userbot Berhasil di Restart**")
+    await edit_or_reply(event, "**𝐙𝐞𝐧-Userbot Berhasil di Restart**")
     if BOTLOG_CHATID:
         await event.client.send_message(
-            BOTLOG_CHATID, "#RESTART \n" "**Man-Userbot Berhasil Di Restart**"
+            BOTLOG_CHATID, "#RESTART \n" "**𝐙𝐞𝐧-Userbot Berhasil Di Restart**"
         )
     args = [sys.executable, "-m", "userbot"]
     execle(sys.executable, *args, environ)
@@ -119,13 +119,12 @@ async def repeat(event):
 async def repo_is_here(event):
     xx = await edit_or_reply(event, "`Processing...`")
     await xx.edit(
-        f"**Hey**, __I am using__ 🔥 **Man-Userbot** 🔥\n\n"
-        f"      __Thanks For Using me__\n\n"
-        f"✣ **Userbot Version :** `{BOT_VER}@{branch}`\n"
-        f"✣ **Group Support :** [Sharing Userbot](t.me/sharinguserbot)\n"
-        f"✣ **Channel Man :** [Lunatic0de](t.me/Lunatic0de)\n"
-        f"✣ **Owner Repo :** [Risman](t.me/mrismanaziz)\n"
-        f"✣ **Repo :** [Man-Userbot](https://github.com/mrismanaziz/Man-Userbot)\n"
+        f"**Hey**, __Hello I'am__ 🃏 **𝐙𝐞𝐧-Userbot** 🃏\n\n"
+        f"🃏 **Userbot Version :** `{BOT_VER}@{branch}`\n"
+        f"🃏 **My Groups :** [Clickme](t.me/CariKenalanBebas)\n"
+        f"🃏 **Channel :** [Clickme](t.me/Kata_Zen)\n"
+        f"🃏 **Owner :** [𝐙𝐞𝐧](t.me/ZenxMato)\n"
+        f"🃏 **Repo :** [𝐙𝐞𝐧-Userbot](https://github.com/ZenxMato/Zenx-Userbot)\n"
     )
 
 
