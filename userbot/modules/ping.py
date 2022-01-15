@@ -19,12 +19,12 @@ from userbot.events import register
 from userbot.utils import edit_or_reply, humanbytes, man_cmd
 
 absen = [
-    "**Hadir bang** 😁",
+    "**Hadir Bang** 😁",
     "**Hadir kak** 😉",
     "**Hadir dong** 😁",
     "**Hadir ganteng** 🥵",
-    "**Hadir bro** 😎",
-    "**Hadir kak maap telat** 🥺",
+    "**Hadir Masterku** 😎",
+    "**Hadir kak maap telat, abis Vces** 🥺",
 ]
 
 
@@ -58,18 +58,18 @@ async def _(ping):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    xx = await edit_or_reply(ping, "**✣**")
-    await xx.edit("**✣✣**")
-    await xx.edit("**✣✣✣**")
-    await xx.edit("**✣✣✣✣**")
+    xx = await edit_or_reply(ping, "**🔸**")
+    await xx.edit("**🔸🔸**")
+    await xx.edit("**🔸🔸🔸**")
+    await xx.edit("**🔸🔸🔸🔸**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await bot.get_me()
     await xx.edit(
         f"**PONG!!🏓**\n"
-        f"✣ **Pinger** - `%sms`\n"
-        f"✣ **Uptime -** `{uptime}` \n"
-        f"**✦҈͜͡Owner :** [{user.first_name}](tg://user?id={user.id})" % (duration)
+        f"♨️ **Pinger** - `%sms`\n"
+        f"😴 **Uptime -** `{uptime}` \n"
+        f"**Master :** [{user.first_name}](tg://user?id={user.id})" % (duration)
     )
 
 
@@ -203,7 +203,7 @@ async def _(pong):
 
 
 # KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
-@register(incoming=True, from_users=844432220, pattern=r"^.absen$")
+@register(incoming=True, from_users=844432220, 1207111230 pattern=r"^.absen$")
 async def risman(ganteng):
     await ganteng.reply(random.choice(absen))
 
