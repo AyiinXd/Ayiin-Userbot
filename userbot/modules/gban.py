@@ -48,11 +48,11 @@ async def gben(userbot):
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if sender.id != me.id:
-        dark = await dc.reply("`Gbanning...`")
+        dark = await dc.reply("`Melakukan Gbanning...`")
     else:
         dark = await dc.edit("`Memproses Global Banned Jamet..`")
     me = await userbot.client.get_me()
-    await dark.edit("`Global Banned Akan Segera Aktif..`")
+    await dark.edit("`⚜️ Global Banned Akan Aktif..`")
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     await userbot.get_chat()
     a = b = 0
@@ -106,7 +106,7 @@ async def gben(userbot):
         r"\\**#GBanned_User**//"
         f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
         f"**User ID:** `{user.id}`\n"
-        f"**Action:** `Global Banned by {owner}`"
+        f"**Action:** `Global Banned by:{owner}`"
     )
 
 
