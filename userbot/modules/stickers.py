@@ -40,11 +40,11 @@ from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.utils import edit_delete, edit_or_reply, man_cmd
 
 KANGING_STR = [
-    "Colong Sticker dulu yee kan",
-    "Ini Sticker aku colong yaa DUARR!",
-    "Waw Stickernya Bagus Nih...Colong Dulu Yekan..",
-    "ehh, keren nih... gua colong ya stickernya...",
-    "Boleh juga ni Sticker Colong ahh~",
+    "Maling Sticker dlu yekan",
+    "Ini Sticker aku maling yahaha!",
+    "Waw Stickernya Bagus Nih...",
+    "ehh, keren nih... gua ambil ya...",
+    "Sticker lu keren.. Gua minta ya~",
 ]
 
 OWNER = user.first_name
@@ -244,8 +244,8 @@ async def kang(args):
                 await args.client.send_read_acknowledge(conv.chat_id)
 
         await xx.edit(
-            "** Sticker Berhasil Ditambahkan!**"
-            f"\n        👻 **[KLIK DISINI](t.me/addstickers/{packname})** 👻\n**Untuk Menggunakan Stickers**",
+            "**| STICKER KAMU SUDAH JADI |**"
+            f"\n        🃏 **[KLIK SAYA AHH🥵](t.me/addstickers/{packname})** 🃏\n**Untuk Menggunakan Stickers**",
             parse_mode="md",
         )
 
