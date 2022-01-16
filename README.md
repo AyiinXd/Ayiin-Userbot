@@ -15,7 +15,7 @@
 
 Zenx-Userbot adalah userbot Telegram hanya untuk bersenang - senang.
 
-## Disclaimer
+## 📛Disclaimer
 
 ```
 Saya tidak bertanggung jawab atas penyalahgunaan bot ini.
@@ -24,13 +24,13 @@ mengelola grup secara efisien dan mengotomatiskan beberapa hal yang membosankan.
 Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
 
-### Generate String Session
+### 🖤Generate String Session
 [![Run repl.it](https://img.shields.io/badge/run-string__session.py-blue?style=for-the-badge&logo=repl.it)](https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1)
 
-<h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku</h3>
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ZenxMato/Zenx-Userbot"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy to Heroku" target="_blank"/></a></p>
+## 💜Heroku Deployment 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ZenXMato/Zenx-Userbot)
 
-## © Credits
+## 🏆Credits
 #### Thanks To [Everyone](https://github.com/mrismanaziz/Man-Userbot/graphs/contributors) Who Has Helped Make This Userbot Awesome!
 *   [AdekMaulana](https://github.com/adekmaulana) : ProjectBish
 *   [RaphielGang](https://github.com/RaphielGang) : Paperplane
