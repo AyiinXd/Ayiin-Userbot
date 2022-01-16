@@ -19,12 +19,12 @@ from userbot.events import register
 from userbot.utils import edit_or_reply, humanbytes, man_cmd
 
 absen = [
-    "**Hadir Bang** 😁",
-    "**Hadir Kak** 😉",
-    "**Hadir Mek** 😁",
+    "𝙃𝙖𝙙𝙞𝙧 𝙙𝙤𝙣𝙜 😁",
+    "𝙃𝙖𝙙𝙞𝙧 𝙠𝙖 😉",
+    "𝙃𝙖𝙙𝙞𝙧 𝙂𝙬𝙚𝙝 𝙈𝙖𝙝 😁",
     "**Hadir Ganteng** 🥵",
-    "**Hadir Masterku** 😎",
-    "**Hadir kak maap telat, abis Vces** 🥺",
+    "𝙃𝙖𝙙𝙞𝙧 𝙉𝙜𝙖𝙗 😎",
+    "**Hadir Abang** 🥺",
 ]
 
 
@@ -58,17 +58,17 @@ async def _(ping):
     """For .ping command, ping the userbot from any chat."""
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    xx = await edit_or_reply(ping, "**🃏**")
-    await xx.edit("**🃏🃏**")
-    await xx.edit("**🃏🃏🃏**")
-    await xx.edit("**🃏🃏🃏🃏**")
+    xx = await edit_or_reply(ping, "**👉**")
+    await xx.edit("**👈👉**")
+    await xx.edit("**👈👉👈**")
+    await xx.edit("**👉👈👉👈**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await bot.get_me()
     await xx.edit(
-        f"**PONG!!🏓**\n"
-        f"🃏 **Pinger** - `%sms`\n"
-        f"🔥 **Uptime -** `{uptime}` \n"
+        f"**𝙿𝙾𝙽𝙶!!**\n"
+        f"⌯ **𝙿𝙸𝙽𝙶𝙴𝚁** - `%sms`\n"
+        f"⌯ **Uptime -** `{uptime}` \n"
         f"**Master :** [{user.first_name}](tg://user?id={user.id})" % (duration)
     )
 
