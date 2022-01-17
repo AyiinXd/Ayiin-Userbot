@@ -551,9 +551,9 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="🃏 Zenx-Userbot 🃏",
-                    description="Zenx - UserBot | Telethon",
-                    url="https://t.me/CariKenalanBebas",
+                    title="🔥 Ayiin-Userbot 🔥",
+                    description="Ayiin - UserBot | Telethon",
+                    url="https://t.me/XhamsterId",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
                     text=f"**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n~ **Assistant:** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**Support:** @MovieSagapung\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
@@ -575,7 +575,7 @@ with bot:
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(looters)
                 buttons = paginate_help(current_page_number, dugmeler, "helpme")
-                text = f"**🔸 Man-Userbot Inline Menu 🔸**\n\n👑 **Owner** [{user.first_name}](tg://user?id={user.id})\n👉 **Jumlah** `{len(dugmeler)}` Modules"
+                text = f"**🔸 Ayiin-Userbot Inline Menu 🔸**\n\n👑 **Owner** [{user.first_name}](tg://user?id={user.id})\n👉 **Jumlah** `{len(dugmeler)}` Modules"
                 await event.edit(
                     text,
                     file=logoman,
