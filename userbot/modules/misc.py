@@ -120,9 +120,9 @@ async def repo_is_here(event):
     xx = await edit_or_reply(event, "`Processing...`")
     await xx.edit(
         f"**──────────────**\n"
-        f"» **𝚉𝚎𝚗 - 𝚄𝚜𝚎𝚛𝚋𝚘𝚝**\n"
-        f"» **𝙾𝚆𝙽𝙴𝚁:** [𝐙𝐞𝐧](t.me/ZenxMato)\n"
-        f"» **𝚁𝙴𝙿𝙾:** [𝐙𝐞𝐧-Userbot](https://github.com/ZenxMato/Zenx-Userbot)\n"
+        f"» *𝚉𝚎𝚗 - 𝚄𝚜𝚎𝚛𝚋𝚘𝚝*\n"
+        f"» 𝙾𝚆𝙽𝙴𝚁: [𝐙𝐞𝐧](t.me/ZenxMato)\n"
+        f"» 𝚁𝙴𝙿𝙾:** [𝐙𝐞𝐧-Userbot](https://github.com/ZenxMato/Zenx-Userbot)\n"
         f"**──────────────**\n"
     )
 
