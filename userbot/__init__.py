@@ -185,16 +185,16 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 ALIVE_TEKS_CUSTOM = os.environ.get("ALIVE_TEKS_CUSTOM", "Hey, I am alive.")
 
 # Default .alive name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", "Zenx")
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "AyiinXd")
 
 # Custom Emoji Alive
-ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "👑")
+ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "😈")
 
 # Custom Emoji Alive
 INLINE_EMOJI = os.environ.get("INLINE_EMOJI", "∆")
 
 # Custom icon HELP
-ICON_HELP = os.environ.get("ICON_HELP", "✓")
+ICON_HELP = os.environ.get("ICON_HELP", "😈")
 
 # Time & Date - Country and Time Zone
 COUNTRY = str(os.environ.get("COUNTRY", "ID"))
@@ -214,7 +214,7 @@ BOT_VER = os.environ.get("BOT_VER", "2.3.4")
 
 # Default .alive logo
 ALIVE_LOGO = (
-    os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/32eeead2aec7a7a28571a.jpg ga"
+    os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/9e9173cc7b823ccb5cc55.jpg"
 )
 
 INLINE_PIC = (
