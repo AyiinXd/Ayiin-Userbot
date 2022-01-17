@@ -33,7 +33,7 @@ async def gcast(event):
         msg = await event.get_reply_message()
     else:
         return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
-    kk = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
+    kk = await edit_or_reply(event, "`𝙎𝙖𝙗𝙖𝙧 𝙏𝙤𝙙 𝙇𝙖𝙜𝙞 𝙂𝙪𝙖 𝙆𝙞𝙧𝙞𝙢, 𝙆𝙖𝙡𝙤 𝙇𝙞𝙢𝙞𝙩 𝙅𝙖𝙣𝙜𝙖𝙣 𝙎𝙖𝙡𝙖𝙝𝙞𝙣 𝙂𝙪𝙖 𝘼𝙣𝙟𝙞𝙣𝙜...`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -62,7 +62,7 @@ async def gucast(event):
         msg = await event.get_reply_message()
     else:
         return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
-    kk = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
+    kk = await edit_or_reply(event, "`𝙎𝙖𝙗𝙖𝙧 𝙏𝙤𝙙 𝙇𝙖𝙜𝙞 𝙂𝙪𝙖 𝙆𝙞𝙧𝙞𝙢, 𝙆𝙖𝙡𝙤 𝙇𝙞𝙢𝙞𝙩 𝙅𝙖𝙣𝙜𝙖𝙣 𝙎𝙖𝙡𝙖𝙝𝙞𝙣 𝙂𝙪𝙖 𝘼𝙣𝙟𝙞𝙣𝙜...`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
