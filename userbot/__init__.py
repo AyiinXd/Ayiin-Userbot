@@ -316,7 +316,7 @@ async def check_botlog_chatid() -> None:
 async def update_restart_msg(chat_id, msg_id):
     DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
     message = (
-        f"**🔸Zenx-UserBot v{BOT_VER} is back up and running!**\n\n"
+        f"**🔸Ayiin-Userbot v{BOT_VER} is back up and running!**\n\n"
         f"**🔸Telethon:** {version.__version__}\n"
         f"**🔸Python:** {python_version()}\n"
         f"**🔸User:** {DEFAULTUSER}"
@@ -497,7 +497,7 @@ with bot:
                 result = builder.photo(
                     file=logoman,
                     link_preview=False,
-                    text=f"**🔸 Zenx-Userbot Inline Menu 🔸**\n\n✓ **Owner** [{user.first_name}](tg://user?id={user.id})\n✓ **Jumlah** `{len(dugmeler)}` Modules",
+                    text=f"**🔸 Ayiin-Userbot Inline Menu 🔸**\n\n✓ **Owner** [{user.first_name}](tg://user?id={user.id})\n✓ **Jumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -506,12 +506,12 @@ with bot:
                     description="Repository Man - Userbot",
                     url="https://t.me/CariKenalanBebas",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text="**Zenx - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n👑 **Owner :** [𝐙𝐞𝐧](https://t.me/ZenxMato)\n👉 **Support :** @Kata_Zen\n♨️ **Repository :** [Zenx-Userbot](https://github.com/ZenxMato/Zenx-Userbot)\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    text="**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n👑 **Owner :** [𝘼𝙮𝙞𝙞𝙣𝙓𝙙](https://t.me/Contoldisini)\n👉 **Support :** @MovieSagapung\n♨️ **Repository :** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
                         [
-                            custom.Button.url("-ɢʀᴏᴜᴘ", "https://t.me/CariKenalanBebas"),
+                            custom.Button.url("-ɢʀᴏᴜᴘ", "https://t.me/XhamsterId"),
                             custom.Button.url(
-                                "-ʀᴇᴘᴏ", "https://github.com/ZenxMato/Zenx-Userbot"
+                                "-ʀᴇᴘᴏ", "https://github.com/AyiinXd/Ayiin-Userbot"
                             ),
                         ],
                     ],
@@ -555,7 +555,7 @@ with bot:
                     description="Zenx - UserBot | Telethon",
                     url="https://t.me/CariKenalanBebas",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text=f"**Zenx - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n~ **Assistant:** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**Support:** @Kata_Zen\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    text=f"**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n~ **Assistant:** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**Support:** @MovieSagapung\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
                         [
                             custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/SharingUserbot"),
