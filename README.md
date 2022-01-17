@@ -1,4 +1,4 @@
- <h1 align="center"><img src="./userbot/resources/GeezFire.gif" width="35px"> 𝐙𝐞𝐧 Userbot <img src="./userbot/resources/GeezFire.gif" width="35px"></h1>
+ <h1 align="center"><img src="./userbot/resources/Kenpurple.gif" width="35px"> 𝐙𝐞𝐧 Userbot <img src="./userbot/resources/Kenpurple.gif" width="35px"></h1>
 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ZenxMato/Zenx-Userbot)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green)](https://GitHub.com/ZenxMato/Zenx-Userbot/graphs/commit-activity)
@@ -11,7 +11,7 @@
   <img src="https://telegra.ph/file/32eeead2aec7a7a28571a.jpg">
 </p>
 
-Zenx-Userbot adalah userbot Telegram hanya untuk bersenang - senang.
+<img src="./userbot/resources/Kenpurple.gif" width="20px"> `Userbot yang mempunyai berbagai module dan banyak sekali kegunaan nya`
 
 ## 📛Disclaimer
 
@@ -21,6 +21,13 @@ Bot ini dimaksudkan untuk bersenang-senang sekaligus membantu Anda
 mengelola grup secara efisien dan mengotomatiskan beberapa hal yang membosankan.
 Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
+## ❤️Follow Me:
+<p align="left">
+<a href="https://github.com/ZenxMato"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a>
+</p>
+</p>
+<p align="left">
+<a href="https://facebook.com/kyiushin.real"><img src="https://img.shields.io/badge/Facebook-Follow%20on%20Facebook-blue.svg?logo=facebook"></a>
 
 ### 🖤Generate String Session
 [![Run repl.it](https://img.shields.io/badge/run-string__session.py-blue?style=for-the-badge&logo=repl.it)](https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1)
