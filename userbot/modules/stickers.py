@@ -244,8 +244,8 @@ async def kang(args):
                 await args.client.send_read_acknowledge(conv.chat_id)
 
         await xx.edit(
-            "**| STICKER KAMU SUDAH JADI |**"
-            f"\n        🃏 **[KLIK SAYA AHH🥵](t.me/addstickers/{packname})** 🃏\n**Untuk Menggunakan Stickers**",
+            "**STICKER SUDAH JADI AMBIL DI BAWAH**"
+            f"\n **[✨TAP](t.me/addstickers/{packname})** \n**Untuk Menggunakan Stickers**",
             parse_mode="md",
         )
 
