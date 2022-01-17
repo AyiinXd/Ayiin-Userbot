@@ -1,6 +1,6 @@
 FROM mrismanaziz/man-userbot:buster
 
-RUN git clone -b Zenx-Userbot https://github.com/ZenxMato/Zenx-Userbot /home/manuserbot/ \
+RUN git clone -b Ayiin-Userbot https://github.com/AyiinXd/Ayiin-Userbot /home/manuserbot/ \
     && chmod 777 /home/manuserbot \
     && mkdir /home/manuserbot/bin/
 
