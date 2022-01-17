@@ -1,5 +1,6 @@
  <h1 align="center"><img src="./userbot/resources/Kenpurple.gif" width="35px"> 𝐙𝐞𝐧 Userbot <img src="./userbot/resources/Kenpurple.gif" width="35px"></h1>
 
+<a href="https://github.com/ZenxMato/Zenx-Userbot/commits"> <img src="https://img.shields.io/github/last-commit/ZenxMato/Zenx-Userbot?color=red&logo=github&logoColor=blue&style=for-the-badge" /></a>
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ZenxMato/Zenx-Userbot)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green)](https://GitHub.com/ZenxMato/Zenx-Userbot/graphs/commit-activity)
 [![CodeQuality](https://img.shields.io/codacy/grade/a723cb464d5a4d25be3152b5d71de82d?color=blue&logo=codacy)](https://app.codacy.com/gh/ZenxMato/Zenx-Userbot/dashboard)
