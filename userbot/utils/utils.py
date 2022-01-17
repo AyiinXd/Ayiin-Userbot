@@ -36,7 +36,7 @@ async def autobot():
         return
     await bot.start()
     await bot.send_message(
-        BOTLOG_CHATID, "**SEDANG MEMBUAT ASISTEN BOT ANDA DI @BotFather**"
+        BOTLOG_CHATID, "**SABAR KENTOD LAGI BUAT BOT ASSISTANT LU DI @BotFather**"
     )
     who = await bot.get_me()
     name = who.first_name + " Assistant Bot"
@@ -105,15 +105,15 @@ async def autobot():
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await bot.send_message(
-                bf, f"🔥 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @ZenxMato 🔥"
+                bf, f"🔥 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @Contoldisini 🔥"
             )
             await bot.send_message(
                 BOTLOG_CHATID,
-                f"**BERHASIL MEMBUAT ASISTEN BOT @{username}**",
+                f"**BERHASIL MEMBUAT ASISTEN BOT LU KENTOD @{username}**",
             )
             await bot.send_message(
                 BOTLOG_CHATID,
-                "**SEDANG RESTART USERBOT HARAP TUNGGU.*",
+                "**SEDANG RESTART USERBOT HARAP TUNGGU KONTOL.*",
             )
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
@@ -147,15 +147,15 @@ async def autobot():
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
-            bf, f"🔥 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @ZenxMato 🔥"
+            bf, f"🔥 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @Contoldisini 🔥"
         )
         await bot.send_message(
             BOTLOG_CHATID,
-            f"**BERHASIL MEMBUAT ASISTEN BOT @{username}**",
+            f"**BERHASIL MEMBUAT ASISTEN BOT LU KENTOD @{username}**",
         )
         await bot.send_message(
             BOTLOG_CHATID,
-            "**SEDANG RESTART USERBOT HARAP TUNGGU.**",
+            "**SEDANG RESTART USERBOT HARAP TUNGGU KONTOL.**",
         )
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"
