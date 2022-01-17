@@ -11,7 +11,7 @@
   <img src="https://telegra.ph/file/32eeead2aec7a7a28571a.jpg">
 </p>
 
-<img src="./userbot/resources/Kenpurple.gif" width="20px"> `Userbot yang mempunyai berbagai module dan banyak sekali kegunaan nya`
+<img src="./userbot/resources/Kenpurple.gif" width="20px"> `Userbot yang mempunyai berbagai module dan banyak perintah yang keren, gas deploy banh😁 kalo udah make jadi keren`
 
 ## 📛Disclaimer
 
