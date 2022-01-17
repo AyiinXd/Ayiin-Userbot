@@ -1,9 +1,9 @@
 {
-  "name": "⋆ 𝙕𝙚𝙣𝙭-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ⋆",
-  "description": "[Zenx-Userbot] Userbot Hanya Untuk Bersenang - Senang",
-  "logo": "https://telegra.ph/file/32eeead2aec7a7a28571a.jpg",
+  "name": "⋆ 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ⋆",
+  "description": "[Ayiin-Userbot] Userbot Hanya Untuk Bersenang - Senang",
+  "logo": "https://telegra.ph/file/9e9173cc7b823ccb5cc55.jpg",
   "keywords": ["telegram", "userbot", "man-userbot", "modular", "python"],
-  "repository": "https://github.com/ZenxMato/Zenx-Userbot",
+  "repository": "https://github.com/AyiinXd/Ayiin-Userbot",
   "stack": "container",
   "env": {
     "API_KEY": {
