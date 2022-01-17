@@ -66,9 +66,9 @@ async def shutdown_bot(event):
         await event.client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**𝐙𝐞𝐧-Userbot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await edit_or_reply(event, "**𝐙𝐞𝐧-Userbot Berhasil di matikan!**")
+    await edit_or_reply(event, "**𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Berhasil di matikan!**")
     if HEROKU_APP is not None:
         HEROKU_APP.process_formation()["worker"].scale(0)
     else:
@@ -79,10 +79,10 @@ async def shutdown_bot(event):
 async def restart_bot(event):
     if event.sender_id in SUDO_USERS:
         return
-    await edit_or_reply(event, "**𝐙𝐞𝐧-Userbot Berhasil di Restart**")
+    await edit_or_reply(event, "**𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Berhasil di Restart**")
     if BOTLOG_CHATID:
         await event.client.send_message(
-            BOTLOG_CHATID, "#RESTART \n" "**𝐙𝐞𝐧-Userbot Berhasil Di Restart**"
+            BOTLOG_CHATID, "#RESTART \n" "**𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Berhasil Di Restart**"
         )
     args = [sys.executable, "-m", "userbot"]
     execle(sys.executable, *args, environ)
@@ -120,9 +120,9 @@ async def repo_is_here(event):
     xx = await edit_or_reply(event, "`Processing...`")
     await xx.edit(
         f"**──────────────**\n"
-        f"» *𝚉𝚎𝚗 - 𝚄𝚜𝚎𝚛𝚋𝚘𝚝*\n"
-        f"» 𝙾𝚆𝙽𝙴𝚁: [𝐙𝐞𝐧](t.me/ZenxMato)\n"
-        f"» 𝚁𝙴𝙿𝙾:** [𝐙𝐞𝐧-Userbot](https://github.com/ZenxMato/Zenx-Userbot)\n"
+        f"» 𝘼𝙮𝙞𝙞𝙣 - 𝙐𝙨𝙚𝙧𝙗𝙤𝙩\n"
+        f"» 𝙾𝚆𝙽𝙴𝚁: [𝘾𝙤𝙣𝙣𝙤𝙧](t.me/Contoldisini)\n"
+        f"» 𝚁𝙴𝙿𝙾:** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n"
         f"**──────────────**\n"
     )
 
