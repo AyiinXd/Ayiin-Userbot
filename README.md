@@ -1,18 +1,18 @@
  <h1 align="center"><img src="./userbot/resources/Kenpurple.gif" width="35px"> 𝘼𝙮𝙞𝙞𝙣 𝙐𝙨𝙚𝙧𝙗𝙤𝙩 <img src="./userbot/resources/Kenpurple.gif" width="35px"></h1>
 
-<a href="https://github.com/ZenxMato/Zenx-Userbot/commits"> <img src="https://img.shields.io/github/last-commit/ZenxMato/Zenx-Userbot?color=red&logo=github&logoColor=blue&style=for-the-badge" /></a>
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ZenxMato/Zenx-Userbot)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-No-blue)](https://GitHub.com/ZenxMato/Zenx-Userbot/graphs/commit-activity)
-[![CodeQuality](https://img.shields.io/codacy/grade/a723cb464d5a4d25be3152b5d71de82d?color=blue&logo=codacy)](https://app.codacy.com/gh/ZenxMato/Zenx-Userbot/dashboard)
-[![GitHub Forks](https://img.shields.io/github/forks/ZenxMato/Zenx-Userbot?&logo=github)](https://github.com/ZenxMato/Zenx-Userbot/fork)
-[![GitHub Stars](https://img.shields.io/github/stars/ZenxMato/Zenx-Userbot?&logo=github)](https://github.com/ZenxMato/Zenx-Userbot/stargazers)
+<a href="https://github.com/AyiinXd/Ayiin-Userbot/commits"> <img src="https://img.shields.io/github/last-commit/AyiinXd/Ayiin-Userbot?color=red&logo=github&logoColor=blue&style=for-the-badge" /></a>
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/AyiinXd/Ayiin-Userbot)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-No-blue)](https://GitHub.com/AyiinXd/Ayiin-Userbot/graphs/commit-activity)
+[![CodeQuality](https://img.shields.io/codacy/grade/a723cb464d5a4d25be3152b5d71de82d?color=blue&logo=codacy)](https://app.codacy.com/gh/AyiinXd/Ayiin-Userbot/dashboard)
+[![GitHub Forks](https://img.shields.io/github/forks/AyiinXd/Ayiin-Userbot?&logo=github)](https://github.com/AyiinXd/Ayiin-Userbot/fork)
+[![GitHub Stars](https://img.shields.io/github/stars/AyiinXd/Ayiin-Userbot?&logo=github)](https://github.com/AyiinXd/Ayiin-Userbot/stargazers)
 
 
 <p align="center">
   <img src="https://telegra.ph/file/9e9173cc7b823ccb5cc55.jpg">
 </p>
 
-<img src="./userbot/resources/Kenpurple.gif" width="20px"> `Userbot yang mempunyai berbagai module dan banyak perintah yang keren, gas deploy banh😁 kalo udah make jadi keren`
+<img src="./userbot/resources/Kenpurple.gif" width="20px"> `Userbot yang mempunyai berbagai module dan banyak perintah yang keren, gas deploy bang😁 kalo udah make jadi keren`
 
 ## 📛Disclaimer
 
@@ -24,7 +24,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 ```
 ## ❤️Follow Me:
 <p align="left">
-<a href="https://github.com/ZenxMato"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a>
+<a href="https://github.com/AyiinXd"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a>
 </p>
 </p>
 <p align="left">
