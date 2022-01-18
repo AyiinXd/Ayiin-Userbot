@@ -40,11 +40,11 @@ from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.utils import edit_delete, edit_or_reply, man_cmd
 
 KANGING_STR = [
-    "Maling Sticker dlu yekan",
-    "Ini Sticker aku maling yahaha!",
-    "Waw Stickernya Bagus Nih...",
-    "ehh, keren nih... gua ambil ya...",
-    "Sticker lu keren.. Gua minta ya~",
+    "Gua Ijin Maling Sticker Lu Tod...",
+    "Ini Sticker Gua Curi Ya Tod Yahaha!",
+    "Waw Sticker Lu Bagus Nih Tod...",
+    "Ehh, Keren Nih Tod... Gua Ambil Ya...",
+    "Sticker Lu Keren Anjing.. Gua Minta Ya~",
 ]
 
 OWNER = user.first_name
@@ -244,8 +244,8 @@ async def kang(args):
                 await args.client.send_read_acknowledge(conv.chat_id)
 
         await xx.edit(
-            "**STICKER SUDAH JADI AMBIL DI BAWAH**"
-            f"\n **[✨TAP](t.me/addstickers/{packname})** \n**Untuk Menggunakan Stickers**",
+            "**STICKER LU UDAH JADI TOD AMBIL DI BAWAH**"
+            f"\n **[😈DISINI TOD😈](t.me/addstickers/{packname})** \n**Untuk Menggunakan Stickers**",
             parse_mode="md",
         )
 
@@ -322,26 +322,26 @@ async def _(event):
                 functions.stickers.CreateStickerSetRequest(
                     user_id=OWNER_ID,
                     title=pname,
-                    short_name=f"man_{un_}_V{pack}_by_{bot_un}",
+                    short_name=f"Ayiin_{un_}_V{pack}_by_{bot_un}",
                     stickers=stcrs,
                 )
             )
             addgvar("PKANG", str(pack))
         except PackShortNameOccupiedError:
             await asyncio.sleep(1)
-            await xnxx.edit("`Sedang membuat paket baru...`")
+            await xnxx.edit("`Sabar Lagi Buat Paket Baru Tod...`")
             pack += 1
             create_st = await tgbot(
                 functions.stickers.CreateStickerSetRequest(
                     user_id=OWNER_ID,
                     title=pname,
-                    short_name=f"man_{un_}_V{pack}_by_{bot_un}",
+                    short_name=f"Ayiin_{un_}_V{pack}_by_{bot_un}",
                     stickers=stcrs,
                 )
             )
             addgvar("PKANG", str(pack))
         await xnxx.edit(
-            f"**Berhasil Mencuri Sticker Pack,** [Klik Disini](t.me/addstickers/{create_st.set.short_name}) **Untuk Melihat Pack anda**"
+            f"**Berhasil Mencuri Sticker Pack Tod,** [Klik Disini](t.me/addstickers/{create_st.set.short_name}) **Untuk Melihat Pack anda**"
         )
     else:
         await xnxx.edit("**Berkas Tidak Didukung. Harap Balas ke stiker saja.**")
