@@ -20,7 +20,7 @@ from userbot.utils import edit_delete, edit_or_reply
 
 DEF_UNAPPROVED_MSG = (
     "╔════════════════════╗\n"
-    "   🔥 𝘼𝙮𝙞𝙞𝙣 - 𝙐𝙨𝙚𝙧𝙗𝙤𝙩 🔥\n"
+    "     🔥 𝘼𝙮𝙞𝙞𝙣 - 𝙐𝙨𝙚𝙧𝙗𝙤𝙩 🔥\n"
     "╚════════════════════╝\n"
     "😴 𝙂𝙪𝙖 𝘽𝙚𝙡𝙪𝙢 𝙉𝙚𝙧𝙞𝙢𝙖 𝙋𝙚𝙨𝙖𝙣 𝙇𝙪 𝙂𝙤𝙗𝙡𝙤𝙠.\n"
     "♨️ 𝙏𝙪𝙣𝙜𝙜𝙪 𝙎𝙖𝙢𝙥𝙖𝙞 𝙂𝙪𝙖 𝙉𝙚𝙧𝙞𝙢𝙖 𝙋𝙚𝙨𝙖𝙣 𝙇𝙪.\n"
@@ -80,7 +80,7 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > PM_LIMIT:
                 await event.respond(
-                    "**Maaf Anda Telah Di Blokir Karna Melakukan Spam Chat**"
+                    "**Maaf Tod Lu Telah Di Blokir Karna Melakukan Spam Chat**"
                 )
 
                 try:
@@ -154,7 +154,7 @@ async def auto_accept(event):
                     await event.client.send_message(
                         BOTLOG_CHATID,
                         "**#AUTO_APPROVED**\n"
-                        + "🃏 **User:** "
+                        + "👑 **User:** "
                         + f"[{chat.first_name}](tg://user?id={chat.id})",
                     )
 
