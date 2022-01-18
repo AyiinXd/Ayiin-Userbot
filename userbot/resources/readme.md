@@ -1,2 +1,2 @@
-# Extra Resources for Zenx-Userbot
-Repository [Zenx-Userbot](https://github.com/ZenXMato/Zenx-Userbot)
+# Extra Resources for Ayiin-Userbot
+Repository [Ayiin-Userbot](https://github.com/AyiinXd/Ayiin-Userbot)
