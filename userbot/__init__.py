@@ -185,7 +185,7 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 ALIVE_TEKS_CUSTOM = os.environ.get("ALIVE_TEKS_CUSTOM", "Hey, I am alive.")
 
 # Default .alive name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", "AyiinXd")
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "𝘼𝙮𝙞𝙞𝙣𝙓𝙙")
 
 # Custom Emoji Alive
 ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "😈")
@@ -214,11 +214,11 @@ BOT_VER = os.environ.get("BOT_VER", "2.3.4")
 
 # Default .alive logo
 ALIVE_LOGO = (
-    os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/9e9173cc7b823ccb5cc55.jpg"
+    os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/21bca0a64032cd5b23b3c.jpg"
 )
 
 INLINE_PIC = (
-    os.environ.get("INLINE_PIC") or "https://telegra.ph/file/32eeead2aec7a7a28571a.jpg"
+    os.environ.get("INLINE_PIC") or "https://telegra.ph/file/21bca0a64032cd5b23b3c.jpg"
 )
 
 # Picture For VCPLUGIN
