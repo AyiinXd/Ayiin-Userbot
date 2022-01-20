@@ -30,7 +30,7 @@ async def help(event):
             string += f"`\t\t\t{ICON_HELP}\t\t\t"
         await edit_or_reply(
             event,
-            f"**😈 Daftar Perintah Untuk [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot):**\n"
+            f"**😈 𝘿𝙖𝙛𝙩𝙖𝙧 𝙋𝙚𝙧𝙞𝙣𝙩𝙖𝙝 𝙐𝙣𝙩𝙪𝙠 [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot):**\n"
             f"**🕯️ Jumlah** `{len(modules)}` **Modules**\n"
             f"**👑 Owner:** [{user.first_name}](tg://user?id={user.id})\n\n"
             f"{ICON_HELP}   {string}"
