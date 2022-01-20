@@ -105,7 +105,7 @@ async def autobot():
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await bot.send_message(
-                bf, f"🔥 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @Contoldisini 🔥"
+                bf, f"👑 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @Contoldisini 🔥"
             )
             await bot.send_message(
                 BOTLOG_CHATID,
@@ -140,14 +140,14 @@ async def autobot():
         await asyncio.sleep(1)
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
-        await bot.send_message(bf, f"Owner Bot 🤘 By {who.first_name}")
+        await bot.send_message(bf, f"Owner Bot 👑 By {who.first_name}")
         await asyncio.sleep(3)
         await bot.send_message(bf, "/setdescription")
         await asyncio.sleep(1)
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
-            bf, f"🔥 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @Contoldisini 🔥"
+            bf, f"👑 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @Contoldisini 🔥"
         )
         await bot.send_message(
             BOTLOG_CHATID,
