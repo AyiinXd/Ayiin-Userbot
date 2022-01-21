@@ -66,9 +66,9 @@ async def shutdown_bot(event):
         await event.client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**✥ 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ✥** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await edit_or_reply(event, "**𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Berhasil di matikan!**")
+    await edit_or_reply(event, "**✥ 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ✥ Berhasil di matikan!**")
     if HEROKU_APP is not None:
         HEROKU_APP.process_formation()["worker"].scale(0)
     else:
@@ -120,9 +120,9 @@ async def repo_is_here(event):
     xx = await edit_or_reply(event, "`Processing...`")
     await xx.edit(
         f"**──────────────**\n"
-        f"» 𝘼𝙮𝙞𝙞𝙣 - 𝙐𝙨𝙚𝙧𝙗𝙤𝙩\n"
-        f"» 𝙾𝚆𝙽𝙴𝚁: [𝘾𝙤𝙣𝙣𝙤𝙧](t.me/Contoldisini)\n"
-        f"» 𝚁𝙴𝙿𝙾:** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n"
+        f"✥» 𝘼𝙮𝙞𝙞𝙣 - 𝙐𝙨𝙚𝙧𝙗𝙤𝙩\n"
+        f"✥» 𝙾𝚆𝙽𝙴𝚁: [𝘾𝙤𝙣𝙣𝙤𝙧](t.me/Contoldisini)\n"
+        f"✥» 𝚁𝙴𝙿𝙾:** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n"
         f"**──────────────**\n"
     )
 
@@ -305,11 +305,11 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "repo": f"**Plugin : **`Repository Man-Userbot`\
+        "repo": f"**Plugin : **`Repository Ayiin-Userbot`\
         \n\n  •  **Syntax :** `{cmd}repo`\
-        \n  •  **Function : **Menampilan link Repository Man-Userbot\
+        \n  •  **Function : **Menampilan link Repository Ayiin-Userbot\
         \n\n  •  **Syntax :** `{cmd}string`\
-        \n  •  **Function : **Menampilan link String Man-Userbot\
+        \n  •  **Function : **Menampilan link String Ayiin-Userbot\
     "
     }
 )
@@ -327,7 +327,7 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "restart": f"**Plugin : **`Restart Man-Userbot`\
+        "restart": f"**Plugin : **`Restart Ayiin-Userbot`\
         \n\n  •  **Syntax :** `{cmd}restart`\
         \n  •  **Function : **Untuk Merestart userbot.\
     "
