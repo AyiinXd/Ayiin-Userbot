@@ -85,7 +85,7 @@ async def gben(userbot):
                 await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
                 await dark.edit(
-                    r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙨_𝙐𝙨𝙚𝙧**//"
+                    r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
                     f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
                     f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
                     f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙`"
