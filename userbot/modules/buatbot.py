@@ -10,6 +10,7 @@ from userbot.events import register
 
 chat = "@BotFather"
 
+
 @register(outgoing=True, pattern="^.botbaru ?(.*)")
 async def _(event):
     if event.fwd_from:
@@ -42,7 +43,6 @@ async with event.client.conversation(chat) as conv:
             audio = await conv.get_response()
             await event.client.forward_messages(event.chat_id, audio)
             await event.delete()
-
 
 
 CMD_HELP.update(
