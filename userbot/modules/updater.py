@@ -58,7 +58,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         if heroku_app is None:
             await event.edit(
                 f"{txt}\n"
-                "**Kredensial Heroku tidak valid untuk deploy Man-Userbot dyno.**"
+                "**Kredensial Heroku tidak valid untuk deploy 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 dyno.**"
             )
             return repo.__del__()
         try:
@@ -104,7 +104,7 @@ async def update(event, repo, ups_rem, ac_br):
         ups_rem.pull(ac_br)
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
-    await event.edit("`Man-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`")
+    await event.edit("`𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`")
 
     try:
         from userbot.modules.sql_helper.globals import addgvar, delgvar
@@ -161,12 +161,12 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if conf == "deploy":
-        await event.edit("`[HEROKU]: Update Deploy Man-Userbot Sedang Dalam Proses...`")
+        await event.edit("`[HEROKU]: Update Deploy 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Sedang Dalam Proses...`")
         await deploy(event, repo, ups_rem, ac_br, txt)
         return
 
     if changelog == "" and not force_update:
-        await event.edit("**✥ Man-Userbot Sudah Versi Terbaru**")
+        await event.edit("**✥ 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Sudah Versi Terbaru**")
         await asyncio.sleep(15)
         await event.delete()
         return repo.__del__()
@@ -204,9 +204,9 @@ CMD_HELP.update(
     {
         "update": f"**Plugin : **`update`\
         \n\n  •  **Syntax :** `{cmd}update`\
-        \n  •  **Function : **Untuk Melihat Pembaruan Terbaru Man-Userbot.\
+        \n  •  **Function : **Untuk Melihat Pembaruan Terbaru Ayiin-Userbot.\
         \n\n  •  **Syntax :** `{cmd}update deploy`\
-        \n  •  **Function : **Untuk MengUpdate Fitur Terbaru Dari Man-Userbot.\
+        \n  •  **Function : **Untuk MengUpdate Fitur Terbaru Dari Ayiin-Userbot.\
     "
     }
 )
