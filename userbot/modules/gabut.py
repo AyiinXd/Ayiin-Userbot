@@ -37,7 +37,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "gabut3": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tmo`\
+    "gabut": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tmo`\
     \n↳ : Cobain Sendiri\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.give`\
     \n↳ : Cobain Sendiri`\
