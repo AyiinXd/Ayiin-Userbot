@@ -34,7 +34,7 @@ async def help(event):
             f"**🕯️ 𝙅𝙪𝙢𝙡𝙖𝙝** `{len(modules)}` **Modules**\n"
             f"**👑 𝙊𝙬𝙣𝙚𝙧:** [{user.first_name}](tg://user?id={user.id})\n\n"
             f"{ICON_HELP}   {string}"
-            f"**𝙎𝙪𝙥𝙥𝙤𝙧𝙩      [𝘼𝙮𝙞𝙞𝙣𝙎𝙪𝙥𝙥𝙤𝙧𝙩](https://t.me/AyiinXdSupport):**\n",
+            f"\n\n𝙎𝙪𝙥𝙥𝙤𝙧𝙩 @AyiinXdSupport",
         )
         await event.reply(
             f"\n**Contoh Ketik** `{cmd}help afk` **Untuk Melihat Informasi Module**"
