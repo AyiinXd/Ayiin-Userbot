@@ -31,10 +31,10 @@ async def help(event):
         await edit_or_reply(
             event,
             f"**😈 𝘿𝙖𝙛𝙩𝙖𝙧 𝙋𝙚𝙧𝙞𝙣𝙩𝙖𝙝 𝙐𝙣𝙩𝙪𝙠 [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot):**\n"
-            f"**🕯️ Jumlah** `{len(modules)}` **Modules**\n"
-            f"**👑 Owner:** [{user.first_name}](tg://user?id={user.id})\n\n"
+            f"**🕯️ 𝙅𝙪𝙢𝙡𝙖𝙝** `{len(modules)}` **Modules**\n"
+            f"**👑 𝙊𝙬𝙣𝙚𝙧:** [{user.first_name}](tg://user?id={user.id})\n\n"
             f"{ICON_HELP}   {string}"
-            f"\n\nSupport [𝘼𝙮𝙞𝙞𝙣𝙎𝙪𝙥𝙥𝙤𝙧𝙩](@AyiinXdSupport)",
+            f"\n\n𝙎𝙪𝙥𝙥𝙤𝙧𝙩   [𝘼𝙮𝙞𝙞𝙣𝙓𝙙𝙎𝙪𝙥𝙥𝙤𝙧𝙩](https://t.me/AyiinXdSupport)",
         )
         await event.reply(
             f"\n**Contoh Ketik** `{cmd}help afk` **Untuk Melihat Informasi Module**"
