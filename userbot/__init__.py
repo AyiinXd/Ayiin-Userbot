@@ -112,7 +112,7 @@ BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
 # For Blacklist Group Support
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
 if not BLACKLIST_CHAT:
-    BLACKLIST_CHAT = [-1001473548283]
+    BLACKLIST_CHAT = [-1001473548283, -1001675396283]
 
 # Telegram App KEY and HASH
 API_KEY = int(os.environ.get("API_KEY") or 0)
@@ -138,8 +138,8 @@ CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
 
 # Support
-GROUP = os.environ.get("GROUP", "SharingUserbot")
-CHANNEL = os.environ.get("CHANNEL", "Lunatic0de")
+GROUP = os.environ.get("GROUP", "AyiinXdSupport")
+CHANNEL = os.environ.get("CHANNEL", "AyiinSupport")
 
 # Heroku Credentials for updater.
 HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
@@ -503,13 +503,13 @@ with bot:
             elif query.startswith("repo"):
                 result = builder.article(
                     title="Repository",
-                    description="Repository Man - Userbot",
-                    url="https://t.me/CariKenalanBebas",
+                    description="Repository Ayiin - Userbot",
+                    url="https://t.me/AyiinXdSupport",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
                     text="**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n👑 **Owner :** [𝘼𝙮𝙞𝙞𝙣𝙓𝙙](https://t.me/Contoldisini)\n👉 **Support :** @MovieSagapung\n♨️ **Repository :** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
                         [
-                            custom.Button.url("-ɢʀᴏᴜᴘ", "https://t.me/XhamsterId"),
+                            custom.Button.url("-ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
                             custom.Button.url(
                                 "-ʀᴇᴘᴏ", "https://github.com/AyiinXd/Ayiin-Userbot"
                             ),
@@ -553,14 +553,14 @@ with bot:
                 result = builder.article(
                     title="🔥 Ayiin-Userbot 🔥",
                     description="Ayiin - UserBot | Telethon",
-                    url="https://t.me/XhamsterId",
+                    url="https://t.me/AyiinXdSupport",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text=f"**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n~ **Assistant:** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**Support:** @MovieSagapung\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    text=f"**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n~ **Assistant:** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**Support:** @AyiinSupport\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/SharingUserbot"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
                             custom.Button.url(
-                                "ʀᴇᴘᴏ", "https://github.com/mrismanaziz/Man-Userbot"
+                                "ʀᴇᴘᴏ", "https://github.com/AyiinXd/Ayiin-Userbot"
                             ),
                         ],
                     ],
