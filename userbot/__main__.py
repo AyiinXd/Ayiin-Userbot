@@ -44,7 +44,7 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 LOGS.info(
-    f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
+    f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AyiinXdSupport"
 )
 
 LOGS.info(f"𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ⚙️ V{BOT_VER} [🔥 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 𝘿𝙞𝙖𝙠𝙩𝙞𝙛𝙠𝙖𝙣 🔥]")
@@ -60,7 +60,7 @@ async def man_userbot_on():
     except Exception as e:
         LOGS.info(str(e))
     try:
-        await bot(JoinChannelRequest("@Lunatic0de"))
+        await bot(JoinChannelRequest("@AyiinSupport"))
     except BaseException:
         pass
     try:
