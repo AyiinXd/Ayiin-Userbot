@@ -34,7 +34,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 [![Run repl.it](https://img.shields.io/badge/run-string__session.py-blue?style=for-the-badge&logo=repl.it)](https://repl.it/@AyiinXd/ConnorString?lite=1&outputonly=1)
 
 ## 💜𝗗𝗲𝗽𝗹𝗼𝘆 𝗢𝗻 𝗛𝗲𝗿𝗼𝗸𝘂 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/AyiinXd/AyiinXd-Deploy-Template"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=flat&logo=heroku" width="250" height="40.00" /></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/AyiinXd/Ayiin-Userbot-Deploy-Template"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=flat&logo=heroku" width="250" height="40.00" /></a></p>
 
 ## 🏆Credits
 #### Thanks To [Everyone](https://github.com/mrismanaziz/Man-Userbot/graphs/contributors) Who Has Helped Make This Userbot Awesome!
