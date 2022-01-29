@@ -121,7 +121,7 @@ async def repo_is_here(event):
     await xx.edit(
         f"**──────────────**\n"
         f"✥» 𝘼𝙮𝙞𝙞𝙣 - 𝙐𝙨𝙚𝙧𝙗𝙤𝙩\n"
-        f"✥» 𝙾𝚆𝙽𝙴𝚁: [𝘾𝙤𝙣𝙣𝙤𝙧](t.me/Contoldisini)\n"
+        f"✥» 𝙾𝚆𝙽𝙴𝚁: [𝙔𝙞𝙣𝙨](t.me/Contoldisini)\n"
         f"✥» 𝚁𝙴𝙿𝙾:** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n"
         f"**──────────────**\n"
     )
@@ -131,7 +131,7 @@ async def repo_is_here(event):
 async def string_is_here(event):
     await edit_or_reply(
         event,
-        "✥ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1)\n",
+        "✥ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@AyiinXd/ConnorString?lite=1&outputonly=1#main.py)\n",
     )
 
 
