@@ -23,7 +23,7 @@
       "required": false
     },
      "STRING_SESSION": {
-      "description": "Dapatkan String Session di Grup » https://t.me/SharingUserbot » Lalu ketik #string",
+      "description": "Dapatkan String Session di Grup » https://t.me/AyiinXdSupport » Lalu ketik #string",
       "required": true
     },
     "HEROKU_APP_NAME": {
