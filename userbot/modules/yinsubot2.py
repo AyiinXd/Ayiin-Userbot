@@ -89,7 +89,7 @@ async def typewriter(typew):
     sleep(2)
     await typew.edit("𝙎𝙥𝙖𝙢 𝘽𝙤𝙩 𝙈𝙪𝙡𝙪")
     sleep(2)
-    await typew.edit(""𝘽𝙖𝙧𝙪 𝙅𝙖𝙙𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩 𝙮𝙖??")
+    await typew.edit("𝘽𝙖𝙧𝙪 𝙅𝙖𝙙𝙞 𝙐𝙨𝙚𝙧𝙗𝙤𝙩 𝙮𝙖??")
     sleep(2)
     await typew.edit("𝙋𝙖𝙣𝙩𝙚𝙨 𝙉𝙤𝙧𝙖𝙠 𝙓𝙞𝙭𝙞𝙭𝙞𝙭𝙞")
 
@@ -97,11 +97,11 @@ async def typewriter(typew):
 @register(outgoing=True, pattern="^.ange(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`𝘼𝙮𝙖𝙣𝙜𝙜𝙜𝙜😖`")
+    await typew.edit("𝘼𝙮𝙖𝙣𝙜𝙜𝙜𝙜😖")
     sleep(1)
-    await typew.edit("`𝘼𝙠𝙪 𝘼𝙣𝙜𝙚😫`")
+    await typew.edit("𝘼𝙠𝙪 𝘼𝙣𝙜𝙚😫")
     sleep(1)
-    await typew.edit("`𝘼𝙮𝙪𝙠𝙠𝙠 𝙀𝙬𝙚𝙖𝙣 𝙔𝙖𝙣𝙜𝙜𝙜🤤`")
+    await typew.edit("𝘼𝙮𝙪𝙠𝙠𝙠 𝙀𝙬𝙚𝙖𝙣 𝙔𝙖𝙣𝙜𝙜𝙜🤤")
 
 
 
