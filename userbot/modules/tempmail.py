@@ -8,7 +8,7 @@ import asyncio
 @register(outgoing=True, pattern=r"^\.tm(?: |$)(.*)")
 async def _(event):
     chat = "@TempMailBot"
-    geez = await event.edit("Sedang Memprosess...")
+    geez = await event.edit("Sabar Tod Sedang Memprosess...")
     async with bot.conversation(chat) as conv:
         try:
             response = conv.wait_event(events.NewMessage(
@@ -18,14 +18,14 @@ async def _(event):
             )
             await conv.send_message("/start")
             await asyncio.sleep(1)
-            await conv.send_message("Generate New")
+            await conv.send_message("/create")
             response = await response
             geezuserbot = ((response).reply_markup.rows[2].buttons[0].url)
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             await geez.edit("`Mohon Maaf, Silahkan Buka` @TempMailBot `Lalu Tekan Start dan Coba Lagi.`")
             return
-        await event.edit(f"**GEEZ TEMPMAIL** ~ `{response.message.message}`\n\n[KLIK DISINI UNTUK VERIFIKASI]({geezuserbot})")
+        await event.edit(f"**YINS TEMPMAIL** ~ `{response.message.message}`\n\n[KLIK DISINI UNTUK VERIFIKASI]({geezuserbot})")
 
 
 CMD_HELP.update({"tempmail": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tm`"
