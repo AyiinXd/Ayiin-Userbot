@@ -62,9 +62,10 @@ async def _(ping):
     await xx.edit("**𓆉︎𓆉︎**")
     await xx.edit("**𓆉︎𓆉︎𓆉︎**")
     await xx.edit("⚡")
-    end = datetime.now(2)
+    end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await bot.get_me()
+    sleep(2)
     await xx.edit(
         f"**𝙿𝙾𝙽𝙶!!🏓**\n"
         f"⚡ **𝙿𝙸𝙽𝙶𝙴𝚁** - `%sms`\n"
