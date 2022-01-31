@@ -62,7 +62,7 @@ async def _(ping):
     await xx.edit("**𝘼𝙠𝙪 𝙎𝙖𝙮𝙖𝙣𝙜**")
     await xx.edit("**𝘼𝙠𝙪 𝙎𝙖𝙮𝙖𝙣𝙜 𝙆𝙖𝙢𝙪 😚**")
     await xx.edit("⚡")
-    sleep(3)
+    sleep(1)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await bot.get_me()
