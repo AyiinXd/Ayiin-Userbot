@@ -118,6 +118,7 @@ async def repeat(event):
 @man_cmd(pattern="repo$")
 async def repo_is_here(event):
     xx = await edit_or_reply(event, "😈")
+    sleep(2)
     await xx.edit(
         "**Hey**, I am using **᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽** \n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
