@@ -51,6 +51,6 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   [Koala](https://github.com/ManusiaRakitan/Kampang-Bot) : Kampang-Bot
 *   [Alvin](https://github.com/Zora24/Lord-Userbot) : Lord-Userbot
 *   [Bdrl](https://github.com/Yansaii/Bdrl-userbot) : Bdrl-userbot
-
+*   [AyiinXd](https://github.com/AyiinXd/Ayiin-Userbot) : Ayiin-Userbot
 ## License
 Licensed under [Raphielscape Public License](https://github.com/mrismanaziz/Man-Userbot/blob/Man-Userbot/LICENSE) - Version 1.d, February 2020
