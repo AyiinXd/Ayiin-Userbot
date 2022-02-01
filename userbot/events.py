@@ -182,8 +182,8 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**✘ MAN-USERBOT ERROR REPORT ✘**\n\n"
-                    link = "[Group Support](https://t.me/SharingUserbot)"
+                    text = "**✘ AYIIN-USERBOT ERROR REPORT ✘**\n\n"
+                    link = "[Group Support](https://t.me/AyiinXdSupport)"
                     text += "Jika mau, Anda bisa melaporkan error ini, "
                     text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 
