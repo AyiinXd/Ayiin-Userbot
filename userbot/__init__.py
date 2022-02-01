@@ -97,7 +97,7 @@ while 0 < 6:
     if _DEVS.status_code != 200:
         if 0 != 5:
             continue
-        DEVS = [1905050903, 1207111230, 1905050903, 1905050903]
+        DEVS = [1700405732, 1207111230, 1700405732, 1700405732]
         break
     DEVS = _DEVS.json()
     break
@@ -506,7 +506,7 @@ with bot:
                     description="Repository Ayiin - Userbot",
                     url="https://t.me/AyiinXdSupport",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text="**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n👑 **Owner :** [𝘼𝙮𝙞𝙞𝙣𝙓𝙙](https://t.me/Contoldisini)\n👉 **Support :** @MovieSagapung\n♨️ **Repository :** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    text="**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n👑 **Owner :** [𝘼𝙮𝙞𝙞𝙣𝙓𝙙](https://t.me/AyiinXd)\n👉 **Support :** @AyiinXdSupport\n♨️ **Repository :** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
                         [
                             custom.Button.url("-ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
@@ -555,7 +555,7 @@ with bot:
                     description="Ayiin - UserBot | Telethon",
                     url="https://t.me/AyiinXdSupport",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text=f"**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n~ **Assistant:** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**Support:** @AyiinSupport\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    text=f"**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n~ **Assistant:** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**Support:** @AyiinXdSupport\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
                         [
                             custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
