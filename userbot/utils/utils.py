@@ -105,7 +105,7 @@ async def autobot():
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await bot.send_message(
-                bf, f"👑 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @Contoldisini 🔥"
+                bf, f"👑 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @AyiinXd 🔥"
             )
             await bot.send_message(
                 BOTLOG_CHATID,
@@ -147,7 +147,7 @@ async def autobot():
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
-            bf, f"👑 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @Contoldisini 🔥"
+            bf, f"👑 Owner ~ {who.first_name} 🔥\n\n🔥 Powered By ~ @AyiinXd 🔥"
         )
         await bot.send_message(
             BOTLOG_CHATID,
