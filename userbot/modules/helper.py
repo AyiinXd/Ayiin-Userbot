@@ -11,7 +11,7 @@ async def usit(event):
         f"**Hai {owner} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `.help` Atau Bisa Minta Bantuan Ke:\n"
         f"✣ **Group Support :** [𝗔𝘆𝗶𝗶𝗻 𝗨𝘀𝗲𝗿𝗯𝗼𝘁](t.me/AyiinXdSupport)\n"
         f"✣ **Channel Ayiin :** [𝗔𝘆𝗶𝗶𝗻𝗦𝘂𝗽𝗽𝗼𝗿𝘁](t.me/AyiinSupport)\n"
-        f"✣ **Owner Repo :** [ʏɪɴs-ᴇx](t.me/Contoldisini)\n"
+        f"✣ **Owner Repo :** [ʏɪɴs](t.me/AyiinXd)\n"
         f"✣ **Repo :** [𝗔𝘆𝗶𝗶𝗻-𝗨𝘀𝗲𝗿𝗯𝗼𝘁](https://github.com/AyiinXd/Ayiin-Userbot)\n",
     )
 
