@@ -169,6 +169,8 @@ async def bot_ver(event):
 async def amireallyalive(alive):
     user = await bot.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
+    await alive.edit("🗿")
+    sleep(2)
     output = (
         f"**[𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃](https://github.com/AyiinXd/Ayiin-Userbot) ㅤ𝚄𝙳𝙰𝙷 𝙰𝙺𝚃𝙸𝙵 𝚃𝙾𝙳.**\n\n"
         f"**{alive_text}**\n\n"
