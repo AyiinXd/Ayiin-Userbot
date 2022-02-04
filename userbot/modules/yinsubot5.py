@@ -1,3 +1,9 @@
+# © Copyright 2022 Ayiin-Userbot LLC Company.
+# GPL-3.0 License From Github
+# WARNING !!
+# Credits by @AyiinXd
+
+
 from time import sleep
 from userbot import CMD_HELP
 from userbot.events import register
