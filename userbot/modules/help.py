@@ -28,6 +28,8 @@ async def help(event):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += f"`\t\t\t{ICON_HELP}\t\t\t"
+        await help.edit("🗿")
+        await asyncio.sleep(3)
         await edit_or_reply(
             event,
             f"**[᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽](https://github.com/AyiinXd/Ayiin-Userbot):**\n"
