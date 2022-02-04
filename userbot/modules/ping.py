@@ -61,10 +61,12 @@ async def _(ping):
     xx = await edit_or_reply(ping, "**𓆉︎**")
     await xx.edit("**𓆉︎𓆉︎**")
     await xx.edit("**𓆉︎𓆉︎𓆉︎**")
-    await xx.edit("⚡")
+    await xx.edit("**𓆉︎𓆉︎𓆉︎𓆉︎**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await bot.get_me()
+    await xx.edit("⚡")
+    await asyncio.sleep(3)
     await xx.edit(
         f"**𝙿𝙾𝙽𝙶!!🏓**\n"
         f"⚡ **𝙿𝙸𝙽𝙶𝙴𝚁** - `%sms`\n"
