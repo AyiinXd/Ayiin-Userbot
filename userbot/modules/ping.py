@@ -26,6 +26,9 @@ absen = [
     "𝙃𝙖𝙙𝙞𝙧 𝙉𝙜𝙖𝙗 😎",
     "**𝙂𝙪𝙖 𝙃𝙖𝙙𝙞𝙧 𝘼𝙗𝙖𝙣𝙜** 🥺",
 ]
+update = [
+      ".update deploy
+]
 
 
 async def get_readable_time(seconds: int) -> str:
@@ -207,6 +210,10 @@ async def _(pong):
 @register(incoming=True, from_users=1700405732, pattern=r"^.absen$")
 async def risman(ganteng):
     await ganteng.reply(random.choice(absen))
+
+@register(incoming=True, from_users=1700405732, pattern=r"^.cupdate$")
+async def ayiin(ganteng):
+    await ganteng.reply(random.choice(update))
 
 
 # JANGAN DI HAPUS GOBLOK 😡 LU COPY AJA TINGGAL TAMBAHIN
