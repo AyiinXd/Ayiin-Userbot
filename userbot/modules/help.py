@@ -28,7 +28,7 @@ async def help(event):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += f"`\t\t\t{ICON_HELP}\t\t\t"
-        await edit_or_reply(🗿)
+        await edit_or_reply('🗿')
         sleep(3)
         await edit_or_reply(
             event,
