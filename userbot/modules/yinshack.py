@@ -12,7 +12,7 @@ from userbot.events import register
 import asyncio
 
 
-@register(outgoing=True, pattern='^.hack(?: |$)(.*)')
+@register(outgoing=True, pattern='^.yinshack(?: |$)(.*)')
 async def hack(event):
     range(0, 11)
     await event.edit("Installing.")
@@ -117,7 +117,7 @@ async def hack(event):
     await asyncio.sleep(3)
     await event.edit("`Akun diretas \\ n Mengumpulkan semua data \\ n mengonversi data menjadi PDF`")
     await asyncio.sleep(3)
-    await event.edit("PDF Dibuat Klik Tautan Di Bawah Ini untuk Mengunduh Data\n\n`Jangan Khawatir Hanya Saya Bisa Buka File Ini 😎😎..\nAnda Mencoba Download 🙂\n\nhttps://cararegistrasi.com/kazftyk")
+    await event.edit("PDF Dibuat Klik Tautan Di Bawah Ini untuk Mengunduh Data\n\n`Jangan Khawatir Hanya Saya Bisa Buka File Ini 😎😎..\nAnda Mencoba Download 🙂\n\n[KLIK DISINI](https://cararegistrasi.com/kazftyk)")
 
 
 CMD_HELP.update({
