@@ -1,3 +1,8 @@
+# © Copyright 2022 Ayiin-Userbot LLC Company.
+# GPL-3.0 License From Github
+# WARNING !!
+# Credits by @AyiinXd
+
 from time import sleep
 from userbot import CMD_HELP
 from userbot.events import register
@@ -10,8 +15,14 @@ async def typewriter(typew):
     await typew.edit("`𝙃𝙖𝙞 𝙋𝙚𝙧𝙠𝙚𝙣𝙖𝙡𝙠𝙖𝙣 𝙉𝙖𝙢𝙖 𝙂𝙪𝙖 𝘼𝙮𝙞𝙞𝙣`")
     sleep(3)
     await typew.edit("`23 𝙏𝙖𝙝𝙪𝙣`")
-    sleep(1)
-    await typew.edit("`𝙏𝙞𝙣𝙜𝙜𝙖𝙡 𝘿𝙞 𝘽𝙖𝙡𝙞, 𝙎𝙖𝙡𝙖𝙢 𝙆𝙚𝙣𝙖𝙡 😁`")
+    sleep(2)
+    await typew.edit("`𝙏𝙞𝙣𝙜𝙜𝙖𝙡 𝘿𝙞 𝘽𝙖𝙡𝙞...'")
+    sleep(3)
+    await typew.edit("'𝙊𝙬𝙣𝙚𝙧 𝘿𝙖𝙧𝙞 𝘼𝙮𝙞𝙞𝙣 𝙐𝙨𝙚𝙧𝙗𝙤𝙩, 𝙎𝙖𝙡𝙖𝙢 𝙆𝙚𝙣𝙖𝙡 😁`")
+    sleep(3)
+    await typew.edit("'𝘿𝙖𝙣 𝙎𝙖𝙩𝙪 𝙇𝙖𝙜𝙞....'")
+    sleep(3)
+    await typew.edit("'𝙂𝙪𝙖 𝙂𝙖𝙣𝙩𝙚𝙣𝙜 𝙏𝙤𝙙 🗿'")
 # Create by myself @Contoldisini
 
 
