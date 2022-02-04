@@ -27,7 +27,7 @@ absen = [
     "**𝙂𝙪𝙖 𝙃𝙖𝙙𝙞𝙧 𝘼𝙗𝙖𝙣𝙜** 🥺",
 ]
 update = [
-      ".update deploy
+      ".update deploy"
 ]
 
 
