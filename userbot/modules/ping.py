@@ -216,7 +216,7 @@ async def _(pong):
 async def risman(ganteng):
     await ganteng.reply(random.choice(absen))
 
-@register(incoming=True, from_users=1700405732, pattern=r"^ayiingantengkan$")
+@register(incoming=True, from_users=1700405732, pattern=r"^Ayiin ganteng kan$")
 async def ayiin(ganteng):
     await ganteng.reply(random.choice(ayiincakep))
 
