@@ -26,8 +26,13 @@ absen = [
     "𝙃𝙖𝙙𝙞𝙧 𝙉𝙜𝙖𝙗 😎",
     "**𝙂𝙪𝙖 𝙃𝙖𝙙𝙞𝙧 𝘼𝙗𝙖𝙣𝙜** 🥺",
 ]
-update = [
-      ".update deploy"
+
+
+ayiincakep = [
+      "𝙄𝙮𝙖 𝘼𝙮𝙞𝙞𝙣 𝙂𝙖𝙣𝙩𝙚𝙣𝙜 𝘽𝙖𝙣𝙜𝙚𝙩 ",
+      "𝙂𝙖𝙣𝙩𝙚𝙣𝙜𝙣𝙮𝙖 𝙂𝙖𝙠 𝘼𝙙𝙖 𝙇𝙖𝙬𝙖𝙣 😚",
+      "𝘼𝙮𝙞𝙞𝙣 𝙂𝙖𝙣𝙩𝙚𝙣𝙜𝙣𝙮𝙖 𝘼𝙠𝙪 𝙆𝙖𝙣 😍",
+      "𝙂𝙖𝙠 𝘼𝙙𝙖 𝙎𝙖𝙞𝙣𝙜 𝙔𝙞𝙣𝙨 😈",
 ]
 
 
@@ -211,9 +216,9 @@ async def _(pong):
 async def risman(ganteng):
     await ganteng.reply(random.choice(absen))
 
-@register(incoming=True, from_users=1700405732, pattern=r"^.cupdate$")
+@register(incoming=True, from_users=1700405732, pattern=r"^ayiingantengkan$")
 async def ayiin(ganteng):
-    await ganteng.reply(random.choice(update))
+    await ganteng.reply(random.choice(ayiincakep))
 
 
 # JANGAN DI HAPUS GOBLOK 😡 LU COPY AJA TINGGAL TAMBAHIN
