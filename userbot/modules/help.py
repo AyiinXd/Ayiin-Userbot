@@ -9,6 +9,7 @@ from userbot import CHANNEL
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, ICON_HELP, bot
 from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from time import sleep
 
 modules = CMD_HELP
 
@@ -28,6 +29,8 @@ async def help(event):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += f"`\t\t\t{ICON_HELP}\t\t\t"
+        await xx.edit("🗿")
+        sleep(3)
         await edit_or_reply(
             event,
             f"**[᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽](https://github.com/AyiinXd/Ayiin-Userbot):**\n"
