@@ -188,17 +188,17 @@ async def dyno_usage(dyno):
         AppMinutes = math.floor(AppQuotaUsed % 60)
 
         await xx.edit(
-            "✥ **Informasi Dyno Heroku :**"
-            "\n╔════════════════════╗\n"
-            f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
-            f"     •  `{AppHours}`**Jam**  `{AppMinutes}`**Menit**  "
+            "⍟ **Informasi Dyno Heroku :**"
+            "\n╭✠━━━━━━━━❖━━━━━━━━✠╮\n"
+            f" ☞︎︎︎ **Penggunaan Dyno** `{app.name}` :\n"
+            f"     ✠  `{AppHours}`**Jam**  `{AppMinutes}`**Menit**  "
             f"**|**  [`{AppPercentage}`**%**]"
-            "\n◖════════════════════◗\n"
-            " ➠ **Sisa kuota dyno bulan ini** :\n"
-            f"     •  `{hours}`**Jam**  `{minutes}`**Menit**  "
+            "\n✠━━━━━━━━━❖━━━━━━━━━✠\n"
+            " ☞︎︎︎ **Sisa kuota dyno bulan ini** :\n"
+            f"     ✠  `{hours}`**Jam**  `{minutes}`**Menit**  "
             f"**|**  [`{percentage}`**%**]"
-            "\n╚════════════════════╝\n"
-            f"✥ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
+            "\n╰✠━━━━━━━━❖━━━━━━━━✠╯\n"
+            f"⍟ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
         )
         return True
 
@@ -207,16 +207,16 @@ async def dyno_usage(dyno):
 async def fake_dyno(event):
     xx = await edit_or_reply(event, "`Processing...`")
     await xx.edit(
-        "✥ **Informasi Dyno Heroku :**"
-        "\n╔════════════════════╗\n"
-        f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
-        f"     •  `0`**Jam**  `0`**Menit**  "
+        "✠ **Informasi Dyno Heroku :**"
+        "\n╭✠━━━━━━━━❖━━━━━━━━✠╮\n"
+        f" ☞︎︎︎ **Penggunaan Dyno** `{app.name}` :\n"
+        f"     ✠  `0`**Jam**  `0`**Menit**  "
         f"**|**  [`0`**%**]"
-        "\n◖════════════════════◗\n"
-        " ➠ **Sisa kuota dyno bulan ini** :\n"
-        f"     •  `1000`**Jam**  `0`**Menit**  "
+        "\n✠━━━━━━━━━❖━━━━━━━━━✠\n"
+        " ☞︎︎︎ **Sisa kuota dyno bulan ini** :\n"
+        f"     ✠  `1000`**Jam**  `0`**Menit**  "
         f"**|**  [`100`**%**]"
-        "\n╚════════════════════╝\n"
+        "\n╰✠━━━━━━━━❖━━━━━━━━✠╯\n"
     )
 
 
