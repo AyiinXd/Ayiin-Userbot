@@ -17,6 +17,7 @@ from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, StartTime, bot
 from userbot.events import register
 from userbot.utils import edit_or_reply, humanbytes, man_cmd
+from userbot import sleep
 
 absen = [
     "𝙃𝙖𝙙𝙞𝙧 𝙙𝙤𝙣𝙜 𝙏𝙤𝙙 😁",
@@ -73,7 +74,8 @@ async def _(ping):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await bot.get_me()
-    await xx.edit("⚡")
+    await event.edit("⚡")
+    sleep(3)
     await xx.edit(
         f"**𝙿𝙾𝙽𝙶!!🏓**\n"
         f"⚡ **𝙿𝙸𝙽𝙶𝙴𝚁** - `%sms`\n"
