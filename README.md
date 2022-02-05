@@ -34,7 +34,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 [![Run repl.it](https://img.shields.io/badge/run-string__session.py-blue?style=for-the-badge&logo=repl.it)](https://repl.it/@AyiinXd/ConnorString?lite=1&outputonly=1)
 
 ## 💜Heroku Deployment 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ZenXMato/Ayiin-Userbot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AyiinXd/Ayiin-Userbot)
 ### 💜Telegram Deployment
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](http://telegram.dog/XTZ_HerokuBot?start=QXlpaW5YZC9BeWlpbi1Vc2VyYm90IEF5aWluLVVzZXJib3Q)
 
