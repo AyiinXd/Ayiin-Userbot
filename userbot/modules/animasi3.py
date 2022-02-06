@@ -141,6 +141,6 @@ CMD_HELP.update({
     \nUsage: ntahlah gabut doang.\
     \n\n`.ass`\
     \nUsage: Salam dulu biar sopan."
-    \n\n`.sange` :\
+    \n\n`.sange`\
     \nUsage: cobalah sndiri ngentot."
 })
