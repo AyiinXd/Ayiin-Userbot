@@ -141,7 +141,7 @@ async def dyno_usage(dyno):
         return await dyno.edit(
             "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
         )
-    xx = await edit_or_reply(dyno, "`🤖`")
+    xx = await edit_or_reply(dyno, "🤖")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
