@@ -9,6 +9,7 @@
 
 import math
 import os
+import time
 
 import aiohttp
 import heroku3
@@ -19,6 +20,7 @@ from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
 from userbot.modules.sql_helper.globals import addgvar, delgvar, gvarstatus
 from userbot.utils import edit_or_reply, man_cmd
+from time import sleep
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 heroku_api = "https://api.heroku.com"
@@ -139,7 +141,7 @@ async def dyno_usage(dyno):
         return await dyno.edit(
             "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
         )
-    xx = await edit_or_reply(dyno, "`Processing...`")
+    xx = await edit_or_reply(dyno, "`🤖`")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -187,6 +189,7 @@ async def dyno_usage(dyno):
         AppHours = math.floor(AppQuotaUsed / 60)
         AppMinutes = math.floor(AppQuotaUsed % 60)
 
+        sleep(3)
         await xx.edit(
             "⍟ **Informasi Dyno Heroku :**"
             "\n╭✠━━━━━━━━❖━━━━━━━━✠╮\n"
