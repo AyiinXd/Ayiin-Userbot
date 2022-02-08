@@ -20,7 +20,7 @@ async def usit(event):
 async def var(event):
     await edit_or_reply(
         event,
-        "**Daftar Lengkap Vars Dari Ayiin-Userbot:** [KLIK DISINI](https://telegra.ph/List-Variabel-Heroku-untuk-Man-Userbot-09-22)",
+        "**Daftar Lengkap Vars Dari Ayiin-Userbot:** [KLIK DISINI](https://telegra.ph/List-Variable-Heroku-Untuk-Ayiin-Userbot-02-08)",
     )
 
 
