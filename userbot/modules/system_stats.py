@@ -165,7 +165,7 @@ async def bot_ver(event):
         )
 
 
-@man_cmd(pattern="(?:alive|on)\s?(.)?")
+@man_cmd(pattern="(?:alive|yinson)\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
@@ -222,7 +222,7 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "alive": f"**Plugin : **`alive`\
-        \n\n  •  **Syntax :** `{cmd}alive` atau `{cmd}on`\
+        \n\n  •  **Syntax :** `{cmd}alive` atau `{cmd}yinson`\
         \n  •  **Function : **Untuk melihat apakah bot Anda berfungsi atau tidak.\
     "
     }
