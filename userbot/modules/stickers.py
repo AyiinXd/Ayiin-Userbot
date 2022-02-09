@@ -244,10 +244,7 @@ async def kang(args):
                 await args.client.send_read_acknowledge(conv.chat_id)
 
         await xx.edit(
-            "**STICKER LU UDAH JADI TOD**"
-            f"\n **╭✠━━━━❖━━━━✠╮**",
-            f"\n **[>> AMBIL TOD <<](t.me/addstickers/{packname})**",
-            f"\n **╰✠━━━━❖━━━━✠╯**",
+            "**STICKER LU UDAH JADI TOD** \n **╭✠━━━━❖━━━━✠╮** \n **[>> AMBIL TOD <<](t.me/addstickers/{packname})** \n **╰✠━━━━❖━━━━✠╯**",
             f"\n **Untuk Menggunakan Stickers**",
             parse_mode="md",
         )
