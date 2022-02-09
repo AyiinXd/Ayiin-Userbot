@@ -36,7 +36,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 <h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku :</h3>
 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/AyiinXd/Ayiin-Userbot-Deploy"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blue?style=flat&logo=heroku" width="250" height="40.00" /></a></p>
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/AyiinXd/Deploy-Ayiin"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blue?style=flat&logo=heroku" width="250" height="40.00" /></a></p>
 
 <p align="center"><a href="http://telegram.dog/XTZ_HerokuBot?start=QXlpaW5YZC9BeWlpbi1Vc2VyYm90IEF5aWluLVVzZXJib3Q"><img src="https://img.shields.io/badge/Deploy%20Via%20Telegram-blue?style=for-the-badge&logo=telegram" width="250""/</a>  </p>
 
