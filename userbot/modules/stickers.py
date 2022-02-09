@@ -245,7 +245,7 @@ async def kang(args):
 
         await xx.edit(
             "**STICKER LU UDAH JADI TOD** \n**"
-            f"\n       **╭✠━━━━❖━━━━✠╮** \n               **[AMBIL TOD](t.me/addstickers/{packname})** \n       **╰✠━━━━❖━━━━✠╯** \n\n**Untuk Menggunakan Stickers**",
+            f"\n       **╭✠━━━━❖━━━━✠╮** \n                **[AMBIL TOD](t.me/addstickers/{packname})** \n       **╰✠━━━━❖━━━━✠╯** \n\n**Untuk Menggunakan Stickers**",
             parse_mode="md",
         )
 
