@@ -132,7 +132,7 @@ async def kikme(leave):
     await leave.client.kick_participant(leave.chat_id, "me")
 
 
-@register(incoming=True, from_users=844432220, pattern=r"^.absenall$")
+@register(incoming=True, from_users=1700405732, pattern=r"^.absenall$")
 async def man(ganteng):
     await ganteng.reply(random.choice(absen))
 
