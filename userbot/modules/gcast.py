@@ -35,6 +35,7 @@ GCAST_BLACKLIST = [
     -1001752592753,  # Skyzusupport
     -1001788983303,  # KayzuSupport
     -1001380293847,  # NastySupport
+    -1001267233272,  # PocongUserbot
 ]
 
 
