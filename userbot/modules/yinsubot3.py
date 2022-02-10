@@ -8,7 +8,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern='^.yins(?: |$)(.*)')
+@register(outgoing=True, pattern='^$yins(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -26,7 +26,7 @@ async def typewriter(typew):
 # Create by myself @Contoldisini
 
 
-@register(outgoing=True, pattern='^.sayang(?: |$)(.*)')
+@register(outgoing=True, pattern='^$sayang(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -38,7 +38,7 @@ async def typewriter(typew):
 # Create by myself @Contoldisini
 
 
-@register(outgoing=True, pattern='^.semangat(?: |$)(.*)')
+@register(outgoing=True, pattern='^$semangat(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -49,7 +49,7 @@ async def typewriter(typew):
     await typew.edit("`𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝘽𝙚𝙧𝙨𝙮𝙪𝙠𝙪𝙧`")
 # Create by myself @Contoldisini
 
-@register(outgoing=True, pattern='^.mengeluh(?: |$)(.*)')
+@register(outgoing=True, pattern='^$mengeluh(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -62,12 +62,12 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "yinsubot3": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `yins`\
+    "yinsubot3": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$yins`\
     \n↳ : perkenalan yins\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sayang`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$sayang`\
     \n↳ : Gombalan maut`\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.semangat`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$semangat`\
     \n↳ : Jan Lupa Semangat`\
-n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.mengeluh`\
+n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$mengeluh`\
     \n↳ : Jan Lupa Mengeluh."
 })
