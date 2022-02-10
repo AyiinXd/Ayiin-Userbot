@@ -5,7 +5,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern='^.skull(?: |$)(.*)')
+@register(outgoing=True, pattern='^$skull(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("███████████████████████████\n"
@@ -29,7 +29,7 @@ async def typewriter(typew):
                      "███████████████████████████\n")
 
 
-@register(outgoing=True, pattern='^.wlc(?: |$)(.*)')
+@register(outgoing=True, pattern='^$wlc(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n"
@@ -39,7 +39,7 @@ async def typewriter(typew):
                      "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n")
 
 
-@register(outgoing=True, pattern='^.klb(?: |$)(.*)')
+@register(outgoing=True, pattern='^$klb(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("   ╚⊙ ⊙╝..\n"
@@ -65,7 +65,7 @@ async def typewriter(typew):
                      "      ╚═(█)═╝\n")
 
 
-@register(outgoing=True, pattern='^.fucek(?: |$)(.*)')
+@register(outgoing=True, pattern='^$fucek(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("░░░░░░░░░░░░░░░▄▄░░░░░░░░░░░\n"
@@ -83,5 +83,5 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({"animasi":
-                 "`.skull` ; `.wlc` ; `.klb` ; `.fucek`\
+                 "`$skull` ; `$wlc` ; `$klb` ; `$fucek`\
                  \nUsage: Coba Aja."})
