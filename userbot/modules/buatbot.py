@@ -13,7 +13,7 @@ from userbot.events import register
 chat = "@BotFather"
 
 
-@register(outgoing=True, pattern="^.botbaru ?(.*)")
+@register(outgoing=True, pattern="^$botbaru ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -48,7 +48,7 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "botfather": ".botbaru\
+        "botfather": "$botbaru\
     \nUntuk Membuat Bot Dari Botfather, .botbaru  < bot_name > <bot_username >  ."
     }
 )
