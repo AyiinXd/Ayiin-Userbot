@@ -4,7 +4,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern='^.ngentot(?: |$)(.*)')
+@register(outgoing=True, pattern='^$ngentot(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -30,7 +30,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.goblok(?: |$)(.*)')
+@register(outgoing=True, pattern='^$goblok(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -56,7 +56,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.ngatain(?: |$)(.*)')
+@register(outgoing=True, pattern='^$ngatain(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -82,7 +82,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern='^.yatim(?: |$)(.*)')
+@register(outgoing=True, pattern='^$yatim(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -108,7 +108,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern=r"^\.kont(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\$kont(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -138,14 +138,14 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "yinstoxic2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngentot`\
+    "yinstoxic2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$ngentot`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.goblok`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$goblok`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ngatain`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$ngatain`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.kont`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$kont`\
     \n↳ : Cobain aja\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.yatim`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$yatim`\
     \n↳ : Cobain aja."
 })
