@@ -7,7 +7,7 @@ from telethon import events
 import asyncio
 
 
-@register(outgoing=True, pattern="^.hua$")
+@register(outgoing=True, pattern="^$hua$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("أ‿أ")
@@ -42,7 +42,7 @@ async def koc(e):
         await e.edit("༼ ༎ຶ ෴ ༎ຶ༽")
 
 
-@register(outgoing=True, pattern='^.huh(?: |$)(.*)')
+@register(outgoing=True, pattern='^$huh(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`\n(\\_/)`"
@@ -58,7 +58,7 @@ async def typewriter(typew):
                      "`\n💔<\\  *Terimakasih`")
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@bot.on(events.NewMessage(pattern=r"\.$(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -98,7 +98,7 @@ async def _(event):
             await event.edit(animation_chars[i % 103])
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@bot.on(events.NewMessage(pattern=r"\.$(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -130,7 +130,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@register(outgoing=True, pattern='^.nah(?: |$)(.*)')
+@register(outgoing=True, pattern='^$nah(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`\n(\\_/)`"
@@ -142,7 +142,7 @@ async def typewriter(typew):
                      "`\n💖<\\  *Tapi Bo'ong Hiyahiyahiya`")
 
 
-@bot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+@bot.on(events.NewMessage(pattern=r"\.$(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -175,14 +175,14 @@ async def _(event):
 
 CMD_HELP.update({
     "animasi2":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.nah` ; `.huh` ; `.owner`\
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.nah` ; `.huh` ; `$owner`\
     \n↳ : Cobain Sendiri.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.bunga` ; `.buah`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.bunga` ; `$buah`\
     \n↳ : animasi.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.waktu`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$waktu`\
     \n↳ : animasi.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.hua`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$hua`\
     \n↳ : nangis.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ceritacinta` ; `.canda`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$ceritacinta` ; `$canda`\
     \n↳ : liat sendiri"
 })
