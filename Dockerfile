@@ -8,4 +8,4 @@ COPY ./sample_config.env ./config.env* /home/ayiinuserbot/
 
 WORKDIR /home/ayiinuserbot/
 
-CMD ["python3", "-m", "userbot"]
+CMD ["bash","start"]
