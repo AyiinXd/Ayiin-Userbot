@@ -3,7 +3,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern='^.teemo(?: |$)(.*)')
+@register(outgoing=True, pattern='^$teemo(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -14,7 +14,7 @@ async def typewriter(typew):
     await typew.edit("`𝙏𝙖𝙥𝙞 𝙆𝙖𝙡𝙤 𝙇𝙪 𝙅𝙖𝙙𝙞𝙖𝙣, 𝙐𝙟𝙪𝙣𝙜-𝙐𝙟𝙪𝙣𝙜𝙣𝙮𝙖 𝙅𝙪𝙜𝙖 𝙆𝙚𝙣𝙖 𝙂𝙝𝙤𝙨𝙩𝙞𝙣𝙜 🤣`")
 
 
-@register(outgoing=True, pattern='^.give(?: |$)(.*)')
+@register(outgoing=True, pattern='^$give(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -25,7 +25,7 @@ async def typewriter(typew):
     await typew.edit("`𝙉𝙖𝙞𝙠 𝙊𝙨, 𝘿𝙖𝙣 𝙎𝙨 𝘽𝙪𝙠𝙩𝙞 𝙂𝙘𝙖𝙨𝙩`")
 
 
-@register(outgoing=True, pattern='^.uno(?: |$)(.*)')
+@register(outgoing=True, pattern='^$uno(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -37,10 +37,10 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "gabut": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tmo`\
+    "gabut": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$teemo`\
     \n↳ : Cobain Sendiri\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.give`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$give`\
     \n↳ : Cobain Sendiri`\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.uno`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$uno`\
     \n↳ : Cobain Sendiri."
 })
