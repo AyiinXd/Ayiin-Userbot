@@ -133,7 +133,7 @@ PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "True"))
 PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
 
 # Custom Handler command
-CMD_HANDLER = os.environ.get("CMD_HANDLER") or "*"
+CMD_HANDLER = os.environ.get("CMD_HANDLER") or "$"
 
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
 
