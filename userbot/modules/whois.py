@@ -16,10 +16,10 @@ from telethon.utils import get_input_location
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 
-@bot.on(man_cmd(pattern=r"whois(?: |$)(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"whois(?: |$)(.*)", outgoing=True))
 async def who(event):
 
     await event.edit("`Mengambil Informasi Pengguna Ini...`")

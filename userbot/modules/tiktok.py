@@ -10,12 +10,12 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 # Alvin Gans
 
 
-@man_cmd(pattern="tiktok(?: |$)(.*)")
+@ayiin_cmd(pattern="tiktok(?: |$)(.*)")
 async def _(event):
     xxnx = event.pattern_match.group(1)
     if xxnx:

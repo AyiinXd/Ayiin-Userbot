@@ -11,11 +11,11 @@ import PIL
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 from userbot.utils import bash, progress
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"honka(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"honka(?: |$)(.*)"))
 async def frg(animu):
     text = animu.pattern_match.group(1)
     if not text:
@@ -37,7 +37,7 @@ async def frg(animu):
     await animu.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"rgif(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"rgif(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return

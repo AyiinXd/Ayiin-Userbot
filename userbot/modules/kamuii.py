@@ -11,10 +11,10 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 
-@man_cmd(pattern="kamuii(:? |$)([1-8])?")
+@ayiin_cmd(pattern="kamuii(:? |$)([1-8])?")
 async def _(fry):
     xx = await edit_or_reply(fry, "`Mengaktifkan Kekuatan Supersaya...`")
     level = fry.pattern_match.group(2)

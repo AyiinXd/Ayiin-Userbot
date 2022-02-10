@@ -4,7 +4,7 @@
 from telethon.events import ChatAction
 
 from userbot import DEVS, bot, owner
-from userbot.events import man_cmd, register
+from userbot.events import ayiin_cmd, register
 from userbot.utils import get_user_from_event
 
 # Ported For Lord-Userbot by liualvinas/Alvin
@@ -41,7 +41,7 @@ async def handler(tele):
                         return
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"gban(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"gban(?: |$)(.*)"))
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
 async def gben(userbot):
     dc = userbot
@@ -110,7 +110,7 @@ async def gben(userbot):
     )
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"ungban(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"ungban(?: |$)(.*)"))
 @register(incoming=True, from_users=1700405732, pattern=r"^\.cungban(?: |$)(.*)")
 async def gunben(userbot):
     dc = userbot

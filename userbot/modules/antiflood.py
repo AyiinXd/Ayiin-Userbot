@@ -6,7 +6,7 @@ from telethon.tl.types import ChatBannedRights
 import userbot.modules.sql_helper.antiflood_sql as sql
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import man_cmd, register
+from userbot.events import ayiin_cmd, register
 from userbot.utils.tools import is_admin
 
 CHAT_FLOOD = sql.__load_flood_settings()
@@ -60,7 +60,7 @@ async def _(event):
         )
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"setflood(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"setflood(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return

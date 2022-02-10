@@ -11,7 +11,7 @@ import re
 import requests
 
 from userbot import bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 from userbot.utils import time_formatter
 
 
@@ -196,7 +196,7 @@ async def formatJSON(outData):
 url = "https://graphql.anilist.co"
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"anichar ?(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"anichar ?(.*)"))
 async def anilist(event):
     search = event.pattern_match.group(1)
     reply_to_id = event.message.id
@@ -226,7 +226,7 @@ async def anilist(event):
         await event.edit("Sorry, No such results")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"airing ?(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"airing ?(.*)"))
 async def anilist(event):
     search = event.pattern_match.group(1)
     variables = {"search": search}
@@ -243,7 +243,7 @@ async def anilist(event):
     await event.edit(ms_g)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"animanga ?(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"animanga ?(.*)"))
 async def anilist(event):
     search = event.pattern_match.group(1)
     reply_to_id = event.message.id
@@ -304,7 +304,7 @@ async def anilist(event):
             await event.edit(ms_g)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"anilist ?(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"anilist ?(.*)"))
 async def anilist(event):
     input_str = event.pattern_match.group(1)
     event = await event.edit("Searching...")

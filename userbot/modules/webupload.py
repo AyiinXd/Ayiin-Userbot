@@ -7,11 +7,11 @@ import time
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 
 @bot.on(
-    man_cmd(
+    ayiin_cmd(
         outgoing=True,
         pattern=r"webupload ?(.+?|) (?:--)(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)",
     )

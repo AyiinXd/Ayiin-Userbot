@@ -8,13 +8,13 @@
 from userbot import CHANNEL
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, ICON_HELP, bot
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 from time import sleep
 
 modules = CMD_HELP
 
 
-@man_cmd(pattern="help(?: |$)(.*)")
+@ayiin_cmd(pattern="help(?: |$)(.*)")
 async def help(event):
     """For help command"""
     args = event.pattern_match.group(1).lower()

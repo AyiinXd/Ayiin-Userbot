@@ -27,7 +27,7 @@ from PIL import Image
 from userbot import BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
-from userbot.utils import edit_or_reply, man_cmd, time_formatter
+from userbot.utils import edit_or_reply, ayiin_cmd, time_formatter
 
 # ================= CONSTANT =================
 HEROKU_APP = from_key(HEROKU_API_KEY).apps()[HEROKU_APP_NAME]
@@ -40,7 +40,7 @@ repo = Repo()
 branch = repo.active_branch.name
 
 
-@man_cmd(pattern="sleep ([0-9]+)$")
+@ayiin_cmd(pattern="sleep ([0-9]+)$")
 async def sleepybot(time):
     if time.sender_id in SUDO_USERS:
         return
@@ -56,7 +56,7 @@ async def sleepybot(time):
     await xx.edit("**Oke, Saya siap membantu mu**")
 
 
-@man_cmd(pattern="shutdown$")
+@ayiin_cmd(pattern="shutdown$")
 async def shutdown_bot(event):
     if event.fwd_from:
         return
@@ -75,7 +75,7 @@ async def shutdown_bot(event):
         sys.exit(0)
 
 
-@man_cmd(pattern="restart$")
+@ayiin_cmd(pattern="restart$")
 async def restart_bot(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -88,7 +88,7 @@ async def restart_bot(event):
     execle(sys.executable, *args, environ)
 
 
-@man_cmd(pattern="readme$")
+@ayiin_cmd(pattern="readme$")
 async def reedme(event):
     await edit_or_reply(
         event,
@@ -101,7 +101,7 @@ async def reedme(event):
     )
 
 
-@man_cmd(pattern="repeat (.*)")
+@ayiin_cmd(pattern="repeat (.*)")
 async def repeat(event):
     cnt, txt = event.pattern_match.group(1).split(" ", 1)
     replyCount = int(cnt)
@@ -115,7 +115,7 @@ async def repeat(event):
     await edit_or_reply(event, replyText)
 
 
-@man_cmd(pattern="repo$")
+@ayiin_cmd(pattern="repo$")
 async def repo_is_here(event):
     xx = await edit_or_reply(event, "🤖")
     sleep(3)
@@ -131,7 +131,7 @@ async def repo_is_here(event):
     )
 
 
-@man_cmd(pattern="string$")
+@ayiin_cmd(pattern="string$")
 async def string_is_here(event):
     await edit_or_reply(
         event,
@@ -139,7 +139,7 @@ async def string_is_here(event):
     )
 
 
-@man_cmd(pattern="raw$")
+@ayiin_cmd(pattern="raw$")
 async def raw(event):
     the_real_message = None
     reply_to_id = None
@@ -165,7 +165,7 @@ async def raw(event):
         )
 
 
-@man_cmd(pattern="reverse(?: |$)(\d*)")
+@ayiin_cmd(pattern="reverse(?: |$)(\d*)")
 async def okgoogle(img):
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
@@ -258,7 +258,7 @@ async def scam(results, lim):
     return imglinks
 
 
-@man_cmd(pattern="send (.*)")
+@ayiin_cmd(pattern="send (.*)")
 async def send(event):
     if not event.is_reply:
         return await edit_or_reply(

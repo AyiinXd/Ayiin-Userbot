@@ -21,7 +21,7 @@ from userbot import (
 )
 
 
-def man_cmd(
+def ayiin_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
     disable_edited: bool = False,

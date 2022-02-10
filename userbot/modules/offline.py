@@ -12,7 +12,7 @@ from telethon.events import StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 
 from userbot import AFKREASON, BOTLOG_CHATID, PM_AUTO_BAN, bot, owner
-from userbot.events import man_cmd, register
+from userbot.events import ayiin_cmd, register
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
@@ -28,7 +28,7 @@ afk_start = {}
 # =================================================================
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"off(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"off(?: |$)(.*)"))
 async def set_afk(afk_e):
     """For .afk command, allows you to inform people that you are afk when they message you"""
     string = afk_e.pattern_match.group(1)

@@ -11,7 +11,7 @@ from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, UPSTREAM_REPO_URL, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 
 async def gen_chlog(repo, diff):
@@ -119,7 +119,7 @@ async def update(event, repo, ups_rem, ac_br):
     execle(sys.executable, *args, environ)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"update( now| deploy|$)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"update( now| deploy|$)"))
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("`Mengecek Pembaruan, Tunggu Sebentar...`")

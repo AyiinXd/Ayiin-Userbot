@@ -13,7 +13,7 @@ from userbot import CMD_HELP, LOGS, bot
 from userbot.modules.sql_helper import no_log_pms_sql
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.modules.vcplugin import vcmention
-from userbot.utils import _format, edit_delete, man_cmd
+from userbot.utils import _format, edit_delete, ayiin_cmd
 from userbot.utils.tools import media_type
 
 
@@ -118,7 +118,7 @@ async def log_tagged_messages(event):
         )
 
 
-@man_cmd(pattern="save(?: |$)(.*)")
+@ayiin_cmd(pattern="save(?: |$)(.*)")
 async def log(log_text):
     if BOTLOG_CHATID:
         if log_text.reply_to_msg_id:
@@ -138,7 +138,7 @@ async def log(log_text):
     await log_text.delete()
 
 
-@man_cmd(pattern="log$")
+@ayiin_cmd(pattern="log$")
 async def set_no_log_p_m(event):
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
@@ -149,7 +149,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@man_cmd(pattern="nolog$")
+@ayiin_cmd(pattern="nolog$")
 async def set_no_log_p_m(event):
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
@@ -160,7 +160,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@man_cmd(pattern="pmlog (on|off)$")
+@ayiin_cmd(pattern="pmlog (on|off)$")
 async def set_pmlog(event):
     if BOTLOG_CHATID == -100:
         return await edit_delete(
@@ -190,7 +190,7 @@ async def set_pmlog(event):
         await event.edit("**PM LOG Sudah Dimatikan**")
 
 
-@man_cmd(pattern="gruplog (on|off)$")
+@ayiin_cmd(pattern="gruplog (on|off)$")
 async def set_gruplog(event):
     if BOTLOG_CHATID == -100:
         return await edit_delete(

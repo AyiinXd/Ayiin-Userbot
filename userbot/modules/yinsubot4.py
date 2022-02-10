@@ -3,10 +3,10 @@ from time import sleep
 from userbot import BLACKLIST_CHAT
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"sayang(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"sayang(?: |$)(.*)"))
 async def _(event):
     await event.edit("**Cuma Mau Bilang**")
     sleep(3)
@@ -18,7 +18,7 @@ async def _(event):
 # Create by myself @localheart
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"semangat(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"semangat(?: |$)(.*)"))
 async def _(event):
     await event.edit("**Apapun Yang Terjadi**")
     sleep(3)
@@ -30,13 +30,13 @@ async def _(event):
 # Create by myself @localheart
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"ywc(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"ywc(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(event.chat_id, "**Ok Sama Sama**")
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"jamet(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"jamet(?: |$)(.*)"))
 async def _(event):
     await event.edit("**WOII**")
     sleep(1.5)
@@ -61,7 +61,7 @@ async def _(event):
     await event.edit("**LEMBEK NGENTOT🔥**")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"pp(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"pp(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -70,7 +70,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"dp(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"dp(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id, "**MUKA LU HINA, GAUSAH SOK KERAS YA ANJENGG!!**"
@@ -78,7 +78,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"so(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"so(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id, "**GAUSAH SOKAB SAMA GUA GOBLOK, LU BABU GA LEVEL!!**"
@@ -86,7 +86,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"nb(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"nb(?: |$)(.*)"))
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await event.edit("**Perintah ini Dilarang digunakan di Group ini**")
@@ -96,14 +96,14 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"met(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"met(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id, "**NAMANYA JUGA JAMET CAPER SANA SINI BUAT CARI NAMA**"
     )
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"war(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"war(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -112,7 +112,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"wartai(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"wartai(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -121,7 +121,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"kismin(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"kismin(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -130,7 +130,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"ded(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"ded(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id, "**MATI AJA LU GOBLOK, GAGUNA LU HIDUP DI BUMI**"
@@ -138,7 +138,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"sokab(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"sokab(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -147,7 +147,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"gembel(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"gembel(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -156,7 +156,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"cuih(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"cuih(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -165,7 +165,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"dih(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"dih(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -174,7 +174,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"gcs(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"gcs(?: |$)(.*)"))
 async def _(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await event.edit("**Perintah ini Dilarang digunakan di Group ini**")
@@ -184,7 +184,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"skb(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"skb(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(
         event.chat_id, "**EMANG KITA KENAL? KAGA GOBLOK SOKAB BANGET LU GOBLOK**"
@@ -192,7 +192,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"virtual(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"virtual(?: |$)(.*)"))
 async def _(event):
     await event.edit("**OOOO**")
     sleep(1.5)

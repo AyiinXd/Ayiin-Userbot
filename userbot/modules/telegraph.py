@@ -13,14 +13,14 @@ from telegraph import Telegraph, exceptions, upload_file
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
 
-@man_cmd(pattern="tg (m|t)$")
+@ayiin_cmd(pattern="tg (m|t)$")
 async def telegraphs(graph):
     """For telegraph command, upload media & text to telegraph site."""
     xxnx = await edit_or_reply(graph, "`Processing...`")

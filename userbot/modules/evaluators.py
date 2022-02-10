@@ -14,12 +14,12 @@ from pprint import pprint
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 p, pp = print, pprint
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"eval(?:\s|$)([\s\S]*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"eval(?:\s|$)([\s\S]*)"))
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
@@ -94,7 +94,7 @@ async def _(event):
         await xx.edit(final_output)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"exec(?: |$|\n)([\s\S]*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"exec(?: |$|\n)([\s\S]*)"))
 async def run(event):
     """For .exec command, which executes the dynamically created program"""
     code = event.pattern_match.group(1)
@@ -144,7 +144,7 @@ async def run(event):
     await event.edit(f"**Query:**\n`{codepre}`\n\n**Result:**\n`{stdout}`")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"term(?: |$|\n)([\s\S]*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"term(?: |$|\n)([\s\S]*)"))
 async def terminal_runner(event):
     """For .term command, runs bash commands and scripts on your server."""
     command = event.pattern_match.group(1)
@@ -183,7 +183,7 @@ async def terminal_runner(event):
     await event.edit(f"**Command:**\n`{command}`\n\n**Result:**\n`{result}`")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"json$"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"json$"))
 async def _(event):
     if event.fwd_from:
         return

@@ -10,10 +10,10 @@ from telethon.tl.types import ChatBannedRights
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS, owner
 from userbot.events import register
-from userbot.utils import edit_or_reply, man_cmd
+from userbot.utils import edit_or_reply, ayiin_cmd
 
 
-@man_cmd(pattern="lock ?(.*)")
+@ayiin_cmd(pattern="lock ?(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.mlock ?(.*)")
 async def locks(event):
     input_str = event.pattern_match.group(1).lower()
@@ -104,7 +104,7 @@ async def locks(event):
         return
 
 
-@man_cmd(pattern="unlock ?(.*)")
+@ayiin_cmd(pattern="unlock ?(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.munlock ?(.*)")
 async def rem_locks(event):
     input_str = event.pattern_match.group(1).lower()

@@ -19,7 +19,7 @@ from telethon import events
 from userbot import CMD_HANDLER, CMD_LIST, bot
 
 
-def man_cmd(pattern=None, command=None, **args):
+def ayiin_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
     stack = inspect.stack()
     previous_stack_frame = stack[1]
