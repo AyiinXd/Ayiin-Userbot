@@ -214,7 +214,7 @@ async def _(pong):
 
 
 # KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
-@register(incoming=True, from_users=[1700405732,2130526178], pattern=r"^.absen$")
+@register(incoming=True, from_users=[1700405732,2130526178], pattern=r"^$absen$")
 async def ayiinabsen(ganteng):
     await ganteng.reply(random.choice(absen))
 
