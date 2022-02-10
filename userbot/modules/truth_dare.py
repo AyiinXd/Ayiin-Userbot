@@ -7,7 +7,7 @@ from userbot import bot, CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern=r"^\.truth(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\$truth(?: |$)(.*)")
 async def _(event):
     await event.edit("Mengirim pesan truth...")
     async with bot.conversation("@truthordares_bot") as conv:
@@ -24,7 +24,7 @@ async def _(event):
         await event.edit(f"**Pesan truth**\n\n{response.message.message}")
 
 
-@register(outgoing=True, pattern=r"^\.dare(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\$dare(?: |$)(.*)")
 async def _(event):
     await event.edit("Mengirim pesan dare...")
     async with bot.conversation("@truthordares_bot") as conv:
@@ -41,7 +41,7 @@ async def _(event):
         await event.edit(f"**Pesan dare**\n\n{response.message.message}")
 
 
-@register(outgoing=True, pattern=r"^\.spill(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\$spill(?: |$)(.*)")
 async def _(event):
     await event.edit("Mengirim pesan spill...")
     async with bot.conversation("@Spillgame_bot") as conv:
@@ -61,11 +61,11 @@ async def _(event):
 CMD_HELP.update(
     {
         "truth_dare": "** Plugin :** truth_dare\
-        \n\n  •  Perintah : `.truth`\
+        \n\n  •  Perintah : `$truth`\
         \n  •  Function : Untuk mengirim pesan truth\
-        \n\n  •  Perintah : `.dare`\
+        \n\n  •  Perintah : `$dare`\
         \n  •  Function : Untuk mengirim pesan dare\
-        \n\n  •  Perintah : `.spill`\
+        \n\n  •  Perintah : `$spill`\
         \n  •  Function : Untuk Pertanyaan\
     "
     }
