@@ -12,7 +12,7 @@ from userbot.events import register
 
 
 
-@register(outgoing=True, pattern='^.ganteng(?: |$)(.*)')
+@register(outgoing=True, pattern='^$ganteng(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -24,7 +24,7 @@ async def typewriter(typew):
 
 
 
-@register(outgoing=True, pattern='^.wibu(?: |$)(.*)')
+@register(outgoing=True, pattern='^$wibu(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -59,7 +59,7 @@ async def typewriter(typew):
 # create by ayiin
 
 
-@register(outgoing=True, pattern='^.senggol(?: |$)(.*)')
+@register(outgoing=True, pattern='^$senggol(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -79,12 +79,12 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "yinsubot5":
-    "CMD➣`.senggol`\
+    "CMD➣`$senggol`\
 \nPenjelasan: Cek lah asw.\
 \n\nCMD➣`p`\
 \nPenjelasan: Cek lah asw.\
-\n\nCMD➣`.wibu`\
+\n\nCMD➣`$wibu`\
 \nPenjelasan: Lari Dari Wibu.\
-\n\nCMD➣`.ganteng`\
+\n\nCMD➣`$ganteng`\
 \nPenjelasan: Gua Ganteng."
 })
