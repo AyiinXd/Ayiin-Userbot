@@ -21,7 +21,7 @@ from userbot.utils import edit_delete, ayiin_cmd
 
 
 @ayiin_cmd(pattern="purge$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cpurge$")
+@register(incoming=True, from_users=DEVS, pattern=r"^\$cpurge$")
 async def fastpurger(purg):
     chat = await purg.get_input_chat()
     msgs = []
@@ -49,7 +49,7 @@ async def fastpurger(purg):
 
 
 @ayiin_cmd(pattern="purgeme")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cpurgeme")
+@register(incoming=True, from_users=DEVS, pattern=r"^\$cpurgeme")
 async def purgeme(delme):
     message = delme.text
     count = int(message[9:])
@@ -69,7 +69,7 @@ async def purgeme(delme):
 
 
 @ayiin_cmd(pattern="del$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cdel$")
+@register(incoming=True, from_users=DEVS, pattern=r"^\$cdel$")
 async def delete_it(delme):
     msg_src = await delme.get_reply_message()
     if delme.reply_to_msg_id:
@@ -81,7 +81,7 @@ async def delete_it(delme):
 
 
 @ayiin_cmd(pattern="edit")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cedit")
+@register(incoming=True, from_users=DEVS, pattern=r"^\$cedit")
 async def editer(edit):
     message = edit.text
     chat = await edit.get_input_chat()
@@ -139,7 +139,7 @@ async def purgto(purgke):
     except KeyError:
         manubot = await edit_delete(
             purgke,
-            "**Balas pesan dengan** `.purgefrom` **terlebih dahulu lalu gunakan** `.purgeto`",
+            "**Balas pesan dengan** `$purgefrom` **terlebih dahulu lalu gunakan** `$purgeto`",
             5,
         )
         return
