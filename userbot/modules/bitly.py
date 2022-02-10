@@ -10,10 +10,10 @@ from re import match
 from bitlyshortener import Shortener
 
 from userbot import BITLY_TOKEN, BOTLOG_CHATID
-from userbot.utils import man_cmd
+from userbot.utils import ayiin_cmd
 
 
-@man_cmd(pattern="bitly(?: |$)(.*)")
+@ayiin_cmd(pattern="bitly(?: |$)(.*)")
 async def shortener(short):
     """
     Shorten link using bit.ly API

@@ -12,10 +12,10 @@ import re
 import userbot.modules.sql_helper.blacklist_sql as sql
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 
-@bot.on(man_cmd(incoming=True))
+@bot.on(ayiin_cmd(incoming=True))
 async def on_new_message(event):
     # TODO: exempt admins from locks
     name = event.raw_text
@@ -35,7 +35,7 @@ async def on_new_message(event):
             break
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"addbl(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"addbl(?: |$)(.*)"))
 async def on_add_black_list(addbl):
     text = addbl.pattern_match.group(1)
     to_blacklist = list(
@@ -49,7 +49,7 @@ async def on_add_black_list(addbl):
     )
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"listbl(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"listbl(?: |$)(.*)"))
 async def on_view_blacklist(listbl):
     all_blacklisted = sql.get_chat_blacklist(listbl.chat_id)
     OUT_STR = "Blacklists in the Current Chat:\n"
@@ -74,7 +74,7 @@ async def on_view_blacklist(listbl):
         await listbl.edit(OUT_STR)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"rmbl(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"rmbl(?: |$)(.*)"))
 async def on_delete_blacklist(rmbl):
     text = rmbl.pattern_match.group(1)
     to_unblacklist = list(

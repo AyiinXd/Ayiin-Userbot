@@ -8,14 +8,14 @@ from telethon.errors.rpcerrorlist import MessageIdInvalidError
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot, owner
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 # ================= CONSTANT =================
 DEFAULTUSER = owner
 # ============================================
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -52,7 +52,7 @@ async def _(event):
             await event.edit(animation_chars[i % 103])
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"earth(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"earth(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -63,7 +63,7 @@ async def _(event):
         deq.rotate(1)
 
 
-@bot.on(man_cmd(pattern=r"bombs", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"bombs", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -94,7 +94,7 @@ async def _(event):
 """Available Commands: .gift"""
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -138,7 +138,7 @@ async def _(event):
             await event.edit(animation_chars[i % 17])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -177,7 +177,7 @@ async def _(event):
             await event.edit(animation_chars[i % 12])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -212,7 +212,7 @@ async def _(event):
             await event.edit(animation_chars[i % 103])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -250,7 +250,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -288,7 +288,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -326,7 +326,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -364,7 +364,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -398,7 +398,7 @@ async def _(event):
             await event.edit(animation_chars[i % 7])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -449,7 +449,7 @@ async def _(event):
             await event.edit(animation_chars[i % 24])
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"gangstar(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"gangstar(?: |$)(.*)"))
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         await event.edit("EVERyBOdy")
@@ -469,7 +469,7 @@ async def _(event):
         await event.edit("EVERyBOdy wAs GanGeSTar UNtIL I ArRivEd 😎😎😎")
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -507,7 +507,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -549,7 +549,7 @@ async def _(event):
             await event.edit(animation_chars[i % 15])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -591,7 +591,7 @@ async def _(event):
             await event.edit(animation_chars[i % 15])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -752,7 +752,7 @@ async def _(event):
             await event.edit(animation_chars[i % 549755813888])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -790,7 +790,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -828,7 +828,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -866,7 +866,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"plane(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"plane(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -889,7 +889,7 @@ async def _(event):
     await event.delete()
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -935,7 +935,7 @@ async def _(event):
             await event.edit(animation_chars[i % 19])
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"dump(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"dump(?: |$)(.*)"))
 async def _(message):
     try:
         obj = message.pattern_match.group(1)
@@ -971,7 +971,7 @@ async def _(message):
                 return
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1018,7 +1018,7 @@ async def _(event):
             await event.edit(animation_chars[i % 20])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1060,7 +1060,7 @@ async def _(event):
             await event.edit(animation_chars[i % 17])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1114,7 +1114,7 @@ async def _(event):
             await event.edit(animation_chars[i % 27])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -1168,7 +1168,7 @@ async def _(event):
             await event.edit(animation_chars[i % 72])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -1191,7 +1191,7 @@ async def _(event):
             await event.edit(animation_chars[i % 5])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1229,7 +1229,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1274,7 +1274,7 @@ async def _(event):
             await event.edit(animation_chars[i % 18])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1317,7 +1317,7 @@ async def _(event):
             await event.edit(animation_chars[i % 16])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1343,7 +1343,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1369,7 +1369,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1395,7 +1395,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1421,7 +1421,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1447,7 +1447,7 @@ async def _(event):
             await event.edit(animation_chars[i % 4])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1483,7 +1483,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1516,7 +1516,7 @@ async def _(event):
             await event.edit(animation_chars[i % 6])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1542,7 +1542,7 @@ async def _(event):
             await event.edit(animation_chars[i % 6])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1582,7 +1582,7 @@ async def _(event):
             await event.edit(animation_chars[i % 14])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1621,7 +1621,7 @@ async def _(event):
             await event.edit(animation_chars[i % 13])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1663,7 +1663,7 @@ async def _(event):
             await event.edit(animation_chars[i % 15])
 
 
-@bot.on(man_cmd(pattern=r"(.*)", outgoing=True))
+@bot.on(ayiin_cmd(pattern=r"(.*)", outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -1699,7 +1699,7 @@ async def _(event):
             await event.edit(animation_chars[i % 103])
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"kiss(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"kiss(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return

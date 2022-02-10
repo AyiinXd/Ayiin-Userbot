@@ -8,7 +8,7 @@ import nekos
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 arguments = [
     "feet",
@@ -77,7 +77,7 @@ arguments = [
 ]
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"nekos(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"nekos(?: |$)(.*)"))
 async def nekos_img(event):
     args = event.pattern_match.group(1)
     if not args or args not in arguments:

@@ -15,10 +15,10 @@ from wordcloud import ImageColorGenerator, WordCloud
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import bash, edit_delete, edit_or_reply, man_cmd
+from userbot.utils import bash, edit_delete, edit_or_reply, ayiin_cmd
 
 
-@man_cmd(pattern="(wc)$")
+@ayiin_cmd(pattern="(wc)$")
 async def _(event):
     if not event.reply_to_msg_id:
         await edit_delete(event, "`Mohon Balas Ke Media Apapun`")

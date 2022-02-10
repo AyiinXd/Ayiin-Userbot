@@ -16,10 +16,10 @@ from PIL import Image
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import bash, man_cmd
+from userbot.utils import bash, ayiin_cmd
 
 
-@man_cmd(pattern="tiny(?: |$)(.*)")
+@ayiin_cmd(pattern="tiny(?: |$)(.*)")
 async def ultiny(event):
     reply = await event.get_reply_message()
     if not (reply and (reply.media)):

@@ -15,10 +15,10 @@ from bs4 import BeautifulSoup as bs
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"ts (.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"ts (.*)"))
 async def gengkapak(e):
     await e.edit("`Please wait, fetching results...`")
     query = e.pattern_match.group(1)
@@ -75,7 +75,7 @@ def dogbin(magnets):
     return urls
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"tos(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"tos(?: |$)(.*)"))
 async def tor_search(event):
     if event.fwd_from:
         return

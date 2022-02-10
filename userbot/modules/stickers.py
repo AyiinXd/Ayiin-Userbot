@@ -37,7 +37,7 @@ from userbot import CMD_HELP
 from userbot import S_PACK_NAME as custompack
 from userbot import tgbot, user
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 KANGING_STR = [
     "Gua Ijin Maling Sticker Lu Tod...",
@@ -51,7 +51,7 @@ OWNER = user.first_name
 OWNER_ID = user.id
 
 
-@man_cmd(pattern="(?:tikel|kang)\s?(.)?")
+@ayiin_cmd(pattern="(?:tikel|kang)\s?(.)?")
 async def kang(args):
     user = await args.client.get_me()
     if not user.username:
@@ -274,7 +274,7 @@ async def resize_photo(photo):
     return image
 
 
-@man_cmd(pattern="pkang(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="pkang(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     xnxx = await edit_or_reply(event, f"`{random.choice(KANGING_STR)}`")
     reply = await event.get_reply_message()
@@ -347,7 +347,7 @@ async def _(event):
         await xnxx.edit("**Berkas Tidak Didukung. Harap Balas ke stiker saja.**")
 
 
-@man_cmd(pattern="stickerinfo$")
+@ayiin_cmd(pattern="stickerinfo$")
 async def get_pack_info(event):
     if not event.is_reply:
         return await edit_delete(event, "**Mohon Balas Ke Sticker**")
@@ -392,7 +392,7 @@ async def get_pack_info(event):
     await xx.edit(OUTPUT)
 
 
-@man_cmd(pattern="delsticker ?(.*)")
+@ayiin_cmd(pattern="delsticker ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -438,7 +438,7 @@ async def _(event):
             await xx.edit("**Berhasil Menghapus Stiker.**")
 
 
-@man_cmd(pattern="editsticker ?(.*)")
+@ayiin_cmd(pattern="editsticker ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -492,7 +492,7 @@ async def _(event):
                 )
 
 
-@man_cmd(pattern="getsticker$")
+@ayiin_cmd(pattern="getsticker$")
 async def sticker_to_png(sticker):
     if not sticker.is_reply:
         await edit_delete(sticker, "**Harap balas ke stiker**")
@@ -512,7 +512,7 @@ async def sticker_to_png(sticker):
     await xx.delete()
 
 
-@man_cmd(pattern="stickers ?([\s\S]*)")
+@ayiin_cmd(pattern="stickers ?([\s\S]*)")
 async def cb_sticker(event):
     query = event.pattern_match.group(1)
     if not query:
@@ -532,7 +532,7 @@ async def cb_sticker(event):
     await xx.edit(reply)
 
 
-@man_cmd(pattern="itos$")
+@ayiin_cmd(pattern="itos$")
 async def _(event):
     if event.fwd_from:
         return
@@ -569,7 +569,7 @@ async def _(event):
             await event.client.delete_message(event.chat_id, [msg.id, response.id])
 
 
-@man_cmd(pattern="get$")
+@ayiin_cmd(pattern="get$")
 async def _(event):
     rep_msg = await event.get_reply_message()
     if not event.is_reply or not rep_msg.sticker:

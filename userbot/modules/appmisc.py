@@ -27,7 +27,7 @@ from telethon.tl.types import (
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 normiefont = [
     "a",
@@ -93,7 +93,7 @@ name = "Profile Photos"
 client = bot
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"app(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"app(?: |$)(.*)"))
 async def apk(e):
     try:
         app_name = e.pattern_match.group(1)
@@ -157,7 +157,7 @@ async def apk(e):
         await e.edit("Exception Occured:- " + str(err))
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"calc(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"calc(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -193,7 +193,7 @@ async def _(event):
         await event.edit("use .calc help")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"xcd(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"xcd(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -238,7 +238,7 @@ Year: {}""".format(
         await event.edit("xkcd n.{} not found!".format(xkcd_id))
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"remove(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"remove(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -396,7 +396,7 @@ async def ban_user(chat_id, i, rights):
         return False, str(exc)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"rnupload(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"rnupload(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -442,7 +442,7 @@ async def _(event):
         await event.edit("Syntax // .rnupload filename.extension <reply ke media>")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"grab(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"grab(?: |$)(.*)"))
 async def potocmd(event):
     """Gets the profile photos of replied users, channels or chats"""
     id = "".join(event.raw_text.split(maxsplit=2)[1:])
@@ -475,7 +475,7 @@ async def potocmd(event):
             return
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"res(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"res(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -574,7 +574,7 @@ def get_provider(url):
     return url
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"watch(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"watch(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -629,7 +629,7 @@ async def _(event):
 # Modified by :- @kirito6969,@deleteduser420
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"weeb(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"weeb(?: |$)(.*)"))
 async def weebify(event):
 
     args = event.pattern_match.group(1)
@@ -677,7 +677,7 @@ boldfont = [
 ]
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"bold(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"bold(?: |$)(.*)"))
 async def thicc(bolded):
 
     args = bolded.pattern_match.group(1)
@@ -725,7 +725,7 @@ medievalbold = [
 ]
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"medibold(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"medibold(?: |$)(.*)"))
 async def mediv(medievalx):
 
     args = medievalx.pattern_match.group(1)
@@ -773,7 +773,7 @@ doublestruckt = [
 ]
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"doublestruck(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"doublestruck(?: |$)(.*)"))
 async def doublex(doublestrucktx):
 
     args = doublestrucktx.pattern_match.group(1)
@@ -821,7 +821,7 @@ cursiveboldx = [
 ]
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"curbold(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"curbold(?: |$)(.*)"))
 async def cursive2(cursivebolded):
 
     args = cursivebolded.pattern_match.group(1)
@@ -869,7 +869,7 @@ medival2 = [
 ]
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"medi(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"medi(?: |$)(.*)"))
 async def medival22(medivallite):
 
     args = medivallite.pattern_match.group(1)
@@ -917,7 +917,7 @@ cursive = [
 ]
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"cur(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"cur(?: |$)(.*)"))
 async def xcursive(cursivelite):
 
     args = cursivelite.pattern_match.group(1)

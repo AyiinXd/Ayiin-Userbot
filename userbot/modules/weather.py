@@ -17,7 +17,7 @@ from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot import OPEN_WEATHER_MAP_APPID as OWM_API
 from userbot import WEATHER_DEFCITY, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 # ===== CONSTANT =====
 DEFCITY = WEATHER_DEFCITY or None
@@ -37,7 +37,7 @@ async def get_tz(con):
         return
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"weather(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"weather(?: |$)(.*)"))
 async def get_weather(weather):
     """For .weather command, gets the current weather of a city."""
 

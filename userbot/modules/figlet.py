@@ -12,11 +12,11 @@ import pyfiglet
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 from userbot.utils import deEmojify
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"figlet (\w+) (.+)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"figlet (\w+) (.+)"))
 async def figlet(event):
     if event.fwd_from:
         return

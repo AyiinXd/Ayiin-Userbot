@@ -17,7 +17,7 @@ from requests import get
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 from userbot.utils import chrome, human_to_bytes, humanbytes, md5, time_formatter
 
 GITHUB = "https://github.com"
@@ -27,7 +27,7 @@ DEVICES_DATA = (
 )
 
 
-@bot.on(man_cmd(outgoing=True, pattern="magisk$"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="magisk$"))
 async def magisk(request):
     """magisk latest releases"""
     magisk_dict = {
@@ -51,7 +51,7 @@ async def magisk(request):
     await request.edit(releases)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"device(?: |$)(\S*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"device(?: |$)(\S*)"))
 async def device_info(request):
     """get android device basic info from its codename"""
     textx = await request.get_reply_message()
@@ -81,7 +81,7 @@ async def device_info(request):
     await request.edit(reply)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"codename(?: |)([\S]*)(?: |)([\s\S]*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"codename(?: |)([\S]*)(?: |)([\s\S]*)"))
 async def codename_info(request):
     """search for android codename"""
     textx = await request.get_reply_message()
@@ -118,7 +118,7 @@ async def codename_info(request):
     await request.edit(reply)
 
 
-@bot.on(man_cmd(outgoing=True, pattern="pixeldl(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="pixeldl(?: |$)(.*)"))
 async def download_api(dl):
     await dl.edit("`Collecting information...`")
     URL = dl.pattern_match.group(1)
@@ -222,7 +222,7 @@ async def download_api(dl):
     return
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"specs(?: |)([\S]*)(?: |)([\s\S]*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"specs(?: |)([\S]*)(?: |)([\s\S]*)"))
 async def devices_specifications(request):
     """Mobile devices specifications"""
     textx = await request.get_reply_message()
@@ -281,7 +281,7 @@ async def devices_specifications(request):
     await request.edit(reply)
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"twrp(?: |$)(\S*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"twrp(?: |$)(\S*)"))
 async def twrp(request):
     """get android device twrp"""
     textx = await request.get_reply_message()
