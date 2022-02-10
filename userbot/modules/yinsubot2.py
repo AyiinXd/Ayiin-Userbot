@@ -8,7 +8,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern="^.lipkol(?: |$)(.*)")
+@register(outgoing=True, pattern="^$lipkol(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -22,7 +22,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern="^.nakal(?: |$)(.*)")
+@register(outgoing=True, pattern="^$nakal(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`𝘼𝙮𝙖𝙖𝙖𝙖𝙣𝙜 𝙄𝙝 🥺`")
@@ -34,7 +34,7 @@ async def typewriter(typew):
     await typew.edit("`𝙋𝙤𝙠𝙤𝙠𝙣𝙮𝙖 𝘼𝙠𝙪 𝙂𝙖 𝙇𝙞𝙠𝙚 𝙄𝙝 😠`")
 
 
-@register(outgoing=True, pattern=r"^\.favboy(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\$favboy(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1.5)
@@ -49,7 +49,7 @@ async def typewriter(typew):
     await typew.edit("𝙂𝙖𝙠 𝘽𝙤𝙡𝙚𝙝 𝘼𝙙𝙖 𝙔𝙜 𝙇𝙖𝙞𝙣 😠")
 
 
-@register(outgoing=True, pattern="^.favgirl(?: |$)(.*)")
+@register(outgoing=True, pattern="^$favgirl(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`𝘿𝙪𝙪𝙪𝙝𝙝𝙝 𝘼𝙙𝙖 𝘾𝙚𝙬𝙚 𝘾𝙖𝙣𝙩𝙞𝙠 👉👈`")
@@ -64,7 +64,7 @@ async def typewriter(typew):
 
 
 
-@register(outgoing=True, pattern="^.canlay(?: |$)(.*)")
+@register(outgoing=True, pattern="^$canlay(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -79,7 +79,7 @@ async def typewriter(typew):
     await typew.edit("𝙋𝙖𝙣𝙩𝙚𝙨 𝙉𝙤𝙧𝙖𝙠 𝙓𝙞𝙭𝙞𝙭𝙞𝙭𝙞")
 
 
-@register(outgoing=True, pattern="^.ganlay(?: |$)(.*)")
+@register(outgoing=True, pattern="^$ganlay(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -94,7 +94,7 @@ async def typewriter(typew):
     await typew.edit("𝙋𝙖𝙣𝙩𝙚𝙨 𝙉𝙤𝙧𝙖𝙠 𝙓𝙞𝙭𝙞𝙭𝙞𝙭𝙞")
 
 
-@register(outgoing=True, pattern="^.ange(?: |$)(.*)")
+@register(outgoing=True, pattern="^$ange(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("𝘼𝙮𝙖𝙣𝙜𝙜𝙜𝙜😖")
@@ -106,18 +106,18 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "yinsubot2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.lipkol`\
+    "yinsubot2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$lipkol`\
     \n↳ : Bucin Lipkol\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.nakal`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$nakal`\
     \n↳ : Ga Like Ayang Nakal\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.favboy`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$favboy`\
     \n↳ : You Are My Favorite Boy\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.favgirl`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$favgirl`\
     \n↳ : You Are My Favorite Girl\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.canlay`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$canlay`\
     \n↳ : Ngatain Si Cantik alay\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ganlay`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$ganlay`\
     \n↳ : Ngatain Si Ganteng Alay\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ange`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$ange`\
     \n↳ : Sangean."
 })
