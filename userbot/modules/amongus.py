@@ -17,7 +17,7 @@ from userbot import CMD_HELP, bot
 from userbot.events import ayiin_cmd
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"imp ($*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"imp (.*)"))
 async def f_load(message):
     clrs = {
         "red": 1,
