@@ -5,7 +5,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 import asyncio
 
 
-@register(outgoing=True, pattern=r"^\.tm(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\$tm(?: |$)(.*)")
 async def _(event):
     chat = "@TempMailBot"
     geez = await event.edit("Sabar Tod Sedang Memprosess...")
@@ -28,5 +28,5 @@ async def _(event):
         await event.edit(f"**YINS TEMPMAIL** ~ `{response.message.message}`\n\n[KLIK DISINI UNTUK VERIFIKASI]({geezuserbot})")
 
 
-CMD_HELP.update({"tempmail": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tm`"
+CMD_HELP.update({"tempmail": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$tm`"
                  "\n•: Mendapatkan Email Gratis Dari Temp Mail"})
