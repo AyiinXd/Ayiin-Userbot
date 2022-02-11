@@ -31,7 +31,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 <a href="https://facebook.com/kyiushin.real"><img src="https://img.shields.io/badge/Facebook-Follow%20on%20Facebook-blue.svg?logo=facebook"></a>
 
 ### 🖤Generate String Session
-[![Run repl.it](https://img.shields.io/badge/run-string__session.py-blue?style=for-the-badge&logo=repl.it)](https://repl.it/@AyiinXd/ConnorString?lite=1&outputonly=1)
+[![Run repl.it](https://img.shields.io/badge/run-string__session.py-blue?style=for-the-badge&logo=repl.it)](https://repl.it/@AyiinXd/AyiinString?lite=1&outputonly=1)
 
 
 <h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku :</h3>
