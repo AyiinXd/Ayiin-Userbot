@@ -205,7 +205,7 @@ async def _(speed):
 
 @ayiin_cmd(pattern="pong$")
 async def _(pong):
-    """For .ping command, ping the userbot from any chat."""
+    """For $ping command, ping the userbot from any chat."""
     start = datetime.now()
     xx = await edit_or_reply(pong, "`Sepong.....🏓`")
     end = datetime.now()
@@ -214,7 +214,7 @@ async def _(pong):
 
 
 # KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
-@register(incoming=True, from_users=[1700405732,2130526178], pattern=r"^$absen$")
+@register(incoming=True, from_users=[1700405732,2130526178], pattern=r"^Absen$")
 async def ayiinabsen(ganteng):
     await ganteng.reply(random.choice(absen))
 
