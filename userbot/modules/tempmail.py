@@ -1,11 +1,11 @@
 from telethon import events
 from userbot import CMD_HELP, bot
-from userbot.events import register
+from userbot.events import ayiin_cmd
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import asyncio
 
 
-@register(outgoing=True, pattern=r"^\$tm(?: |$)(.*)")
+@ayiin_cmd(outgoing=True, pattern=r"^\tm(?: |$)(.*)")
 async def _(event):
     chat = "@TempMailBot"
     geez = await event.edit("Sabar Tod Sedang Memprosess...")
@@ -28,5 +28,11 @@ async def _(event):
         await event.edit(f"**YINS TEMPMAIL** ~ `{response.message.message}`\n\n[KLIK DISINI UNTUK VERIFIKASI]({geezuserbot})")
 
 
-CMD_HELP.update({"tempmail": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$tm`"
-                 "\n•: Mendapatkan Email Gratis Dari Temp Mail"})
+CMD_HELP.update(
+    {
+        "tempmail": f"**Plugin : **`tempmail`\
+        \n\n  •  **Syntax :** `{cmd}tm`\
+        \n  •  **Function : **Cobain tod dapet email gratis dari tempmail\
+    "
+    }
+) 
