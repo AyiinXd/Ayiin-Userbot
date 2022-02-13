@@ -49,7 +49,7 @@ async def _(event):
 CMD_HELP.update(
     {
         "buatbot": f"**Plugin : **`buatbot`\
-        \n\n  •  **Syntax :** `$botbaru`\
+        \n\n  •  **Syntax :** `{cmd}botbaru`\
         \n  •  **Function : **Buat Bot\
         \n\n**Untuk Membuat Bot Dari Bot Father, Ketik** `{cmd}botbaru < bot_name > < bot_username >`\
     "
