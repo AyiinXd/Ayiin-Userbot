@@ -4,12 +4,12 @@
 # Credits by @AyiinXd
 
 from time import sleep
-from userbot import CMD_HELP
+from userbot import CMD_HELP, bot
 from userbot import CMD_HANDLER as cmd
-from userbot.events import register
+from userbot.events import ayiin_cmd
 
 
-@register(outgoing=True, pattern='^$yins(?: |$)(.*)')
+@bot.on(ayiin_cmd(outgoing=True, pattern="^yins(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -24,10 +24,10 @@ async def typewriter(typew):
     await typew.edit("'𝘿𝙖𝙣 𝙎𝙖𝙩𝙪 𝙇𝙖𝙜𝙞....'")
     sleep(3)
     await typew.edit("'𝙂𝙪𝙖 𝙂𝙖𝙣𝙩𝙚𝙣𝙜 𝙏𝙤𝙙 🗿'")
-# Create by myself @Contoldisini
+# Create by myself @AyiinXd
 
 
-@register(outgoing=True, pattern='^$sayang(?: |$)(.*)')
+@bot.on(ayiin_cmd(outgoing=True, pattern="^sayang(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -36,10 +36,10 @@ async def typewriter(typew):
     await typew.edit("`𝘼𝙠𝙪 𝙎𝙖𝙮𝙖𝙣𝙜 𝙆𝙖𝙢𝙪 😘`")
     sleep(1)
     await typew.edit("`𝙈𝙪𝙖𝙖𝙘𝙘𝙝𝙝𝙝 😘💕`")
-# Create by myself @Contoldisini
+# Create by myself @AyiinXd
 
 
-@register(outgoing=True, pattern='^$semangat(?: |$)(.*)')
+@bot.on(ayiin_cmd(outgoing=True, pattern="^semangat(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -48,9 +48,9 @@ async def typewriter(typew):
     await typew.edit("`𝙏𝙚𝙩𝙖𝙥𝙡𝙖𝙝 𝘽𝙚𝙧𝙣𝙖𝙥𝙖𝙨`")
     sleep(1)
     await typew.edit("`𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝘽𝙚𝙧𝙨𝙮𝙪𝙠𝙪𝙧`")
-# Create by myself @Contoldisini
+# Create by myself @AyiinXd
 
-@register(outgoing=True, pattern='^$mengeluh(?: |$)(.*)')
+@bot.on(ayiin_cmd(outgoing=True, pattern="^mengeluh(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -59,16 +59,16 @@ async def typewriter(typew):
     await typew.edit("`𝙏𝙚𝙩𝙖𝙥𝙡𝙖𝙝 𝙈𝙚𝙣𝙜𝙚𝙡𝙪𝙝`")
     sleep(1)
     await typew.edit("`𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝙋𝙪𝙩𝙪𝙨 𝘼𝙨𝙖`")
-# Create by myself @Contoldisini
+# Create by myself @AyiinXd
 
 
 CMD_HELP.update({
-    "yinsubot3": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$yins`\
+    "yinsubot3": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}yins`\
     \n↳ : perkenalan yins\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$sayang`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
     \n↳ : Gombalan maut`\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$semangat`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\
     \n↳ : Jan Lupa Semangat`\
-n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$mengeluh`\
+n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}mengeluh`\
     \n↳ : Jan Lupa Mengeluh."
 })
