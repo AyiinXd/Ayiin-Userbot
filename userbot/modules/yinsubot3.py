@@ -9,7 +9,7 @@ from userbot import CMD_HANDLER as cmd
 from userbot.events import ayiin_cmd
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="^yins(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="^Yins(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -27,7 +27,7 @@ async def typewriter(typew):
 # Create by myself @AyiinXd
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="^sayang(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="^Sayang(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -39,7 +39,7 @@ async def typewriter(typew):
 # Create by myself @AyiinXd
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="^semangat(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="^Semangat(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -50,7 +50,7 @@ async def typewriter(typew):
     await typew.edit("`𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝘽𝙚𝙧𝙨𝙮𝙪𝙠𝙪𝙧`")
 # Create by myself @AyiinXd
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="^mengeluh(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="^Mengeluh(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -63,12 +63,12 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "yinsubot3": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}yins`\
+    "yinsubot3": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `Yins`\
     \n↳ : perkenalan yins\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `Sayang`\
     \n↳ : Gombalan maut`\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `Semangat`\
     \n↳ : Jan Lupa Semangat`\
-n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}mengeluh`\
+n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `Mengeluh`\
     \n↳ : Jan Lupa Mengeluh."
 })
