@@ -6,29 +6,6 @@ from userbot import CMD_HELP, bot
 from userbot.events import ayiin_cmd
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"sayang(?: |$)(.*)"))
-async def _(event):
-    await event.edit("**Cuma Mau Bilang**")
-    sleep(3)
-    await event.edit("**Aku Sayang Kamu**")
-    sleep(1)
-    await event.edit("**I LOVE YOU 💞**")
-
-
-# Create by myself @localheart
-
-
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"semangat(?: |$)(.*)"))
-async def _(event):
-    await event.edit("**Apapun Yang Terjadi**")
-    sleep(3)
-    await event.edit("**Tetaplah Bernapas**")
-    sleep(1)
-    await event.edit("**Dan Selalu Bersyukur**")
-
-
-# Create by myself @localheart
-
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"ywc(?: |$)(.*)"))
 async def _(event):
