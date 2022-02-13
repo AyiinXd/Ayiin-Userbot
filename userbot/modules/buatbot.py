@@ -13,7 +13,7 @@ from userbot.events import register
 chat = "@BotFather"
 
 
-@register(outgoing=True, pattern="^$botbaru(?: |$)(.*)")
+@register(outgoing=True, pattern="^Botbaru(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -49,9 +49,9 @@ async def _(event):
 CMD_HELP.update(
     {
         "buatbot": f"**Plugin : **`buatbot`\
-        \n\n  •  **Syntax :** `{cmd}botbaru`\
-        \n  •  **Function : **Buat Bot\
-        \n\n**Untuk Membuat Bot Dari Bot Father, Ketik** `{cmd}botbaru < bot_name > < bot_username >`\
+        \n\n  •  **Syntax :** `Botbaru`\
+        \n  •  **Function : **Buat Bot Baru Di Bot Father\
+        \n\n**Untuk Membuat Bot Dari Bot Father, Ketik** `Botbaru < bot_name > < bot_username >`\
     "
     }
 ) 
