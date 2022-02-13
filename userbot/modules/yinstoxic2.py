@@ -135,7 +135,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}ngentot`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}goblok`\
-        \n  •  **Function : **Cobaij sendiri tod\
+        \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}ngatain`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}kont`\
