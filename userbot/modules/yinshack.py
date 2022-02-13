@@ -6,14 +6,18 @@
 
 
 from time import sleep
-from userbot import CMD_HELP
-from userbot.events import register
+
+from userbot import BLACKLIST_CHAT
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, bot
+from userbot.events import ayiin_cmd
+
 
 import asyncio
 
 
-@register(outgoing=True, pattern='^.yinshack(?: |$)(.*)')
-async def hack(event):
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"hack(?: |$)(.*)"))
+async def _(event):
     range(0, 11)
     await event.edit("Installing.")
     await event.edit("Installing..")
@@ -120,7 +124,12 @@ async def hack(event):
     await event.edit("PDF Dibuat Klik Tautan Di Bawah Ini untuk Mengunduh Data\n\n`Jangan Khawatir Hanya Saya Bisa Buka File Ini 😎😎..\nAnda Mencoba Download 🙂\n\n[KLIK DISINI](https://cararegistrasi.com/kazftyk)")
 
 
-CMD_HELP.update({
-    "yinshack": "CMD➣: `$yinshack`\
-        \n↳ : Untuk hacking via Termux."
-})
+CMD_HELP.update(
+    {
+        "yinshack": f"**Plugin : **`yinshack`\
+        \n\n  •  **Syntax :** `{cmd}hack`\
+        \n  •  **Function : **Coba sendiri tod\
+        \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
+    "
+    }
+) 
