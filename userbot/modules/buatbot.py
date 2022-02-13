@@ -13,7 +13,7 @@ from userbot.events import register
 chat = "@BotFather"
 
 
-@register(outgoing=True, pattern="^$botbaru(?: |$)(.*)")
+@register(outgoing=True, pattern="^botbaru(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
