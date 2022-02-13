@@ -13,7 +13,7 @@ from userbot.events import ayiin_cmd
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"yins(?: |$)(.*)"))
 async def _(event):
-    await typew.edit("`𝙃𝙖𝙞 𝙋𝙚𝙧𝙠𝙚𝙣𝙖𝙡𝙠𝙖𝙣 𝙉𝙖𝙢𝙖 𝙂𝙪𝙖 𝘼𝙮𝙞𝙞𝙣`")
+    await event.edit("`𝙃𝙖𝙞 𝙋𝙚𝙧𝙠𝙚𝙣𝙖𝙡𝙠𝙖𝙣 𝙉𝙖𝙢𝙖 𝙂𝙪𝙖 𝘼𝙮𝙞𝙞𝙣`")
     sleep(3)
     await event.edit("`23 𝙏𝙖𝙝𝙪𝙣`")
     sleep(2)
