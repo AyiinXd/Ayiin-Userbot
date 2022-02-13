@@ -103,7 +103,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}lipkol`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}nakal`\
-        \n  •  **Function : **Cobaij sendiri tod\
+        \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}favboy`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}favgirl`\
