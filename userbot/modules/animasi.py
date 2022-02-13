@@ -1,14 +1,17 @@
 # greyvbss
 # cilik-userbot
 
-from userbot import CMD_HELP
-from userbot.events import register
+from time import sleep
+
+from userbot import BLACKLIST_CHAT
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, bot
+from userbot.events import ayiin_cmd
 
 
-@register(outgoing=True, pattern='^$skull(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("███████████████████████████\n"
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"skull(?: |$)(.*)"))
+async def _(event):
+    await event.edit("███████████████████████████\n"
                      "███████▀▀▀░░░░░░░▀▀▀███████\n"
                      "████▀░░░░░░░░░░░░░░░░░▀████\n"
                      "███│░░░░░░░░░░░░░░░░░░░│███\n"
@@ -29,20 +32,18 @@ async def typewriter(typew):
                      "███████████████████████████\n")
 
 
-@register(outgoing=True, pattern='^$wlc(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n"
+bot.on(ayiin_cmd(outgoing=True, pattern=r"wlc(?: |$)(.*)"))
+async def _(event):
+    await event.edit("█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n"
                      "█░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█\n"
                      "█░░║║║╠─║─║─║║║║║╠─░░█\n"
                      "█░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█\n"
                      "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n")
 
 
-@register(outgoing=True, pattern='^$klb(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("   ╚⊙ ⊙╝..\n"
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"klb(?: |$)(.*)"))
+async def _(event):
+    await event.edit("   ╚⊙ ⊙╝..\n"
                      "   ╚═(███)═╝\n"
                      "    ╚═(███)═╝\n"
                      "       ╚═(███)═╝\n"
@@ -65,10 +66,9 @@ async def typewriter(typew):
                      "      ╚═(█)═╝\n")
 
 
-@register(outgoing=True, pattern='^$fucek(?: |$)(.*)')
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    await typew.edit("░░░░░░░░░░░░░░░▄▄░░░░░░░░░░░\n"
+bot.on(ayiin_cmd(outgoing=True, pattern=r"fucek(?: |$)(.*)"))
+async def _(event):
+    await event.edit("░░░░░░░░░░░░░░░▄▄░░░░░░░░░░░\n"
                      "░░░░░░░░░░░░░░█░░█░░░░░░░░░░\n"
                      "░░░░░░░░░░░░░░█░░█░░░░░░░░░░\n"
                      "░░░░░░░░░░░░░░█░░█░░░░░░░░░░\n"
@@ -82,6 +82,18 @@ async def typewriter(typew):
                      "▓▓▓▓▓▓█████░░░░░░░░░██░░░░░░\n")
 
 
-CMD_HELP.update({"animasi":
-                 "`$skull` ; `$wlc` ; `$klb` ; `$fucek`\
-                 \nUsage: Coba Aja."})
+CMD_HELP.update(
+    {
+        "animasi": f"**Plugin : **`animasi`\
+        \n\n  •  **Syntax :** `{cmd}skull`\
+        \n  •  **Function : **Cobain sendiri tod\
+        \n\n  •  **Syntax :** `{cmd}wlc`\
+        \n  •  **Function : **Cobain sendiri tod\
+        \n\n  •  **Syntax :** `{cmd}klb`\
+        \n  •  **Function : **Cobain sendiri tod\
+        \n\n  •  **Syntax :** `{cmd}fucek`\
+        \n  •  **Function : **Cobain sendiri tod\
+        \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
+    "
+    }
+) 
