@@ -5,87 +5,82 @@
 
 
 from time import sleep
-from userbot import CMD_HELP, bot
+
+from userbot import BLACKLIST_CHAT
 from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, bot
 from userbot.events import ayiin_cmd
 
 
-
-
-
-@bot.on(ayiin_cmd(outgoing=True, pattern="^Ganteng(?: |$)(.*)"))
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    sleep(1)
-    await typew.edit("`Lu Mau Tau Sebuah Fakta?`")
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"ganteng(?: |$)(.*)"))
+async def _(event):
+    await event.edit("`Lu Mau Tau Sebuah Fakta?`")
     sleep(3)
-    await typew.edit("`Fakta Yang Belum Terbongkar Selama Ini`")
+    await event.edit("`Fakta Yang Belum Terbongkar Selama Ini`")
     sleep(3)
-    await typew.edit("`**GUA GANTENG FIX NO DEBAT😏**`")
+    await event.edit("`**GUA GANTENG FIX NO DEBAT😏**`")
 
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="^Wibu(?: |$)(.*)"))
-async def typewriter(typew):
-    typew.pattern_match.group(1)
-    sleep(1)
-    await typew.edit("`Kata Emak`")
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"wibu(?: |$)(.*)"))
+async def _(event):
+    await event.edit("`Kata Emak`")
     sleep(2)
-    await typew.edit("`Kalo Ketemu Wibuu`")
+    await event.edit("`Kalo Ketemu Wibuu`")
     sleep(3)
-    await typew.edit("`Harus Lari Sekenceng Mungkin🏃🏻`")
+    await event.edit("`Harus Lari Sekenceng Mungkin🏃🏻`")
     sleep(3)
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`ㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await typew.edit("`🧎🏻‍♂️ huhh... akhirnya bisa lolos dari wibu mematikan`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`ㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
+    await event.edit("`🧎🏻‍♂️ huhh... akhirnya bisa lolos dari wibu mematikan`")
 
 # create by ayiin
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="^Senggol(?: |$)(.*)"))
-async def typewriter(typew):
-    typew.pattern_match.group(1)
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"senggol(?: |$)(.*)"))
+async def _(event):
+    await event.edit("`Bapaknya Udin Di Makan Singkong`")
     sleep(2)
-    await typew.edit("`Bapaknya Udin Di Makan Singkong`")
-    sleep(2)
-    await typew.edit("`Cuma Sendiri ni Senggol Dong`")
+    await event.edit("`Cuma Sendiri ni Senggol Dong`")
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="^P(?: |$)(.*)"))
-async def typewriter(typew):
-    typew.pattern_match.group(1)
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"p(?: |$)(.*)"))
+async def _(event):
+    await event.edit("`Awali perkataan dengan dengan salam`")
     sleep(1)
-    await typew.edit("`Awali perkataan dengan dengan salam`")
-    sleep(1)
-    await typew.edit("`Assalamualaikum Sayang`")
+    await event.edit("`Assalamualaikum Sayang`")
 
 
-CMD_HELP.update({
-    "yinsubot5":
-    "CMD➣`Senggol`\
-\nPenjelasan: Cek lah asw.\
-\n\nCMD➣`P`\
-\nPenjelasan: Cek lah asw.\
-\n\nCMD➣`Wibu`\
-\nPenjelasan: Lari Dari Wibu.\
-\n\nCMD➣`Ganteng`\
-\nPenjelasan: Gua Ganteng."
-})
+CMD_HELP.update(
+    {
+        "yinsubot5": f"**Plugin : **`yinsubot5`\
+        \n\n  •  **Syntax :** `{cmd}ganteng`\
+        \n  •  **Function : **Coba sendiri tod\
+        \n\n  •  **Syntax :** `{cmd}wibut`\
+        \n  •  **Function : **Coba sendiri tod\
+        \n\n  •  **Syntax :** `{cmd}senggol`\
+        \n  •  **Function : **Coba sendiri tod\
+        \n\n  •  **Syntax :** `{cmd}p`\
+        \n  •  **Function : **Bucin sopan\
+        \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
+    "
+    }
+)
