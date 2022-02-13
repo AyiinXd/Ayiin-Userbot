@@ -8,12 +8,12 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.events import ayiin_cmd
 
 chat = "@BotFather"
 
 
-@register(outgoing=True, pattern="^$botbaru ?(.*)")
+@ayiin_cmd(pattern=r"botbaru(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
