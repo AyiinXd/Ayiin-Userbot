@@ -163,7 +163,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}sadboy`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}wah`\
-        \n  •  **Function : **Cobaij sendiri tod\
+        \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}sok`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}lah`\
