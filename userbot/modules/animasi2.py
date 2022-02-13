@@ -175,9 +175,9 @@ async def _(event):
 
 CMD_HELP.update({
     "animasi2":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.nah` ; `.huh` ; `$owner`\
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$nah` ; `$huh` ; `$owner`\
     \n↳ : Cobain Sendiri.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.bunga` ; `$buah`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$bunga` ; `$buah`\
     \n↳ : animasi.\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `$waktu`\
     \n↳ : animasi.\
