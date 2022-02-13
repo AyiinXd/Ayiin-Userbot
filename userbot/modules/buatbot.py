@@ -8,12 +8,12 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
+from userbot.events import ayiin_cmd
 
 chat = "@BotFather"
 
 
-@register(outgoing=True, pattern="^$botbaru ?(.*)")
+@ayiin_cmd(outgoing=True, pattern="^botbaru ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -48,7 +48,10 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "botfather": "$botbaru\
-    \nUntuk Membuat Bot Dari Botfather, .botbaru  < bot_name > <bot_username >  ."
+        "buatbot": f"**Plugin : **`buatbot`\
+        \n\n  •  **Syntax :** `{cmd}botbaru`\
+        \n  •  **Function : **Buat Bot\
+        \n\n**Untuk Membuat Bot Dari Bot Father, Ketik** `{cmd}botbaru < bot_name > < bot_username >`\
+    "
     }
-)
+) 
