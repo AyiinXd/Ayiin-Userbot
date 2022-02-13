@@ -5,14 +5,15 @@
 
 
 from time import sleep
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, bot
+from userbot import CMD_HANDLER as cmd
+from userbot.events import ayiin_cmd
 
 
 
 
 
-@register(outgoing=True, pattern='^$ganteng(?: |$)(.*)')
+@bot.on(ayiin_cmd(outgoing=True, pattern="^Ganteng(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -24,7 +25,7 @@ async def typewriter(typew):
 
 
 
-@register(outgoing=True, pattern='^$wibu(?: |$)(.*)')
+@bot.on(ayiin_cmd(outgoing=True, pattern="^Wibu(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -59,7 +60,7 @@ async def typewriter(typew):
 # create by ayiin
 
 
-@register(outgoing=True, pattern='^$senggol(?: |$)(.*)')
+@bot.on(ayiin_cmd(outgoing=True, pattern="^Senggol(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -68,7 +69,7 @@ async def typewriter(typew):
     await typew.edit("`Cuma Sendiri ni Senggol Dong`")
 
 
-@register(outgoing=True, pattern='^p(?: |$)(.*)')
+@bot.on(ayiin_cmd(outgoing=True, pattern="^P(?: |$)(.*)"))
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -79,12 +80,12 @@ async def typewriter(typew):
 
 CMD_HELP.update({
     "yinsubot5":
-    "CMD➣`$senggol`\
+    "CMD➣`Senggol`\
 \nPenjelasan: Cek lah asw.\
-\n\nCMD➣`p`\
+\n\nCMD➣`P`\
 \nPenjelasan: Cek lah asw.\
-\n\nCMD➣`$wibu`\
+\n\nCMD➣`Wibu`\
 \nPenjelasan: Lari Dari Wibu.\
-\n\nCMD➣`$ganteng`\
+\n\nCMD➣`Ganteng`\
 \nPenjelasan: Gua Ganteng."
 })
