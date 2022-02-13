@@ -7,13 +7,13 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
+from userbot import CMD_HELP, bot
 from userbot.events import ayiin_cmd
 
 chat = "@BotFather"
 
 
-@ayiin_cmd(outgoing=True, pattern="^botbaru ?(.*)")
+@bot.on(ayiin_cmd(outgoing=True, pattern="^botbaru ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
