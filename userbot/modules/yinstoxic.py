@@ -52,11 +52,6 @@ async def _(event):
     await event.edit("**BACOTAN LU GAK BIKIN GUA TREMOR GOBLOK HAHAHAHA!!**")
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"k(?: |$)(.*)"))
-async def _(event):
-    await event.edit("**HAI PERKENALKAN NAMA SAYA GAK TAU LUPA!!**")
-
-
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"n(?: |$)(.*)"))
 async def _(event):
     await event.edit("**GIMANA KABAR KAMU SAYANG??APAKAH BAIK?**")
@@ -141,8 +136,6 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}w`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}z`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}k`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}n`\
         \n  •  **Function : **Cobain sendiri tod\
