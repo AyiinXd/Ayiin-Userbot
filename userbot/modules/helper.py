@@ -8,11 +8,11 @@ from userbot.utils import edit_or_reply, ayiin_cmd
 async def usit(event):
     await edit_or_reply(
         event,
-        f"**Hai {owner} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `.help` Atau Bisa Minta Bantuan Ke:\n"
-        f"✣ **Group Support :** [𝗔𝘆𝗶𝗶𝗻 𝗨𝘀𝗲𝗿𝗯𝗼𝘁](t.me/AyiinXdSupport)\n"
-        f"✣ **Channel Ayiin :** [𝗔𝘆𝗶𝗶𝗻𝗦𝘂𝗽𝗽𝗼𝗿𝘁](t.me/AyiinSupport)\n"
-        f"✣ **Owner Repo :** [ʏɪɴs](t.me/AyiinXd)\n"
-        f"✣ **Repo :** [𝗔𝘆𝗶𝗶𝗻-𝗨𝘀𝗲𝗿𝗯𝗼𝘁](https://github.com/AyiinXd/Ayiin-Userbot)\n",
+        f"**Hai {owner} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `$help` Atau Bisa Minta Bantuan Ke:\n"
+        f"⍟ **Group Support :** [𝙰𝚈𝙸𝙸𝙽 𝚂𝚄𝙿𝙿𝙾𝚁𝚃](t.me/AyiinXdSupport)\n"
+        f"⍟ **Channel Ayiin :** [𝙰𝚈𝙸𝙸𝙽 𝚂𝚄𝙿𝙿𝙾𝚁𝚃](t.me/AyiinSupport)\n"
+        f"⍟ **Owner Repo :** [𝚈𝙸𝙽𝚂](t.me/AyiinXd)\n"
+        f"⍟ **Repo :** [𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃](https://github.com/AyiinXd/Ayiin-Userbot)\n",
     )
 
 
