@@ -66,9 +66,9 @@ async def shutdown_bot(event):
         await event.client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**✥ 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ✥** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await edit_or_reply(event, "**✥ 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ✥ Berhasil di matikan!**")
+    await edit_or_reply(event, "**᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽ Berhasil di matikan!**")
     if HEROKU_APP is not None:
         HEROKU_APP.process_formation()["worker"].scale(0)
     else:
@@ -79,10 +79,10 @@ async def shutdown_bot(event):
 async def restart_bot(event):
     if event.sender_id in SUDO_USERS:
         return
-    await edit_or_reply(event, "**𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Berhasil di Restart**")
+    await edit_or_reply(event, "**᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽ Berhasil di Restart**")
     if BOTLOG_CHATID:
         await event.client.send_message(
-            BOTLOG_CHATID, "#RESTART \n" "**𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 Berhasil Di Restart**"
+            BOTLOG_CHATID, "#RESTART \n" "**᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽ Berhasil Di Restart**"
         )
     args = [sys.executable, "-m", "userbot"]
     execle(sys.executable, *args, environ)
@@ -135,7 +135,7 @@ async def repo_is_here(event):
 async def string_is_here(event):
     await edit_or_reply(
         event,
-        "✥ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@AyiinXd/ConnorString?lite=1&outputonly=1#main.py)\n",
+        "✥ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@AyiinXd/AyiinString?lite=1&outputonly=1#main.py)\n",
     )
 
 
