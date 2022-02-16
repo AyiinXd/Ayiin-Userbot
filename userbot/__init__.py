@@ -191,7 +191,7 @@ ALIVE_NAME = os.environ.get("ALIVE_NAME", "𝘼𝙮𝙞𝙞𝙣𝙓𝙙")
 ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "✥»")
 
 # Custom Emoji Alive
-INLINE_EMOJI = os.environ.get("INLINE_EMOJI", "𑁍")
+INLINE_EMOJI = os.environ.get("INLINE_EMOJI", "☠︎︎")
 
 # Custom icon HELP
 ICON_HELP = os.environ.get("ICON_HELP", "⍟")
@@ -316,10 +316,10 @@ async def check_botlog_chatid() -> None:
 async def update_restart_msg(chat_id, msg_id):
     DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
     message = (
-        f"**🔸Ayiin-Userbot v{BOT_VER} is back up and running!**\n\n"
-        f"**🔸Telethon:** {version.__version__}\n"
-        f"**🔸Python:** {python_version()}\n"
-        f"**🔸User:** {DEFAULTUSER}"
+        f"**⍟ Ayiin-Userbot v{BOT_VER} is back up and running!**\n\n"
+        f"**⍟ Telethon:** {version.__version__}\n"
+        f"**⍟ Python:** {python_version()}\n"
+        f"**⍟ User:** {DEFAULTUSER}"
     )
     await bot.edit_message(chat_id, msg_id, message)
     return True
@@ -497,7 +497,7 @@ with bot:
                 result = builder.photo(
                     file=logoman,
                     link_preview=False,
-                    text=f"**🔸 Ayiin-Userbot Inline Menu 🔸**\n\n✓ **Owner** [{user.first_name}](tg://user?id={user.id})\n✓ **Jumlah** `{len(dugmeler)}` Modules",
+                    text=f"**᯽ Ayiin-Userbot Inline Menu ᯽**\n\n✓ **Owner** [{user.first_name}](tg://user?id={user.id})\n✓ **Jumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -551,7 +551,7 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="🔥 Ayiin-Userbot 🔥",
+                    title="᯽ Ayiin-Userbot ᯽",
                     description="Ayiin - UserBot | Telethon",
                     url="https://t.me/AyiinXdSupport",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
@@ -575,7 +575,7 @@ with bot:
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(looters)
                 buttons = paginate_help(current_page_number, dugmeler, "helpme")
-                text = f"**🔸 Ayiin-Userbot Inline Menu 🔸**\n\n👑 **Owner** [{user.first_name}](tg://user?id={user.id})\n👉 **Jumlah** `{len(dugmeler)}` Modules"
+                text = f"**᯽ Ayiin-Userbot Inline Menu ᯽**\n\n👑 **Owner** [{user.first_name}](tg://user?id={user.id})\n👉 **Jumlah** `{len(dugmeler)}` Modules"
                 await event.edit(
                     text,
                     file=logoman,
@@ -639,7 +639,7 @@ with bot:
                         .replace("`", "")
                         .replace("**", "")[:150]
                         + "..."
-                        + "\n\nBaca Teks Berikutnya Ketik .help "
+                        + "\n\nBaca Teks Berikutnya Ketik $help "
                         + modul_name
                         + " "
                     )
