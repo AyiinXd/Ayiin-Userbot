@@ -58,7 +58,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         if heroku_app is None:
             await event.edit(
                 f"{txt}\n"
-                "**Kredensial Heroku tidak valid untuk deploy 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 dyno.**"
+                "**Kredensial Heroku tidak valid untuk deploy Ayiin-Userbot dyno.**"
             )
             return repo.__del__()
         try:
@@ -120,7 +120,6 @@ async def update(event, repo, ups_rem, ac_br):
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"update( now| deploy|$)"))
-@register(incoming=True, from_users=1700405732, pattern=r"^\$cupdate(?: |$)(.*)")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     await event.edit("`Mengecek Pembaruan, Tunggu Sebentar...`")
