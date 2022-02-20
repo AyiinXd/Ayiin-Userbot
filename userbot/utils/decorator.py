@@ -103,7 +103,7 @@ def ayiin_cmd(
                         **args, from_users=list(SUDO_USERS), pattern=sudo_reg
                     ),
                 )
-            if AYIIN2:
+        if AYIIN2:
             if not disable_edited:
                 AYIIN2.add_event_handler(
                     func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
@@ -194,8 +194,8 @@ def chataction(**args):
 
     return decorator
 
-    
-    def callback(**args): 
+
+def callback(**args): 
     def decorator(func):
         if tgbot:
             tgbot.add_event_handler(func, events.CallbackQuery(**args))
