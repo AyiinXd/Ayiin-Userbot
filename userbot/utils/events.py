@@ -2,7 +2,7 @@ import pybase64
 from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
 
-from userbot import bot
+from userbot import AYIIN2, AYIIN3, AYIIN4, AYIIN5, bot
 
 from .logger import logging
 from .tools import edit_delete
@@ -81,10 +81,32 @@ async def checking():
     gocheck = str(pybase64.b64decode("QEF5aWluU3VwcG9ydA=="))[2:17]
     checker = str(pybase64.b64decode("QEF5aWluWGRTdXBwb3J0"))[2:17]
     try:
-        await bot(Get(gocheck))
+        if bot:
+            await bot(Get(gocheck))
+            await bot(Get(checker))
     except BaseException:
         pass
     try:
-        await bot(Get(checker))
+        if AYIIN2:
+            await AYIIN2(Get(gocheck))
+            await AYIIN2(Get(checker))
+    except BaseException:
+        pass
+    try:
+        if AYIIN3:
+            await AYIIN3(Get(gocheck))
+            await AYIIN3(Get(checker))
+    except BaseException:
+        pass
+    try:
+        if AYIIN4:
+            await AYIIN4(Get(gocheck))
+            await AYIIN4(Get(checker))
+    except BaseException:
+        pass
+    try:
+        if AYIIN5:
+            await AYIIN5(Get(gocheck))
+            await AYIIN5(Get(checker))
     except BaseException:
         pass

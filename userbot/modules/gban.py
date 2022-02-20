@@ -3,9 +3,9 @@
 
 from telethon.events import ChatAction
 
-from userbot import DEVS, bot, owner
-from userbot.events import ayiin_cmd, register
-from userbot.utils import get_user_from_event
+from userbot import DEVS, bot
+from userbot.events import register
+from userbot.utils import get_user_from_event, ayiin_cmd
 
 # Ported For Lord-Userbot by liualvinas/Alvin
 
@@ -106,7 +106,7 @@ async def gben(userbot):
         r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
         f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
         f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮:{owner}`"
+        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮:{me.first_name}`"
     )
 
 
@@ -169,5 +169,5 @@ async def gunben(userbot):
         r"\\**#𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
         f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
         f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 {owner}`"
+        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 {me.first_name}`"
     )

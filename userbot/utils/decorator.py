@@ -14,6 +14,10 @@ from userbot import (
     CMD_HANDLER,
     CMD_LIST,
     LOAD_PLUG,
+    AYIIN2,
+    AYIIN3,
+    AYIIN4,
+    AYIIN5,
     SUDO_HANDLER,
     SUDO_USERS,
     bot,
@@ -44,25 +48,25 @@ def ayiin_cmd(
         args["chats"] = black_list_chats
 
     if pattern is not None:
-        global man_reg
+        global ayiin_reg
         global sudo_reg
         if (
             pattern.startswith(r"\#")
             or not pattern.startswith(r"\#")
             and pattern.startswith(r"^")
         ):
-            man_reg = sudo_reg = re.compile(pattern)
+            ayiin_reg = sudo_reg = re.compile(pattern)
         else:
-            man_ = "\\" + CMD_HANDLER
+            ayiin_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
-            man_reg = re.compile(man_ + pattern)
+            ayiin_reg = re.compile(ayiin_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
-                cmd1 = man_ + command
+                cmd1 = ayiin_ + command
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (man_ + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                    (ayiin_ + pattern).replace("$", "").replace("\\", "").replace("^", "")
                 )
                 cmd2 = (
                     (sudo_ + pattern)
@@ -76,26 +80,60 @@ def ayiin_cmd(
                 CMD_LIST.update({file_test: [cmd1]})
 
     def decorator(func):
-        if not disable_edited:
-            bot.add_event_handler(
-                func, events.MessageEdited(**args, outgoing=True, pattern=man_reg)
-            )
-        bot.add_event_handler(
-            func, events.NewMessage(**args, outgoing=True, pattern=man_reg)
-        )
-        if allow_sudo:
+        if bot:
             if not disable_edited:
                 bot.add_event_handler(
+                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
+                )
+            bot.add_event_handler(
+                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
+            )
+        if bot:
+            if allow_sudo:
+                if not disable_edited:
+                    bot.add_event_handler(
+                        func,
+                        events.MessageEdited(
+                            **args, from_users=list(SUDO_USERS), pattern=sudo_reg
+                        ),
+                    )
+                bot.add_event_handler(
                     func,
-                    events.MessageEdited(
+                    events.NewMessage(
                         **args, from_users=list(SUDO_USERS), pattern=sudo_reg
                     ),
                 )
-            bot.add_event_handler(
-                func,
-                events.NewMessage(
-                    **args, from_users=list(SUDO_USERS), pattern=sudo_reg
-                ),
+            if AYIIN2:
+            if not disable_edited:
+                AYIIN2.add_event_handler(
+                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
+                )
+            AYIIN2.add_event_handler(
+                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
+            )
+        if AYIIN3:
+            if not disable_edited:
+                AYIIN3.add_event_handler(
+                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
+                )
+            AYIIN3.add_event_handler(
+                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
+            )
+        if AYIIN4:
+            if not disable_edited:
+                AYIIN4.add_event_handler(
+                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
+                )
+            AYIIN4.add_event_handler(
+                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
+            )
+        if AYIIN5:
+            if not disable_edited:
+                AYIIN5.add_event_handler(
+                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
+                )
+            AYIIN5.add_event_handler(
+                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
             )
         try:
             LOAD_PLUG[file_test].append(func)
@@ -106,11 +144,20 @@ def ayiin_cmd(
     return decorator
 
 
-def man_handler(
+def ayiin_handler(
     **args,
 ):
     def decorator(func):
-        bot.add_event_handler(func, events.NewMessage(**args, incoming=True))
+        if bot:
+            bot.add_event_handler(func, events.NewMessage(**args, incoming=True))
+        if AYIIN2:
+            AYIIN2.add_event_handler(func, events.NewMessage(**args, incoming=True))
+        if AYIIN3:
+            AYIIN3.add_event_handler(func, events.NewMessage(**args, incoming=True))
+        if AYIIN4:
+            AYIIN4.add_event_handler(func, events.NewMessage(**args, incoming=True))
+        if AYIIN5:
+            AYIIN5.add_event_handler(func, events.NewMessage(**args, incoming=True))
         return func
 
     return decorator
@@ -131,9 +178,24 @@ def asst_cmd(**args):
     return decorator
 
 
-def callback(**args):
-    """Assistant's callback decorator"""
+def chataction(**args):
+    def decorator(func):
+        if bot:
+            bot.add_event_handler(func, events.ChatAction(**args))
+        if AYIIN2:
+            AYIIN2.add_event_handler(func, events.ChatAction(**args))
+        if AYIIN3:
+            AYIIN3.add_event_handler(func, events.ChatAction(**args))
+        if AYIIN4:
+            AYIIN4.add_event_handler(func, events.ChatAction(**args))
+        if AYIIN5:
+            AYIIN5.add_event_handler(func, events.ChatAction(**args))
+        return func
 
+    return decorator
+
+    
+    def callback(**args): 
     def decorator(func):
         if tgbot:
             tgbot.add_event_handler(func, events.CallbackQuery(**args))

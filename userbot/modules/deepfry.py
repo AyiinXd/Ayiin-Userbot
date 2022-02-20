@@ -37,12 +37,11 @@ from random import randint, uniform
 from PIL import Image, ImageEnhance, ImageOps
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, bot
-from userbot.events import ayiin_cmd
-from userbot.utils import check_media
+from userbot import CMD_HELP
+from userbot.utils import ayiin_cmd, check_media, edit_delete, edit_or_reply
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"deepfry(?: |$)(.*)"))
+@ayiin_cmd(pattern="deepfry(?: |$)(.*)")
 async def deepfryer(event):
     try:
         frycount = int(event.pattern_match.group(1))
@@ -50,26 +49,21 @@ async def deepfryer(event):
             raise ValueError
     except ValueError:
         frycount = 1
-
     if event.is_reply:
         reply_message = await event.get_reply_message()
         data = await check_media(reply_message)
-
         if isinstance(data, bool):
-            await event.edit("`I can't deep fry that!`")
-            return
+            return await edit_delete(event, "`I can't deep fry that!`")
     else:
-        await event.edit("`Reply to an image or sticker to deep fry it!`")
-        return
-
+        return await edit_delete(event, "`Reply to an image or sticker to deep fry it!`"
+        )
     # download last photo (highres) as byte array
-    await event.edit("`Downloading media…`")
+    xx = await edit_or_reply(event, "`Downloading media…`")
     image = io.BytesIO()
     await event.client.download_media(data, image)
     image = Image.open(image)
-
     # fry the image
-    await event.edit("`Deep frying media…`")
+    await xx.edit("`Deep frying media…`")
     for _ in range(frycount):
         image = await deepfry(image)
 
@@ -78,7 +72,9 @@ async def deepfryer(event):
     image.save(fried_io, "JPEG")
     fried_io.seek(0)
 
-    await event.reply(file=fried_io)
+    await xx.delete()
+    await event.send_file(event.chat_id, file=fried_io, reply_to=event.reply_to_msg_id)
+
 
 
 async def deepfry(img: Image) -> Image:

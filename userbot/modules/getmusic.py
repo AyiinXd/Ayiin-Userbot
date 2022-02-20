@@ -21,7 +21,6 @@ from userbot import (
     DEEZER_ARL_TOKEN,
     LASTFM_USERNAME,
     TEMP_DOWNLOAD_DIRECTORY,
-    bot,
     lastfm,
 )
 from userbot.utils import bash, chrome, edit_or_reply, ayiin_cmd, progress
@@ -179,7 +178,7 @@ async def _(event):
     chat = "@SpotifyMusicDownloaderBot"
     try:
         await event.edit("`Getting Your Music...`")
-        async with bot.conversation(chat) as conv:
+        async with event.client.conversation(chat) as conv:
             await asyncio.sleep(2)
             await event.edit("`Downloading...`")
             try:
@@ -192,13 +191,13 @@ async def _(event):
                     events.NewMessage(incoming=True, from_users=752979930)
                 )
                 r = await res
-                await bot.send_read_acknowledge(conv.chat_id)
+                await event.client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
                 await event.reply(
                     "`Unblock `@SpotifyMusicDownloaderBot` dan coba lagi`"
                 )
                 return
-            await bot.forward_messages(event.chat_id, respond.message)
+            await event.client.forward_messages(event.chat_id, respond.message)
         await event.client.delete_messages(conv.chat_id, [msg.id, r.id, respond.id])
         await event.delete()
     except TimeoutError:
@@ -227,14 +226,14 @@ async def _(event):
     link = f"/netease {track}"
     await event.edit("`Searching...`")
     try:
-        async with bot.conversation(chat) as conv:
+        async with event.client.conversation(chat) as conv:
             await asyncio.sleep(2)
             await event.edit("`Processing...`")
             try:
                 msg = await conv.send_message(link)
                 response = await conv.get_response()
                 respond = await conv.get_response()
-                await bot.send_read_acknowledge(conv.chat_id)
+                await event.client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
                 await event.reply("`Please unblock @WooMaiBot and try again`")
                 return
@@ -262,18 +261,18 @@ async def _(event):
         await event.edit("`Processing...`")
     chat = "@MusicsHunterBot"
     try:
-        async with bot.conversation(chat) as conv:
+        async with event.client.conversation(chat) as conv:
             try:
                 msg_start = await conv.send_message("/start")
                 response = await conv.get_response()
                 msg = await conv.send_message(d_link)
                 details = await conv.get_response()
                 song = await conv.get_response()
-                await bot.send_read_acknowledge(conv.chat_id)
+                await event.client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
                 await event.edit("`Unblock `@MusicsHunterBot` and retry`")
                 return
-            await bot.send_file(event.chat_id, song, caption=details.text)
+            await event.client.send_file(event.chat_id, song, caption=details.text)
             await event.client.delete_messages(
                 conv.chat_id, [msg_start.id, response.id, msg.id, details.id, song.id]
             )

@@ -89,7 +89,6 @@ if CONFIG_CHECK:
     )
     sys.exit(1)
 
-
 while 0 < 6:
     _DEVS = get(
         "https://raw.githubusercontent.com/AyiinXd/Reforestation/master/DEVS.json"
@@ -120,6 +119,10 @@ API_HASH = str(os.environ.get("API_HASH") or None)
 
 # Userbot Session String
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
+STRING_2 = os.environ.get("STRING_2", None)
+STRING_3 = os.environ.get("STRING_3", None)
+STRING_4 = os.environ.get("STRING_4", None)
+STRING_5 = os.environ.get("STRING_5", None)
 
 # Logging channel/group ID configuration.
 BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0)
@@ -157,6 +160,9 @@ UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL", "https://github.com/AyiinXd/Ayiin-Userbot.git"
 )
 
+# Custom Name Sticker Pack
+S_PACK_NAME = os.environ.get("S_PACK_NAME", "Sticker Pack By @AyiinXdSupport")
+
 # SQL Database URI
 DB_URI = os.environ.get("DATABASE_URL", None)
 
@@ -173,9 +179,6 @@ GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN") or "/usr/bin/google-chro
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
 WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", "Jakarta")
-
-# For MONGO based DataBase
-MONGO_URI = os.environ.get("MONGO_URI", None)
 
 # Anti Spambot Config
 ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
@@ -210,7 +213,7 @@ ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY", "./zips")
 BITLY_TOKEN = os.environ.get("BITLY_TOKEN", None)
 
 # Bot version
-BOT_VER = os.environ.get("BOT_VER", "2.3.4")
+BOT_VER = os.environ.get("BOT_VER", "3.1.0")
 
 # Default .alive logo
 ALIVE_LOGO = (
@@ -230,16 +233,16 @@ QUEUE_PIC = (
     os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d6f92c979ad96b2031cba.png"
 )
 
+DEFAULT = [1700405732]
+
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
-
 LASTFM_API = os.environ.get("LASTFM_API", None)
 LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
 LASTFM_USERNAME = os.environ.get("LASTFM_USERNAME", None)
 LASTFM_PASSWORD_PLAIN = os.environ.get("LASTFM_PASSWORD", None)
 LASTFM_PASS = md5(LASTFM_PASSWORD_PLAIN)
-
 lastfm = None
 if LASTFM_API and LASTFM_SECRET and LASTFM_USERNAME and LASTFM_PASS:
     try:
@@ -254,9 +257,6 @@ if LASTFM_API and LASTFM_SECRET and LASTFM_USERNAME and LASTFM_PASS:
 
 TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./downloads/")
 
-# Quotes API Token
-QUOTES_API_TOKEN = os.environ.get("QUOTES_API_TOKEN", None)
-
 # Deezloader
 DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN", None)
 
@@ -268,22 +268,20 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
 
 
-# Setting Up CloudMail.ru and MEGA.nz extractor binaries,
-# and giving them correct perms to work properly.
-if not os.path.exists("bin"):
-    os.mkdir("bin")
-
-binaries = {
-    "https://raw.githubusercontent.com/adekmaulana/megadown/master/megadown": "bin/megadown",
-    "https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py": "bin/cmrudl",
-}
-
-for binary, path in binaries.items():
-    downloader = SmartDL(binary, path, progress_bar=False)
-    downloader.start()
-    os.chmod(path, 0o755)
-
 # Jangan di hapus Nanti ERROR
+while 0 < 6:
+    _BLACKLIST = get(
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/manblacklist.json"
+    )
+    if _BLACKLIST.status_code != 200:
+        if 0 != 5:
+            continue
+        blacklistman = []
+        break
+    blacklistman = _BLACKLIST.json()
+    break
+
+del _BLACKLIST
 
 # 'bot' variable
 if STRING_SESSION:
@@ -304,6 +302,69 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
+if STRING_2:
+    session2 = StringSession(str(STRING_2))
+    AYIIN2 = TelegramClient(
+        session=session2,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py2 = PyTgCalls(AYIIN2)
+else:
+    AYIIN2 = None
+
+
+if STRING_3:
+    session3 = StringSession(str(STRING_3))
+    AYIIN3 = TelegramClient(
+        session=session3,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py3 = PyTgCalls(AYIIN3)
+else:
+    AYIIN3 = None
+
+
+if STRING_4:
+    session4 = StringSession(str(STRING_4))
+    AYIIN4 = TelegramClient(
+        session=session4,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py4 = PyTgCalls(AYIIN4)
+else:
+    AYIIN4 = None
+
+
+if STRING_5:
+    session5 = StringSession(str(STRING_5))
+    AYIIN5 = TelegramClient(
+        session=session5,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py5 = PyTgCalls(AYIIN5)
+else:
+    AYIIN5 = None
+
+
+async def check_botlog_chatid() -> None:
+    if not BOTLOG_CHATID:
+@@ -420,7 +475,
 
 async def check_botlog_chatid() -> None:
     if not BOTLOG_CHATID:
@@ -419,7 +480,6 @@ with bot:
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
-        S_PACK_NAME = os.environ.get("S_PACK_NAME", f"Sticker Pack {owner}")
 
         @tgbot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
         async def bot_pms(event):
@@ -497,7 +557,7 @@ with bot:
                 result = builder.photo(
                     file=logoman,
                     link_preview=False,
-                    text=f"**᯽ Ayiin-Userbot Inline Menu ᯽**\n\n✓ **Owner** [{user.first_name}](tg://user?id={user.id})\n✓ **Jumlah** `{len(dugmeler)}` Modules",
+                    text=f"**᯽ Ayiin-Userbot Inline Menu ᯽**\n\n✓ **Owner** [{user.first_name}](tg://user?id={user.id})\nJumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):

@@ -36,7 +36,7 @@ from telethon.tl.types import (
 
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS, owner
+from userbot import CMD_HELP, DEVS
 from userbot.events import register
 from userbot.utils import (
     _format,
@@ -44,7 +44,7 @@ from userbot.utils import (
     edit_or_reply,
     get_user_from_event,
     ayiin_cmd,
-    man_handler,
+    ayiin_handler,
     media_type,
 )
 
@@ -180,6 +180,7 @@ async def demote(event):
 @ayiin_cmd(pattern="ban(?:\s|$)([\s\S]*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cban(?:\s|$)([\s\S]*)")
 async def ban(bon):
+    me = await bon.client.get_me()
     chat = await bon.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
@@ -205,7 +206,7 @@ async def ban(bon):
     else:
         await edit_or_reply(
             bon,
-            f"\\\\**#Banned_User**//\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n**User ID:** `{user.id}`\n**Action:** `Banned User by {owner}`",
+            f"\\\\**#Banned_User**//\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n**User ID:** `{user.id}`\n**Action:** `Banned User by {me.first_name}`",
         )
 
 
@@ -256,7 +257,7 @@ async def spider(spdr):
         r"\\**#Muted_User**//"
         f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
         f"**User ID:** `{user.id}`\n"
-        f"**Action:** `Mute by {owner}`",
+        f"**Action:** `Mute by {self_user.first_name}`",
     )
     if mute(spdr.chat_id, user.id) is False:
         return await edit_delete(spdr, "**ERROR:** `Pengguna Sudah Dibisukan.`")
@@ -265,7 +266,7 @@ async def spider(spdr):
         if reason:
             await edit_or_reply(
                 spdr,
-                r"\\**#DMute_User**//"
+                r"\\**#Mute_User**//"
                 f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
                 f"**User ID:** `{user.id}`\n"
                 f"**Reason:** `{reason}`",
@@ -273,10 +274,10 @@ async def spider(spdr):
         else:
             await edit_or_reply(
                 spdr,
-                r"\\**#DMute_User**//"
+                r"\\**#Mute_User**//"
                 f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
                 f"**User ID:** `{user.id}`\n"
-                f"**Action:** `DMute by {owner}`",
+                f"**Action:** `Mute by {self_user.first_name}`",
             )
     except UserIdInvalidError:
         return await edit_delete(spdr, "**Terjadi ERROR!**")
@@ -309,7 +310,7 @@ async def unmoot(unmot):
         return await edit_delete(unmot, "**Terjadi ERROR!**")
 
 
-@man_handler()
+@ayiin_handler()
 async def muter(moot):
     try:
         from userbot.modules.sql_helper.gmute_sql import is_gmuted
@@ -404,7 +405,7 @@ async def gspider(gspdr):
             r"\\**#GMuted_User**//"
             f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
             f"**User ID:** `{user.id}`\n"
-            f"**Action:** `Global Muted by {owner}`",
+            f"**Action:** `Global Muted by {self_user.first_name}`",
         )
 
 

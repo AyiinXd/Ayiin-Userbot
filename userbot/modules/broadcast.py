@@ -7,13 +7,12 @@ from asyncio import sleep
 
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, LOGS, bot
-from userbot.events import ayiin_cmd
+from userbot import CMD_HELP, LOGS
 from userbot.modules.sql_helper import broadcast_sql as sql
-from userbot.utils import parse_pre
+from userbot.utils import ayiin_cmd, parse_pre
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"sendto ?(.*)"))
+@ayiin_cmd(pattern=r"sendto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -59,7 +58,7 @@ async def catbroadcast_send(event):
         )
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"fwdto ?(.*)"))
+@ayiin_cmd(pattern=r"fwdto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -105,7 +104,7 @@ async def catbroadcast_send(event):
         )
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"addto ?(.*)"))
+@ayiin_cmd(pattern=r"addto ?(.*)")
 async def catbroadcast_add(event):
     if event.fwd_from:
         return
@@ -141,7 +140,7 @@ async def catbroadcast_add(event):
             )
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"rmfrom ?(.*)"))
+@ayiin_cmd(pattern=r"rmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -177,7 +176,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"bclist ?(.*)"))
+@ayiin_cmd(pattern=r"bclist ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -217,7 +216,7 @@ async def catbroadcast_list(event):
     await catevent.edit(finaloutput)
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"bclistall ?(.*)"))
+@ayiin_cmd(pattern=r"bclistall ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -233,7 +232,7 @@ async def catbroadcast_list(event):
     await event.efit(resultext)
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"frmfrom ?(.*)"))
+@ayiin_cmd(pattern=r"frmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -290,7 +289,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"delc ?(.*)"))
+@ayiin_cmd(pattern=r"delc ?(.*)")
 async def catbroadcast_delete(event):
     if event.fwd_from:
         return

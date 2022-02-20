@@ -14,12 +14,12 @@ from github import Github
 # from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 # from userbot.events import humanbytes, progress, time_formatter
 from userbot import CMD_HELP, GIT_REPO_NAME, GITHUB_ACCESS_TOKEN, bot
-from userbot.events import ayiin_cmd
+from userbot.utils import ayiin_cmd
 
 GIT_TEMP_DIR = "./userbot/temp/"
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"gcommit(?: |$)(.*)"))
+@ayiin_cmd(pattern="gcommit(?: |$)(.*)")
 async def download(event):
     if event.fwd_from:
         return

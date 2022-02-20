@@ -15,12 +15,11 @@ from bs4 import BeautifulSoup
 from humanize import naturalsize
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, LOGS, bot
-from userbot.events import ayiin_cmd
-from userbot.utils import edit_delete, edit_or_reply
+from userbot import CMD_HELP, LOGS
+from userbot.utils import ayiin_cmd, edit_delete, edit_or_reply
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"direct(?: |$)([\s\S]*)"))
+@ayiin_cmd(pattern="direct(?: |$)([\s\S]*)")
 async def direct_link_generator(event):
     textx = await event.get_reply_message()
     message = event.pattern_match.group(1)
@@ -30,7 +29,7 @@ async def direct_link_generator(event):
         else:
             return await edit_delete(
                 event,
-                "**Gunakan:** `.direct <url>` **Bila butuh bantuan ketik** `.help direct`",
+                "**Gunakan:** `.direct <url>` **Bila butuh bantuan ketik** `$help direct`",
             )
     xxnx = await edit_or_reply(event, "`Processing...`")
     reply = ""
