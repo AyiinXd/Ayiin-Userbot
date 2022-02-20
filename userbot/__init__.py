@@ -364,10 +364,6 @@ else:
 
 async def check_botlog_chatid() -> None:
     if not BOTLOG_CHATID:
-@@ -420,7 +475,
-
-async def check_botlog_chatid() -> None:
-    if not BOTLOG_CHATID:
         LOGS.warning(
             "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
         )
