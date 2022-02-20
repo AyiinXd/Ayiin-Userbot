@@ -24,7 +24,6 @@ from userbot import BOT_VER as ubotversion
 from userbot import LOGS, bot
 from userbot.clients import ayiin_userbot_on, multiayiin
 from userbot.modules import ALL_MODULES
-from userbot.modules.misc import branch
 from userbot.utils import autobot, checking
 
 try:
