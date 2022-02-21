@@ -473,7 +473,7 @@ async def _(event):
 # Create by myself @localheart
 
 
-@ayiin_cmd(pattern="helikopter(?: |$)(.*)"))
+@ayiin_cmd(pattern="helikopter(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -537,7 +537,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern="ular(?: |$)(.*)"))
+@ayiin_cmd(pattern="ular(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
