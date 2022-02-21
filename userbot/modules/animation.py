@@ -8,12 +8,12 @@ from userbot import CMD_HELP
 from userbot import DEFAULT as me
 from userbot.events import register as own_cmd
 from userbot.modules.ping import absen
-from userbot.utils import ayiin_cmd, edit_or_reply
+from userbot.utils import edit_or_reply, ayiin_cmd
 
 
 @ayiin_cmd(pattern="bulan$")
 async def _(event):
-event = await edit_or_reply(event, "bulan.")
+    event = await edit_or_reply(event, "bulan.")
     animation_interval = 0.2
     animation_ttl = range(96)
     await event.edit("bulan..")
