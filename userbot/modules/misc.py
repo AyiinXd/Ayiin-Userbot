@@ -120,14 +120,14 @@ async def repo_is_here(event):
     xx = await edit_or_reply(event, "🤖")
     sleep(3)
     await xx.edit(
-        "**Hey**, I am using **᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽** \n"
-        "卍━━━━━━━━━━━━━━━━━━卍\n"
+        "**Hey**, I am using **✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧** \n"
+        "卍━━━━━━━━━━━━━━━━━卍\n"
         "➣ **𝚁𝙴𝙿𝙾 𝚄𝚂𝙴𝚁𝙱𝙾𝚃 :** [𝙶𝙸𝚃𝙷𝚄𝙱](https://github.com/AyiinXd/Ayiin-Userbot)\n"
         "➣ **𝙾𝚆𝙽𝙴𝚁 𝙱𝙾𝚃       :** [𝚈𝙸𝙽𝚂](t.me/AyiinXd)\n"
-        "卍━━━━━━━━━━━━━━━━━━卍n"
+        "卍━━━━━━━━━━━━━━━━━卍\n"
         "➣ **𝚂𝚄𝙿𝙿𝙾𝚁𝚃           :** [𝙶𝚁𝙾𝚄𝙿](https://t.me/AyiinXdSupport)\n"
         "➣ **𝚂𝚄𝙿𝙿𝙾𝚁𝚃           :** [𝙲𝙷𝙰𝙽𝙽𝙴𝙻](https://t.me/AyiinSupport)\n"
-        "卍━━━━━━━━━━━━━━━━━━卍n"
+        "卍━━━━━━━━━━━━━━━━━卍\n"
     )
 
 
@@ -135,7 +135,7 @@ async def repo_is_here(event):
 async def string_is_here(event):
     await edit_or_reply(
         event,
-        "✥ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@AyiinXd/AyiinString?lite=1&outputonly=1)\n",
+        "✧ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@AyiinXd/AyiinString?lite=1&outputonly=1)\n",
     )
 
 
