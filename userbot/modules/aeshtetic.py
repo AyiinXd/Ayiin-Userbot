@@ -41,4 +41,4 @@ CMD_HELP.update(
         \n  •  **Function : **Mengubah font teks Menjadi aeshtetic.\
     "
     }
-)
+) 
