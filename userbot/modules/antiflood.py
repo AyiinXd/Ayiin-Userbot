@@ -1,6 +1,6 @@
 import asyncio
 
-from telethon import event
+from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
 
@@ -18,7 +18,7 @@ ANTI_FLOOD_WARN_MODE = ChatBannedRights(
 )
 
 
-@bot.on(event.NewMessage(incoming=True))
+@bot.on(events.NewMessage(incoming=True))
 async def _(event):
     # logger.info(CHAT_FLOOD)
     if not CHAT_FLOOD:
@@ -73,7 +73,7 @@ async def _(event):
         await edit_or_reply(
             event,
             f"**Antiflood diperbarui menjadi** `{input_str}` **dalam obrolan saat ini**",
-            )
+        )
     except Exception as e:
         await edit_or_reply(event, f"{e}")
 
