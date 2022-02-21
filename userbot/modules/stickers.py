@@ -244,7 +244,7 @@ async def kang(args):
             "**STICKER LU UDAH JADI TOD** \n**"
             f"\n       **╭✠━━━━❖━━━━✠╮** \n                **[AMBIL TOD](t.me/addstickers/{packname})** \n       **╰✠━━━━❖━━━━✠╯** \n\n**Untuk Menggunakan Stickers**",
             parse_mode="md",
-        
+        )
 
 
 async def resize_photo(photo):
