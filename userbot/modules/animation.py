@@ -473,7 +473,7 @@ async def _(event):
 # Create by myself @localheart
 
 
-@ayiin_cmd(pattern=r"helikopter(?: |$)(.*)"))
+@ayiin_cmd(pattern="helikopter(?: |$)(.*)"))
 async def _(event):
     await edit_or_reply(
         event,
@@ -496,7 +496,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern=r"tembak(?: |$)(.*)")
+@ayiin_cmd(pattern="tembak(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -504,7 +504,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern=r"bundir(?: |$)(.*)")
+@ayiin_cmd(pattern="bundir(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -525,7 +525,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern=r"awk(?: |$)(.*)")
+@ayiin_cmd(pattern="awk(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -537,7 +537,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern=r"ular(?: |$)(.*)"))
+@ayiin_cmd(pattern="ular(?: |$)(.*)"))
 async def _(event):
     await edit_or_reply(
         event,
@@ -629,7 +629,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern=r"y(?: |$)(.*)")
+@ayiin_cmd(pattern="y(?: |$)(.*)")
 async def _(event):
     await typew.edit(
         event,
@@ -649,7 +649,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern=r"tank(?: |$)(.*)")
+@ayiin_cmd(pattern="tank(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -660,7 +660,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern=r"babi(?: |$)(.*)")
+@ayiin_cmd(pattern="babi(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -762,7 +762,7 @@ async def _(event):
     await e.edit("༼ ༎ຶ ෴ ༎ຶ༽")
 
 
-@ayiin_cmd(pattern=r"huh(?: |$)(.*)")
+@ayiin_cmd(pattern="huh(?: |$)(.*)")
 async def _(event):
     typew = await edit_or_reply(event, "`\n(\\_/)`" "`\n(●_●)`" "`\n />❤️ *Ini Buat Kamu`")
     sleep(3)
@@ -801,7 +801,7 @@ async def _(event):
             await event.edit(animation_chars[i % 103])
 
 
-@ayiin_cmd(pattern=r"(.*)")
+@ayiin_cmd(pattern="(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -823,7 +823,7 @@ async def _(event):
             await event.edit(animation_chars[i % 11])
 
 
-@ayiin_cmd(pattern=r"santet(?: |$)(.*)")
+@ayiin_cmd(pattern="santet(?: |$)(.*)")
 async def _(event):
     typew = await edit_or_reply(event, "`Mengaktifkan Perintah Santet Online....`")
     sleep(2)
@@ -1135,7 +1135,7 @@ async def _(event):
     await typew.edit("`Target Berhasil Tersantet Online 🥴`")
 
 
-@ayiin_cmd(pattern=".nah(?: |$)(.*)")
+@ayiin_cmd(pattern="nah(?: |$)(.*)")
 async def _(event):
     typew = await edit_or_reply(event, "`\n(\\_/)`" "`\n(●_●)`" "`\n />💖 *Ini Buat Kamu`")
     sleep(2)
@@ -1145,7 +1145,7 @@ async def _(event):
 # Alpinnnn Gans
 
 
-@ayiin_cmd(pattern=r"(.*)")
+@ayiin_cmd(pattern="(.*)")
 async def _(event):
     if event.fwd_from:
         return
