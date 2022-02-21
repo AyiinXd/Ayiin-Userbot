@@ -88,7 +88,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
         if build.status == "failed":
             await edit_delete(
                 xx, "**Build Gagal!** Dibatalkan karena ada beberapa error.`"
-            
+            )
         await edit_or_reply(
             xx, "`✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧ Berhasil Di Deploy! Userbot bisa di gunakan kembali.`"
         )
