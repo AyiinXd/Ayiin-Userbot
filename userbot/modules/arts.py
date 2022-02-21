@@ -5,10 +5,10 @@ from time import sleep
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_or_reply, ayiin_cmd
+from userbot.utils import edit_or_reply, man_cmd
 
 
-@ayiin_cmd(pattern="sadboy(?: |$)(.*)")
+@man_cmd(pattern="sadboy(?: |$)(.*)")
 async def _(event):
     xx = await edit_or_reply(event, "`Pertama-tama kamu cantik`")
     sleep(2)
@@ -17,7 +17,7 @@ async def _(event):
     await xx.edit("`Dan yang terakhir adalah kamu bukan jodohku`")
 
 
-@ayiin_cmd(pattern="punten(?: |$)(.*)")
+@man_cmd(pattern="punten(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -32,7 +32,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern="pantau(?: |$)(.*)")
+@man_cmd(pattern="pantau(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -45,7 +45,9 @@ async def _(event):
         "`\n┻┳T￣|`"
         "\n**Masih Gua Pantau**",
     )
-@ayiin_cmd(pattern="frog(?: |$)(.*)")
+
+
+@man_cmd(pattern="frog(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -67,7 +69,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern="dfrog(?: |$)(.*)")
+@man_cmd(pattern="dfrog(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -89,8 +91,8 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern="strump(?: |$)(.*)")
-async def typewriter(typew):
+@man_cmd(pattern="strump(?: |$)(.*)")
+async def _(event):
     await edit_or_reply(
         event,
         "⣿⣿⣿⣿⣿⣿⡿⠿⠛⠋⠉⡉⣉⡛⣛⠿⣿⣿⣿⣿⣿⣿⣿⣿\n"
@@ -111,7 +113,7 @@ async def typewriter(typew):
     )
 
 
-@ayiin_cmd(pattern="scina(?: |$)(.*)")
+@man_cmd(pattern="scina(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -134,7 +136,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern="wlcm(?: |$)(.*)")
+@man_cmd(pattern="wlcm(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -151,7 +153,7 @@ async def _(event):
     )
 
 
-@ayiin_cmd(pattern="gta(?: |$)(.*)")
+@man_cmd(pattern="gta(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -165,11 +167,11 @@ async def _(event):
         "⠀⠀⠀⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣷\n"
         "⠀⠀⠘⠛⠃⠀⠀⠀⠀⠀⠀⠀⠀⢰⣾⣿⠏\n"
         "⠀⢠⣧⡔⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠟⠁⠀\n"
-        "⠀⢸⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ Ah\nShit, here we go again.\n,
+        "⠀⢸⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ Ah\nShit, here we go again.\n",
     )
 
 
-@ayiin_cmd(pattern="sthink(?: |$)(.*)")
+@man_cmd(pattern="sthink(?: |$)(.*)")
 async def _(event):
     await edit_or_reply(
         event,
@@ -189,6 +191,7 @@ async def _(event):
         "⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁\n"
         "⠀⠀⠛⢿⣿⣿⣿⣿⣿⣿⡿⠟\n",
     )
+
 
 CMD_HELP.update(
     {
