@@ -14,7 +14,7 @@ import heroku3
 from telegraph import telegraph, upload_file
 from telethon import Button, custom, events
 from telethon.tl import types
-from telethon.tl types import MessageMediaWebPage
+from telethon.tl.types import MessageMediaWebPage
 from telethon.utils import get_display_name, pack_bot_file_id
 
 from userbot import (
