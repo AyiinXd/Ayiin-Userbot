@@ -281,7 +281,7 @@ async def search_manga(message):
     )
 
 
-@ayiin_cmd(pattern="a(kaizoku|kayo) ?(.*)"))
+@ayiin_cmd(pattern="a(kaizoku|kayo) ?(.*)")
 async def site_search(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(2)
