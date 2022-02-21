@@ -12,15 +12,15 @@ from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
+from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from userbot.utils import edit_delete, edit_or_reply, man_cmd
 
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
 
-@ayiin_cmd(pattern="tg (m|t)$")
+@man_cmd(pattern="tg (m|t)$")
 async def telegraphs(graph):
     """For telegraph command, upload media & text to telegraph site."""
     xxnx = await edit_or_reply(graph, "`Processing...`")
@@ -34,7 +34,7 @@ async def telegraphs(graph):
             r_message = await graph.get_reply_message()
             input_str = graph.pattern_match.group(1)
             if input_str == "m":
-                downloaded_file_name = await bot.download_media(
+                downloaded_file_name = await graph.client.download_media(
                     r_message, TEMP_DOWNLOAD_DIRECTORY
                 )
                 end = datetime.now()
@@ -56,14 +56,14 @@ async def telegraphs(graph):
                         link_preview=True,
                     )
             elif input_str == "t":
-                user_object = await bot.get_entity(r_message.sender_id)
+                user_object = await graph.client.get_entity(r_message.sender_id)
                 title_of_page = user_object.first_name  # + " " + user_object.last_name
                 # apparently, all Users do not have last_name field
                 page_content = r_message.message
                 if r_message.media:
                     if page_content != "":
                         title_of_page = page_content
-                    downloaded_file_name = await bot.download_media(
+                    downloaded_file_name = await graph.client.download_media(
                         r_message, TEMP_DOWNLOAD_DIRECTORY
                     )
                     m_list = None

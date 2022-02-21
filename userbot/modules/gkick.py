@@ -4,11 +4,13 @@
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
-from userbot.utils import get_user_from_event, ayiin_cmd
+from userbot import CMD_HELP, DEVS
+from userbot.events import register
+from userbot.utils import get_user_from_event, man_cmd
 
 
-@ayiin_cmd(pattern="gkick(?: |$)(.*)")
+@man_cmd(pattern="gkick(?: |$)(.*)")
+@register(pattern=r"^\.cgkick(?: |$)(.*)", sudo=True)
 async def gspide(rk):
     lazy = rk
     sender = await lazy.get_sender()
@@ -35,8 +37,8 @@ async def gspide(rk):
     except BaseException:
         return await rkp.edit("**Gagal Global Kick! Pengguna tidak dikenal.**")
     if user:
-        if user.id == 1700405732:
-            return await rkp.edit("**Jangan Ngadi Ngadi itu CODER aing**")
+        if user.id == DEVS:
+            return await rkp.edit("**Jangan Ngadi Ngadi itu CODER aing`")
         try:
             await rk.client(BlockRequest(user))
             await rk.client(UnblockRequest(user))
@@ -62,7 +64,7 @@ async def gspide(rk):
         await rkp.edit("`Reply ke Chat Penggunanya Goblok!!`")
 
     return await rkp.edit(
-        f"**Berhasil GKicked** [{user.first_name}](tg://user?id={user.id}) **di {a} Group Chats..**"
+        f"**Berhasil GKicked** [{user.first_name}](tg://user?id={user.id}) **di {a} Group Chats**"
     )
 
 

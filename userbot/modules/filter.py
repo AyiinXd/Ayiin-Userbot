@@ -1,13 +1,13 @@
 # ported from paperplaneExtended by avinashreddy3108 for media support
 import re
 
-from telethon import event
+from telethon import events
 from telethon.utils import get_display_name
 
 from userbot import BLACKLIST_CHAT, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import ayiin_cmd
+from userbot.events import man_cmd
 from userbot.modules.sql_helper.filter_sql import (
     add_filter,
     get_filters,
@@ -78,13 +78,13 @@ async def filter_incoming_handler(event):
             )
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="filter (.*)"))
+@bot.on(man_cmd(outgoing=True, pattern="filter (.*)"))
 async def add_new_filter(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
             event, "**Perintah ini Dilarang digunakan di Group ini**"
         )
-     value = event.pattern_match.group(1).split(None, 1)
+    value = event.pattern_match.group(1).split(None, 1)
     keyword = value[0]
     try:
         string = value[1]
@@ -94,22 +94,22 @@ async def add_new_filter(event):
     msg_id = None
     if msg and msg.media and not string:
         if BOTLOG_CHATID:
-            await new_handler.client.send_message(
+            await event.client.send_message(
                 BOTLOG_CHATID,
-                f"**#FILTER\nID OBROLAN:** {new_handler.chat_id}\n**TRIGGER:** `{keyword}`"
+                f"**#FILTER\nID OBROLAN:** {event.chat_id}\n**TRIGGER:** `{keyword}`"
                 "\n\n**Pesan Berikut Disimpan Sebagai Data Balasan Filter Untuk Obrolan, Mohon Jangan Menghapusnya**",
             )
             msg_o = await event.client.forward_messages(
                 entity=BOTLOG_CHATID,
                 messages=msg,
-                from_peer=new_handler.chat_id,
+                from_peer=event.chat_id,
                 silent=True,
             )
             msg_id = msg_o.id
         else:
             await edit_or_reply(
                 event,
-                "**Untuk menyimpan media sebagai balasan ke filter** `BOTLOG_CHATID` **harus disetel.**",
+                "**Untuk menyimpan media ke filter membutuhkan** `BOTLOG_CHATID` **untuk disetel.**",
             )
             return
     elif msg and msg.text and not string:
@@ -125,13 +125,13 @@ async def add_new_filter(event):
     await edit_or_reply(event, f"**ERROR saat menyetel filter untuk** `{keyword}`")
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="filters$"))
+@bot.on(man_cmd(outgoing=True, pattern="filters$"))
 async def on_snip_list(event):
     OUT_STR = "**Tidak Ada Filter Apapun Disini.**"
     filters = get_filters(event.chat_id)
     for filt in filters:
         if OUT_STR == "**Tidak Ada Filter Apapun Disini.**":
-            OUT_STR = "**⍟ Daftar Filter Yang Aktif Disini:**\n"
+            OUT_STR = "**✥ Daftar Filter Yang Aktif Disini:**\n"
         OUT_STR += "• `{}`\n".format(filt.keyword)
     await edit_or_reply(
         event,
@@ -141,7 +141,7 @@ async def on_snip_list(event):
     )
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="stop ([\s\S]*)"))
+@bot.on(man_cmd(outgoing=True, pattern="stop ([\s\S]*)"))
 async def remove_a_filter(event):
     filt = event.pattern_match.group(1)
     if not remove_filter(event.chat_id, filt):
@@ -150,7 +150,7 @@ async def remove_a_filter(event):
         await event.edit("**Berhasil Menghapus Filter** `{}` **Disini**".format(filt))
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="rmallfilters$"))
+@bot.on(man_cmd(outgoing=True, pattern="rmallfilters$"))
 async def on_all_snip_delete(event):
     filters = get_filters(event.chat_id)
     if filters:
@@ -167,10 +167,10 @@ CMD_HELP.update(
         "filter": f"**Plugin : **`filter`\
         \n\n  •  **Syntax :** `{cmd}filters`\
         \n  •  **Function : **Melihat filter userbot yang aktif di obrolan.\
-        \n\n  •  **Syntax :** `{cmd}filter` <keyword> <balasan> atau balas ke pesan ketik `{cmd}filter` <keyword>\
+        \n\n  •  **Syntax :** `{cmd}filter` <keyword> <balasan> atau balas ke pesan ketik `.filter` <keyword>\
         \n  •  **Function : **Membuat filter di obrolan, Bot Akan Membalas Jika Ada Yang Menyebut 'keyword' yang dibuat. Bisa dipakai ke media/sticker/vn/file.\
         \n\n  •  **Syntax :** `{cmd}stop` <keyword>\
-        \n  •  **Function : **Untuk Menonaktifkan Filter Yang Terpasang Di Grup.\
+        \n  •  **Function : **Untuk Nonaktifkan Filter yang terpasang di grup.\
         \n\n  •  **Syntax :** `{cmd}rmallfilters`\
         \n  •  **Function : **Menghapus semua filter yang ada di grup.\
     "

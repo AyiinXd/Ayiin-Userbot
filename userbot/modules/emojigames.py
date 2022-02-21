@@ -7,10 +7,10 @@ from telethon.tl.types import InputMediaDice
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import ayiin_cmd
+from userbot.utils import man_cmd
 
 
-@ayiin_cmd(pattern="dice(?: |$)(.*)")
+@man_cmd(pattern="dice(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -27,7 +27,7 @@ async def _(event):
             pass
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"dart(?: |$)(.*)"))
+@man_cmd(pattern="dart(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -44,7 +44,7 @@ async def _(event):
             pass
 
 
-@ayiin_cmd(pattern="basket(?: |$)(.*)")
+@man_cmd(pattern="basket(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -61,7 +61,7 @@ async def _(event):
             pass
 
 
-@ayiin_cmd(pattern="bowling(?: |$)(.*)")
+@man_cmd(pattern="bowling(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -78,7 +78,7 @@ async def _(event):
             pass
 
 
-@ayiin_cmd(pattern="ball(?: |$)(.*)")
+@man_cmd(pattern="ball(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -95,7 +95,7 @@ async def _(event):
             pass
 
 
-@ayiin_cmd(pattern="jackpot(?: |$)(.*)")
+@man_cmd(pattern="jackpot(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

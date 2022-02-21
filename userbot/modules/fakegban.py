@@ -6,11 +6,11 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP
-from userbot.utils import ayiin_cmd, edit_or_reply
+from userbot import CMD_HELP, DEVS
+from userbot.utils import edit_or_reply, man_cmd
 
 
-@ayiin_cmd(pattern="fgban(?: |$)(.*)")
+@man_cmd(pattern="fgban(?: |$)(.*)")
 async def gbun(event):
     if event.fwd_from:
         return
@@ -39,9 +39,9 @@ async def gbun(event):
             )
         else:
             jnl = (
-                f"** 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By** {me.first_name}\n\n"
-                "**Name: ** {}\n"
-                "**ID : ** `{}`\n"
+                f"**𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By** {me.first_name}\n\n"
+                "**Frist Name: ** {}\n"
+                "**User ID : ** `{}`\n"
             ).format(firstname, idd)
             if usname is None:
                 jnl += "**Username: ** `Doesn't own a username!`\n"
@@ -58,7 +58,7 @@ async def gbun(event):
     else:
         mention = (
             f"**Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By** {me.first_name} \n**Reason:** `Jamet` "
-        )    
+        )
         await event.reply(mention)
     await event.delete()
 

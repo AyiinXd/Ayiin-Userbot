@@ -6,10 +6,10 @@ import os
 from pathlib import Path
 
 from userbot import CMD_HELP
-from userbot.utils import ayiin_cmd, edit_or_reply, load_module, remove_plugin, reply_id
+from userbot.utils import edit_or_reply, load_module, man_cmd, remove_plugin, reply_id
 
 
-@ayiin_cmd(pattern="install$")
+@man_cmd(pattern="install$")
 async def _(event):
     if event.fwd_from:
         return
@@ -31,13 +31,13 @@ async def _(event):
                 )
             else:
                 os.remove(downloaded_file_name)
-                await event.edit("**Error!** Plugin ini sudah terinstall di userbot.")
+                await xx.edit("**Error!** Plugin ini sudah terinstall di userbot.")
         except Exception as e:
             await xx.edit(str(e))
             os.remove(downloaded_file_name)
 
 
-@ayiin_cmd(pattern="psend ([\s\S]*)")
+@man_cmd(pattern="psend ([\s\S]*)")
 async def send(event):
     reply_to_id = await reply_id(event)
     input_str = event.pattern_match.group(1)
@@ -57,17 +57,17 @@ async def send(event):
         await edit_or_reply(event, "**ERROR: Modules Tidak ditemukan**")
 
 
-@ayiin_cmd(pattern="uninstall (?P<shortname>\w+)")
+@man_cmd(pattern="uninstall (?P<shortname>\w+)")
 async def uninstall(event):
     if event.fwd_from:
         return
     shortname = event.pattern_match["shortname"]
     dir_path = f"./userbot/modules/{shortname}.py"
-    xx = await edit_or_reply(event, "'Processing...'")
+    xx = await edit_or_reply(event, "`Processing...`")
     try:
         remove_plugin(shortname)
         os.remove(dir_path)
-        xx = await xx.edit(f"**Berhasil Menghapus Modules** `{shortname}`")
+        await xx.edit(f"**Berhasil Menghapus Modules** `{shortname}`")
     except OSError as e:
         await xx.edit("**ERROR:** `%s` : %s" % (dir_path, e.strerror))
 
@@ -75,11 +75,11 @@ async def uninstall(event):
 CMD_HELP.update(
     {
         "core": "**Plugin : **`core`\
-        \n\n  •  **Syntax :** `{cmd}install` <reply ke file module>\
+        \n\n  •  **Syntax :** `.install` <reply ke file module>\
         \n  •  **Function : **Untuk Menginstall module userbot secara instan.\
-        \n\n  •  **Syntax :** `{cmd}uninstall` <nama module>\
+        \n\n  •  **Syntax :** `.uninstall` <nama module>\
         \n  •  **Function : **Untuk Menguninstall / Menghapus module userbot secara instan.\
-        \n\n  •  **Syntax :** `{cmd}psend` <nama module>\
+        \n\n  •  **Syntax :** `.psend` <nama module>\
         \n  •  **Function : **Untuk Mengirim module userbot secara instan.\
     "
     }

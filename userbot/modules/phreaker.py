@@ -4,10 +4,10 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_or_reply, ayiin_cmd
+from userbot.utils import edit_or_reply, man_cmd
 
 
-@ayiin_cmd(pattern="nmap(?: |$)(.*)")
+@man_cmd(pattern="nmap(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -31,7 +31,7 @@ async def _(event):
             await event.client.delete_messages(response.message.message)
 
 
-@ayiin_cmd(pattern="subd(?: |$)(.*)")
+@man_cmd(pattern="subd(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -55,7 +55,7 @@ async def _(event):
             await event.client.delete_messages(response.message.message)
 
 
-@ayiin_cmd(pattern="cek(?: |$)(.*)")
+@man_cmd(pattern="cek(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -79,7 +79,7 @@ async def _(event):
             await event.client.delete_messages(httpheader, response.message.message)
 
 
-@ayiin_cmd(pattern="bin(?: |$)(.*)")
+@man_cmd(pattern="bin(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -102,7 +102,7 @@ async def _(event):
             await event.client.delete_messages(response.message.message)
 
 
-@ayiin_cmd(pattern="cc(?: |$)(.*)")
+@man_cmd(pattern="cc(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

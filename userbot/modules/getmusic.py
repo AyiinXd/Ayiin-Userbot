@@ -23,7 +23,7 @@ from userbot import (
     TEMP_DOWNLOAD_DIRECTORY,
     lastfm,
 )
-from userbot.utils import bash, chrome, edit_or_reply, ayiin_cmd, progress
+from userbot.utils import bash, chrome, edit_or_reply, man_cmd, progress
 from userbot.utils.FastTelethon import upload_file
 
 
@@ -57,7 +57,7 @@ async def getmusicvideo(cat):
     await bash(command)
 
 
-@ayiin_cmd(pattern="song (.*)")
+@man_cmd(pattern="song (.*)")
 async def _(event):
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
@@ -92,7 +92,7 @@ async def _(event):
     await bash("rm -rf *.mp3")
 
 
-@ayiin_cmd(pattern="vsong(?: |$)(.*)")
+@man_cmd(pattern="vsong(?: |$)(.*)")
 async def _(event):
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
@@ -159,7 +159,7 @@ async def _(event):
         return
 
 
-@ayiin_cmd(pattern="smd (?:(now)|(.*) - (.*))")
+@man_cmd(pattern="smd (?:(now)|(.*) - (.*))")
 async def _(event):
     if event.fwd_from:
         return
@@ -185,7 +185,7 @@ async def _(event):
                 response = conv.wait_event(
                     events.NewMessage(incoming=True, from_users=752979930)
                 )
-                msg = await bot.send_message(chat, track)
+                msg = await event.client.send_message(chat, track)
                 respond = await response
                 res = conv.wait_event(
                     events.NewMessage(incoming=True, from_users=752979930)
@@ -206,7 +206,7 @@ async def _(event):
         )
 
 
-@ayiin_cmd(pattern="net (?:(now)|(.*) - (.*))")
+@man_cmd(pattern="net (?:(now)|(.*) - (.*))")
 async def _(event):
     if event.fwd_from:
         return
@@ -239,7 +239,7 @@ async def _(event):
                 return
             await event.edit("`Sending Your Music...`")
             await asyncio.sleep(3)
-            await bot.send_file(event.chat_id, respond)
+            await event.client.send_file(event.chat_id, respond)
         await event.client.delete_messages(
             conv.chat_id, [msg.id, response.id, respond.id]
         )
@@ -250,7 +250,7 @@ async def _(event):
         )
 
 
-@ayiin_cmd(pattern="mhb(?: |$)(.*)")
+@man_cmd(pattern="mhb(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -283,7 +283,7 @@ async def _(event):
         )
 
 
-@ayiin_cmd(pattern="deez (.+?|) (FLAC|MP3\_320|MP3\_256|MP3\_128)")
+@man_cmd(pattern="deez (.+?|) (FLAC|MP3\_320|MP3\_256|MP3\_128)")
 async def _(event):
     """DeezLoader by @An0nimia. Ported for UniBorg by @SpEcHlDe"""
     if event.fwd_from:

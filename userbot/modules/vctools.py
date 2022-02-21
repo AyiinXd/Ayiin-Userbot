@@ -18,8 +18,9 @@ from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, owner
-from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
+from userbot import CMD_HELP
+from userbot.events import register
+from userbot.utils import edit_delete, edit_or_reply, man_cmd
 
 
 async def get_call(event):
@@ -33,14 +34,16 @@ def user_list(l, n):
         yield l[i : i + n]
 
 
-@ayiin_cmd(pattern="startvc$")
+@man_cmd(pattern="startvc$")
+@register(pattern=r"^\.startvcs$", sudo=True)
 async def start_voice(c):
+    me = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await edit_delete(c, f"**Maaf {owner} Bukan Admin 👮**")
+        await edit_delete(c, f"**Maaf {me.first_name} Bukan Admin 👮**")
         return
     try:
         await c.client(startvc(c.chat_id))
@@ -49,14 +52,16 @@ async def start_voice(c):
         await edit_delete(c, f"**ERROR:** `{ex}`")
 
 
-@ayiin_cmd(pattern="stopvc$")
+@man_cmd(pattern="stopvc$")
+@register(pattern=r"^\.stopvcs$", sudo=True)
 async def stop_voice(c):
+    me = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await edit_delete(c, f"**Maaf {owner} Bukan Admin 👮**")
+        await edit_delete(c, f"**Maaf {me.first_name} Bukan Admin 👮**")
         return
     try:
         await c.client(stopvc(await get_call(c)))
@@ -65,7 +70,7 @@ async def stop_voice(c):
         await edit_delete(c, f"**ERROR:** `{ex}`")
 
 
-@ayiin_cmd(pattern="vcinvite")
+@man_cmd(pattern="vcinvite")
 async def _(c):
     xxnx = await edit_or_reply(c, "`Inviting Members to Voice Chat...`")
     users = []
@@ -83,9 +88,11 @@ async def _(c):
     await xxnx.edit(f"`{z}` **Orang Berhasil diundang ke VCG**")
 
 
-@ayiin_cmd(pattern="vctitle(?: |$)(.*)")
+@man_cmd(pattern="vctitle(?: |$)(.*)")
+@register(pattern=r"^\.cvctitle$", sudo=True)
 async def change_title(e):
     title = e.pattern_match.group(1)
+    me = await e.client.get_me()
     chat = await e.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
@@ -94,7 +101,7 @@ async def change_title(e):
         return await edit_delete(e, "**Silahkan Masukan Title Obrolan Suara Grup**")
 
     if not admin and not creator:
-        await edit_delete(e, f"**Maaf {owner} Bukan Admin 👮**")
+        await edit_delete(e, f"**Maaf {me.first_name} Bukan Admin 👮**")
         return
     try:
         await e.client(settitle(call=await get_call(e), title=title.strip()))

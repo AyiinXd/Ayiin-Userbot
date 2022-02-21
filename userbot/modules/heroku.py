@@ -9,7 +9,6 @@
 
 import math
 import os
-import time
 
 import aiohttp
 import heroku3
@@ -19,8 +18,7 @@ from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
 from userbot.modules.sql_helper.globals import addgvar, delgvar, gvarstatus
-from userbot.utils import edit_or_reply, ayiin_cmd
-from time import sleep
+from userbot.utils import edit_or_reply, man_cmd
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 heroku_api = "https://api.heroku.com"
@@ -37,7 +35,7 @@ else:
 """
 
 
-@ayiin_cmd(pattern="(get|del) var(?: |$)(\w*)")
+@man_cmd(pattern="(get|del) var(?: |$)(\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -98,7 +96,7 @@ async def variable(var):
             return True
 
 
-@ayiin_cmd(pattern="set var (\w*) ([\s\S]*)")
+@man_cmd(pattern="set var (\w*) ([\s\S]*)")
 async def set_var(var):
     if app is None:
         return await edit_or_reply(
@@ -135,13 +133,13 @@ async def set_var(var):
 """
 
 
-@ayiin_cmd(pattern="(usage|kuota|dyno)(?: |$)")
+@man_cmd(pattern="(usage|kuota|dyno)(?: |$)")
 async def dyno_usage(dyno):
     if app is None:
         return await dyno.edit(
             "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
         )
-    xx = await edit_or_reply(dyno, "🤖")
+    xx = await edit_or_reply(dyno, "`Processing...`")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -189,41 +187,40 @@ async def dyno_usage(dyno):
         AppHours = math.floor(AppQuotaUsed / 60)
         AppMinutes = math.floor(AppQuotaUsed % 60)
 
-        sleep(3)
         await xx.edit(
-            "⍟ **Informasi Dyno Heroku :**"
-            "\n╭✠━━━━━━━━❖━━━━━━━━✠╮\n"
-            f" ☞︎︎︎ **Penggunaan Dyno** `{app.name}` :\n"
-            f"     ✠  `{AppHours}`**Jam**  `{AppMinutes}`**Menit**  "
+            "✥ **Informasi Dyno Heroku :**"
+            "\n╔════════════════════╗\n"
+            f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
+            f"     •  `{AppHours}`**Jam**  `{AppMinutes}`**Menit**  "
             f"**|**  [`{AppPercentage}`**%**]"
-            "\n✠━━━━━━━━━❖━━━━━━━━━✠\n"
-            " ☞︎︎︎ **Sisa kuota dyno bulan ini** :\n"
-            f"     ✠  `{hours}`**Jam**  `{minutes}`**Menit**  "
+            "\n◖════════════════════◗\n"
+            " ➠ **Sisa kuota dyno bulan ini** :\n"
+            f"     •  `{hours}`**Jam**  `{minutes}`**Menit**  "
             f"**|**  [`{percentage}`**%**]"
-            "\n╰✠━━━━━━━━❖━━━━━━━━✠╯\n"
-            f"⍟ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
+            "\n╚════════════════════╝\n"
+            f"✥ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
         )
         return True
 
 
-@ayiin_cmd(pattern="usange(?: |$)")
+@man_cmd(pattern="usange(?: |$)")
 async def fake_dyno(event):
     xx = await edit_or_reply(event, "`Processing...`")
     await xx.edit(
-        "✠ **Informasi Dyno Heroku :**"
-        "\n╭✠━━━━━━━━❖━━━━━━━━✠╮\n"
-        f" ☞︎︎︎ **Penggunaan Dyno** `{app.name}` :\n"
-        f"     ✠  `0`**Jam**  `0`**Menit**  "
+        "✥ **Informasi Dyno Heroku :**"
+        "\n╔════════════════════╗\n"
+        f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
+        f"     •  `0`**Jam**  `0`**Menit**  "
         f"**|**  [`0`**%**]"
-        "\n✠━━━━━━━━━❖━━━━━━━━━✠\n"
-        " ☞︎︎︎ **Sisa kuota dyno bulan ini** :\n"
-        f"     ✠  `1000`**Jam**  `0`**Menit**  "
+        "\n◖════════════════════◗\n"
+        " ➠ **Sisa kuota dyno bulan ini** :\n"
+        f"     •  `1000`**Jam**  `0`**Menit**  "
         f"**|**  [`100`**%**]"
-        "\n╰✠━━━━━━━━❖━━━━━━━━✠╯\n"
+        "\n╚════════════════════╝\n"
     )
 
 
-@ayiin_cmd(pattern="logs")
+@man_cmd(pattern="logs")
 async def _(dyno):
     if app is None:
         return await edit_or_reply(
@@ -234,7 +231,7 @@ async def _(dyno):
     await edit_or_reply(xx, data, deflink=True, linktext="**✣ Ini Logs Heroku Anda :**")
 
 
-@ayiin_cmd(pattern="getdb ?(.*)")
+@man_cmd(pattern="getdb ?(.*)")
 async def getsql(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -254,7 +251,7 @@ async def getsql(event):
     )
 
 
-@ayiin_cmd(pattern="setdb ?(.*)")
+@man_cmd(pattern="setdb ?(.*)")
 async def setsql(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -274,7 +271,7 @@ async def setsql(event):
     await xxnx.edit(f"**Variable** `{var_}` **successfully added with value** `{valu}`")
 
 
-@ayiin_cmd(pattern="deldb ?(.*)")
+@man_cmd(pattern="deldb ?(.*)")
 async def delsql(event):
     if event.sender_id in SUDO_USERS:
         return

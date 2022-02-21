@@ -6,10 +6,10 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_or_reply, ayiin_cmd
+from userbot.utils import edit_or_reply, man_cmd
 
 
-@ayiin_cmd(pattern="firmware(?: |$)(.*)")
+@man_cmd(pattern="firmware(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -33,7 +33,7 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, response.message)
 
 
-@ayiin_cmd(pattern="fastboot(?: |$)(.*)")
+@man_cmd(pattern="fastboot(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -57,7 +57,7 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, response.message)
 
 
-@ayiin_cmd(pattern="recovery(?: |$)(.*)")
+@man_cmd(pattern="recovery(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -81,7 +81,7 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, response.message)
 
 
-@ayiin_cmd(pattern="pb(?: |$)(.*)")
+@man_cmd(pattern="pb(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -105,7 +105,7 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, response.message)
 
 
-@ayiin_cmd(pattern="of(?: |$)(.*)")
+@man_cmd(pattern="of(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -129,7 +129,7 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, response.message)
 
 
-@ayiin_cmd(pattern="eu(?: |$)(.*)")
+@man_cmd(pattern="eu(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -153,7 +153,7 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, response.message)
 
 
-@ayiin_cmd(pattern="vendor(?: |$)(.*)")
+@man_cmd(pattern="vendor(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -177,7 +177,7 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, response.message)
 
 
-@ayiin_cmd(pattern="specs(?: |$)(.*)")
+@man_cmd(pattern="specs(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

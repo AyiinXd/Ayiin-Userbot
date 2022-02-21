@@ -9,10 +9,10 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from userbot.utils import edit_or_reply, ayiin_cmd
+from userbot.utils import edit_or_reply, man_cmd
 
 
-@ayiin_cmd(pattern="hz(:? |$)(.*)?")
+@man_cmd(pattern="hz(:? |$)(.*)?")
 async def _(hazmat):
     xx = await edit_or_reply(hazmat, "`Processing Hazmat...`")
     level = hazmat.pattern_match.group(2)

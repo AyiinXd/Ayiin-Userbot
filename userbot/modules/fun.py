@@ -11,13 +11,13 @@ import PIL
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import ayiin_cmd, bash, edit_or_reply, progress
+from userbot.utils import bash, edit_or_reply, man_cmd, progress
 
 
-@ayiin_cmd(pattern="honka(?: |$)(.*)")
+@man_cmd(pattern="honka(?: |$)(.*)")
 async def frg(animu):
-    xx = await edit_or_reply(animum, "'Processing...'")
     text = animu.pattern_match.group(1)
+    xx = await edit_or_reply(animu, "`Processing...`")
     if not text:
         await edit_delete(xx, "**Silahkan Masukan Kata!**")
     else:
@@ -29,7 +29,6 @@ async def frg(animu):
             silent=bool(animu.is_reply),
             hide_via=True,
         )
-
     except Exception:
         return await xx.edit(
             "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
@@ -37,7 +36,7 @@ async def frg(animu):
     await xx.delete()
 
 
-@ayiin_cmd(pattern="rgif(?: |$)(.*)")
+@man_cmd(pattern="rgif(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

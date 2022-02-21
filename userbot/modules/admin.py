@@ -424,7 +424,7 @@ async def rm_deletedacc(show):
         if del_u > 0:
             del_status = (
                 f"**Menemukan** `{del_u}` **Akun Depresi/Terhapus/Zombie Dalam Grup Ini,"
-                "\nBersihkan Itu Menggunakan Perintah** `$zombies clean`"
+                "\nBersihkan Itu Menggunakan Perintah** `.zombies clean`"
             )
         return await show.edit(del_status)
     chat = await show.get_chat()
@@ -511,7 +511,7 @@ async def pin(event):
     if not to_unpin and options != "all":
         return await edit_delete(
             event,
-            "**Reply ke Pesan untuk melepas Pin atau Gunakan** `$unpin all` **untuk melepas pin semua**",
+            "**Reply ke Pesan untuk melepas Pin atau Gunakan** `.unpin all` **untuk melepas pin semua**",
             45,
         )
     try:
@@ -522,7 +522,7 @@ async def pin(event):
         else:
             return await edit_delete(
                 event,
-                "**Reply ke Pesan untuk melepas pin atau gunakan** `$unpin all`",
+                "**Reply ke Pesan untuk melepas pin atau gunakan** `.unpin all`",
                 45,
             )
     except BadRequestError:

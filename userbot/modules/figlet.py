@@ -12,10 +12,10 @@ import pyfiglet
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import ayiin_cmd, deEmojify, edit_delete
+from userbot.utils import deEmojify, edit_delete, man_cmd
 
 
-@ayiin_cmd(pattern=r"figlet (\w+) (.+)")
+@man_cmd(pattern="figlet (\w+) (.+)")
 async def figlet(event):
     if event.fwd_from:
         return
@@ -40,8 +40,8 @@ async def figlet(event):
         font = style_list[style]
     except KeyError:
         return await edit_delete(
-            event, 
-            "**Style yang dipilih tidak valid, ketik** `$help figlet` **bila butuh bantuan**"
+            event,
+            "**Style yang dipilih tidak valid, ketik** `.help figlet` **bila butuh bantuan**",
         )
     result = pyfiglet.figlet_format(deEmojify(text), font=font)
     await event.respond(f"‌‌‎`{result}`")

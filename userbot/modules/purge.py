@@ -15,13 +15,13 @@ from asyncio import sleep
 from telethon.errors import rpcbaseerrors
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS
+from userbot import CMD_HELP
 from userbot.events import register
-from userbot.utils import edit_delete, ayiin_cmd
+from userbot.utils import edit_delete, man_cmd
 
 
-@ayiin_cmd(pattern="purge$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\$cpurge$")
+@man_cmd(pattern="purge$")
+@register(pattern=r"^\.cpurge$", sudo=True)
 async def fastpurger(purg):
     chat = await purg.get_input_chat()
     msgs = []
@@ -48,8 +48,8 @@ async def fastpurger(purg):
     await done.delete()
 
 
-@ayiin_cmd(pattern="purgeme")
-@register(incoming=True, from_users=DEVS, pattern=r"^\$cpurgeme")
+@man_cmd(pattern="purgeme")
+@register(pattern=r"^\.cpurgeme", sudo=True)
 async def purgeme(delme):
     message = delme.text
     count = int(message[9:])
@@ -68,8 +68,8 @@ async def purgeme(delme):
     await smsg.delete()
 
 
-@ayiin_cmd(pattern="del$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\$cdel$")
+@man_cmd(pattern="del$")
+@register(pattern=r"^\.cdel$", sudo=True)
 async def delete_it(delme):
     msg_src = await delme.get_reply_message()
     if delme.reply_to_msg_id:
@@ -80,8 +80,8 @@ async def delete_it(delme):
             await delme.edit("**Tidak Bisa Menghapus Pesan**")
 
 
-@ayiin_cmd(pattern="edit")
-@register(incoming=True, from_users=DEVS, pattern=r"^\$cedit")
+@man_cmd(pattern="edit")
+@register(pattern=r"^\.cedit", sudo=True)
 async def editer(edit):
     message = edit.text
     chat = await edit.get_input_chat()
@@ -96,7 +96,7 @@ async def editer(edit):
         i += 1
 
 
-@ayiin_cmd(pattern="sd")
+@man_cmd(pattern="sd")
 async def selfdestruct(destroy):
     message = destroy.text
     counter = int(message[4:6])
@@ -110,7 +110,7 @@ async def selfdestruct(destroy):
 purgechat = {}
 
 
-@ayiin_cmd(pattern=r"(p|purge)(from$|to$)")
+@man_cmd(pattern=r"(p|purge)(from$|to$)")
 async def purgfromto(prgnew):
     reply = await prgnew.get_reply_message()
     if reply:
@@ -139,7 +139,7 @@ async def purgto(purgke):
     except KeyError:
         manubot = await edit_delete(
             purgke,
-            "**Balas pesan dengan** `$purgefrom` **terlebih dahulu lalu gunakan** `$purgeto`",
+            "**Balas pesan dengan** `.purgefrom` **terlebih dahulu lalu gunakan** `.purgeto`",
             5,
         )
         return

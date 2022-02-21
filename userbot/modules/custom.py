@@ -14,10 +14,10 @@ from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.modules.sql_helper import snips_sql as sql
-from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd, reply_id
+from userbot.utils import edit_delete, edit_or_reply, man_cmd, reply_id
 
 
-@ayiin_cmd(pattern=r"\#(\S+)")
+@man_cmd(pattern=r"\#(\S+)")
 async def incom_note(event):
     if not BOTLOG_CHATID:
         return
@@ -51,7 +51,7 @@ async def incom_note(event):
         pass
 
 
-@ayiin_cmd(pattern="custom(?:\\s|$)([\\s\\S]*)")
+@man_cmd(pattern="custom(?:\\s|$)([\\s\\S]*)")
 async def add_snip(event):
     trigger = event.pattern_match.group(1)
     stri = event.text.partition(trigger)[2]
@@ -94,7 +94,7 @@ async def add_snip(event):
     return await edit_or_reply(event, success.format("Berhasil disimpan", trigger))
 
 
-@ayiin_cmd(pattern="delcustom(?:\\s|$)([\\s\\S]*)")
+@man_cmd(pattern="delcustom(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     input_str = (event.pattern_match.group(1)).lower()
     if not input_str:
@@ -110,7 +110,7 @@ async def _(event):
         await edit_or_reply(event, "Tidak ada snip yang disimpan dengan pemicu ini.")
 
 
-@ayiin_cmd(pattern="customs$")
+@man_cmd(pattern="customs$")
 async def lsnote(event):
     all_snips = sql.get_notes()
     OUT_STR = "**List Custom yang tersedia:**\n"

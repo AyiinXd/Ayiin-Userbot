@@ -1,56 +1,72 @@
 from time import sleep
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, owner
-from userbot.utils import edit_or_reply, ayiin_cmd
+from userbot import CMD_HELP
+from userbot.utils import edit_or_reply, man_cmd
 
 
-@ayiin_cmd(pattern="p(?: |$)(.*)")
+@man_cmd(pattern="p(?: |$)(.*)")
 async def _(event):
-    await edit_or_reply(event, "**𝘼𝙨𝙨𝙖𝙡𝙖𝙢𝙪𝙖𝙡𝙖𝙞𝙠𝙪𝙢 𝘿𝙪𝙡𝙪 𝙏𝙤𝙙 𝘽𝙞𝙖𝙧 𝙎𝙤𝙥𝙖𝙣**")
+    await event.client.send_message(
+        event.chat_id,
+        "**Assalamualaikum Dulu Biar Sopan**",
+        reply_to=event.reply_to_msg_id,
+    )
+    await event.delete()
 
 
-@ayiin_cmd(pattern="pe(?: |$)(.*)")
+@man_cmd(pattern="pe(?: |$)(.*)")
 async def _(event):
-    await edit_or_reply(event, "**𝘼𝙨𝙨𝙖𝙡𝙖𝙢𝙪𝙖𝙡𝙞𝙠𝙪𝙢 𝙒𝙖𝙧𝙖𝙝𝙢𝙖𝙩𝙪𝙡𝙡𝙖𝙝𝙞 𝙒𝙖𝙗𝙖𝙧𝙖𝙠𝙖𝙩𝙪𝙝**")
+    await event.client.send_message(
+        event.chat_id,
+        "**Assalamualaikum Warahmatullahi Wabarakatuh**",
+        reply_to=event.reply_to_msg_id,
+    )
+    await event.delete()
 
 
-@ayiin_cmd(pattern="P(?: |$)(.*)")
+@man_cmd(pattern="P(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, f"**𝙃𝙖𝙞𝙞 𝙎𝙖𝙡𝙠𝙚𝙣 𝙂𝙪𝙖 {owner}**")
+    me = await event.client.get_me()
+    xx = await edit_or_reply(event, f"**Haii Salken Saya {me.first_name}**")
     sleep(2)
-    await xx.edit("**𝘼𝙨𝙨𝙖𝙡𝙖𝙢𝙪𝙖𝙡𝙖𝙞𝙠𝙪𝙢...**")
+    await xx.edit("**Assalamualaikum...**")
 
 
-@ayiin_cmd(pattern="l(?: |$)(.*)")
+@man_cmd(pattern="l(?: |$)(.*)")
 async def _(event):
-    await edit_or_reply(event, "**𝙒𝙖'𝙖𝙡𝙖𝙞𝙠𝙪𝙢𝙨𝙖𝙡𝙖𝙢**")
+    await event.client.send_message(
+        event.chat_id, "**Wa'alaikumsalam**", reply_to=event.reply_to_msg_id
+    )
+    await event.delete()
 
 
-@ayiin_cmd(pattern="a(?: |$)(.*)")
+@man_cmd(pattern="a(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, f"**𝙃𝙖𝙞𝙞 𝙎𝙖𝙡𝙠𝙚𝙣 𝙂𝙪𝙖 {owner}**")
+    me = await event.client.get_me()
+    xx = await edit_or_reply(event, f"**Haii Salken Saya {me.first_name}**")
     sleep(2)
-    await xx.edit("**𝘼𝙨𝙨𝙖𝙡𝙖𝙢𝙪𝙖𝙡𝙖𝙞𝙠𝙪𝙢**")
+    await xx.edit("**Assalamualaikum**")
 
 
-@ayiin_cmd(pattern="j(?: |$)(.*)")
+@man_cmd(pattern="j(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, "**𝙅𝘼𝙆𝘼 𝙎𝙀𝙈𝘽𝙐𝙉𝙂 𝘽𝘼𝙒𝘼 𝙂𝙊𝙇𝙊𝙆**")
+    xx = await edit_or_reply(event, "**JAKA SEMBUNG BAWA GOLOK**")
     sleep(3)
-    await xx.edit("**𝙉𝙄𝙈𝘽𝙍𝙐𝙉𝙂 𝙂𝙊𝘽𝙇𝙊𝙆!!!🔥**")
+    await xx.edit("**NIMBRUNG GOBLOKK!!!🔥**")
 
 
-@ayiin_cmd(pattern="k(?: |$)(.*)")
+@man_cmd(pattern="k(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, f"**𝙃𝘼𝙇𝙇𝙊 𝙆𝙊𝙉𝙏𝙊𝙇 𝙂𝙐𝘼 {owner}**")
+    me = await event.client.get_me()
+    xx = await edit_or_reply(event, f"**Hallo KIMAAKK SAYA {me.first_name}**")
     sleep(2)
-    await xx.edit("**𝙇𝙐 𝙎𝙀𝙈𝙐𝘼 𝙉𝙂𝙀𝙉𝙏𝙊𝘿 🔥**")
+    await xx.edit("**LU SEMUA NGENTOT 🔥**")
 
 
-@ayiin_cmd(pattern="ass(?: |$)(.*)")
+@man_cmd(pattern="ass(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, "**𝙎𝙖𝙡𝙖𝙢 𝘿𝙪𝙡𝙪 𝙏𝙤𝙙 𝘽𝙞𝙖𝙧 𝙎𝙤𝙥𝙖𝙣**")
+    xx = await edit_or_reply(event, "**Salam Dulu Biar Sopan**")
     sleep(2)
     await xx.edit("**السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ**")
 

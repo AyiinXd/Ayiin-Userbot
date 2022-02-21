@@ -5,15 +5,20 @@
 
 import asyncio
 
-from telethon import events
-
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, LOGS, bot
+from userbot import CMD_HELP, LOGS, SUDO_USERS
 from userbot.modules.sql_helper import no_log_pms_sql
 from userbot.modules.sql_helper.globals import addgvar, gvarstatus
 from userbot.modules.vcplugin import vcmention
-from userbot.utils import _format, edit_delete, ayiin_cmd
+from userbot.utils import (
+    _format,
+    chataction,
+    edit_delete,
+    edit_or_reply,
+    man_cmd,
+    man_handler,
+)
 from userbot.utils.tools import media_type
 
 
@@ -27,7 +32,7 @@ class LOG_CHATS:
 LOG_CHATS_ = LOG_CHATS()
 
 
-@bot.on(events.ChatAction)
+@chataction()
 async def logaddjoin(event):
     user = await event.get_user()
     chat = await event.get_chat()
@@ -47,13 +52,14 @@ async def logaddjoin(event):
     await event.client.send_message(BOTLOG_CHATID, text)
 
 
-@bot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
+@man_handler(func=lambda e: e.is_private)
 async def monito_p_m_s(event):
     if BOTLOG_CHATID == -100:
         return
     if gvarstatus("PMLOG") and gvarstatus("PMLOG") == "false":
         return
     sender = await event.get_sender()
+    await asyncio.sleep(0.5)
     if not sender.bot:
         chat = await event.get_chat()
         if not no_log_pms_sql.is_approved(chat.id) and chat.id != 777000:
@@ -81,7 +87,7 @@ async def monito_p_m_s(event):
                 LOGS.warn(str(e))
 
 
-@bot.on(events.NewMessage(incoming=True, func=lambda e: e.mentioned))
+@man_handler(func=lambda e: e.mentioned)
 async def log_tagged_messages(event):
     if BOTLOG_CHATID == -100:
         return
@@ -109,6 +115,7 @@ async def log_tagged_messages(event):
     else:
         resalt += f"\n<b> • 👀 </b><a href = 'https://t.me/c/{hmm.id}/{event.message.id}'>Lihat Pesan</a>"
     resalt += f"\n<b> • Message : </b>{event.message.message}"
+    await asyncio.sleep(0.5)
     if not event.is_private:
         await event.client.send_message(
             BOTLOG_CHATID,
@@ -118,8 +125,10 @@ async def log_tagged_messages(event):
         )
 
 
-@ayiin_cmd(pattern="save(?: |$)(.*)")
+@man_cmd(pattern="save(?: |$)(.*)")
 async def log(log_text):
+    if log_text.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID:
         if log_text.reply_to_msg_id:
             reply_msg = await log_text.get_reply_message()
@@ -129,17 +138,21 @@ async def log(log_text):
             textx = user + log_text.pattern_match.group(1)
             await log_text.client.send_message(BOTLOG_CHATID, textx)
         else:
-            await log_text.edit("**Apa yang harus saya simpan?**")
+            await edit_delete(log_text, "**Apa yang harus saya simpan?**")
             return
-        await log_text.edit("**Berhasil disimpan di Grup Log**")
+        await edit_delete(log_text, "**Berhasil disimpan di Grup Log**")
     else:
-        await log_text.edit("**Module ini membutuhkan LOGGER untuk diaktifkan!**")
-    await asyncio.sleep(2)
-    await log_text.delete()
+        await edit_delete(
+            log_text,
+            "**Untuk Menggunakan Module ini, Anda Harus Mengatur** `BOTLOG_CHATID` **di Config Vars**",
+            30,
+        )
 
 
-@ayiin_cmd(pattern="log$")
+@man_cmd(pattern="log$")
 async def set_no_log_p_m(event):
+    if event.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
         if no_log_pms_sql.is_approved(chat.id):
@@ -149,8 +162,10 @@ async def set_no_log_p_m(event):
             )
 
 
-@ayiin_cmd(pattern="nolog$")
+@man_cmd(pattern="nolog$")
 async def set_no_log_p_m(event):
+    if event.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID != -100:
         chat = await event.get_chat()
         if not no_log_pms_sql.is_approved(chat.id):
@@ -160,8 +175,10 @@ async def set_no_log_p_m(event):
             )
 
 
-@ayiin_cmd(pattern="pmlog (on|off)$")
+@man_cmd(pattern="pmlog (on|off)$")
 async def set_pmlog(event):
+    if event.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID == -100:
         return await edit_delete(
             event,
@@ -179,19 +196,21 @@ async def set_pmlog(event):
         PMLOG = True
     if PMLOG:
         if h_type:
-            await event.edit("**PM LOG Sudah Diaktifkan**")
+            await edit_or_reply(event, "**PM LOG Sudah Diaktifkan**")
         else:
             addgvar("PMLOG", h_type)
-            await event.edit("**PM LOG Berhasil Dimatikan**")
+            await edit_or_reply(event, "**PM LOG Berhasil Dimatikan**")
     elif h_type:
         addgvar("PMLOG", h_type)
-        await event.edit("**PM LOG Berhasil Diaktifkan**")
+        await edit_or_reply(event, "**PM LOG Berhasil Diaktifkan**")
     else:
-        await event.edit("**PM LOG Sudah Dimatikan**")
+        await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
 
 
-@ayiin_cmd(pattern="gruplog (on|off)$")
+@man_cmd(pattern="gruplog (on|off)$")
 async def set_gruplog(event):
+    if event.sender_id in SUDO_USERS:
+        return
     if BOTLOG_CHATID == -100:
         return await edit_delete(
             event,
@@ -209,15 +228,15 @@ async def set_gruplog(event):
         GRUPLOG = True
     if GRUPLOG:
         if h_type:
-            await event.edit("**Group Log Sudah Diaktifkan**")
+            await edit_or_reply(event, "**Group Log Sudah Diaktifkan**")
         else:
             addgvar("GRUPLOG", h_type)
-            await event.edit("**Group Log Berhasil Dimatikan**")
+            await edit_or_reply(event, "**Group Log Berhasil Dimatikan**")
     elif h_type:
         addgvar("GRUPLOG", h_type)
-        await event.edit("**Group Log Berhasil Diaktifkan**")
+        await edit_or_reply(event, "**Group Log Berhasil Diaktifkan**")
     else:
-        await event.edit("**Group Log Sudah Dimatikan**")
+        await edit_or_reply(event, "**Group Log Sudah Dimatikan**")
 
 
 CMD_HELP.update(

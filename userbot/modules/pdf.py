@@ -9,11 +9,11 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, bot
-from userbot.utils import edit_or_reply, ayiin_cmd
+from userbot import CMD_HELP
+from userbot.utils import edit_or_reply, man_cmd
 
 
-@ayiin_cmd(pattern="pdf(?: |$)(.*)")
+@man_cmd(pattern="pdf(?: |$)(.*)")
 async def _(event):
     if not event.reply_to_msg_id:
         return await edit_or_reply(event, "**Mohon Reply ke teks apa pun**")
@@ -21,7 +21,7 @@ async def _(event):
     chat = "@office2pdf_bot"
     xx = await edit_or_reply(event, "`Mengubah menjadi PDF...`")
     try:
-        async with bot.conversation(chat) as conv:
+        async with event.client.conversation(chat) as conv:
             try:
                 msg_start = await conv.send_message("/start")
                 response = await conv.get_response()
@@ -33,7 +33,7 @@ async def _(event):
                 filename = await conv.send_message("Man-Userbot")
                 started = await conv.get_response()
                 pdf = await conv.get_response()
-                await bot.send_read_acknowledge(conv.chat_id)
+                await event.client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
                 await event.client(UnblockRequest(chat))
                 return await xx.edit(

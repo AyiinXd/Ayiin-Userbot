@@ -7,10 +7,10 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
+from userbot.utils import edit_delete, edit_or_reply, man_cmd
 
 
-@ayiin_cmd(pattern="shazam(?: |$)(.*)")
+@man_cmd(pattern="shazam(?: |$)(.*)")
 async def _(event):
     if not event.reply_to_msg_id:
         return await edit_delete(event, "**Mohon balas ke pesan audio**")
