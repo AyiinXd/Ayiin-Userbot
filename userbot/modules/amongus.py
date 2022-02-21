@@ -14,10 +14,10 @@ from requests import get
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import man_cmd
+from userbot.utils import ayiin_cmd
 
 
-@man_cmd(pattern="imp (.*)")
+@ayiin_cmd(pattern="imp (.*)")
 async def f_load(message):
     clrs = {
         "red": 1,

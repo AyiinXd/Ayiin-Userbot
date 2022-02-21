@@ -12,7 +12,7 @@ from sre_constants import error as sre_err
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import man_cmd
+from userbot.utils import ayiin_cmd
 
 DELIMITERS = ("/", ":", "|", "_")
 
@@ -58,7 +58,7 @@ async def separate_sed(sed_string):
     return None
 
 
-@man_cmd(pattern="s")
+@ayiin_cmd(pattern="s")
 async def sed(command):
     sed_result = await separate_sed(command.text)
     textx = await command.get_reply_message()

@@ -43,7 +43,7 @@ async def _(grop):
                     group_name, group_name, result.link
                 )
             )
-        except Exception as e: 
+        except Exception as e:
             await grop.edit(str(e))
     elif type_of_group in ["g", "c"]:
         try:
@@ -66,7 +66,7 @@ async def _(grop):
                     group_name, group_name, result.link
                 )
             )
-        except Exception as e: 
+        except Exception as e:
             await grop.edit(str(e))
 
 

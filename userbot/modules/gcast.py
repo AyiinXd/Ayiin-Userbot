@@ -61,6 +61,8 @@ async def gcast(event):
                     done += 1
                 except FloodWaitError as anj:
                     await asyncio.sleep(int(anj.seconds))
+                    await event.client.send_message(chat, msg)
+                    done += 1
                 except BaseException:
                     er += 1
     await kk.edit(
@@ -90,6 +92,8 @@ async def gucast(event):
                     done += 1
                 except FloodWaitError as anj:
                     await asyncio.sleep(int(anj.seconds))
+                    await event.client.send_message(chat, msg)
+                    done += 1
                 except BaseException:
                     er += 1
     await kk.edit(

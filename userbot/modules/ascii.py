@@ -27,7 +27,7 @@ from telethon.utils import is_image, is_video
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 jikan = Jikan()
 
@@ -235,7 +235,7 @@ async def formatJSON(outData):
     return msg
 
 
-@man_cmd(pattern="anilist ?(.*)")
+@ayiin_cmd(pattern="anilist ?(.*)")
 async def anilist(event):
     if event.fwd_from:
         return
@@ -245,7 +245,7 @@ async def anilist(event):
     await edit_or_reply(event, msg, link_preview=True)
 
 
-@man_cmd(pattern="anime ?(.*)")
+@ayiin_cmd(pattern="anime ?(.*)")
 async def search_anime(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
@@ -266,7 +266,7 @@ async def search_anime(message):
         )
 
 
-@man_cmd(pattern=r"manga ?(.*)")
+@ayiin_cmd(pattern=r"manga ?(.*)")
 async def search_manga(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
@@ -281,7 +281,7 @@ async def search_manga(message):
     )
 
 
-@man_cmd(pattern="a(kaizoku|kayo) ?(.*)")
+@ayiin_cmd(pattern="a(kaizoku|kayo) ?(.*)")
 async def site_search(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(2)
@@ -328,7 +328,7 @@ async def site_search(event):
             await edit_or_reply(event, result, parse_mode="HTML")
 
 
-@man_cmd(pattern="char ?(.*)")
+@ayiin_cmd(pattern="char ?(.*)")
 async def character(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(1)
@@ -375,7 +375,7 @@ async def character(event):
     )
 
 
-@man_cmd(pattern="upcoming$")
+@ayiin_cmd(pattern="upcoming$")
 async def upcoming(message):
     rep = "<b>Upcoming anime</b>\n"
     later = jikan.season_later()
@@ -389,7 +389,7 @@ async def upcoming(message):
         await edit_or_reply(message, rep, parse_mode="html")
 
 
-@man_cmd(pattern="whatanime$")
+@ayiin_cmd(pattern="whatanime$")
 async def whatanime(e):
     media = e.media
     if not media:

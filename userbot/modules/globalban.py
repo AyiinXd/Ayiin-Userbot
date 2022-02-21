@@ -2,10 +2,10 @@
 # Ported by @mrismanaziz
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot
-#
 
 import asyncio
 from datetime import datetime
+from io import BytesIO
 
 from telethon import events
 from telethon.errors import BadRequestError
@@ -40,7 +40,7 @@ def mentionuser(name, userid):
 
 
 @ayiin_cmd(pattern="gban(?: |$)(.*)")
-@register(incoming=True, from_users=DEVS, pattern=r"^\$cgban(?: |$)(.*)")
+@register(pattern=r"^\$cgban(?: |$)(.*)", sudo=True)
 async def gban(event):
     if event.fwd_from:
         return
@@ -94,7 +94,7 @@ async def gban(event):
 
 
 @ayiin_cmd(pattern="ungban(?: |$)(.*)")
-@register(incoming=True, from_users=DEVS, pattern=r"^\$cungban(?: |$)(.*)")
+@register(pattern=r"^\$cungban(?: |$)(.*)", sudo=True)
 async def ungban(event):
     if event.fwd_from:
         return
@@ -156,6 +156,17 @@ async def gablist(event):
                 GBANNED_LIST += (
                     f"☞︎︎︎ [{a_user.chat_id}](tg://user?id={a_user.chat_id}) `No Reason`\n"
                 )
+    if len(gbanned_users) >= 4096:
+        with BytesIO(str.encode(GBANNED_LIST)) as fileuser:
+            fileuser.name = "list-gban.txt"
+            await event.client.send_file(
+                event.chat_id,
+                fileuser,
+                force_document=True,
+                thumb="userbot/resources/logo.jpg",
+                caption="**List Global Banned**",
+                allow_cache=False,
+            )
     else:
         GBANNED_LIST = "𝘽𝙚𝙡𝙪𝙢 𝘼𝙙𝙖 𝙋𝙚𝙣𝙜𝙜𝙪𝙣𝙖 𝙔𝙖𝙣𝙜 𝘿𝙞-𝙂𝙗𝙖𝙣"
     await edit_or_reply(event, GBANNED_LIST)

@@ -13,14 +13,14 @@ from datetime import date
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, ZIP_DOWNLOAD_DIRECTORY
-from userbot.utils import man_cmd, progress
+from userbot.utils import ayiin_cmd, progress
 
 # ====================
 today = date.today()
 # ====================
 
 
-@man_cmd(pattern="compress(?: |$)(.*)")
+@ayiin_cmd(pattern="compress(?: |$)(.*)")
 async def _(event):
     # Prevent Channel Bug to use update
     if event.is_channel and not event.is_group:
@@ -70,7 +70,7 @@ async def _(event):
     await event.delete()
 
 
-@man_cmd(pattern="addzip(?: |$)(.*)")
+@ayiin_cmd(pattern="addzip(?: |$)(.*)")
 async def addzip(add):
     """Copyright (c) 2020 azrim @github"""
     # Prevent Channel Bug to use update
@@ -103,7 +103,7 @@ async def addzip(add):
             return
 
 
-@man_cmd(pattern=r"upzip(?: |$)(.*)")
+@ayiin_cmd(pattern=r"upzip(?: |$)(.*)")
 async def upload_zip(up):
     if not os.path.isdir(ZIP_DOWNLOAD_DIRECTORY):
         await up.edit("`Files not found`")
@@ -130,7 +130,7 @@ async def upload_zip(up):
     await up.delete()
 
 
-@man_cmd(pattern=r"rmzip(?: |$)(.*)")
+@ayiin_cmd(pattern=r"rmzip(?: |$)(.*)")
 async def remove_dir(rm):
     if not os.path.isdir(ZIP_DOWNLOAD_DIRECTORY):
         await rm.edit("`Directory not found`")

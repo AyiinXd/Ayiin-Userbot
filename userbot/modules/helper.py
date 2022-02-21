@@ -1,6 +1,6 @@
 """ Userbot module for other small commands. """
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, owner
+from userbot import CMD_HELP
 from userbot.utils import edit_or_reply, ayiin_cmd
 
 
@@ -8,7 +8,7 @@ from userbot.utils import edit_or_reply, ayiin_cmd
 async def usit(event):
     await edit_or_reply(
         event,
-        f"**Hai {owner} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `$help` Atau Bisa Minta Bantuan Ke:\n"
+        f"**Hai {me.first_name} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `$help` Atau Bisa Minta Bantuan Ke:\n"
         f"⍟ **Group Support :** [𝙰𝚈𝙸𝙸𝙽 𝚂𝚄𝙿𝙿𝙾𝚁𝚃](t.me/AyiinXdSupport)\n"
         f"⍟ **Channel Ayiin :** [𝙰𝚈𝙸𝙸𝙽 𝚂𝚄𝙿𝙿𝙾𝚁𝚃](t.me/AyiinSupport)\n"
         f"⍟ **Owner Repo :** [𝚈𝙸𝙽𝚂](t.me/AyiinXd)\n"

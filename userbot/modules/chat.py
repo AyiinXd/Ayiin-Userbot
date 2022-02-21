@@ -43,10 +43,10 @@ from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
 from userbot.modules.ping import absen
-from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, ayiin_cmd
 
 
-@man_cmd(pattern="userid$")
+@ayiin_cmd(pattern="userid$")
 async def useridgetter(target):
     message = await target.get_reply_message()
     if message:
@@ -65,7 +65,7 @@ async def useridgetter(target):
         await edit_or_reply(target, f"**Username:** {name} \n**User ID:** `{user_id}`")
 
 
-@man_cmd(pattern="link(?: |$)(.*)")
+@ayiin_cmd(pattern="link(?: |$)(.*)")
 async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
@@ -79,7 +79,7 @@ async def permalink(mention):
         await edit_or_reply(mention, f"[{tag}](tg://user?id={user.id})")
 
 
-@man_cmd(pattern="bots(?: |$)(.*)")
+@ayiin_cmd(pattern="bots(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -101,11 +101,11 @@ async def _(event):
             chat, filter=ChannelParticipantsBots
         ):
             if isinstance(x.participant, ChannelParticipantAdmin):
-                mentions += "\n 👑 [{}](tg://user?id={}) `{}`".format(
+                mentions += "\n ♕︎ [{}](tg://user?id={}) `{}`".format(
                     x.first_name, x.id, x.id
                 )
             else:
-                mentions += "\n ⚜️ [{}](tg://user?id={}) `{}`".format(
+                mentions += "\n ⍟ [{}](tg://user?id={}) `{}`".format(
                     x.first_name, x.id, x.id
                 )
     except Exception as e:
@@ -113,7 +113,7 @@ async def _(event):
     await edit_or_reply(event, mentions)
 
 
-@man_cmd(pattern="kickme$")
+@ayiin_cmd(pattern="kickme$")
 async def kickme(leave):
     if leave.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
@@ -124,7 +124,7 @@ async def kickme(leave):
     await leave.client.kick_participant(leave.chat_id, "me")
 
 
-@man_cmd(pattern="kikme$")
+@ayiin_cmd(pattern="kikme$")
 async def kikme(leave):
     if leave.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
@@ -134,12 +134,12 @@ async def kikme(leave):
     await leave.client.kick_participant(leave.chat_id, "me")
 
 
-@register(pattern=r"^\.absenall$", own=True)
+@register(pattern=r"^\Absenall$", own=True)
 async def _(event):
     await event.reply(choice(absen))
 
 
-@man_cmd(pattern="chatinfo(?: |$)(.*)")
+@ayiin_cmd(pattern="chatinfo(?: |$)(.*)")
 async def info(event):
     xx = await edit_or_reply(event, "`Menganalisis Obrolan Ini...`")
     chat = await get_chatinfo(event)
@@ -399,7 +399,7 @@ async def fetch_info(chat, event):
     return caption
 
 
-@man_cmd(pattern="invite(?: |$)(.*)")
+@ayiin_cmd(pattern="invite(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -444,22 +444,22 @@ async def _(event):
 # Copyright © Team Geez - Project
 
 
-@man_cmd(pattern="inviteall ?(.*)")
+@ayiin_cmd(pattern="inviteall ?(.*)")
 async def get_users(event):
-    man_ = event.text[11:]
-    chat_man = man_.lower()
-    restricted = ["@SharingUserbot", "@sharinguserbot"]
+    ayiin_ = event.text[11:]
+    chat_man = ayiin_.lower()
+    restricted = ["@AyiinXdSupport", "@AyiinXdSupport"]
     if chat_man in restricted:
         await edit_or_reply(event, "**Anda tidak dapat Mengundang Anggota dari sana.**")
         await event.client.send_message(
-            -1001473548283, "**Maaf Telah Mencuri Member dari Sini.**"
+            -1001675396283, "**Maaf Telah Mencuri Member dari Sini.**"
         )
         return
-    if not man_:
+    if not ayiin_:
         return await edit_or_reply(
             event, "**Berikan Link Grup Chat untuk menculik membernya**"
         )
-    man = await edit_or_reply(event, f"**Mengundang Member Dari Group {man_}**")
+    man = await edit_or_reply(event, f"**Mengundang Member Dari Group {ayiin_}**")
     manuserbot = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
@@ -489,7 +489,7 @@ async def get_users(event):
 # Coded By Abdul <https://github.com/DoellBarr>
 
 
-@man_cmd(pattern="getmember$")
+@ayiin_cmd(pattern="getmember$")
 async def scrapmem(event):
     chat = event.chat_id
     xx = await edit_or_reply(event, "`Processing...`")
@@ -503,7 +503,7 @@ async def scrapmem(event):
     await xx.edit("**Berhasil Mengumpulkan Member**")
 
 
-@man_cmd(pattern="addmember$")
+@ayiin_cmd(pattern="addmember$")
 async def admem(event):
     xx = await edit_or_reply(event, "**Proses Menambahkan** `0` **Member**")
     chat = await event.get_chat()
@@ -567,7 +567,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}invite` <username/user id>\
         \n  •  **Function : **Untuk Menambahkan/invite pengguna ke group chat.\
         \n\n  •  **Syntax :** `{cmd}inviteall` <username grup yang mau di culik membernya>\
-        \n  •  **Function : **Untuk Menambahkan/invite pengguna dari grup yang ditargetkan ke grup Anda. (ketik perintah `.inviteall` di gc lu)\
+        \n  •  **Function : **Untuk Menambahkan/invite pengguna dari grup yang ditargetkan ke grup Anda. (ketik perintah `$inviteall` di gc lu)\
     "
     }
 )

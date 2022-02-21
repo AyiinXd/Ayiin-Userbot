@@ -16,10 +16,10 @@ from humanize import naturalsize
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, LOGS
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 
-@man_cmd(pattern="direct(?: |$)([\s\S]*)")
+@ayiin_cmd(pattern="direct(?: |$)([\s\S]*)")
 async def direct_link_generator(event):
     textx = await event.get_reply_message()
     message = event.pattern_match.group(1)

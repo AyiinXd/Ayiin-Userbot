@@ -16,8 +16,8 @@ from userbot.utils import (
     chataction,
     edit_delete,
     edit_or_reply,
-    man_cmd,
-    man_handler,
+    ayiin_cmd,
+    ayiin_handler,
 )
 from userbot.utils.tools import media_type
 
@@ -52,7 +52,7 @@ async def logaddjoin(event):
     await event.client.send_message(BOTLOG_CHATID, text)
 
 
-@man_handler(func=lambda e: e.is_private)
+@ayiin_handler(func=lambda e: e.is_private)
 async def monito_p_m_s(event):
     if BOTLOG_CHATID == -100:
         return
@@ -87,7 +87,7 @@ async def monito_p_m_s(event):
                 LOGS.warn(str(e))
 
 
-@man_handler(func=lambda e: e.mentioned)
+@ayiin_handler(func=lambda e: e.mentioned)
 async def log_tagged_messages(event):
     if BOTLOG_CHATID == -100:
         return
@@ -125,7 +125,7 @@ async def log_tagged_messages(event):
         )
 
 
-@man_cmd(pattern="save(?: |$)(.*)")
+@ayiin_cmd(pattern="save(?: |$)(.*)")
 async def log(log_text):
     if log_text.sender_id in SUDO_USERS:
         return
@@ -149,7 +149,7 @@ async def log(log_text):
         )
 
 
-@man_cmd(pattern="log$")
+@ayiin_cmd(pattern="log$")
 async def set_no_log_p_m(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -162,7 +162,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@man_cmd(pattern="nolog$")
+@ayiin_cmd(pattern="nolog$")
 async def set_no_log_p_m(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -175,7 +175,7 @@ async def set_no_log_p_m(event):
             )
 
 
-@man_cmd(pattern="pmlog (on|off)$")
+@ayiin_cmd(pattern="pmlog (on|off)$")
 async def set_pmlog(event):
     if event.sender_id in SUDO_USERS:
         return
@@ -207,7 +207,7 @@ async def set_pmlog(event):
         await edit_or_reply(event, "**PM LOG Sudah Dimatikan**")
 
 
-@man_cmd(pattern="gruplog (on|off)$")
+@ayiin_cmd(pattern="gruplog (on|off)$")
 async def set_gruplog(event):
     if event.sender_id in SUDO_USERS:
         return

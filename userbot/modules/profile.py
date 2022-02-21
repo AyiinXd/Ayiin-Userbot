@@ -28,7 +28,7 @@ from telethon.tl.types import (
 from telethon.utils import get_input_location
 
 from userbot import CMD_HELP, SUDO_USERS, TEMP_DOWNLOAD_DIRECTORY, bot
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 # ====================== CONSTANT ===============================
 INVALID_MEDIA = "```Maaf Media Tidak Valid.```"
@@ -44,7 +44,7 @@ USERNAME_TAKEN = "```Mohon Maaf, Username Itu Sudah Ada Yang Menggunakannya.```"
 # ===============================================================
 
 
-@man_cmd(pattern="reserved$")
+@ayiin_cmd(pattern="reserved$")
 async def mine(event):
     result = await event.client(GetAdminedPublicChannelsRequest())
     output_str = "".join(
@@ -54,7 +54,7 @@ async def mine(event):
     await edit_or_reply(event, output_str)
 
 
-@man_cmd(pattern=r"name")
+@ayiin_cmd(pattern=r"name")
 async def update_name(name):
     if name.sender_id in SUDO_USERS:
         return
@@ -71,7 +71,7 @@ async def update_name(name):
     await edit_or_reply(name, NAME_OK)
 
 
-@man_cmd(pattern="setpfp$")
+@ayiin_cmd(pattern="setpfp$")
 async def set_profilepic(propic):
     if propic.sender_id in SUDO_USERS:
         return
@@ -100,7 +100,7 @@ async def set_profilepic(propic):
             await propic.edit(INVALID_MEDIA)
 
 
-@man_cmd(pattern="setbio (.*)")
+@ayiin_cmd(pattern="setbio (.*)")
 async def set_biograph(setbio):
     if setbio.sender_id in SUDO_USERS:
         return
@@ -109,7 +109,7 @@ async def set_biograph(setbio):
     await edit_or_reply(setbio, BIO_SUCCESS)
 
 
-@man_cmd(pattern="username (.*)")
+@ayiin_cmd(pattern="username (.*)")
 async def update_username(username):
     if username.sender_id in SUDO_USERS:
         return
@@ -121,7 +121,7 @@ async def update_username(username):
         await edit_delete(username, USERNAME_TAKEN)
 
 
-@man_cmd(pattern="count$")
+@ayiin_cmd(pattern="count$")
 async def count(event):
     u = 0
     g = 0
@@ -155,7 +155,7 @@ async def count(event):
     await xx.edit(result)
 
 
-@man_cmd(pattern="delpfp")
+@ayiin_cmd(pattern="delpfp")
 async def remove_profilepic(delpfp):
     if delpfp.sender_id in SUDO_USERS:
         return
@@ -181,7 +181,7 @@ async def remove_profilepic(delpfp):
     await delpfp.edit(f"`Berhasil Menghapus {len(input_photos)} Foto Profil.`")
 
 
-@man_cmd(pattern="info(?: |$)(.*)")
+@ayiin_cmd(pattern="info(?: |$)(.*)")
 async def who(event):
     xx = await edit_or_reply(event, "`Mengambil Informasi Data User ini...`")
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):

@@ -17,10 +17,10 @@ from telethon.errors import rpcbaseerrors
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
-from userbot.utils import edit_delete, man_cmd
+from userbot.utils import edit_delete, ayiin_cmd
 
 
-@man_cmd(pattern="purge$")
+@ayiin_cmd(pattern="purge$")
 @register(pattern=r"^\.cpurge$", sudo=True)
 async def fastpurger(purg):
     chat = await purg.get_input_chat()
@@ -48,7 +48,7 @@ async def fastpurger(purg):
     await done.delete()
 
 
-@man_cmd(pattern="purgeme")
+@ayiin_cmd(pattern="purgeme")
 @register(pattern=r"^\.cpurgeme", sudo=True)
 async def purgeme(delme):
     message = delme.text
@@ -68,7 +68,7 @@ async def purgeme(delme):
     await smsg.delete()
 
 
-@man_cmd(pattern="del$")
+@ayiin_cmd(pattern="del$")
 @register(pattern=r"^\.cdel$", sudo=True)
 async def delete_it(delme):
     msg_src = await delme.get_reply_message()
@@ -80,7 +80,7 @@ async def delete_it(delme):
             await delme.edit("**Tidak Bisa Menghapus Pesan**")
 
 
-@man_cmd(pattern="edit")
+@ayiin_cmd(pattern="edit")
 @register(pattern=r"^\.cedit", sudo=True)
 async def editer(edit):
     message = edit.text
@@ -96,7 +96,7 @@ async def editer(edit):
         i += 1
 
 
-@man_cmd(pattern="sd")
+@ayiin_cmd(pattern="sd")
 async def selfdestruct(destroy):
     message = destroy.text
     counter = int(message[4:6])
@@ -110,7 +110,7 @@ async def selfdestruct(destroy):
 purgechat = {}
 
 
-@man_cmd(pattern=r"(p|purge)(from$|to$)")
+@ayiin_cmd(pattern=r"(p|purge)(from$|to$)")
 async def purgfromto(prgnew):
     reply = await prgnew.get_reply_message()
     if reply:

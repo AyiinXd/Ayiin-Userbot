@@ -11,10 +11,10 @@ from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
-from userbot.utils import man_cmd
+from userbot.utils import ayiin_cmd
 
 
-@man_cmd(pattern="notes$")
+@ayiin_cmd(pattern="notes$")
 async def notes_active(svd):
     try:
         from userbot.modules.sql_helper.notes_sql import get_notes
@@ -29,7 +29,7 @@ async def notes_active(svd):
     await svd.edit(message)
 
 
-@man_cmd(pattern="clear (\w*)")
+@ayiin_cmd(pattern="clear (\w*)")
 async def remove_notes(clr):
     """For .clear command, clear note with the given name."""
     try:
@@ -44,7 +44,7 @@ async def remove_notes(clr):
     return await clr.edit("**Berhasil Menghapus Catatan:** `{}`".format(notename))
 
 
-@man_cmd(pattern="save (\w*)")
+@ayiin_cmd(pattern="save (\w*)")
 async def add_note(fltr):
     try:
         from userbot.modules.sql_helper.notes_sql import add_note
@@ -111,7 +111,7 @@ async def incom_note(getnt):
         pass
 
 
-@man_cmd(pattern="rmbotnotes (.*)")
+@ayiin_cmd(pattern="rmbotnotes (.*)")
 async def kick_marie_notes(kick):
     """ For .rmbotnotes command, allows you to kick all \
         Marie(or her clones) notes from a chat. """

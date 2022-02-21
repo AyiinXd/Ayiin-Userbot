@@ -27,7 +27,7 @@ from telethon.tl.types import (
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, SUDO_USERS, TEMP_DOWNLOAD_DIRECTORY
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 normiefont = [
     "a",
@@ -92,7 +92,7 @@ thumb_image_path = TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 name = "Profile Photos"
 
 
-@man_cmd(pattern="app(?: |$)(.*)")
+@ayiin_cmd(pattern="app(?: |$)(.*)")
 async def apk(e):
     xx = await edit_or_reply(e, "`Processing...`")
     try:
@@ -157,7 +157,7 @@ async def apk(e):
         await edit_delete(xx, "Exception Occured:- " + str(err))
 
 
-@man_cmd(pattern="calc(?: |$)(.*)")
+@ayiin_cmd(pattern="calc(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -194,7 +194,7 @@ async def _(event):
         await xx.edit("**Ketik** `$help calc` **bila butuh bantuan**")
 
 
-@man_cmd(pattern="xcd(?: |$)(.*)")
+@ayiin_cmd(pattern="xcd(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -240,7 +240,7 @@ Year: {}""".format(
         await edit_delete(xx, "xkcd n.{} not found!".format(xkcd_id))
 
 
-@man_cmd(pattern="remove(?: |$)(.*)")
+@ayiin_cmd(pattern="remove(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -407,7 +407,7 @@ async def ban_user(chat_id, i, rights):
         return False, str(exc)
 
 
-@man_cmd(pattern="rnupload(?: |$)(.*)")
+@ayiin_cmd(pattern="rnupload(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -453,7 +453,7 @@ async def _(event):
         await edit_delete(xx, "Syntax // .rnupload filename.extension <reply ke media>")
 
 
-@man_cmd(pattern="grab(?: |$)(.*)")
+@ayiin_cmd(pattern="grab(?: |$)(.*)")
 async def potocmd(event):
     id = "".join(event.raw_text.split(maxsplit=2)[1:])
     user = await event.get_reply_message()
@@ -486,7 +486,7 @@ async def potocmd(event):
             return await edit_delete(xx, "**Tidak Dapat Menemukan Foto Pengguna Ini**")
 
 
-@man_cmd(pattern="res(?: |$)(.*)")
+@ayiin_cmd(pattern="res(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -583,7 +583,7 @@ def get_provider(url):
     return url
 
 
-@man_cmd(pattern="watch(?: |$)(.*)")
+@ayiin_cmd(pattern="watch(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -633,7 +633,7 @@ async def _(event):
 # Modified by :- @kirito6969,@deleteduser420
 
 
-@man_cmd(pattern="weeb(?: |$)(.*)")
+@ayiin_cmd(pattern="weeb(?: |$)(.*)")
 async def weebify(event):
     args = event.pattern_match.group(1)
     if not args:
@@ -680,7 +680,7 @@ boldfont = [
 ]
 
 
-@man_cmd(pattern="bold(?: |$)(.*)")
+@ayiin_cmd(pattern="bold(?: |$)(.*)")
 async def thicc(bolded):
     args = bolded.pattern_match.group(1)
     if not args:
@@ -727,7 +727,7 @@ medievalbold = [
 ]
 
 
-@man_cmd(pattern="medibold(?: |$)(.*)")
+@ayiin_cmd(pattern="medibold(?: |$)(.*)")
 async def mediv(medievalx):
     args = medievalx.pattern_match.group(1)
     if not args:
@@ -776,7 +776,7 @@ doublestruckt = [
 ]
 
 
-@man_cmd(pattern="doublestruck(?: |$)(.*)")
+@ayiin_cmd(pattern="doublestruck(?: |$)(.*)")
 async def doublex(doublestrucktx):
     args = doublestrucktx.pattern_match.group(1)
     if not args:
@@ -825,7 +825,7 @@ cursiveboldx = [
 ]
 
 
-@man_cmd(pattern="curbold(?: |$)(.*)")
+@ayiin_cmd(pattern="curbold(?: |$)(.*)")
 async def cursive2(cursivebolded):
     args = cursivebolded.pattern_match.group(1)
     if not args:
@@ -875,7 +875,7 @@ medival2 = [
 ]
 
 
-@man_cmd(pattern="medi(?: |$)(.*)")
+@ayiin_cmd(pattern="medi(?: |$)(.*)")
 async def medival22(medivallite):
     args = medivallite.pattern_match.group(1)
     if not args:
@@ -923,7 +923,7 @@ cursive = [
 ]
 
 
-@man_cmd(pattern="cur(?: |$)(.*)")
+@ayiin_cmd(pattern="cur(?: |$)(.*)")
 async def xcursive(cursivelite):
     args = cursivelite.pattern_match.group(1)
     if not args:

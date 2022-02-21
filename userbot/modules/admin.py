@@ -43,8 +43,8 @@ from userbot.utils import (
     edit_delete,
     edit_or_reply,
     get_user_from_event,
-    man_cmd,
-    man_handler,
+    ayiin_cmd,
+    ayiin_handler,
     media_type,
 )
 
@@ -91,7 +91,7 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
 
 
-@man_cmd(pattern="setgpic( -s| -d)$")
+@ayiin_cmd(pattern="setgpic( -s| -d)$")
 @register(pattern=r"^\.csetgpic( -s| -d)$", sudo=True)
 async def set_group_photo(event):
     "For changing Group dp"
@@ -128,7 +128,7 @@ async def set_group_photo(event):
         await edit_delete(event, "**Foto Profil Grup Berhasil dihapus.**", 30)
 
 
-@man_cmd(pattern="promote(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="promote(?:\s|$)([\s\S]*)")
 @register(pattern=r"^\.cpromote(?:\s|$)([\s\S]*)", sudo=True)
 async def promote(event):
     new_rights = ChatAdminRights(
@@ -153,7 +153,7 @@ async def promote(event):
     await edit_delete(eventman, "`Promoted Successfully!`", 30)
 
 
-@man_cmd(pattern="demote(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="demote(?:\s|$)([\s\S]*)")
 @register(pattern=r"^\.cdemote(?:\s|$)([\s\S]*)", sudo=True)
 async def demote(event):
     "To demote a person in group"
@@ -178,7 +178,7 @@ async def demote(event):
     await edit_delete(eventman, "`Demoted Successfully!`", 30)
 
 
-@man_cmd(pattern="ban(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="ban(?:\s|$)([\s\S]*)")
 @register(pattern=r"^\.cban(?:\s|$)([\s\S]*)", sudo=True)
 async def ban(bon):
     me = await bon.client.get_me()
@@ -211,7 +211,7 @@ async def ban(bon):
         )
 
 
-@man_cmd(pattern="unban(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="unban(?:\s|$)([\s\S]*)")
 @register(pattern=r"^\.cunban(?:\s|$)([\s\S]*)", sudo=True)
 async def nothanos(unbon):
     chat = await unbon.get_chat()
@@ -231,7 +231,7 @@ async def nothanos(unbon):
         await edit_delete(unbon, "`Sepertinya Terjadi ERROR!`")
 
 
-@man_cmd(pattern="mute(?: |$)(.*)")
+@ayiin_cmd(pattern="mute(?: |$)(.*)")
 @register(pattern=r"^\.cmute(?: |$)(.*)", sudo=True)
 async def spider(spdr):
     try:
@@ -284,7 +284,7 @@ async def spider(spdr):
         return await edit_delete(spdr, "**Terjadi ERROR!**")
 
 
-@man_cmd(pattern="unmute(?: |$)(.*)")
+@ayiin_cmd(pattern="unmute(?: |$)(.*)")
 @register(pattern=r"^\.cunmute(?: |$)(.*)", sudo=True)
 async def unmoot(unmot):
     chat = await unmot.get_chat()
@@ -311,7 +311,7 @@ async def unmoot(unmot):
         return await edit_delete(unmot, "**Terjadi ERROR!**")
 
 
-@man_handler()
+@ayiin_handler()
 async def muter(moot):
     try:
         from userbot.modules.sql_helper.gmute_sql import is_gmuted
@@ -342,7 +342,7 @@ async def muter(moot):
             await moot.delete()
 
 
-@man_cmd(pattern="ungmute(?: |$)(.*)")
+@ayiin_cmd(pattern="ungmute(?: |$)(.*)")
 @register(pattern=r"^\.cungmute(?: |$)(.*)", sudo=True)
 async def ungmoot(un_gmute):
     chat = await un_gmute.get_chat()
@@ -365,7 +365,7 @@ async def ungmoot(un_gmute):
         await edit_delete(un_gmute, "**Berhasil! Pengguna Sudah Tidak Dibisukan**")
 
 
-@man_cmd(pattern="gmute(?: |$)(.*)")
+@ayiin_cmd(pattern="gmute(?: |$)(.*)")
 @register(pattern=r"^\.cgmute(?: |$)(.*)", sudo=True)
 async def gspider(gspdr):
     chat = await gspdr.get_chat()
@@ -410,7 +410,7 @@ async def gspider(gspdr):
         )
 
 
-@man_cmd(pattern="zombies(?: |$)(.*)")
+@ayiin_cmd(pattern="zombies(?: |$)(.*)")
 async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
@@ -467,7 +467,7 @@ async def rm_deletedacc(show):
         )
 
 
-@man_cmd(pattern="admins$")
+@ayiin_cmd(pattern="admins$")
 async def get_admin(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title or "Grup Ini"
@@ -486,7 +486,7 @@ async def get_admin(show):
     await show.edit(mentions, parse_mode="html")
 
 
-@man_cmd(pattern="pin( loud|$)")
+@ayiin_cmd(pattern="pin( loud|$)")
 @register(pattern=r"^\.cpin( loud|$)", sudo=True)
 async def pin(event):
     to_pin = event.reply_to_msg_id
@@ -503,7 +503,7 @@ async def pin(event):
     await edit_delete(event, "`Pinned Successfully!`")
 
 
-@man_cmd(pattern="unpin( all|$)")
+@ayiin_cmd(pattern="unpin( all|$)")
 @register(pattern=r"^\.cunpin( all|$)", sudo=True)
 async def pin(event):
     to_unpin = event.reply_to_msg_id
@@ -532,7 +532,7 @@ async def pin(event):
     await edit_delete(event, "`Unpinned Successfully!`")
 
 
-@man_cmd(pattern="kick(?: |$)(.*)")
+@ayiin_cmd(pattern="kick(?: |$)(.*)")
 @register(pattern=r"^\.ckick(?: |$)(.*)", sudo=True)
 async def kick(usr):
     chat = await usr.get_chat()
@@ -559,7 +559,7 @@ async def kick(usr):
         )
 
 
-@man_cmd(pattern=r"undlt( -u)?(?: |$)(\d*)?")
+@ayiin_cmd(pattern=r"undlt( -u)?(?: |$)(\d*)?")
 async def _iundlt(event):
     catevent = await edit_or_reply(event, "`Searching recent actions...`")
     flag = event.pattern_match.group(1)

@@ -18,7 +18,7 @@ from PIL import Image
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.utils import edit_delete, edit_or_reply, googleimagesdownload, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, googleimagesdownload, ayiin_cmd
 
 opener = urllib.request.build_opener()
 useragent = (
@@ -29,7 +29,7 @@ useragent = (
 opener.addheaders = [("User-agent", useragent)]
 
 
-@man_cmd(pattern="reverse(?: |$)(\d*)")
+@ayiin_cmd(pattern="reverse(?: |$)(\d*)")
 async def okgoogle(img):
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")

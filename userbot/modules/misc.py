@@ -20,24 +20,24 @@ from time import sleep
 
 import requests
 from bs4 import BeautifulSoup
-from git import Repo
 from heroku3 import from_key
 from PIL import Image
 
 from userbot import BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
+from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS, branch
 from userbot.utils import edit_or_reply, ayiin_cmd, time_formatter
 
 # ================= CONSTANT =================
-HEROKU_APP = from_key(HEROKU_API_KEY).apps()[HEROKU_APP_NAME]
+if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
+    HEROKU_APP = from_key(HEROKU_API_KEY).apps()[HEROKU_APP_NAME]
+else:
+    HEROKU_APP = None
 # ============================================
 
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.70 Mobile Safari/537.36"
 opener.addheaders = [("User-agent", useragent)]
-repo = Repo()
-branch = repo.active_branch.name
 
 
 @ayiin_cmd(pattern="sleep ([0-9]+)$")
@@ -121,13 +121,13 @@ async def repo_is_here(event):
     sleep(3)
     await xx.edit(
         "**Hey**, I am using **᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽** \n"
-        "卍━━━━━━━━━━━━━━━━━━━卍\n"
+        "卍━━━━━━━━━━━━━━━━━━卍\n"
         "➣ **𝚁𝙴𝙿𝙾 𝚄𝚂𝙴𝚁𝙱𝙾𝚃 :** [𝙶𝙸𝚃𝙷𝚄𝙱](https://github.com/AyiinXd/Ayiin-Userbot)\n"
         "➣ **𝙾𝚆𝙽𝙴𝚁 𝙱𝙾𝚃       :** [𝚈𝙸𝙽𝚂](t.me/AyiinXd)\n"
-        "卍━━━━━━━━━━━━━━━━━━━卍\n"
+        "卍━━━━━━━━━━━━━━━━━━卍n"
         "➣ **𝚂𝚄𝙿𝙿𝙾𝚁𝚃           :** [𝙶𝚁𝙾𝚄𝙿](https://t.me/AyiinXdSupport)\n"
         "➣ **𝚂𝚄𝙿𝙿𝙾𝚁𝚃           :** [𝙲𝙷𝙰𝙽𝙽𝙴𝙻](https://t.me/AyiinSupport)\n"
-        "卍━━━━━━━━━━━━━━━━━━━卍\n"
+        "卍━━━━━━━━━━━━━━━━━━卍n"
     )
 
 
@@ -135,7 +135,7 @@ async def repo_is_here(event):
 async def string_is_here(event):
     await edit_or_reply(
         event,
-        "✥ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@AyiinXd/AyiinString?lite=1&outputonly=1#main.py)\n",
+        "✥ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@AyiinXd/AyiinString?lite=1&outputonly=1)\n",
     )
 
 

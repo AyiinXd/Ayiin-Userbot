@@ -12,7 +12,7 @@ from telethon.events import NewMessage, StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 
 from userbot import AFKREASON, BOTLOG_CHATID, PM_AUTO_BAN, bot, owner
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
@@ -29,7 +29,7 @@ afk_start = {}
 # =================================================================
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"off(?: |$)(.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"off(?: |$)(.*)"))
 async def set_afk(afk_e):
     string = afk_e.pattern_match.group(1)
     global ISAFK

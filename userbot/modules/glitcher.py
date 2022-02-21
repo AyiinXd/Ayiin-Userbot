@@ -14,12 +14,12 @@ from PIL import Image
 from telethon import functions, types
 
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from userbot.utils import check_media, edit_delete, edit_or_reply, man_cmd, progress
+from userbot.utils import check_media, edit_delete, edit_or_reply, ayiin_cmd, progress
 
 Glitched = TEMP_DOWNLOAD_DIRECTORY + "glitch.gif"
 
 
-@man_cmd(pattern="glitch(?: |$)(.*)")
+@ayiin_cmd(pattern="glitch(?: |$)(.*)")
 async def glitch(event):
     if not event.reply_to_msg_id:
         return await edit_or_reply(event, "`Aku Mau Glitch Sebuah Hantu!`")

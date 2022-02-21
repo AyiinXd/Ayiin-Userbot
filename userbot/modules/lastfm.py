@@ -33,7 +33,7 @@ from userbot import (
     bot,
     lastfm,
 )
-from userbot.utils import man_cmd
+from userbot.utils import ayiin_cmd
 
 LASTFM_PASS = md5(LASTFM_PASSWORD_PLAIN)
 if LASTFM_API and LASTFM_SECRET and LASTFM_USERNAME and LASTFM_PASS:
@@ -164,7 +164,7 @@ async def get_curr_track(lfmbio):  # sourcery no-metrics
     LASTFM_.RUNNING = False
 
 
-@man_cmd(pattern="lastfm$")
+@ayiin_cmd(pattern="lastfm$")
 async def last_fm(lastFM):
     await lastFM.edit("Processing...")
     preview = None
@@ -202,7 +202,7 @@ async def last_fm(lastFM):
         await lastFM.edit(f"{output}", parse_mode="md")
 
 
-@man_cmd(pattern="lastbio (on|off)")
+@ayiin_cmd(pattern="lastbio (on|off)")
 async def lastbio(lfmbio):
     arg = lfmbio.pattern_match.group(1).lower()
     if arg == "on":
@@ -224,7 +224,7 @@ async def lastbio(lfmbio):
         await lfmbio.edit(LFM_BIO_ERR)
 
 
-@man_cmd(pattern="lastlog (on|off)")
+@ayiin_cmd(pattern="lastlog (on|off)")
 async def lastlog(lstlog):
     arg = lstlog.pattern_match.group(1).lower()
     LASTFM_.LastLog = False

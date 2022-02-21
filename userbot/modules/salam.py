@@ -2,10 +2,10 @@ from time import sleep
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_or_reply, man_cmd
+from userbot.utils import edit_or_reply, ayiin_cmd
 
 
-@man_cmd(pattern="p(?: |$)(.*)")
+@ayiin_cmd(pattern="p(?: |$)(.*)")
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -15,7 +15,7 @@ async def _(event):
     await event.delete()
 
 
-@man_cmd(pattern="pe(?: |$)(.*)")
+@ayiin_cmd(pattern="pe(?: |$)(.*)")
 async def _(event):
     await event.client.send_message(
         event.chat_id,
@@ -25,7 +25,7 @@ async def _(event):
     await event.delete()
 
 
-@man_cmd(pattern="P(?: |$)(.*)")
+@ayiin_cmd(pattern="P(?: |$)(.*)")
 async def _(event):
     me = await event.client.get_me()
     xx = await edit_or_reply(event, f"**Haii Salken Saya {me.first_name}**")
@@ -33,7 +33,7 @@ async def _(event):
     await xx.edit("**Assalamualaikum...**")
 
 
-@man_cmd(pattern="l(?: |$)(.*)")
+@ayiin_cmd(pattern="l(?: |$)(.*)")
 async def _(event):
     await event.client.send_message(
         event.chat_id, "**Wa'alaikumsalam**", reply_to=event.reply_to_msg_id
@@ -41,7 +41,7 @@ async def _(event):
     await event.delete()
 
 
-@man_cmd(pattern="a(?: |$)(.*)")
+@ayiin_cmd(pattern="a(?: |$)(.*)")
 async def _(event):
     me = await event.client.get_me()
     xx = await edit_or_reply(event, f"**Haii Salken Saya {me.first_name}**")
@@ -49,14 +49,14 @@ async def _(event):
     await xx.edit("**Assalamualaikum**")
 
 
-@man_cmd(pattern="j(?: |$)(.*)")
+@ayiin_cmd(pattern="j(?: |$)(.*)")
 async def _(event):
     xx = await edit_or_reply(event, "**JAKA SEMBUNG BAWA GOLOK**")
     sleep(3)
     await xx.edit("**NIMBRUNG GOBLOKK!!!🔥**")
 
 
-@man_cmd(pattern="k(?: |$)(.*)")
+@ayiin_cmd(pattern="k(?: |$)(.*)")
 async def _(event):
     me = await event.client.get_me()
     xx = await edit_or_reply(event, f"**Hallo KIMAAKK SAYA {me.first_name}**")
@@ -64,7 +64,7 @@ async def _(event):
     await xx.edit("**LU SEMUA NGENTOT 🔥**")
 
 
-@man_cmd(pattern="ass(?: |$)(.*)")
+@ayiin_cmd(pattern="ass(?: |$)(.*)")
 async def _(event):
     xx = await edit_or_reply(event, "**Salam Dulu Biar Sopan**")
     sleep(2)

@@ -72,7 +72,7 @@ from userbot.utils import (
     edit_delete,
     edit_or_reply,
     googleimagesdownload,
-    man_cmd,
+    ayiin_cmd,
     options,
     progress,
 )
@@ -100,7 +100,7 @@ async def ocr_space_file(
     return r.json()
 
 
-@man_cmd(pattern="img (.*)")
+@ayiin_cmd(pattern="img (.*)")
 async def img_sampler(event):
     xx = await edit_or_reply(event, "`Sedang Mencari Gambar Yang Anda Cari...`")
     query = event.pattern_match.group(1)
@@ -129,7 +129,7 @@ async def img_sampler(event):
     await xx.delete()
 
 
-@man_cmd(pattern="currency ([\d\.]+) ([a-zA-Z]+) ([a-zA-Z]+)")
+@ayiin_cmd(pattern="currency ([\d\.]+) ([a-zA-Z]+) ([a-zA-Z]+)")
 async def moni(event):
     c_from_val = float(event.pattern_match.group(1))
     c_from = (event.pattern_match.group(2)).upper()
@@ -152,7 +152,7 @@ async def moni(event):
     await xx.edit(f"**{c_from_val} {c_from} = {c_to_val} {c_to}**")
 
 
-@man_cmd(pattern="google ([\s\S]*)")
+@ayiin_cmd(pattern="google ([\s\S]*)")
 async def gsearch(q_event):
     man = await edit_or_reply(q_event, "`Processing...`")
     match = q_event.pattern_match.group(1)
@@ -208,7 +208,7 @@ async def gsearch(q_event):
     )
 
 
-@man_cmd(pattern="wiki (.*)")
+@ayiin_cmd(pattern="wiki (.*)")
 async def wiki(wiki_q):
     match = wiki_q.pattern_match.group(1)
     xx = await edit_or_reply(wiki_q, "`Processing...`")
@@ -237,7 +237,7 @@ async def wiki(wiki_q):
     await xx.edit("**Search:**\n`" + match + "`\n\n**Result:**\n" + result)
 
 
-@man_cmd(pattern="ud (.*)")
+@ayiin_cmd(pattern="ud (.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -255,7 +255,7 @@ async def _(event):
         await xx.edit("Tidak ada hasil untuk **" + word + "**")
 
 
-@man_cmd(pattern="tts(?: |$)([\s\S]*)")
+@ayiin_cmd(pattern="tts(?: |$)([\s\S]*)")
 async def text_to_speech(query):
     textx = await query.get_reply_message()
     message = query.pattern_match.group(1)
@@ -294,7 +294,7 @@ async def text_to_speech(query):
         await xx.delete()
 
 
-@man_cmd(pattern="tr(?: |$)(.*)")
+@ayiin_cmd(pattern="tr(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -325,7 +325,7 @@ async def _(event):
         await edit_delete(xx, str(exc))
 
 
-@man_cmd(pattern=r"lang (tr|tts) (.*)")
+@ayiin_cmd(pattern=r"lang (tr|tts) (.*)")
 async def lang(value):
     util = value.pattern_match.group(1).lower()
     xx = await edit_or_reply(value, "`Processing...`")
@@ -358,7 +358,7 @@ async def lang(value):
     await xx.edit(f"**Bahasa untuk** `{scraper}` **diganti menjadi** `{LANG.title()}`")
 
 
-@man_cmd(pattern="yt (\d*) *(.*)")
+@ayiin_cmd(pattern="yt (\d*) *(.*)")
 async def yt_search(video_q):
     if video_q.pattern_match.group(1) != "":
         counter = int(video_q.pattern_match.group(1))
@@ -393,7 +393,7 @@ async def yt_search(video_q):
     await xx.edit(output, link_preview=False)
 
 
-@man_cmd(pattern="yt(audio|video( \d{0,4})?) (.*)")
+@ayiin_cmd(pattern="yt(audio|video( \d{0,4})?) (.*)")
 async def download_video(v_url):
     dl_type = v_url.pattern_match.group(1).lower()
     reso = v_url.pattern_match.group(2)
@@ -578,7 +578,7 @@ async def download_video(v_url):
         await xx.delete()
 
 
-@man_cmd(pattern="rbg(?: |$)(.*)")
+@ayiin_cmd(pattern="rbg(?: |$)(.*)")
 async def kbg(remob):
     if REM_BG_API_KEY is None:
         await edit_delete(
@@ -667,7 +667,7 @@ async def ReTrieveURL(input_url):
     )
 
 
-@man_cmd(pattern=r"ocr (.*)")
+@ayiin_cmd(pattern=r"ocr (.*)")
 async def ocr(event):
     if not OCR_SPACE_API_KEY:
         return await edit_delete(
@@ -693,7 +693,7 @@ async def ocr(event):
     os.remove(downloaded_file_name)
 
 
-@man_cmd(pattern="decode$")
+@ayiin_cmd(pattern="decode$")
 async def parseqr(qr_e):
     downloaded_file_name = await qr_e.client.download_media(
         await qr_e.get_reply_message()
@@ -727,7 +727,7 @@ async def parseqr(qr_e):
     await qr_e.edit(qr_contents)
 
 
-@man_cmd(pattern="barcode(?: |$)([\s\S]*)")
+@ayiin_cmd(pattern="barcode(?: |$)([\s\S]*)")
 async def bq(event):
     xx = await edit_or_reply(event, "`Processing...`")
     input_str = event.pattern_match.group(1)
@@ -761,7 +761,7 @@ async def bq(event):
     await xx.delete()
 
 
-@man_cmd(pattern=r"makeqr(?: |$)([\s\S]*)")
+@ayiin_cmd(pattern=r"makeqr(?: |$)([\s\S]*)")
 async def make_qr(makeqr):
     input_str = makeqr.pattern_match.group(1)
     xx = await edit_or_reply(makeqr, "`Processing...`")
@@ -799,7 +799,7 @@ async def make_qr(makeqr):
     await xx.delete()
 
 
-@man_cmd(pattern="ss (.*)")
+@ayiin_cmd(pattern="ss (.*)")
 async def capture(url):
     xx = await edit_or_reply(url, "`Processing...`")
     chrome_options = await options()

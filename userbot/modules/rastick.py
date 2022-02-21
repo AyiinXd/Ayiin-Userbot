@@ -1,21 +1,19 @@
 import random
-from asyncio import sleep
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, bot
-from userbot.events import ayiin_cmd
-from userbot.utils import deEmojify
+from userbot import CMD_HELP
+from userbot.utils import deEmojify, ayiin_cmd
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"rst(?: |$)(.*)"))
+@ayiin_cmd(pattern="rst(?: |$)(.*)")
 async def rastick(animu):
     text = animu.pattern_match.group(1)
+    xx = await edit_or_reply(animu, "`Processing...`")
     if not text:
         if animu.is_reply:
             text = (await animu.get_reply_message()).message
         else:
-            await animu.answer("**Tidak ada teks yang diberikan.**")
-            return
+            return await xx.answer("**Tidak ada teks yang diberikan.**")
     animus = [
         1,
         2,
@@ -81,7 +79,7 @@ async def rastick(animu):
         62,
         63,
     ]
-    sticcers = await bot.inline_query(
+    sticcers = await animu.client.inline_query(
         "stickerizerbot", f"#{random.choice(animus)}{(deEmojify(text))}"
     )
     try:
@@ -93,8 +91,9 @@ async def rastick(animu):
         )
 
     except Exception:
-        return await animu.edit(
-            "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
+        return await edit_delete(
+            xx,
+            "**You cannot send inline results in this chat**",
         )
     await sleep(5)
     await animu.delete()

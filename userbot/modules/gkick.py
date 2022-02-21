@@ -6,10 +6,10 @@ from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS
 from userbot.events import register
-from userbot.utils import get_user_from_event, man_cmd
+from userbot.utils import get_user_from_event, ayiin_cmd
 
 
-@man_cmd(pattern="gkick(?: |$)(.*)")
+@ayiin_cmd(pattern="gkick(?: |$)(.*)")
 @register(pattern=r"^\.cgkick(?: |$)(.*)", sudo=True)
 async def gspide(rk):
     lazy = rk

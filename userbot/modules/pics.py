@@ -17,10 +17,10 @@ from telethon.tl.functions.messages import SendMediaRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_or_reply, man_cmd
+from userbot.utils import edit_or_reply, ayiin_cmd
 
 
-@man_cmd(pattern="pic(?: |$)(.*)")
+@ayiin_cmd(pattern="pic(?: |$)(.*)")
 async def on_file_to_photo(pics):
     xx = await edit_or_reply(pics, "`Processing...`")
     await sleep(1.5)

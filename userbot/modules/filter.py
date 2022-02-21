@@ -7,7 +7,7 @@ from telethon.utils import get_display_name
 from userbot import BLACKLIST_CHAT, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.events import man_cmd
+from userbot.events import ayiin_cmd
 from userbot.modules.sql_helper.filter_sql import (
     add_filter,
     get_filters,
@@ -78,7 +78,7 @@ async def filter_incoming_handler(event):
             )
 
 
-@bot.on(man_cmd(outgoing=True, pattern="filter (.*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="filter (.*)"))
 async def add_new_filter(event):
     if event.chat_id in BLACKLIST_CHAT:
         return await edit_or_reply(
@@ -125,7 +125,7 @@ async def add_new_filter(event):
     await edit_or_reply(event, f"**ERROR saat menyetel filter untuk** `{keyword}`")
 
 
-@bot.on(man_cmd(outgoing=True, pattern="filters$"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="filters$"))
 async def on_snip_list(event):
     OUT_STR = "**Tidak Ada Filter Apapun Disini.**"
     filters = get_filters(event.chat_id)
@@ -141,7 +141,7 @@ async def on_snip_list(event):
     )
 
 
-@bot.on(man_cmd(outgoing=True, pattern="stop ([\s\S]*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="stop ([\s\S]*)"))
 async def remove_a_filter(event):
     filt = event.pattern_match.group(1)
     if not remove_filter(event.chat_id, filt):
@@ -150,7 +150,7 @@ async def remove_a_filter(event):
         await event.edit("**Berhasil Menghapus Filter** `{}` **Disini**".format(filt))
 
 
-@bot.on(man_cmd(outgoing=True, pattern="rmallfilters$"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="rmallfilters$"))
 async def on_all_snip_delete(event):
     filters = get_filters(event.chat_id)
     if filters:

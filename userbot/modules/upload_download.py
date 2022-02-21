@@ -24,11 +24,11 @@ from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
-from userbot.utils import edit_or_reply, humanbytes, man_cmd, progress, run_cmd
+from userbot.utils import edit_or_reply, humanbytes, ayiin_cmd, progress, run_cmd
 from userbot.utils.FastTelethon import download_file, upload_file
 
 
-@man_cmd(pattern="download(?: |$)(.*)")
+@ayiin_cmd(pattern="download(?: |$)(.*)")
 async def download(target_file):
     """For .download command, download files to the userbot's server."""
     xx = await edit_or_reply(target_file, "`Processing...`")
@@ -151,7 +151,7 @@ async def get_video_thumb(file, output):
     return None
 
 
-@man_cmd(pattern="upload (.*)")
+@ayiin_cmd(pattern="upload (.*)")
 async def upload(event):
     if event.fwd_from:
         return

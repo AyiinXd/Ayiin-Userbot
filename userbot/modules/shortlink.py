@@ -10,10 +10,10 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_or_reply, man_cmd
+from userbot.utils import edit_or_reply, ayiin_cmd
 
 
-@man_cmd(pattern="short(?: |$)(.*)")
+@ayiin_cmd(pattern="short(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

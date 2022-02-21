@@ -4,10 +4,10 @@
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import man_cmd
+from userbot.utils import ayiin_cmd
 
 
-@man_cmd(pattern="xogame(?: |$)(.*)")
+@ayiin_cmd(pattern="xogame(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -23,7 +23,7 @@ async def _(event):
 # Alvin Gans
 
 
-@man_cmd(pattern="wp(?: |$)(.*)")
+@ayiin_cmd(pattern="wp(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -39,7 +39,7 @@ async def _(event):
 # Alvin Gans
 
 
-@man_cmd(pattern="mod(?: |$)(.*)")
+@ayiin_cmd(pattern="mod(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

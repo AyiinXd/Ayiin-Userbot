@@ -11,10 +11,10 @@ import PIL
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import bash, edit_or_reply, man_cmd, progress
+from userbot.utils import bash, edit_or_reply, ayiin_cmd, progress
 
 
-@man_cmd(pattern="honka(?: |$)(.*)")
+@ayiin_cmd(pattern="honka(?: |$)(.*)")
 async def frg(animu):
     text = animu.pattern_match.group(1)
     xx = await edit_or_reply(animu, "`Processing...`")
@@ -36,7 +36,7 @@ async def frg(animu):
     await xx.delete()
 
 
-@man_cmd(pattern="rgif(?: |$)(.*)")
+@ayiin_cmd(pattern="rgif(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return

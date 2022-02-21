@@ -7,7 +7,7 @@
 
 from userbot import CHANNEL
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, ICON_HELP, bot
+from userbot import CMD_HELP, ICON_HELP
 from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 from time import sleep
 
@@ -16,15 +16,14 @@ modules = CMD_HELP
 
 @ayiin_cmd(pattern="help(?: |$)(.*)")
 async def help(event):
-    """For help command"""
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
             await edit_or_reply(event, str(CMD_HELP[args]))
         else:
-            await edit_delete(event, f"`{args}` **Tidak Ada Modul.**")
+            await edit_delete(event, f"`{args}` **Bukan Nama Modul Yang Valid.**")
     else:
-        user = await bot.get_me()
+        user = await event.client.get_me()
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)

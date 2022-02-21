@@ -14,7 +14,7 @@ from pytz import timezone as tz
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, COUNTRY, TZ_NUMBER
-from userbot.utils import man_cmd
+from userbot.utils import ayiin_cmd
 
 
 async def get_tz(con):
@@ -42,7 +42,7 @@ async def get_tz(con):
         return
 
 
-@man_cmd(pattern="time(?: |$)(.*)(?<![0-9])(?: |$)([0-9]+)?")
+@ayiin_cmd(pattern="time(?: |$)(.*)(?<![0-9])(?: |$)([0-9]+)?")
 async def time_func(tdata):
     """For .time command, return the time of
     1. The country passed as an argument,
@@ -107,7 +107,7 @@ async def time_func(tdata):
         return
 
 
-@man_cmd(pattern="date(?: |$)(.*)(?<![0-9])(?: |$)([0-9]+)?")
+@ayiin_cmd(pattern="date(?: |$)(.*)(?<![0-9])(?: |$)([0-9]+)?")
 async def date_func(dat):
     """For .date command, return the date of
     1. The country passed as an argument,

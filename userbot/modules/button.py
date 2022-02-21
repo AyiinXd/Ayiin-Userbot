@@ -10,14 +10,14 @@ from telethon import Button
 from userbot import BOT_USERNAME
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, tgbot
-from userbot.utils import edit_delete, man_cmd, reply_id
+from userbot.utils import edit_delete, ayiin_cmd, reply_id
 
 # regex obtained from:
 # https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
 
-@man_cmd(pattern="cbutton(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="cbutton(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     reply_message = await event.get_reply_message()
     if reply_message:
@@ -68,7 +68,7 @@ async def _(event):
         os.remove(tgbot_reply_message)
 
 
-@man_cmd(pattern="ibutton(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="ibutton(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     reply_to_id = await reply_id(event)
     reply_message = await event.get_reply_message()
