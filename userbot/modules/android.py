@@ -87,7 +87,7 @@ async def device_info(request):
     await request.edit(reply)
 
 
-@(ayiin_cmd(pattern=r"codename(?: |)([\S]*)(?: |)([\s\S]*)")
+@ayiin_cmd(pattern=r"codename(?: |)([\S]*)(?: |)([\s\S]*)")
 async def codename_info(request):
     """search for android codename"""
     textx = await request.get_reply_message()
