@@ -93,9 +93,9 @@ async def reedme(event):
     await edit_or_reply(
         event,
         "**Berikut sesuatu untuk kamu baca:**\n"
-        "\n✣ [Userbot Repo](https://github.com/mrismanaziz/Man-Userbot/blob/Man-Userbot/README.md)"
+        "\n✣ [Userbot Repo](https://github.com/AyiinXd/Ayiin-Userbot/blob/Ayiin-Userbot/README.md)"
         "\n✣ [Video Tutorial](https://youtu.be/tTDaPKsGC1I)"
-        "\n✣ [List Variabel Heroku untuk Man-Userbot](https://telegra.ph/List-Variabel-Heroku-untuk-Man-Userbot-09-22)"
+        "\n✣ [List Variabel Heroku untuk Ayiin-Userbot](https://telegra.ph/List-Variabel-Heroku-untuk-Man-Userbot-09-22)"
         "\n✣ [Setup Guide - Basic](https://mrismanaziz.medium.com/cara-memasang-userbot-telegram-repo-man-userbot-deploy-di-heroku-c56d1f8b5537)"
         "\n✣ [Setup Guide - LastFM Module](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)",
     )
@@ -117,9 +117,9 @@ async def repeat(event):
 
 @ayiin_cmd(pattern="repo$")
 async def repo_is_here(event):
-    xx = await edit_or_reply(event, "🤖")
+    ayiin = await edit_or_reply(event, "🤖")
     sleep(3)
-    await xx.edit(
+    await ayiin.edit(
         "**Hey**, I am using **✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧** \n"
         "卍━━━━━━━━━━━━━━━━━卍\n"
         "➣ **𝚁𝙴𝙿𝙾 𝚄𝚂𝙴𝚁𝙱𝙾𝚃 :** [𝙶𝙸𝚃𝙷𝚄𝙱](https://github.com/AyiinXd/Ayiin-Userbot)\n"
