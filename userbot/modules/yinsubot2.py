@@ -89,7 +89,7 @@ async def _(event):
 
 @ayiin_cmd(pattern=r"ange(?: |$)(.*)")
 async def _(event):
-    ayiin = await edit_or_reply(event"𝘼𝙮𝙖𝙣𝙜𝙜𝙜𝙜😖")
+    ayiin = await edit_or_reply(event, "𝘼𝙮𝙖𝙣𝙜𝙜𝙜𝙜😖")
     sleep(1)
     await ayiin.edit("𝘼𝙠𝙪 𝘼𝙣𝙜𝙚😫")
     sleep(1)
