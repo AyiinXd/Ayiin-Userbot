@@ -99,28 +99,6 @@ async def _(event):
     await event.edit("Lari Ada Plastik KePanasan")
 
 
-
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"virtual(?: |$)(.*)"))
-async def _(event):
-    await event.edit("**OOOO**")
-    sleep(1.5)
-    await event.edit("**INI YANG VIRTUAL**")
-    sleep(1.5)
-    await event.edit("**YANG KATANYA SAYANG BANGET**")
-    sleep(1.5)
-    await event.edit("**TAPI TETEP AJA DI TINGGAL**")
-    sleep(1.5)
-    await event.edit("**NI INGET**")
-    sleep(1.5)
-    await event.edit("**TANGANNYA AJA GA BISA DI PEGANG**")
-    sleep(1.5)
-    await event.edit("**APALAGI OMONGANNYA**")
-    sleep(1.5)
-    await event.edit("**BHAHAHAHA**")
-    sleep(1.5)
-    await event.edit("**KASIAN MANA MASIH MUDA**")
-
-
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"tittle(?: |$)(.*)"))
 async def _(event):
     await event.edit("**OI ANAK TITLE**")
@@ -173,8 +151,6 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}erpe`\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n  •  **Syntax :** `{cmd}tittle`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** '{cmd}virtual'\
         \n  •  **Function : **Cobain sendiri tod\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
