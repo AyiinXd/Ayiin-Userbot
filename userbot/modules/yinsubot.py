@@ -139,19 +139,19 @@ CMD_HELP.update(
     {
         "yinsubot": f"**Plugin : **`yinsubot`\
         \n\n  •  **Syntax :** `{cmd}sadboy`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n  •  **Function : **Gombalan sad\
         \n\n  •  **Syntax :** `{cmd}wah`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n  •  **Function : **Ngeledek orang sok war\
         \n\n  •  **Syntax :** `{cmd}sok`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n  •  **Function : **Ngeledek orang sok keras\
         \n\n  •  **Syntax :** `{cmd}lah`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n  •  **Function : **Engga ketrigger tod\
         \n\n  •  **Syntax :** `{cmd}alay`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n  •  **Function : **Ngatain orang spam bot\
         \n\n  •  **Syntax :** `{cmd}erpe`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n  •  **Function : **Ngatain anak erpe\
         \n\n  •  **Syntax :** `{cmd}tittle`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n  •  **Function : **Ngatain jamet haus tittle\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }
