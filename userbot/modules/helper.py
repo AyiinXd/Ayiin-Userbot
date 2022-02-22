@@ -6,6 +6,7 @@ from userbot.utils import edit_or_reply, ayiin_cmd
 
 @ayiin_cmd(pattern="ihelp$")
 async def usit(event):
+    me = await event.client.get_me()
     await edit_or_reply(
         event,
         f"**Hai {me.first_name} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `$help` Atau Bisa Minta Bantuan Ke:\n"
