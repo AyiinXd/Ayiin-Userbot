@@ -18,14 +18,8 @@ MSG_ON = """
 ━━
 ➠ **Userbot Version -** `{}@{}`
 ➠ **Ketik** `{}alive` **untuk Mengecheck Bot**
-➠ **Managed By** {}
 ━━
 """
-try:
-    user = bot.get_me()
-    mention = f"[{user.first_name}](tg://user?id={user.id})"
-except BaseException:
-    pass
 
 
 async def ayiin_userbot_on():
@@ -34,7 +28,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await bot.send_message(
                     BOTLOG_CHATID,
-                    f"✨ **Ayiin-Userbot Berhasil Di Aktifkan**\n━━\n➠ **Userbot Version -** `{version}@{branch}`\n➠ **Ketik** `{cmd}alive` **untuk Mengecheck Bot**\n━━",
+                    MSG_ON.format(version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -43,7 +37,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN2.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd, mention),
+                    MSG_ON.format(version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -52,7 +46,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN3.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd, mention),
+                    MSG_ON.format(version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -61,7 +55,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN4.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd, mention),
+                    MSG_ON.format(version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -70,7 +64,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN5.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd, mention),
+                    MSG_ON.format(version, branch, cmd),
                 )
     except BaseException:
         pass

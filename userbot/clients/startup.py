@@ -23,7 +23,7 @@ from userbot import (
     STRING_4,
     STRING_5,
     STRING_SESSION,
-    blacklistman,
+    blacklistayiin,
     bot,
     call_py,
 )
@@ -60,11 +60,11 @@ def multiayiin():
             LOGS.info(
                 f"STRING_SESSION detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——"
             )
-            if user.id in blacklistman:
+            if user.id in blacklistayiin:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
         except Exception as e:
-            print(e)
+            LOGS.info(f"{e}")
 
     if STRING_2:
         try:
@@ -74,11 +74,11 @@ def multiayiin():
             name = user.first_name
             uid = user.id
             LOGS.info(f"STRING_2 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
-            if user.id in blacklistman:
+            if user.id in blacklistayiin:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
         except Exception as e:
-            print(e)
+            LOGS.info(f"{e}")
 
     if STRING_3:
         try:
@@ -88,11 +88,11 @@ def multiayiin():
             name = user.first_name
             uid = user.id
             LOGS.info(f"STRING_3 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
-            if user.id in blacklistman:
+            if user.id in blacklistayiin:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
         except Exception as e:
-            print(e)
+            LOGS.info(f"{e}")
 
     if STRING_4:
         try:
@@ -102,11 +102,11 @@ def multiayiin():
             name = user.first_name
             uid = user.id
             LOGS.info(f"STRING_4 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
-            if user.id in blacklistman:
+            if user.id in blacklistayiin:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
         except Exception as e:
-            print(e)
+            LOGS.info(f"{e}")
 
     if STRING_5:
         try:
@@ -116,11 +116,11 @@ def multiayiin():
             name = user.first_name
             uid = user.id
             LOGS.info(f"STRING_5 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
-            if user.id in blacklistman:
+            if user.id in blacklistayiin:
                 LOGS.warning(MSG_BLACKLIST.format(name, version))
                 sys.exit(1)
         except Exception as e:
-            print(e)
+            LOGS.info(f"{e}")
 
     if not STRING_SESSION:
         failed += 1

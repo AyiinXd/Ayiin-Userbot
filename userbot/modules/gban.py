@@ -3,7 +3,7 @@
 
 from telethon.events import ChatAction
 
-from userbot import DEVS, bot
+from userbot import DEVS, WHITELIST, blacklistayiin, bot
 from userbot.events import register
 from userbot.utils import get_user_from_event, ayiin_cmd
 
@@ -35,7 +35,8 @@ async def handler(tele):
                         await tele.reply(
                             f"**𝙂𝘽𝙖𝙣𝙣𝙚𝙙 𝙎𝙥𝙤𝙩𝙚𝙙** \n"
                             f"**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{guser.id}](tg://user?id={guser.id})\n"
-                            f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝘽𝙖𝙣𝙣𝙚𝙙`"
+                            f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝘽𝙖𝙣𝙣𝙚𝙙`\n"
+                            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮: ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
                         )
                     except BaseException:
                         return
@@ -71,6 +72,10 @@ async def gben(userbot):
     if user:
         if user.id in DEVS:
             return await dark.edit("**𝙂𝙖𝙜𝙖𝙡 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝙏𝙤𝙙, 𝙆𝙖𝙧𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖𝙡𝙖𝙝 𝘽𝙤𝙨𝙨 𝙂𝙪𝙖 🤪**")
+        if user.id in WHITELIST:
+            return await dark.edit(
+                "**Gagal Global Banned, Karna dia adalah suhu cuaca 🤪**"
+            )
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
         except BaseException:
@@ -88,7 +93,8 @@ async def gben(userbot):
                     r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
                     f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
                     f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-                    f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙`"
+                    f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙`\n"
+                    f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮:** `✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧`"
                 )
             except BaseException:
                 b += 1
@@ -106,7 +112,8 @@ async def gben(userbot):
         r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
         f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
         f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮:{me.first_name}`"
+        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮:{me.first_name}`\n"
+        f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮:** `✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧`"
     )
 
 
@@ -138,9 +145,9 @@ async def gunben(userbot):
     except BaseException:
         return await dark.edit("**𝙂𝙖𝙜𝙖𝙡 𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 :(**")
     if user:
-        if user.id in DEVS:
+        if user.id in blacklistayiin:
             return await dark.edit(
-                "**𝘼𝙮𝙞𝙞𝙣 𝙏𝙞𝙙𝙖𝙠 𝘽𝙞𝙨𝙖 𝙏𝙚𝙧𝙠𝙚𝙣𝙖 𝙋𝙚𝙧𝙞𝙣𝙩𝙖𝙝 𝙄𝙣𝙞, 𝙆𝙖𝙧𝙚𝙣𝙖 𝘿𝙞𝙖 𝙋𝙚𝙢𝙗𝙪𝙖𝙩 𝙎𝙖𝙮𝙖**"
+                "**𝙂𝙖𝙜𝙖𝙡 𝙐𝙣𝙜𝙗𝙖𝙣𝙣𝙚𝙙, 𝙆𝙖𝙧𝙚𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖 𝘿𝙞 𝘽𝙡𝙖𝙘𝙠𝙡𝙞𝙨𝙩 𝘼𝙮𝙞𝙞𝙣**"
             )
         try:
             from userbot.modules.sql_helper.gmute_sql import ungmute
@@ -169,5 +176,6 @@ async def gunben(userbot):
         r"\\**#𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
         f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
         f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 {me.first_name}`"
+        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 {me.first_name}`\n"
+        f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮: ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
     )

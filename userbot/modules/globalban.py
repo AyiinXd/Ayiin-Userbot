@@ -15,7 +15,7 @@ from telethon.tl.types import Channel
 import userbot.modules.sql_helper.gban_sql as gban_sql
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS, bot
+from userbot import CMD_HELP, DEVS, WHITELIST, bot
 from userbot.events import register
 from userbot.utils import edit_or_reply, get_user_from_event, ayiin_cmd
 
@@ -39,7 +39,7 @@ def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
 
 
-@ayiin_cmd(pattern="gban(?: |$)(.*)")
+@ayiin_cmd(pattern="gband(?: |$)(.*)")
 @register(pattern=r"^\$cgban(?: |$)(.*)", sudo=True)
 async def gban(event):
     if event.fwd_from:
@@ -54,6 +54,9 @@ async def gban(event):
         return
     if user.id in DEVS:
         await gbun.edit("**𝙂𝙖𝙜𝙖𝙡 𝙂𝙗𝙖𝙣 𝙏𝙤𝙙 𝙆𝙖𝙧𝙚𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖𝙡𝙖𝙝 𝙋𝙚𝙢𝙗𝙪𝙖𝙩 𝙎𝙖𝙮𝙖 🗿**")
+        return
+    if user.id in WHITELIST:
+        await gbun.edit("**Gagal GBAN karena dia adalah admin suhu cuaca 🗿**")
         return
     if gban_sql.is_gbanned(user.id):
         await gbun.edit(
@@ -93,7 +96,7 @@ async def gban(event):
         )
 
 
-@ayiin_cmd(pattern="ungban(?: |$)(.*)")
+@ayiin_cmd(pattern="ungband(?: |$)(.*)")
 @register(pattern=r"^\$cungban(?: |$)(.*)", sudo=True)
 async def ungban(event):
     if event.fwd_from:
@@ -142,7 +145,7 @@ async def ungban(event):
         )
 
 
-@ayiin_cmd(pattern="listgban$")
+@ayiin_cmd(pattern="listgband$")
 async def gablist(event):
     if event.fwd_from:
         return
@@ -199,11 +202,11 @@ async def _(event):
 CMD_HELP.update(
     {
         "gban": f"**Plugin : **`gban`\
-        \n\n  •  **Syntax :** `{cmd}gban` <username/id>\
+        \n\n  •  **Syntax :** `{cmd}gband` <username/id>\
         \n  •  **Function : **Melakukan Banned Secara Global Ke Semua Grup Dimana anda Sebagai Admin.\
-        \n\n  •  **Syntax :** `{cmd}ungban` <username/id>\
+        \n\n  •  **Syntax :** `{cmd}ungband` <username/id>\
         \n  •  **Function : **Membatalkan Global Banned\
-        \n\n  •  **Syntax :** `{cmd}listgban`\
+        \n\n  •  **Syntax :** `{cmd}listgband`\
         \n  •  **Function : **Menampilkan List Global Banned\
     "
     }

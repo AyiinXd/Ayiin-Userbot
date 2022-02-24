@@ -28,7 +28,7 @@ from userbot.utils import autobot, checking
 
 try:
     for module_name in ALL_MODULES:
-        imported_module = import_module("userbot.modules." + module_name)
+        imported_module = import_module(f"userbot.modules.{module_name}")
     client = multiayiin()
     total = 5 - client
     LOGS.info(f"Total Clients = {total} User")
@@ -52,3 +52,4 @@ if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()
+    
