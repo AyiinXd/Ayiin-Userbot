@@ -26,8 +26,8 @@ from .carbon import all_col
 async def quotly(event):
     match = event.pattern_match.group(1).strip()
     if not event.is_reply:
-        return await edit_delete(event, "**Balas ke Pesan lah Bego**")
-msg = await edit_or_reply(event, "`Sabar Ya Babi...`")
+        return await edit_delete(event, "**Balas ke Pesannya Bego!!!**")
+    msg = await edit_or_reply(event, "`Sabar Ya Babi...`")
     reply = await event.get_reply_message()
     replied_to, reply_ = None, None
     if match:
@@ -71,16 +71,16 @@ msg = await edit_or_reply(event, "`Sabar Ya Babi...`")
             match = match[1] if len(match) == 2 else None
         else:
             match = match[0]
-        if match == "random":
-            match = choice(all_col)
-        try:
-            file = await create_quotly(reply_, bg=match, reply=replied_to, sender=user)
-        except Exception as er:
-            return await msg.edit(f"**ERROR:** `{er}`")
-        message = await reply.reply("Quotly by Ayiin-Userbot", file=file)
-        remove(file)
-        await msg.delete()
-        return message
+    if match == "random":
+        match = choice(all_col)
+    try:
+        file = await create_quotly(reply_, bg=match, reply=replied_to, sender=user)
+    except Exception as er:
+        return await msg.edit(f"**ERROR:** `{er}`")
+    message = await reply.reply("Quotly by Ayiin-Userbot", file=file)
+    remove(file)
+    await msg.delete()
+    return message
 
 
 CMD_HELP.update(
