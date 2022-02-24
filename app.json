@@ -2,7 +2,7 @@
   "name": "⋆ 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ⋆",
   "description": "[Ayiin-Userbot] Userbot Hanya Untuk Bersenang - Senang",
   "logo": "https://telegra.ph/file/c6a0aef41355af5a018c6.jpg",
-  "keywords": ["telegram", "userbot", "man-userbot", "modular", "python"],
+  "keywords": ["telegram", "userbot", "Ayiin-Userbot", "modular", "python"],
   "repository": "https://github.com/AyiinXd/Ayiin-Userbot",
   "stack": "container",
   "env": {
@@ -14,13 +14,9 @@
       "description": "Dapatkan API Hash di web my.telegram.org",
       "required": true
     },
-    "BOT_TOKEN": {
-      "description": "Buat Bot di t.me/botfather Masukan BOT tokennya disini",
-      "required": false
-    },
-    "BOT_USERNAME": {
-      "description": "Buat Bot di t.me/botfather Masukan BOT Usernamenya pake @",
-      "required": false
+    "CMD_HANDLER": {
+      "description": "Isi dengan cmd bisa pake . atau apa aja",
+      "value": "."
     },
      "STRING_SESSION": {
       "description": "Dapatkan String Session di Grup » https://t.me/AyiinXdSupport » Lalu ketik #string",
