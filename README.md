@@ -37,10 +37,10 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 <h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku :</h3>
 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/AyiinXd/Deploy-Ayiin"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-blue?style=plastic&logo=heroku&logoColor=yellow"width="300" height="50" /></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/AyiinXd/Deploy-Ayiin"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" height="50" /></a></p>
 
 ## BOT HEROKU
-<p align="center"><a href="http://telegram.dog/XTZ_HerokuBot?start=QXlpaW5YZC9BeWlpbi1Vc2VyYm90IEF5aWluLVVzZXJib3Q"><img src="https://img.shields.io/badge/BUAT DI -BOT HEROKU-magenta?style=plastic&logo=heroku&logoColor=magenta"width="300" height="50" /></a></p>
+<p align="center"><a href="http://telegram.dog/XTZ_HerokuBot?start=QXlpaW5YZC9BeWlpbi1Vc2VyYm90IEF5aWluLVVzZXJib3Q"><img src="https://img.shields.io/badge/BUAT DI -BOT HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" height="50" /></a></p>
 
 
 
@@ -57,5 +57,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   [Alvin](https://github.com/Zora24/Lord-Userbot) : Lord-Userbot
 *   [Bdrl](https://github.com/Yansaii/Bdrl-userbot) : Bdrl-userbot
 *   [AyiinXd](https://github.com/AyiinXd/Ayiin-Userbot) : Ayiin-Userbot
+*   [KENKAN](https://github.com/jokokendi/Ice-Userbot) : Ice-Userbot
+
 ## License
 Licensed under [Raphielscape Public License](https://github.com/mrismanaziz/Man-Userbot/blob/Man-Userbot/LICENSE) - Version 1.d, February 2020
