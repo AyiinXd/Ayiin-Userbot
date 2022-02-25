@@ -101,11 +101,11 @@ CMD_HELP.update(
         "button": f"**Plugin : **`button`\
         \n\n  •  **Syntax :** `{cmd}cbutton` <text> [Name on button]<buttonurl:link you want to open>\
         \n  •  **Function : **Untuk membuat pesan button\
-        \n  •  **Examples : **`{cmd}cbutton test [google]<buttonurl:https://www.google.com> [Channel]<buttonurl:https://t.me/Lunatic0de:same> [Support]<buttonurl:https://t.me/SharingUserbot>`\
+        \n  •  **Examples : **`{cmd}cbutton test [google]<buttonurl:https://www.google.com> [Channel]<buttonurl:https://t.me/AyiinSupport:same> [Support]<buttonurl:https://t.me/AyiinXdSupport>`\
         \n  •  **NOTE :** Untuk menggunakan ini, anda memerlukan bot anda ({BOT_USERNAME}) harus ada di grup/channel di mana anda menggunakan\
         \n\n  •  **Syntax :** `{cmd}ibutton` <text> [Name on button]<buttonurl:link you want to open>\
         \n  •  **Function : **Untuk membuat pesan button melalui inline\
-        \n  •  **Examples : **`{cmd}ibutton test [google]<buttonurl:https://www.google.com> [Channel]<buttonurl:https://t.me/Lunatic0de:same> [Support]<buttonurl:https://t.me/SharingUserbot>`\
+        \n  •  **Examples : **`{cmd}ibutton test [google]<buttonurl:https://www.google.com> [Channel]<buttonurl:https://t.me/AyiinSupport:same> [Support]<buttonurl:https://t.me/AyiinXdSupport>`\
     "
     }
 )
