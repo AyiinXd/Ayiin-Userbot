@@ -142,7 +142,7 @@ PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
 # Custom Handler command
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "$"
 
-SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"!")
+SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"+")
 
 # Support
 GROUP = os.environ.get("GROUP", "AyiinXdSupport")
@@ -189,13 +189,13 @@ ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
 ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 
 # untuk perintah teks costum .alive
-ALIVE_TEKS_CUSTOM = os.environ.get("ALIVE_TEKS_CUSTOM", "Hey, I am alive.")
+ALIVE_TEKS_CUSTOM = os.environ.get("ALIVE_TEKS_CUSTOM", "Hey, I am {owner}.")
 
 # Default .alive name
 ALIVE_NAME = os.environ.get("ALIVE_NAME", "𝘼𝙮𝙞𝙞𝙣𝙓𝙙")
 
 # Custom Emoji Alive
-ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "✥»")
+ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "✧")
 
 # Custom Emoji Alive
 INLINE_EMOJI = os.environ.get("INLINE_EMOJI", "✵")
@@ -459,7 +459,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                 custom.Button.inline(
                     "««", data="{}_prev({})".format(prefix, modulo_page)
                 ),
-                custom.Button.inline("Tutup", b"close"),
+                custom.Button.inline("✧ 𝚃𝚄𝚃𝚄𝙿 ✧", b"close"),
                 custom.Button.inline(
                     "»»", data="{}_next({})".format(prefix, modulo_page)
                 ),
@@ -713,7 +713,7 @@ with bot:
                         .replace("`", "")
                         .replace("**", "")[:150]
                         + "..."
-                        + f"\n\nBaca Teks Berikutnya Ketik `{cmd}help`"
+                        + "\n\nBaca Teks Berikutnya Ketik `$help`"
                         + modul_name
                         + " "
                     )
