@@ -39,7 +39,7 @@ def mentionuser(name, userid):
 
 
 @ayiin_cmd(pattern="gband(?: |$)(.*)")
-@register(pattern=r"^\$cgban(?: |$)(.*)", sudo=True)
+@register(pattern=r"^\$cgband(?: |$)(.*)", sudo=True)
 async def gban(event):
     if event.fwd_from:
         return
