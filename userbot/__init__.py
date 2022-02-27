@@ -571,7 +571,7 @@ with bot:
                 result = builder.photo(
                     file=logoman,
                     link_preview=False,
-                    text=f"**᯽ Ayiin-Userbot Inline Menu ᯽**\n\n✓ **Owner** [{user.first_name}](tg://user?id={user.id})\nJumlah** `{len(dugmeler)}` Modules",
+                    text=f"**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙸𝙽𝙻𝙸𝙽𝙴 𝙼𝙴𝙽𝚄 ✧**\n\n✓ **𝙾𝚆𝙽𝙴𝚁 :** [{user.first_name}](tg://user?id={user.id})\n**𝙹𝚄𝙼𝙻𝙰𝙷 :** `{len(dugmeler)}` 𝙼𝙾𝙳𝚄𝙻𝙴𝚂",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -580,12 +580,12 @@ with bot:
                     description="Repository Ayiin - Userbot",
                     url="https://t.me/AyiinXdSupport",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text="**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n👑 **Owner :** [𝘼𝙮𝙞𝙞𝙣𝙓𝙙](https://t.me/AyiinXd)\n👉 **Support :** @AyiinXdSupport\n♨️ **Repository :** [𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩](https://github.com/AyiinXd/Ayiin-Userbot)\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    text="**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n✧ **𝙾𝚆𝙽𝙴𝚁 :** [𝙰𝚢𝚒𝚒𝚗𝚇𝚍](https://t.me/AyiinXd)\n✧ **𝚂𝚄𝙿𝙿𝙾𝚁𝚃 :** @AyiinXdSupport\n✧ **𝚁𝙴𝙿𝙾𝚂𝙸𝚃𝙾𝚁𝚈 :** [✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧](https://github.com/AyiinXd/Ayiin-Userbot)\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
                         [
-                            custom.Button.url("-ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
                             custom.Button.url(
-                                "-ʀᴇᴘᴏ", "https://github.com/AyiinXd/Ayiin-Userbot"
+                                "ʀᴇᴘᴏ", "https://github.com/AyiinXd/Ayiin-Userbot"
                             ),
                         ],
                     ],
@@ -629,7 +629,7 @@ with bot:
                     description="Ayiin - UserBot | Telethon",
                     url="https://t.me/AyiinXdSupport",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text=f"**Ayiin - UserBot**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n~ **Assistant:** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**Support:** @AyiinXdSupport\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    text=f"**𝙰𝚈𝙸𝙸𝙽 - 𝚄𝚂𝙴𝚁𝙱𝙾𝚃**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **𝚄𝚂𝙴𝚁𝙼𝙾𝙳𝙴 :** [{user.first_name}](tg://user?id={user.id})\n~ **𝙰𝚂𝚂𝙸𝚂𝚃𝙰𝙽𝚃 :** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**𝚂𝚄𝙿𝙿𝙾𝚁𝚃:** @AyiinXdSupport\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
                     buttons=[
                         [
                             custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
@@ -649,7 +649,7 @@ with bot:
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(looters)
                 buttons = paginate_help(current_page_number, dugmeler, "helpme")
-                text = f"**᯽ Ayiin-Userbot Inline Menu ᯽**\n\n👑 **Owner** [{user.first_name}](tg://user?id={user.id})\n👉 **Jumlah** `{len(dugmeler)}` Modules"
+                text = f"**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙸𝙽𝙻𝙸𝙽𝙴 𝙼𝙴𝙽𝚄 ✧**\n\n✧ **𝙾𝚆𝙽𝙴𝚁** [{user.first_name}](tg://user?id={user.id})\n✧ **𝙹𝚄𝙼𝙻𝙰𝙷** `{len(dugmeler)}` 𝙼𝙾𝙳𝚄𝙻𝙴𝚂"
                 await event.edit(
                     text,
                     file=logoman,
@@ -679,9 +679,9 @@ with bot:
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
-                openlagi = custom.Button.inline("• Re-Open Menu •", data="reopen")
+                openlagi = custom.Button.inline("• 𝚁𝙴-𝙾𝙿𝙴𝙽 𝙼𝙴𝙽𝚄 •", data="reopen")
                 await event.edit(
-                    "😴 **Help Mode Button Ditutup!** 😴", buttons=openlagi
+                    "😴 **𝙷𝙴𝙻𝙿 𝙼𝙾𝙳𝙴 𝙱𝚄𝚃𝚃𝙾𝙼 𝙳𝙸𝚃𝚄𝚃𝚄𝙿!** 😴", buttons=openlagi
                 )
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
@@ -713,7 +713,7 @@ with bot:
                         .replace("`", "")
                         .replace("**", "")[:150]
                         + "..."
-                        + "\n\nBaca Teks Berikutnya Ketik $help "
+                        + "\n\nBaca Teks Berikutnya Ketik `{cmd}help` "
                         + modul_name
                         + " "
                     )
