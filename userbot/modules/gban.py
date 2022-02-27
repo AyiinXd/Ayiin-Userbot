@@ -43,7 +43,7 @@ async def handler(tele):
 
 
 @ayiin_cmd(pattern="gban(?: |$)(.*)")
-@register(pattern=r"^\$cgband(?: |$)(.*)", sudo=True)
+@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
 async def gben(userbot):
     dc = userbot
     sender = await dc.get_sender()
