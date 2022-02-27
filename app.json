@@ -16,7 +16,7 @@
     },
     "CMD_HANDLER": {
       "description": "Isi dengan cmd bisa pake . atau apa aja",
-      "value": "."
+      "value": "$"
     },
      "STRING_SESSION": {
       "description": "Dapatkan String Session di Grup » https://t.me/AyiinXdSupport » Lalu ketik #string",
