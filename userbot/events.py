@@ -133,7 +133,7 @@ def register(**args):
 
     if "disable_edited" in args:
         del args["disable_edited"]
-        
+
     if "sudo" in args:
         del args["sudo"]
         args["incoming"] = True
@@ -150,7 +150,7 @@ def register(**args):
 
     if "trigger_on_fwd" in args:
         del args["trigger_on_fwd"]
-        
+
     if "own" in args:
         del args["own"]
         args["incoming"] = True
