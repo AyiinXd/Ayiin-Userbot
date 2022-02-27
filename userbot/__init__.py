@@ -681,7 +681,7 @@ with bot:
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
                 openlagi = custom.Button.inline("• 𝚁𝙴-𝙾𝙿𝙴𝙽 𝙼𝙴𝙽𝚄 •", data="reopen")
                 await event.edit(
-                    "😴 **𝙷𝙴𝙻𝙿 𝙼𝙾𝙳𝙴 𝙱𝚄𝚃𝚃𝙾𝙼 𝙳𝙸𝚃𝚄𝚃𝚄𝙿!** 😴", buttons=openlagi
+                    "😴 **𝙷𝙴𝙻𝙿 𝙼𝙾𝙳𝙴 𝙱𝚄𝚃𝚃𝙾𝙽 𝙳𝙸𝚃𝚄𝚃𝚄𝙿!** 😴", buttons=openlagi
                 )
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
@@ -713,7 +713,7 @@ with bot:
                         .replace("`", "")
                         .replace("**", "")[:150]
                         + "..."
-                        + "\n\nBaca Teks Berikutnya Ketik `{cmd}help` "
+                        + f"\n\nBaca Teks Berikutnya Ketik `{cmd}help`"
                         + modul_name
                         + " "
                     )
