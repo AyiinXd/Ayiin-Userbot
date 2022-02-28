@@ -96,8 +96,8 @@ async def add_new_filter(event):
         if BOTLOG_CHATID:
             await event.client.send_message(
                 BOTLOG_CHATID,
-                f"**#FILTER\nID OBROLAN:** {event.chat_id}\n**TRIGGER:** `{keyword}`"
-                "\n\n**Pesan Berikut Disimpan Sebagai Data Balasan Filter Untuk Obrolan, Mohon Jangan Menghapusnya**",
+                f"**#FILTER\n✧ ID OBROLAN:** {event.chat_id}\n**✧ TRIGGER:** `{keyword}`"
+                "\n\n**✧ Pesan Berikut Disimpan Sebagai Data Balasan Filter Untuk Obrolan, Mohon Jangan Menghapusnya**",
             )
             msg_o = await event.client.forward_messages(
                 entity=BOTLOG_CHATID,
@@ -130,8 +130,8 @@ async def on_snip_list(event):
     OUT_STR = "**Tidak Ada Filter Apapun Disini.**"
     filters = get_filters(event.chat_id)
     for filt in filters:
-        if OUT_STR == "**Tidak Ada Filter Apapun Disini.**":
-            OUT_STR = "**✥ Daftar Filter Yang Aktif Disini:**\n"
+        if OUT_STR == "**✧ Tidak Ada Filter Apapun Disini.**":
+            OUT_STR = "**✧ Daftar Filter Yang Aktif Disini:**\n"
         OUT_STR += "• `{}`\n".format(filt.keyword)
     await edit_or_reply(
         event,
