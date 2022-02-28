@@ -78,7 +78,7 @@ async def quotly(event):
     except Exception as er:
         return await msg.edit(f"**ERROR:** `{er}`")
     message = await reply.reply("Quotly by Ayiin-Userbot", file=file)
-    remove(file)
+    os.remove(file)
     await msg.delete()
     return message
 
