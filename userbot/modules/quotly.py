@@ -77,8 +77,12 @@ async def quotly(event):
     try:
         file = await create_quotly(reply_, bg=match, reply=replied_to, sender=user)
     except Exception as er:
-        return await msg.edit(str(er))
-    await event.edit(f"Quotly by Ayiin-Userbot")
+        return await msg.edit(f"**ERROR:** `{er}`")
+    message = await reply.reply(file=file)
+    await event.edit(f"**Quotly by Ayiin-Userbot**")
+    remove(file)
+    await msg.delete()
+    return message
     
 
 
