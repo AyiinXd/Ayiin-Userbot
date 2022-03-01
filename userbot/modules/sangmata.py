@@ -30,7 +30,7 @@ async def _(event):
         return
     uid = user.id
     chat = "@SangMataInfo_bot"
-    manevent = await edit_or_reply(event, "`Processing...`")
+    yinsevent = await edit_or_reply(event, "`Processing...`")
     async with event.client.conversation(chat) as conv:
         try:
             await conv.send_message(f"/search_id {uid}")
@@ -46,9 +46,9 @@ async def _(event):
             responses.append(response.text)
         await event.client.send_read_acknowledge(conv.chat_id)
     if not responses:
-        await edit_delete(manevent, "**Orang Ini Belum Pernah Mengganti Namanya**", 90)
+        await edit_delete(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", 90)
     if "No records found" in responses:
-        await edit_delete(manevent, "**Orang Ini Belum Pernah Mengganti Namanya**", 90)
+        await edit_delete(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", 90)
     names, usernames = await sangamata_seperator(responses)
     cmd = event.pattern_match.group(1)
     risman = None
@@ -58,7 +58,7 @@ async def _(event):
             await event.reply(i, parse_mode=_format.parse_pre)
         else:
             risman = True
-            await manevent.edit(i, parse_mode=_format.parse_pre)
+            await yinsevent.edit(i, parse_mode=_format.parse_pre)
 
 
 async def sangamata_seperator(sanga_list):

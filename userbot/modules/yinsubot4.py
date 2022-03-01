@@ -203,8 +203,6 @@ CMD_HELP.update(
         \n  •  **Function : **Ngeledek orang sokab\
         \n\n  •  **Syntax :** `{cmd}nb`\
         \n  •  **Function : **Ngeledek orang norak baru pake bot\
-        \n\n  •  **Syntax :** `{cmd}so`\
-        \n  •  **Function : **Ngeledek orang sokab\
         \n\n  •  **Syntax :** `{cmd}skb`\
         \n  •  **Function : **Ngeledek orang sokab versi 2\
         \n\n  •  **Syntax :** `{cmd}met`\

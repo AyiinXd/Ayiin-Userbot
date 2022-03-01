@@ -11,10 +11,10 @@ LOGS = logging.getLogger(__name__)
 
 
 async def get_user_from_event(
-    event, manevent=None, secondgroup=None, nogroup=False, noedits=False
+    event, yinsevent=None, secondgroup=None, nogroup=False, noedits=False
 ):
-    if manevent is None:
-        manevent = event
+    if yinsevent is None:
+        yinsevent = event
     if nogroup is False:
         if secondgroup:
             args = event.pattern_match.group(2).split(" ", 1)
@@ -53,7 +53,7 @@ async def get_user_from_event(
             if previous_message.from_id is None:
                 if not noedits:
                     await edit_delete(
-                        manevent, "**ERROR: Dia adalah anonymous admin!**", 60
+                        yinsevent, "**ERROR: Dia adalah anonymous admin!**", 60
                     )
                 return None, None
             user_obj = await event.client.get_entity(previous_message.sender_id)
@@ -61,7 +61,7 @@ async def get_user_from_event(
         if not args:
             if not noedits:
                 await edit_delete(
-                    manevent,
+                    yinsevent,
                     "**Mohon Reply Pesan atau Berikan User ID/Username pengguna!**",
                     60,
                 )
@@ -70,7 +70,7 @@ async def get_user_from_event(
         LOGS.error(str(e))
     if not noedits:
         await edit_delete(
-            manevent,
+            yinsevent,
             "**Mohon Reply Pesan atau Berikan User ID/Username pengguna!**",
             60,
         )

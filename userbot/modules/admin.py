@@ -248,7 +248,7 @@ async def spider(spdr):
     if user.id in DEVS:
         return await ayiin.edit("**Gagal Mute, dia adalah Pembuat Saya 🤪**")
     if user.id in WHITELIST:
-        return await ayiin.edit("**Gagal Mute, dia adalah admin @SharingUserbot 🤪**")
+        return await ayiin.edit("**Gagal Mute, dia adalah admin suhu udara 🤪**")
     await ayiin.edit(
         r"\\**#Muted_User**//"
         f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
@@ -413,8 +413,8 @@ async def rm_deletedacc(show):
                 await sleep(1)
         if del_u > 0:
             del_status = (
-                f"**Menemukan** `{del_u}` **Akun Depresi/Terhapus/Zombie Dalam Grup Ini,"
-                "\nBersihkan Itu Menggunakan Perintah** `{cmd}zombies clean`"
+                f"**Menemukan** `{del_u}` **Akun Depresi/Terhapus/Zombie Dalam Grup Ini,**"
+                f"\n**Bersihkan Itu Menggunakan Perintah** `{cmd}zombies clean`"
             )
         return await show.edit(del_status)
     chat = await show.get_chat()
