@@ -295,9 +295,9 @@ async def kang(args):
         await edit_or_reply(
             args,
             f"**STICKER LU UDAH JADI TOD**\n\n"
-            f"**   ╭✠━━━━❖━━━━✠╮**\n"
-            f"**          [AMBIL TOD](t.me/addstickers/{packname})**\n"
-            f"**   ╰✠━━━━❖━━━━✠╯**\n\n"
+            f"**     ╭✠━━━━❖━━━━✠╮**\n"
+            f"**            [AMBIL TOD](t.me/addstickers/{packname})**\n"
+            f"**     ╰✠━━━━❖━━━━✠╯**\n\n"
             f"**Untuk Menggunakan Stickers**",
             parse_mode="md",
         )
