@@ -113,7 +113,7 @@ async def autobot():
             )
             await bot.send_message(
                 BOTLOG_CHATID,
-                "**SEDANG RESTART USERBOT HARAP TUNGGU KONTOL.*",
+                "**SEDANG MERESTART USERBOT HARAP TUNGGU KONTOL.**",
             )
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
@@ -155,7 +155,7 @@ async def autobot():
         )
         await bot.send_message(
             BOTLOG_CHATID,
-            "**SEDANG RESTART USERBOT HARAP TUNGGU KONTOL.**",
+            "**SEDANG MERESTART USERBOT HARAP TUNGGU KONTOL.**",
         )
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"
