@@ -65,17 +65,22 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan userbot ini dengan bijak
 -  Kemudian gunakan perintah ini untuk menyebarkan Ayiin-Userbot `python3 -m userbot`
 
 </details>
+
+<details>
 <summary><b>🔗 Deploy To Heroku</b></summary>
 <br>
 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/AyiinXd/Deploy-Ayiin"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" height="50" /></a></p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/AyiinXd/Deploy-Ayiin"><img src="https://img.shields.io/badge/BUAT DI-HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" /></a></p>
 
 </details>
+
+<details>
 <summary><b>🔗 Deploy To Bot Heroku</b></summary>
 <br>
 
-<p align="center"><a href="https://telegram.dog/XTZ_HerokuBot?start=QXlpaW5YZC9BeWlpbi1Vc2VyYm90IEF5aWluLVVzZXJib3Q"><img src="https://img.shields.io/badge/BUAT DI -BOT HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" height="50" /></a></p>
+<p><a href="https://telegram.dog/XTZ_HerokuBot?start=QXlpaW5YZC9BeWlpbi1Vc2VyYm90IEF5aWluLVVzZXJib3Q"><img src="https://img.shields.io/badge/BUAT DI -BOT HEROKU-aqua?style=plastic&logo=heroku&logoColor=gold"width="300" height="45" /></a></p>
 
+</details>
 
 ## Updates & Support
 
