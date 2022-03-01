@@ -292,12 +292,13 @@ async def kang(args):
                 await conv.get_response()
                 await args.client.send_read_acknowledge(conv.chat_id)
 
-        await xx.edit(
-            args, f"**STICKER LU UDAH JADI TOD**\n\n"
-            f"**   ╭✠━━━━❖━━━━✠╮**\n",
-            f"**     [AMBIL TOD](t.me/addstickers/{packname})**\n",
-            f"**   ╰✠━━━━❖━━━━✠╯**\n\n",
-            f"**Untuk Menggunakan Stickers**",
+        await edit_or_reply(
+            args,
+            f"**STICKER LU UDAH JADI TOD**\n\n"
+            f"**   ╭✠━━━━❖━━━━✠╮**\n"
+            f"**     [AMBIL TOD](t.me/addstickers/{packname})**\n"
+            f"**   ╰✠━━━━❖━━━━✠╯**\n\n"
+            f"**Untuk Menggunakan Stickers**"
             parse_mode="md",
         )
 
