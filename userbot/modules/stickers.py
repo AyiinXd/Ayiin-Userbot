@@ -298,7 +298,7 @@ async def kang(args):
             f"**   ╭✠━━━━❖━━━━✠╮**\n"
             f"**     [AMBIL TOD](t.me/addstickers/{packname})**\n"
             f"**   ╰✠━━━━❖━━━━✠╯**\n\n"
-            f"**Untuk Menggunakan Stickers**"
+            f"**Untuk Menggunakan Stickers**",
             parse_mode="md",
         )
 
