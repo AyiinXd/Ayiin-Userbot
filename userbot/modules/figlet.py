@@ -15,7 +15,7 @@ from userbot import CMD_HELP
 from userbot.utils import deEmojify, edit_delete, ayiin_cmd
 
 
-@ayiin_cmd(pattern="figlet (\w+) (.+)")
+@ayiin_cmd(pattern="figlet (\\w+) (.+)")
 async def figlet(event):
     if event.fwd_from:
         return

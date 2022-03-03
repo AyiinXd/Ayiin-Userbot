@@ -19,7 +19,7 @@ from userbot import CMD_HELP, LOGS
 from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 
-@ayiin_cmd(pattern="direct(?: |$)([\s\S]*)")
+@ayiin_cmd(pattern="direct(?: |$)([\\s\\S]*)")
 async def direct_link_generator(event):
     textx = await event.get_reply_message()
     message = event.pattern_match.group(1)
@@ -59,7 +59,8 @@ async def direct_link_generator(event):
         elif "androidfilehost.com" in link:
             reply += androidfilehost(link)
         else:
-            reply += re.findall(r"\bhttps?://(.*?[^/]+)", link)[0] + "tidak didukung"
+            reply += re.findall(r"\bhttps?://(.*?[^/]+)",
+                                link)[0] + "tidak didukung"
     await xxnx.edit(reply)
 
 
@@ -128,7 +129,8 @@ def zippy_share(url: str) -> str:
             math = re.search(
                 r"= (?P<url>\".+\" \+ (?P<math>\(.+\)) .+);", script.text
             ).group("math")
-            dl_url = url_raw.replace(math, '"' + str(ast.literal_eval(math)) + '"')
+            dl_url = url_raw.replace(math,
+                                     '"' + str(ast.literal_eval(math)) + '"')
             break
     dl_url = base_url + ast.literal_eval(dl_url)
     name = urllib.parse.unquote(dl_url.split("/")[-1])
@@ -254,14 +256,19 @@ def osdn(url: str) -> str:
     except IndexError:
         reply = "**Tidak ada link tautan OSDN yang ditemukan**\n"
         return reply
-    page = BeautifulSoup(requests.get(link, allow_redirects=True).content, "lxml")
+    page = BeautifulSoup(
+        requests.get(
+            link,
+            allow_redirects=True).content,
+        "lxml")
     info = page.find("a", {"class": "mirror_link"})
     link = urllib.parse.unquote(osdn_link + info["href"])
     reply = f"Mirrors untuk __{link.split('/')[-1]}__\n"
     mirrors = page.find("form", {"id": "mirror-select-form"}).findAll("tr")
     for data in mirrors[1:]:
         mirror = data.find("input")["value"]
-        name = re.findall(r"\(([\s\S]*)\)", data.findAll("td")[-1].text.strip())[0]
+        name = re.findall(r"\(([\s\S]*)\)",
+                          data.findAll("td")[-1].text.strip())[0]
         dl_url = re.sub(r"m=([\s\S]*)&f", f"m={mirror}&f", link)
         reply += f"[{name}]({dl_url}) "
     return reply
@@ -310,7 +317,10 @@ def androidfilehost(url: str) -> str:
         "authority": "androidfilehost.com",
         "x-requested-with": "XMLHttpRequest",
     }
-    data = {"submit": "submit", "action": "getdownloadmirrors", "fid": f"{fid}"}
+    data = {
+        "submit": "submit",
+        "action": "getdownloadmirrors",
+        "fid": f"{fid}"}
     mirrors = None
     reply = ""
     error = "**ERROR: Tidak dapat menemukan Mirror untuk link tautan**\n"

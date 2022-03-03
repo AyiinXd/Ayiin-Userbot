@@ -33,7 +33,8 @@ async def gen_thumb(thumbnail, title, userid, ctitle):
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
     image6 = image4.convert("RGBA")
-    Image.alpha_composite(image5, image6).save(f"userbot/resources/temp{userid}.png")
+    Image.alpha_composite(image5, image6).save(
+        f"userbot/resources/temp{userid}.png")
     img = Image.open(f"userbot/resources/temp{userid}.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("userbot/resources/Roboto-Light.ttf", 52)

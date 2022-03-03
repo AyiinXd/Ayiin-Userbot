@@ -85,7 +85,7 @@ async def _(event):
     await xx.edit(f"**Berhasil unbanned** `{p}` **Orang di Grup {title}**")
 
 
-@ayiin_cmd(pattern="(?:dm)\s?(.*)?")
+@ayiin_cmd(pattern="(?:dm)\\s?(.*)?")
 async def _(event):
     p = event.pattern_match.group(1)
     m = p.split(" ")

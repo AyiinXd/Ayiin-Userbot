@@ -126,7 +126,7 @@ async def spam_function(event, spammer, xnxx, sleeptimem, sleeptimet, DelaySpam=
             )
 
 
-@ayiin_cmd(pattern="spam ([\s\S]*)")
+@ayiin_cmd(pattern="spam ([\\s\\S]*)")
 async def nyespam(event):
     spammer = await event.get_reply_message()
     xnxx = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
@@ -151,7 +151,8 @@ async def nyespam(event):
 @ayiin_cmd(pattern="sspam$")
 async def stickerpack_spam(event):
     reply = await event.get_reply_message()
-    if not reply or media_type(reply) is None or media_type(reply) != "Sticker":
+    if not reply or media_type(
+            reply) is None or media_type(reply) != "Sticker":
         return await edit_delete(
             event,
             "**Balas stiker apa pun untuk mengirim semua stiker dalam paket itu**",
@@ -205,7 +206,7 @@ async def stickerpack_spam(event):
         await event.client.send_file(BOTLOG_CHATID, reqd_sticker_set.documents[0])
 
 
-@ayiin_cmd(pattern="cspam ([\s\S]*)")
+@ayiin_cmd(pattern="cspam ([\\s\\S]*)")
 async def tmeme(event):
     cspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = cspam.replace(" ", "")
@@ -230,7 +231,7 @@ async def tmeme(event):
             )
 
 
-@ayiin_cmd(pattern="wspam ([\s\S]*)")
+@ayiin_cmd(pattern="wspam ([\\s\\S]*)")
 async def tmeme(event):
     wspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = wspam.split()
@@ -255,7 +256,7 @@ async def tmeme(event):
             )
 
 
-@ayiin_cmd(pattern="(delayspam|dspam) ([\s\S]*)")
+@ayiin_cmd(pattern="(delayspam|dspam) ([\\s\\S]*)")
 async def dlyspam(event):
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)

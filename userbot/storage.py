@@ -34,7 +34,8 @@ class Storage:
 
     def __getattr__(self, name):
         if name.startswith("_"):
-            raise ValueError("Anda hanya dapat mengakses anggota pribadi yang ada")
+            raise ValueError(
+                "Anda hanya dapat mengakses anggota pribadi yang ada")
         return self._data.get(name, None)
 
     def __setattr__(self, name, value):

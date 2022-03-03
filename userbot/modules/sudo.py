@@ -29,7 +29,7 @@ async def sudo(event):
         await edit_delete(event, "🔮 **Sudo:** `Disabled`")
 
 
-@ayiin_cmd(pattern="addsudo(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="addsudo(?:\\s|$)([\\s\\S]*)")
 async def add(event):
     suu = event.text[9:]
     if f"{cmd}add " in event.text:
@@ -73,7 +73,7 @@ async def add(event):
     heroku_Config[var] = newsudo
 
 
-@ayiin_cmd(pattern="delsudo(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="delsudo(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     if event.sender_id in SUDO_USERS:
         return

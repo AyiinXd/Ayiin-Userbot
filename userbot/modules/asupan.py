@@ -30,6 +30,7 @@ async def _(event):
     except Exception:
         await event.edit("**Maaf tod tidak bisa menemukan video asupan.**")
 
+
 @ayiin_cmd(pattern="desah$")
 async def _(event):
     try:

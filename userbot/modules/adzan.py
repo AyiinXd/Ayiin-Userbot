@@ -11,11 +11,12 @@ from userbot.modules.sql_helper.globals import gvarstatus
 from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 
-@ayiin_cmd(pattern="adzan(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="adzan(?:\\s|$)([\\s\\S]*)")
 async def get_adzan(adzan):
     "Shows you the Islamic prayer times of the given city name"
     input_str = adzan.pattern_match.group(1)
-    LOKASI = gvarstatus("WEATHER_DEFCITY") or "Jakarta" if not input_str else input_str
+    LOKASI = gvarstatus(
+        "WEATHER_DEFCITY") or "Jakarta" if not input_str else input_str
     url = f"http://muslimsalat.com/{LOKASI}.json?key=bd099c5825cbedb9aa934e255a81a5fc"
     request = requests.get(url)
     if request.status_code != 200:

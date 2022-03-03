@@ -50,7 +50,7 @@ KANGING_STR = [
 ]
 
 
-@ayiin_cmd(pattern="(?:tikel|kang)\s?(.)?")
+@ayiin_cmd(pattern="(?:tikel|kang)\\s?(.)?")
 async def kang(args):
     user = await args.client.get_me()
     if not user.username:
@@ -178,8 +178,7 @@ async def kang(args):
                         packnick = f"{custompack}"
                     else:
                         f_name = (
-                            f"@{user.username}" if user.username else user.first_name
-                        )
+                            f"@{user.username}" if user.username else user.first_name)
                         packname = f"Sticker_u{user.id}_Ke{pack}"
                         packnick = f"Sticker Pack {f_name}"
                     await xx.edit(
@@ -440,8 +439,7 @@ async def get_pack_info(event):
         f"➠ **Official:** `{get_stickerset.set.official}`\n"
         f"➠ **Arsip:** `{get_stickerset.set.archived}`\n"
         f"➠ **Sticker Dalam Pack:** `{len(get_stickerset.packs)}`\n"
-        f"➠ **Emoji Dalam Pack:** {' '.join(pack_emojis)}"
-    )
+        f"➠ **Emoji Dalam Pack:** {' '.join(pack_emojis)}")
 
     await xx.edit(OUTPUT)
 
@@ -566,7 +564,7 @@ async def sticker_to_png(sticker):
     await xx.delete()
 
 
-@ayiin_cmd(pattern="stickers ?([\s\S]*)")
+@ayiin_cmd(pattern="stickers ?([\\s\\S]*)")
 async def cb_sticker(event):
     query = event.pattern_match.group(1)
     if not query:

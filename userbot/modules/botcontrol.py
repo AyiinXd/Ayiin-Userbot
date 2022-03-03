@@ -68,7 +68,9 @@ async def setit(event, name, value):
 def text_to_url(event):
     if isinstance(event.media, MessageMediaWebPage):
         webpage = event.media.webpage
-        if not isinstance(webpage, types.WebPageEmpty) and webpage.type in ["photo"]:
+        if not isinstance(
+                webpage,
+                types.WebPageEmpty) and webpage.type in ["photo"]:
             return webpage.display_url
     return event.text
 
@@ -92,7 +94,11 @@ async def check_bot_started_users(user, event):
                 \n**ID: **`{user.id}`\
                 \n**Action: **Telah Me-Restart saya"
     try:
-        add_starter_to_db(user.id, get_display_name(user), start_date, user.username)
+        add_starter_to_db(
+            user.id,
+            get_display_name(user),
+            start_date,
+            user.username)
     except Exception as e:
         LOGS.error(str(e))
     if BOTLOG_CHATID:
@@ -200,8 +206,8 @@ async def apiset(event):
             [Button.inline("« ʙᴀᴄᴋ", data="settings")],
         ],
     )
-    
-    
+
+
 @callback(data=re.compile(b"apikeys"))
 async def alivemenu(event):
     await event.edit(
@@ -209,7 +215,7 @@ async def alivemenu(event):
         buttons=[
             [Button.inline("ʙɪᴛʟʏ ᴛᴏᴋᴇɴ", data="btly"),
                 Button.inline("ᴅᴇᴇᴢᴇʀ ᴀʀʟ ᴛᴏᴋᴇɴ", data="dzrl"),
-            ],
+             ],
             [
                 Button.inline("ᴅᴇᴇᴘ ᴀᴘɪ", data="dapi"),
                 Button.inline("ᴏᴄʀ ᴀᴘɪ", data="ocrapi"),
@@ -718,8 +724,8 @@ async def btly(event):
             f"**{var} Berhasil di Setting Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
             buttons=get_back_button("apiset"),
         )
-        
-        
+
+
 @callback(data=re.compile(b"strone"))
 async def strone(event):
     await event.delete()
@@ -844,7 +850,6 @@ async def strfiv(event):
         )
 
 
-
 @callback(data=re.compile(b"pingbot"))
 async def _(event):
     start = datetime.now()
@@ -861,7 +866,8 @@ async def _(event):
     await event.answer(pin, cache_time=0, alert=True)
 
 
-@asst_cmd(pattern=f"^/start({botusername})?([\\s]+)?$", func=lambda e: e.is_private)
+@asst_cmd(pattern=f"^/start({botusername})?([\\s]+)?$",
+          func=lambda e: e.is_private)
 async def bot_start(event):
     chat = await event.get_chat()
     user = await event.client.get_me()
@@ -972,5 +978,4 @@ async def _(event):
     start = datetime.now()
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await tgbot.send_message(event.chat_id, "🏓**Pong!**\n`%sms`" % duration) 
-    
+    await tgbot.send_message(event.chat_id, "🏓**Pong!**\n`%sms`" % duration)

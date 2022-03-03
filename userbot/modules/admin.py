@@ -124,7 +124,7 @@ async def set_group_photo(event):
         await edit_delete(event, "**Foto Profil Grup Berhasil dihapus.**", 30)
 
 
-@ayiin_cmd(pattern="promote(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)")
 @register(pattern=r"^\.cpromote(?:\s|$)([\s\S]*)", sudo=True)
 async def promote(event):
     new_rights = ChatAdminRights(
@@ -149,7 +149,7 @@ async def promote(event):
     await edit_delete(eventyins, "`Promoted Successfully!`", 30)
 
 
-@ayiin_cmd(pattern="demote(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="demote(?:\\s|$)([\\s\\S]*)")
 @register(pattern=r"^\.cdemote(?:\s|$)([\s\S]*)", sudo=True)
 async def demote(event):
     "To demote a person in group"
@@ -174,7 +174,7 @@ async def demote(event):
     await edit_delete(eventyins, "`Demoted Successfully!`", 30)
 
 
-@ayiin_cmd(pattern="ban(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="ban(?:\\s|$)([\\s\\S]*)")
 @register(pattern=r"^\.cban(?:\s|$)([\s\S]*)", sudo=True)
 async def ban(bon):
     me = await bon.client.get_me()
@@ -207,7 +207,7 @@ async def ban(bon):
         )
 
 
-@ayiin_cmd(pattern="unban(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="unban(?:\\s|$)([\\s\\S]*)")
 @register(pattern=r"^\.cunban(?:\s|$)([\s\S]*)", sudo=True)
 async def nothanos(unbon):
     chat = await unbon.get_chat()
@@ -414,8 +414,7 @@ async def rm_deletedacc(show):
         if del_u > 0:
             del_status = (
                 f"**Menemukan** `{del_u}` **Akun Depresi/Terhapus/Zombie Dalam Grup Ini,**"
-                f"\n**Bersihkan Itu Menggunakan Perintah** `{cmd}zombies clean`"
-            )
+                f"\n**Bersihkan Itu Menggunakan Perintah** `{cmd}zombies clean`")
         return await show.edit(del_status)
     chat = await show.get_chat()
     admin = chat.admin_rights

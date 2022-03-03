@@ -179,7 +179,8 @@ async def _(event):
     if event.user_joined or event.added_by:
         user = await event.get_user()
         chat = await event.get_chat()
-        if gban_sql.is_gbanned(user.id) and blacklistayiin and chat.admin_rights:
+        if gban_sql.is_gbanned(
+                user.id) and blacklistayiin and chat.admin_rights:
             try:
                 await event.client.edit_permissions(
                     chat.id,

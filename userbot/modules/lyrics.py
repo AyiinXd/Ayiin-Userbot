@@ -10,7 +10,7 @@ from userbot import CMD_HELP
 from userbot.utils import edit_or_reply, ayiin_cmd
 
 
-@ayiin_cmd(pattern="lyrics(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="lyrics(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     query = event.pattern_match.group(1)
     if not query:

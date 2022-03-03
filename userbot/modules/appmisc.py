@@ -106,13 +106,21 @@ async def apk(e):
         soup = bs4.BeautifulSoup(page.content, "lxml", from_encoding="utf-8")
         results = soup.findAll("div", "ZmHEEd")
         app_name = (
-            results[0].findNext("div", "Vpfmgd").findNext("div", "WsMG1c nnK0zc").text
-        )
-        app_dev = results[0].findNext("div", "Vpfmgd").findNext("div", "KoLSrc").text
+            results[0].findNext(
+                "div",
+                "Vpfmgd").findNext(
+                "div",
+                "WsMG1c nnK0zc").text)
+        app_dev = results[0].findNext(
+            "div", "Vpfmgd").findNext(
+            "div", "KoLSrc").text
         app_dev_link = (
-            "https://play.google.com"
-            + results[0].findNext("div", "Vpfmgd").findNext("a", "mnKHRc")["href"]
-        )
+            "https://play.google.com" +
+            results[0].findNext(
+                "div",
+                "Vpfmgd").findNext(
+                "a",
+                "mnKHRc")["href"])
         app_rating = (
             results[0]
             .findNext("div", "Vpfmgd")
@@ -134,9 +142,8 @@ async def apk(e):
         )
         app_details = "<a href='" + app_icon + "'>📲&#8203;</a>"
         app_details += "<b>" + app_name + "</b>"
-        app_details += (
-            "\n\n<b>Developer :</b> <a href='" + app_dev_link + "'>" + app_dev + "</a>"
-        )
+        app_details += ("\n\n<b>Developer :</b> <a href='" +
+                        app_dev_link + "'>" + app_dev + "</a>")
         app_details += "\n<b>Rating :</b> " + app_rating.replace(
             "Rated ", "⭐ "
         ).replace(" out of ", "/").replace(" stars", "", 1).replace(
@@ -144,9 +151,8 @@ async def apk(e):
         ).replace(
             "five", "5"
         )
-        app_details += (
-            "\n<b>Features :</b> <a href='" + app_link + "'>View in Play Store</a>"
-        )
+        app_details += ("\n<b>Features :</b> <a href='" +
+                        app_link + "'>View in Play Store</a>")
         app_details += "\n\n===> Support @AyiinSupport <==="
         await xx.edit(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
@@ -207,8 +213,10 @@ async def _(event):
         else:
             xkcd_search_url = "https://relevantxkcd.appspot.com/process?"
             queryresult = requests.get(
-                xkcd_search_url, params={"action": "xkcd", "query": quote(input_str)}
-            ).text
+                xkcd_search_url,
+                params={
+                    "action": "xkcd",
+                    "query": quote(input_str)}).text
             xkcd_id = queryresult.split(" ")[2].lstrip("\n")
     if xkcd_id is None:
         xkcd_url = "https://xkcd.com/info.0.json"
@@ -840,7 +848,8 @@ async def cursive2(cursivebolded):
     string = "".join(args).lower()
     for normiecharacter in string:
         if normiecharacter in normiefont:
-            cursiveboldcharacter = cursiveboldx[normiefont.index(normiecharacter)]
+            cursiveboldcharacter = cursiveboldx[normiefont.index(
+                normiecharacter)]
             string = string.replace(normiecharacter, cursiveboldcharacter)
     await xx.edit(string)
 
@@ -1035,4 +1044,4 @@ CMD_HELP.update(
 \nUsage: Memberikan Glitch (Gif , Stickers , Gambar, Video) Ke Sticker Dan Level Glitch 1 to 8.\
 Jika Tidak Memberikan Level Otomatis Default Ke Level 2."
     }
-) 
+)

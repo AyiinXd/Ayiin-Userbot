@@ -19,7 +19,7 @@ from userbot.utils import (
 )
 
 
-@ayiin_cmd(pattern="sg(u)?(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="sg(u)?(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     input_str = "".join(event.text.split(maxsplit=1)[1:])
     reply_message = await event.get_reply_message()
