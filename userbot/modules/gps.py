@@ -18,7 +18,7 @@ async def gps(event):
     if not input_str:
         return await event.edit("**Berikan Tempat Yang ingin Dicari**")
     xx = await edit_or_reply(event, "`Processing...`")
-    geolocator = Nominatim(user_agent="Man")
+    geolocator = Nominatim(user_agent="Yins")
     geoloc = geolocator.geocode(input_str)
     if geoloc:
         lon = geoloc.longitude

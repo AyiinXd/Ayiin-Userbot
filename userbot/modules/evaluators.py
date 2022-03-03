@@ -75,8 +75,8 @@ async def _(event):
     final_output = f"**•  Eval : **\n`{cmd}` \n\n**•  Result : **\n`{evaluation}` \n"
 
     if len(final_output) > 4096:
-        man = final_output.replace("`", "").replace("**", "").replace("__", "")
-        with io.BytesIO(str.encode(man)) as out_file:
+        yins = final_output.replace("`", "").replace("**", "").replace("__", "")
+        with io.BytesIO(str.encode(yins)) as out_file:
             out_file.name = "eval.txt"
             await event.client.send_file(
                 event.chat_id,
@@ -96,7 +96,7 @@ async def _(event):
 async def run(event):
     code = event.pattern_match.group(1)
     if not code:
-        return await event.edit("**Read** `.help exec` **for an example.**")
+        return await event.edit(f"**Read** `{cmd}help exec` **for an example.**")
     if code in ("userbot.session", "config.env"):
         return await event.edit("`Itu operasi yang berbahaya! Tidak diperbolehkan!`")
     await event.edit("`Processing...`")
@@ -140,7 +140,7 @@ async def run(event):
 async def terminal_runner(event):
     command = event.pattern_match.group(1)
     if not command:
-        return await event.edit("`Give a command or use .help term for an example.`")
+        return await event.edit(f"`Give a command or use {cmd}help term for an example.`")
     if command in ("userbot.session", "config.env"):
         return await event.edit("`Itu operasi yang berbahaya! Tidak diperbolehkan!`")
     await event.edit("`Processing...`")

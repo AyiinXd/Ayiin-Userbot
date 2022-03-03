@@ -119,9 +119,9 @@ async def pmbot(event):
  • **Function : **Untuk Membanned Pengguna dari BOT.(Gunakan alasan saat ban)\n
  • **Command : **/unban <alasan> atau /unban <username/userid>
  • **Function : **Membuka Banned pengguna dari bot, agar bisa mengirim pesan lagi dibot.
- • **NOTE : **Untuk memeriksa daftar pengguna yang dibanned Ketik `.bblist`\n
+ • **NOTE : **Untuk memeriksa daftar pengguna yang dibanned Ketik `{cmd}bblist`\n
  • **Command : **/broadcast
- • **Function : **Balas ke pesan untuk diBroadcast ke setiap pengguna yang memulai bot Anda. Untuk mendapatkan daftar pengguna Ketik `.botuser`\n
+ • **Function : **Balas ke pesan untuk diBroadcast ke setiap pengguna yang memulai bot Anda. Untuk mendapatkan daftar pengguna Ketik `{cmd}botuser`\n
  • **NOTE : ** Jika pengguna menghentikan/memblokir bot maka dia akan dihapus dari database Anda yaitu dia akan dihapus dari daftar bot_starters
 """,
             buttons=[
@@ -607,14 +607,14 @@ async def deepai(event):
     var = "DEEP_AI"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan API {var} Anda dari deepai.org**\n\nGunakan /cancel untuk membatalkan."
+            f"**Silahkan Kirimkan API {var} Anda dari deepai.org**\n\nGunakan /cancel untuk membatalkan."
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("apikeys"),
             )
         await setit(event, var, themssg)
@@ -900,7 +900,7 @@ async def bot_start(event):
                         \n\n**Saya adalah {my_first}** \
                         \n**Anda dapat menghubungi [{OWNER}](tg://user?id={OWNER_ID}) dari sini.**\
                         \n**Jangan melakukan spam atau anda akan di Banned**\
-                        \n\n**Powered by** [UserBot](https://github.com/mrismanaziz/Man-Userbot)"
+                        \n\n**Powered by** [UserBot](https://github.com/AyiinXd/Ayiin-Userbot)"
         buttons = [
             (
                 Button.url("ɢʀᴏᴜᴘ", f"https://t.me/{GROUP}"),

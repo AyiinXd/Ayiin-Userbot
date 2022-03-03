@@ -21,23 +21,23 @@ from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd, runcmd
 
 @ayiin_cmd(pattern="convert ?(foto|audio|gif|voice|photo|mp3)? ?(.*)")
 async def cevir(event):
-    botman = event.pattern_match.group(1)
+    botyins = event.pattern_match.group(1)
     try:
-        if len(botman) < 1:
+        if len(botyins) < 1:
             await edit_delete(
                 event,
-                "**Perintah tidak diketahui! ketik** `.help convert` **bila butuh bantuan**",
+                f"**Perintah tidak diketahui! ketik** `{cmd}help convert` **bila butuh bantuan**",
                 30,
             )
             return
     except BaseException:
         await edit_delete(
             event,
-            "**Perintah tidak diketahui! ketik** `.help convert` **bila butuh bantuan**",
+            f"**Perintah tidak diketahui! ketik** `{cmd}help convert` **bila butuh bantuan**",
             30,
         )
         return
-    if botman in ["foto", "photo"]:
+    if botyins in ["foto", "photo"]:
         rep_msg = await event.get_reply_message()
         if not event.is_reply or not rep_msg.sticker:
             await edit_delete(event, "**Harap balas ke stiker.**")
@@ -54,7 +54,7 @@ async def cevir(event):
         )
         await xxnx.delete()
         os.remove("sticker.png")
-    elif botman in ["sound", "audio"]:
+    elif botyins in ["sound", "audio"]:
         EFEKTLER = ["bengek", "robot", "jedug", "fast", "echo"]
         efekt = event.pattern_match.group(2)
         if len(efekt) < 1:
@@ -93,7 +93,7 @@ async def cevir(event):
             await xxx.edit(
                 "**Efek yang Anda tentukan tidak ditemukan!**\n**Efek yang dapat Anda gunakan:** bengek/robot/jedug/fast/echo`"
             )
-    elif botman == "mp3":
+    elif botyins == "mp3":
         rep_msg = await event.get_reply_message()
         if not event.is_reply or not rep_msg.video:
             return await edit_delete(event, "**Harap balas ke Video!**")
@@ -120,7 +120,7 @@ async def cevir(event):
         os.remove(video)
     else:
         await xx.edit(
-            "**Perintah tidak diketahui! ketik** `.help convert` **bila butuh bantuan**"
+            f"**Perintah tidak diketahui! ketik** `{cmd}help convert` **bila butuh bantuan**"
         )
         return
 
@@ -137,14 +137,14 @@ async def makevoice(event):
     file = await msg.download_media(dl)
     await xxnx.edit("`Converting to Voice Note...`")
     await runcmd(
-        f"ffmpeg -i '{file}' -map 0:a -codec:a libopus -b:a 100k -vbr on man.opus"
+        f"ffmpeg -i '{file}' -map 0:a -codec:a libopus -b:a 100k -vbr on yins.opus"
     )
     await event.client.send_message(
-        event.chat_id, file="man.opus", force_document=False, reply_to=msg
+        event.chat_id, file="yins.opus", force_document=False, reply_to=msg
     )
     await xxnx.delete()
     os.remove(file)
-    os.remove("man.opus")
+    os.remove("yins.opus")
 
 
 CMD_HELP.update(

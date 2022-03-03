@@ -51,13 +51,13 @@ async def _(event):
         await edit_delete(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", 90)
     names, usernames = await sangamata_seperator(responses)
     cmd = event.pattern_match.group(1)
-    risman = None
+    ayiin = None
     check = usernames if cmd == "u" else names
     for i in check:
-        if risman:
+        if ayiin:
             await event.reply(i, parse_mode=_format.parse_pre)
         else:
-            risman = True
+            ayiin = True
             await yinsevent.edit(i, parse_mode=_format.parse_pre)
 
 

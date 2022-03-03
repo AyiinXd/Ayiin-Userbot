@@ -191,17 +191,17 @@ async def dyno_usage(dyno):
 
         sleep(3)
         await xx.edit(
-            "✥ **Informasi Dyno Heroku :**"
+            "⍟ **𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝚂𝙸 𝙳𝚈𝙽𝙾 𝙷𝙴𝚁𝙾𝚃𝙾𝙳 :**"
             "\n╔════════════════════╗\n"
-            f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
-            f"     •  `{AppHours}`**Jam**  `{AppMinutes}`**Menit**  "
+            f" ➠ **𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰𝙰𝙽 𝙳𝚈𝙽𝙾** `{app.name}` :\n"
+            f"     •  `{AppHours}`**𝙹𝙰𝙼**  `{AppMinutes}`**𝙼𝙴𝙽𝙸𝚃**  "
             f"**|**  [`{AppPercentage}`**%**]"
             "\n◖════════════════════◗\n"
-            " ➠ **Sisa kuota dyno bulan ini** :\n"
-            f"     •  `{hours}`**Jam**  `{minutes}`**Menit**  "
+            " ➠ **𝚂𝙸𝚂𝙰 𝙺𝚄𝙾𝚃𝙰 𝙳𝚈𝙽𝙾 𝙱𝚄𝙻𝙰𝙽 𝙸𝙽𝙸** :\n"
+            f"     •  `{hours}`**𝙹𝙰𝙼**  `{minutes}`**𝙼𝙴𝙽𝙸𝚃**  "
             f"**|**  [`{percentage}`**%**]"
             "\n╚════════════════════╝\n"
-            f"✥ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"
+            f"⍟ **𝚂𝙸𝚂𝙰 𝙳𝚈𝙽𝙾 𝙷𝙴𝚁𝙾𝙺𝚄** `{day}` **𝙷𝙰𝚁𝙸 𝙻𝙰𝙶𝙸**"
         )
         return True
 
@@ -210,14 +210,14 @@ async def dyno_usage(dyno):
 async def fake_dyno(event):
     xx = await edit_or_reply(event, "`Processing...`")
     await xx.edit(
-        "✥ **Informasi Dyno Heroku :**"
+        "⍟ **𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝚂𝙸 𝙳𝚈𝙽𝙾 𝙷𝙴𝚁𝙾𝚃𝙾𝙳 :**"
         "\n╔════════════════════╗\n"
-        f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
-        f"     •  `0`**Jam**  `0`**Menit**  "
+        f" ➠ **𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰𝙰𝙽 𝙳𝚈𝙽𝙾** `{app.name}` :\n"
+        f"     •  `0`**𝙹𝙰𝙼**  `0`**𝙼𝙴𝙽𝙸𝚃**  "
         f"**|**  [`0`**%**]"
         "\n◖════════════════════◗\n"
-        " ➠ **Sisa kuota dyno bulan ini** :\n"
-        f"     •  `1000`**Jam**  `0`**Menit**  "
+        " ➠ **𝚂𝙸𝚂𝙰 𝙺𝚄𝙾𝚃𝙰 𝙳𝚈𝙽𝙾 𝙱𝚄𝙻𝙰𝙽 𝙸𝙽𝙸** :\n"
+        f"     •  `1000`**𝙹𝙰𝙼**  `0`**𝙼𝙴𝙽𝙸𝚃**  "
         f"**|**  [`100`**%**]"
         "\n╚════════════════════╝\n"
     )
@@ -231,7 +231,7 @@ async def _(dyno):
         )
     xx = await edit_or_reply(dyno, "**Sedang Mengambil Logs Heroku**")
     data = app.get_log()
-    await edit_or_reply(xx, data, deflink=True, linktext="**✣ Ini Logs Heroku Anda :**")
+    await edit_or_reply(xx, data, deflink=True, linktext="**⍟ Ini Logs Heroku Anda :**")
 
 
 @ayiin_cmd(pattern="getdb ?(.*)")
@@ -295,7 +295,7 @@ CMD_HELP.update(
     {
         "heroku": f"**Plugin : **`heroku`\
         \n\n  •  **Syntax :** `{cmd}set var <nama var> <value>`\
-        \n  •  **Function : **Tambahkan Variabel Baru Atau Memperbarui Variabel Setelah Menyetel Variabel Man-Userbot Akan Di Restart.\
+        \n  •  **Function : **Tambahkan Variabel Baru Atau Memperbarui Variabel Setelah Menyetel Variabel Ayiin-Userbot Akan Di Restart.\
         \n\n  •  **Syntax :** `{cmd}get var or .get var <nama var>`\
         \n  •  **Function : **Dapatkan Variabel Yang Ada,Harap Gunakan Di Grup Private Anda!\
         \n\n  •  **Syntax :** `{cmd}del var <nama var>`\
@@ -303,7 +303,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}usage` atau `{cmd}kuota`\
         \n  •  **Function : **Check Kouta Dyno Heroku\
         \n\n  •  **Syntax :** `{cmd}usange`\
-        \n  •  **Function : **Fake Check Kouta Dyno Heroku jadi 9989jam Untuk menipu temanmu wkwk\
+        \n  •  **Function : **Fake Check Kouta Dyno Heroku jadi 9999jam Untuk menipu temanmu wkwk\
     "
     }
 )

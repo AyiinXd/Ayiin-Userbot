@@ -105,12 +105,12 @@ def time_formatter(seconds: int) -> str:
     return tmp[:-2]
 
 
-async def extract_time(man, time_val):
+async def extract_time(yins, time_val):
     if any(time_val.endswith(unit) for unit in ("s", "m", "h", "d", "w")):
         unit = time_val[-1]
         time_num = time_val[:-1]
         if not time_num.isdigit():
-            await man.edit("Jumlah waktu yang ditentukan tidak valid.")
+            await yins.edit("Jumlah waktu yang ditentukan tidak valid.")
             return None
         if unit == "s":
             bantime = int(time.time() + int(time_num) * 1)
@@ -123,12 +123,12 @@ async def extract_time(man, time_val):
         elif unit == "w":
             bantime = int(time.time() + int(time_num) * 7 * 24 * 60 * 60)
         else:
-            await man.edit(
+            await yins.edit(
                 f"**Jenis waktu yang dimasukan tidak valid. Harap masukan** s, m , h , d atau w tapi punya: `{time_val[-1]}`"
             )
             return None
         return bantime
-    await man.edit(
+    await yins.edit(
         f"**Jenis waktu yang dimasukan tidak valid. Harap Masukan** s, m , h , d atau w tapi punya: `{time_val[-1]}`"
     )
     return None
@@ -312,8 +312,8 @@ async def bash(cmd):
 
 def post_to_telegraph(title, html_format_content):
     post_client = TelegraphPoster(use_api=True)
-    auth_name = "Man-Userbot"
-    auth_url = "https://github.com/mrismanaziz/Man-Userbot"
+    auth_name = "Ayiin-Userbot"
+    auth_url = "https://github.com/AyiinXd/Ayiin-Userbot"
     post_client.create_api_token(auth_name)
     post_page = post_client.post(
         title=title,

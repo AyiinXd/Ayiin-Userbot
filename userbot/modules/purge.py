@@ -125,21 +125,21 @@ async def purgfromto(prgnew):
 async def purgfrm(purgdari):
     prgstrtmsg = purgdari.reply_to_msg_id
     purgechat[purgdari.chat_id] = prgstrtmsg
-    manubot = await edit_delete(
+    yinsubot = await edit_delete(
         purgdari,
-        "**Pesan ini telah dipilih sebagai awal menghapus, balas pesan lain dengan** `.purgeto` **untuk menghapusnya**",
+        f"**Pesan ini telah dipilih sebagai awal menghapus, balas pesan lain dengan** `{cmd}purgeto` **untuk menghapusnya**",
     )
     await sleep(2)
-    await manubot.delete()
+    await yinsubot.delete()
 
 
 async def purgto(purgke):
     try:
         prgstrtmsg = purgechat[purgke.chat_id]
     except KeyError:
-        manubot = await edit_delete(
+        yinsubot = await edit_delete(
             purgke,
-            "**Balas pesan dengan** `.purgefrom` **terlebih dahulu lalu gunakan** `.purgeto`",
+            f"**Balas pesan dengan** `{cmd}purgefrom` **terlebih dahulu lalu gunakan** `{cmd}purgeto`",
             5,
         )
         return
@@ -159,7 +159,7 @@ async def purgto(purgke):
         if pmsgs:
             await purgke.client.delete_messages(chat, pmsgs)
             await purgke.delete()
-        man = await edit_delete(
+        yins = await edit_delete(
             purgke,
             f"**Fast purge complete!**\n**Berhasil Menghapus** `{message}` **Pesan**",
             5,

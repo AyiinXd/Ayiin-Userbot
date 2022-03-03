@@ -301,7 +301,7 @@ CMD_HELP.update(
     {
         "sleep": f"**Plugin : **`sleep`\
         \n\n  •  **Syntax :** `{cmd}sleep`\
-        \n  •  **Function : **Biarkan Man-Userbot tidur selama beberapa detik \
+        \n  •  **Function : **Biarkan Ayiin-Userbot tidur selama beberapa detik \
     "
     }
 )

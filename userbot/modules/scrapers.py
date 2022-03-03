@@ -154,7 +154,7 @@ async def moni(event):
 
 @ayiin_cmd(pattern="google ([\s\S]*)")
 async def gsearch(q_event):
-    man = await edit_or_reply(q_event, "`Processing...`")
+    yins = await edit_or_reply(q_event, "`Processing...`")
     match = q_event.pattern_match.group(1)
     page = re.findall(r"-p\d+", match)
     lim = re.findall(r"-l\d+", match)
@@ -187,7 +187,7 @@ async def gsearch(q_event):
             try:
                 gresults = await ysearch.async_search(*search_args)
             except Exception as e:
-                return await edit_delete(man, f"**ERROR:**\n`{e}`", time=10)
+                return await edit_delete(yins, f"**ERROR:**\n`{e}`", time=10)
     msg = ""
     for i in range(lim):
         if i > len(gresults["links"]):
@@ -200,7 +200,7 @@ async def gsearch(q_event):
         except IndexError:
             break
     await edit_or_reply(
-        man,
+        yins,
         "**Keyword Google Search:**\n`" + match + "`\n\n**Results:**\n" + msg,
         link_preview=False,
         aslink=True,
@@ -317,7 +317,7 @@ async def _(event):
         translated = translator.translate(text, dest=lan)
         after_tr_text = translated.text
         output_str = """**DITERJEMAHKAN** dari `{}` ke `{}`
-{}""".format(
+`{}`""".format(
             translated.src, lan, after_tr_text
         )
         await xx.edit(output_str)
@@ -900,7 +900,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}google` <flags> <query>\
         \n  •  **Function : **Untuk Melakukan pencarian di google (default 5 hasil pencarian)\
         \n  •  **Flags :** `-l` **= Untuk jumlah hasil pencarian.**\
-        \n  •  **Example :** `{cmd}google -l4 mrismanaziz` atau `{cmd}google mrismanaziz`\
+        \n  •  **Example :** `{cmd}google -l4 AyiinXd` atau `{cmd}google AyiinXd`\
     "
     }
 )

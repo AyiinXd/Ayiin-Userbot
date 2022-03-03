@@ -9,7 +9,6 @@
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-import os
 from os import remove
 from random import choice
 

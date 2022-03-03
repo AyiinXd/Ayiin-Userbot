@@ -447,7 +447,7 @@ async def _(event):
 @ayiin_cmd(pattern="inviteall ?(.*)")
 async def get_users(event):
     ayiin_ = event.text[11:]
-    chat_man = ayiin_.lower()
+    chat_yins = ayiin_.lower()
     restricted = ["@AyiinXdSupport", "@AyiinXdSupport"]
     if chat_man in restricted:
         await edit_or_reply(event, "**Anda tidak dapat Mengundang Anggota dari sana.**")
@@ -459,28 +459,28 @@ async def get_users(event):
         return await edit_or_reply(
             event, "**Berikan Link Grup Chat untuk menculik membernya**"
         )
-    man = await edit_or_reply(event, f"**Mengundang Member Dari Group {ayiin_}**")
-    manuserbot = await get_chatinfo(event)
+    yins = await edit_or_reply(event, f"**Mengundang Member Dari Group {ayiin_}**")
+    yinsuserbot = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await man.edit(
+        return await yins.edit(
             "**Tidak bisa Menambahkan Member di sini Harap ketik di Grup Chat**"
         )
     s = 0
     f = 0
     error = "None"
-    await man.edit("**Terminal Status**\n\n`Sedang Mengumpulkan Pengguna...`")
-    async for user in event.client.iter_participants(manuserbot.full_chat.id):
+    await yins.edit("**Terminal Status**\n\n`Sedang Mengumpulkan Pengguna...`")
+    async for user in event.client.iter_participants(yinsuserbot.full_chat.id):
         try:
             await event.client(InviteToChannelRequest(channel=chat, users=[user.id]))
             s += 1
-            await man.edit(
+            await yins.edit(
                 f"**Terminal Running**\n\n• **Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**\n\n**× LastError:** `{error}`"
             )
         except Exception as e:
             error = str(e)
             f += 1
-    return await man.edit(
+    return await yins.edit(
         f"**Terminal Finished** \n\n• **Berhasil Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**"
     )
 
@@ -547,13 +547,13 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}userid`\
         \n  •  **Function : **untuk Mengambil ID obrolan saat ini\
         \n\n  •  **Syntax :** `{cmd}getbot`\
-        \n  •  **Function : **Dapatkan List Bot dalam grup caht.\
+        \n  •  **Function : **Dapatkan List Bot dalam grup chat.\
         \n\n  •  **Syntax :** `{cmd}mutechat`\
         \n  •  **Function : **membisukan Grup chat (membutuhkan hak admin).\
         \n\n  •  **Syntax :** `{cmd}unmutechat`\
         \n  •  **Function : **Membuka Grup chat yang dibisukan (membutuhkan hak admin).\
         \n\n  •  **Syntax :** `{cmd}getbot`\
-        \n  •  **Function : **Dapatkan List Bot dalam grup caht.\
+        \n  •  **Function : **Dapatkan List Bot dalam grup chat.\
         \n\n  •  **Syntax :** `{cmd}chatinfo [opsional: <reply/tag/chat id/invite link>]`\
         \n  •  **Function : **Mendapatkan info obrolan. Beberapa info mungkin dibatasi karena izin yang hilang.\
     "
@@ -567,7 +567,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}invite` <username/user id>\
         \n  •  **Function : **Untuk Menambahkan/invite pengguna ke group chat.\
         \n\n  •  **Syntax :** `{cmd}inviteall` <username grup yang mau di culik membernya>\
-        \n  •  **Function : **Untuk Menambahkan/invite pengguna dari grup yang ditargetkan ke grup Anda. (ketik perintah `$inviteall` di gc lu)\
+        \n  •  **Function : **Untuk Menambahkan/invite pengguna dari grup yang ditargetkan ke grup Anda. (ketik perintah `{cmd}inviteall` di gc lu)\
     "
     }
 )
@@ -590,9 +590,9 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "link": f"**Plugin : **`link`\
-        \n\n  •  **Syntax :** `{cmd}link` <username/userid> <opsional teks> (atau) Reply pesan .link <teks opsional>\
+        \n\n  •  **Syntax :** `{cmd}link` <username/userid> <opsional teks> (atau) Reply pesan `{cmd}link` <teks opsional>\
         \n  •  **Function : **Membuat link permanen ke profil pengguna dengan teks ubahsuaian opsional.\
-        \n  •  **Contoh : **{cmd}link @mrismanaziz Ganteng\
+        \n  •  **Contoh : **`{cmd}link` @Ayiin Ganteng\
     "
     }
 )

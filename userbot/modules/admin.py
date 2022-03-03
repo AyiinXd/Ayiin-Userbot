@@ -141,12 +141,12 @@ async def promote(event):
         rank = "admin"
     if not user:
         return
-    eventman = await edit_or_reply(event, "`Promoting...`")
+    eventyins = await edit_or_reply(event, "`Promoting...`")
     try:
         await event.client(EditAdminRequest(event.chat_id, user.id, new_rights, rank))
     except BadRequestError:
-        return await eventman.edit(NO_PERM)
-    await edit_delete(eventman, "`Promoted Successfully!`", 30)
+        return await eventyins.edit(NO_PERM)
+    await edit_delete(eventyins, "`Promoted Successfully!`", 30)
 
 
 @ayiin_cmd(pattern="demote(?:\s|$)([\s\S]*)")
@@ -156,7 +156,7 @@ async def demote(event):
     user, _ = await get_user_from_event(event)
     if not user:
         return
-    eventman = await edit_or_reply(event, "`Demoting...`")
+    eventyins = await edit_or_reply(event, "`Demoting...`")
     newrights = ChatAdminRights(
         add_admins=None,
         invite_users=None,
@@ -170,8 +170,8 @@ async def demote(event):
     try:
         await event.client(EditAdminRequest(event.chat_id, user.id, newrights, rank))
     except BadRequestError:
-        return await eventman.edit(NO_PERM)
-    await edit_delete(eventman, "`Demoted Successfully!`", 30)
+        return await eventyins.edit(NO_PERM)
+    await edit_delete(eventyins, "`Demoted Successfully!`", 30)
 
 
 @ayiin_cmd(pattern="ban(?:\s|$)([\s\S]*)")

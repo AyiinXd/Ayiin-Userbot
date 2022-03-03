@@ -21,7 +21,7 @@ async def help(event):
         if args in CMD_HELP:
             await edit_or_reply(event, str(CMD_HELP[args]))
         else:
-            await edit_delete(event, f"`{args}` **Bukan Nama Modul Yang Valid.**")
+            await edit_delete(event, f"**Module `{args}` Gak Ada Tod**, **Ketik Yang Bener Anj.**")
     else:
         user = await event.client.get_me()
         string = ""
@@ -32,9 +32,9 @@ async def help(event):
         sleep(3)
         await edit_or_reply(
             event,
-            f"**[᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽](https://github.com/AyiinXd/Ayiin-Userbot):**\n"
+            f"**[✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧](https://github.com/AyiinXd/Ayiin-Userbot)**\n"
             f"**߷ 𝙹𝚄𝙼𝙻𝙰𝙷** `{len(modules)}` **Modules**\n"
             f"**♕︎ 𝙾𝚆𝙽𝙴𝚁:** [{user.first_name}](tg://user?id={user.id})\n\n"
             f"{ICON_HELP}   {string}"
-            f"\n\n☞  **𝚂𝚄𝙿𝙿𝙾𝚁𝚃** : @AyiinXdSupport\n☞  **𝙽𝙾𝚃𝙴𝚂** :  {cmd}help yinsubot **Untuk Melihat Module Lainnya**"
+            f"\n\n☞  **𝚂𝚄𝙿𝙿𝙾𝚁𝚃** : @AyiinXdSupport\n☞  **𝙽𝙾𝚃𝙴𝚂** :  `{cmd}help yinsubot` **Untuk Melihat Module Lainnya**"
         )

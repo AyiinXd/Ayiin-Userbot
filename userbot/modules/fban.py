@@ -47,7 +47,7 @@ async def fban(event):
 
     if event.sender_id == fban_id:
         return await event.edit(
-            "**Error: Tindakan ini telah dicegah oleh protokol keamanan diri Man-UserBot.**"
+            "**Error: Tindakan ini telah dicegah oleh protokol keamanan diri Ayiin-Userbot.**"
         )
 
     fed_list = get_flist()

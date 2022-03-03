@@ -148,7 +148,7 @@ CMD_HELP.update(
         "stats": f"**Plugin : **`stats`\
         \n\n  •  **Syntax :** `{cmd}stats`\
         \n  •  **Function : **Untuk memeriksa statistik pengguna\
-        \n\n  •  **Syntax :** `{cmd}ustat` atau `.ustats`\
+        \n\n  •  **Syntax :** `{cmd}ustat` atau `{cmd}ustats`\
         \n  •  **Function : **Untuk memeriksa orang tersebut bergabung ke grup mana aja\
     "
     }

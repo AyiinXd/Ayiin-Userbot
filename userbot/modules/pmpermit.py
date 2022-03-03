@@ -429,7 +429,7 @@ CMD_HELP.update(
         \n\n  •  **Syntax :** `{cmd}reset pmpermit`\
         \n  •  **Function : **Menghapus pesan PM ke default.\
         \n\n  •  **Pesan Pribadi yang belum diterima saat ini tidak dapat disetel ke teks format kaya bold, underline, link, dll. Pesan akan terkirim normal saja**\
-        \n\n**NOTE: Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `$set var PM_AUTO_BAN True`\
+        \n\n**NOTE: Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}set var PM_AUTO_BAN True`\
     "
     }
 )
