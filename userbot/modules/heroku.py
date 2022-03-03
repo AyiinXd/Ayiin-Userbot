@@ -9,7 +9,6 @@
 
 import math
 import os
-import time
 
 import aiohttp
 import heroku3
@@ -37,7 +36,7 @@ else:
 """
 
 
-@ayiin_cmd(pattern="(get|del) var(?: |$)(\w*)")
+@ayiin_cmd(pattern="(get|del) var(?: |$)(\\w*)")
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -98,7 +97,7 @@ async def variable(var):
             return True
 
 
-@ayiin_cmd(pattern="set var (\w*) ([\s\S]*)")
+@ayiin_cmd(pattern="set var (\\w*) ([\\s\\S]*)")
 async def set_var(var):
     if app is None:
         return await edit_or_reply(
@@ -180,7 +179,8 @@ async def dyno_usage(dyno):
         for apps in Apps:
             if apps.get("app_uuid") == app.id:
                 AppQuotaUsed = apps.get("quota_used") / 60
-                AppPercentage = math.floor(apps.get("quota_used") * 100 / quota)
+                AppPercentage = math.floor(
+                    apps.get("quota_used") * 100 / quota)
                 break
         else:
             AppQuotaUsed = 0

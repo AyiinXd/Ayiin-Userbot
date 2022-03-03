@@ -23,9 +23,9 @@ from bs4 import BeautifulSoup
 from heroku3 import from_key
 from PIL import Image
 
-from userbot import BOT_VER, BOTLOG_CHATID
+from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS, branch
+from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_USERS
 from userbot.utils import edit_or_reply, ayiin_cmd, time_formatter
 
 # ================= CONSTANT =================
@@ -165,7 +165,7 @@ async def raw(event):
         )
 
 
-@ayiin_cmd(pattern="reverse(?: |$)(\d*)")
+@ayiin_cmd(pattern="reverse(?: |$)(\\d*)")
 async def okgoogle(img):
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
@@ -187,8 +187,17 @@ async def okgoogle(img):
         image.close()
         # https://stackoverflow.com/questions/23270175/google-reverse-image-search-using-post-request#28792943
         searchUrl = "https://www.google.com/searchbyimage/upload"
-        multipart = {"encoded_image": (name, open(name, "rb")), "image_content": ""}
-        response = requests.post(searchUrl, files=multipart, allow_redirects=False)
+        multipart = {
+            "encoded_image": (
+                name,
+                open(
+                    name,
+                    "rb")),
+            "image_content": ""}
+        response = requests.post(
+            searchUrl,
+            files=multipart,
+            allow_redirects=False)
         fetchUrl = response.headers["Location"]
         if response != 400:
             await xx.edit(
@@ -231,9 +240,8 @@ async def ParseSauce(googleurl):
     results = {"similar_images": "", "best_guess": ""}
     try:
         for similar_image in soup.findAll("input", {"class": "gLFyf"}):
-            url = "https://www.google.com/search?tbm=isch&q=" + urllib.parse.quote_plus(
-                similar_image.get("value")
-            )
+            url = "https://www.google.com/search?tbm=isch&q=" + \
+                urllib.parse.quote_plus(similar_image.get("value"))
             results["similar_images"] = url
     except BaseException:
         pass

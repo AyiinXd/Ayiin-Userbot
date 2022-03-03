@@ -48,7 +48,8 @@ class WarnSettings(BASE):
         self.soft_warn = soft_warn
 
     def __repr__(self):
-        return "<{} has {} possible warns.>".format(self.chat_id, self.warn_limit)
+        return "<{} has {} possible warns.>".format(
+            self.chat_id, self.warn_limit)
 
 
 Warns.__table__.create(checkfirst=True)

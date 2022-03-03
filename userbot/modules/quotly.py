@@ -82,7 +82,6 @@ async def quotly(event):
     remove(file)
     await msg.delete()
     return message
-    
 
 
 CMD_HELP.update(

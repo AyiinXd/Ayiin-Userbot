@@ -6,7 +6,6 @@ from userbot import CMD_HELP, bot
 from userbot.events import ayiin_cmd
 
 
-
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"ywc(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(event.chat_id, "**Ok Sama Sama**")

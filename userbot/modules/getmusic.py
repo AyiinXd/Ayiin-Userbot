@@ -116,7 +116,8 @@ async def _(event):
     try:
         loa = l[0]
         metadata = extractMetadata(createParser(loa))
-        duration = metadata.get("duration").seconds if metadata.has("duration") else 0
+        duration = metadata.get(
+            "duration").seconds if metadata.has("duration") else 0
         width = metadata.get("width") if metadata.has("width") else 0
         height = metadata.get("height") if metadata.has("height") else 0
         await bash("cp *mp4 thumb.mp4")
@@ -283,7 +284,7 @@ async def _(event):
         )
 
 
-@ayiin_cmd(pattern="deez (.+?|) (FLAC|MP3\_320|MP3\_256|MP3\_128)")
+@ayiin_cmd(pattern="deez (.+?|) (FLAC|MP3\\_320|MP3\\_256|MP3\\_128)")
 async def _(event):
     """DeezLoader by @An0nimia. Ported for UniBorg by @SpEcHlDe"""
     if event.fwd_from:
@@ -388,7 +389,8 @@ async def _(event):
 
 async def upload_track(track_location, message):
     metadata = extractMetadata(createParser(track_location))
-    duration = metadata.get("duration").seconds if metadata.has("duration") else 0
+    duration = metadata.get(
+        "duration").seconds if metadata.has("duration") else 0
     title = metadata.get("title") if metadata.has("title") else ""
     performer = metadata.get("artist") if metadata.has("artist") else ""
     document_attributes = [

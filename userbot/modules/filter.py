@@ -141,7 +141,7 @@ async def on_snip_list(event):
     )
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern="stop ([\s\S]*)"))
+@bot.on(ayiin_cmd(outgoing=True, pattern="stop ([\\s\\S]*)"))
 async def remove_a_filter(event):
     filt = event.pattern_match.group(1)
     if not remove_filter(event.chat_id, filt):

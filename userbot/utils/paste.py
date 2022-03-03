@@ -17,7 +17,10 @@ async def p_paste(message, extension=None):
     siteurl = "https://pasty.lus.pm/api/v1/pastes"
     data = {"content": message}
     try:
-        response = requests.post(url=siteurl, data=json.dumps(data), headers=headers)
+        response = requests.post(
+            url=siteurl,
+            data=json.dumps(data),
+            headers=headers)
     except Exception as e:
         return {"error": str(e)}
     if response.ok:
@@ -79,7 +82,10 @@ async def n_paste(message, extension=None):
     siteurl = "https://nekobin.com/api/documents"
     data = {"content": message}
     try:
-        response = requests.post(url=siteurl, data=json.dumps(data), headers=headers)
+        response = requests.post(
+            url=siteurl,
+            data=json.dumps(data),
+            headers=headers)
     except Exception as e:
         return {"error": str(e)}
     if response.ok:
@@ -101,7 +107,10 @@ async def d_paste(message, extension=None):
     siteurl = "http://catbin.up.railway.app/documents"
     data = {"content": message}
     try:
-        response = requests.post(url=siteurl, data=json.dumps(data), headers=headers)
+        response = requests.post(
+            url=siteurl,
+            data=json.dumps(data),
+            headers=headers)
     except Exception as e:
         return {"error": str(e)}
     if response.ok:

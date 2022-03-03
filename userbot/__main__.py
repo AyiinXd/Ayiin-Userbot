@@ -35,7 +35,8 @@ try:
     LOGS.info(f"Python Version - {python_version()}")
     LOGS.info(f"Telethon Version - {version.__version__}")
     LOGS.info(f"PyTgCalls Version - {pytgcalls.__version__}")
-    LOGS.info(f"Ayiin-Userbot Version - {ubotversion} [✨ BERHASIL DIAKTIFKAN! ✨]")
+    LOGS.info(
+        f"Ayiin-Userbot Version - {ubotversion} [✨ BERHASIL DIAKTIFKAN! ✨]")
 except (ConnectionError, KeyboardInterrupt, NotImplementedError, SystemExit):
     pass
 except BaseException as e:
@@ -52,4 +53,3 @@ if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()
-    

@@ -37,7 +37,7 @@ async def _(event):
             os.remove(downloaded_file_name)
 
 
-@ayiin_cmd(pattern="psend ([\s\S]*)")
+@ayiin_cmd(pattern="psend ([\\s\\S]*)")
 async def send(event):
     reply_to_id = await reply_id(event)
     input_str = event.pattern_match.group(1)
@@ -57,7 +57,7 @@ async def send(event):
         await edit_or_reply(event, "**ERROR: Modules Tidak ditemukan**")
 
 
-@ayiin_cmd(pattern="uninstall (?P<shortname>\w+)")
+@ayiin_cmd(pattern="uninstall (?P<shortname>\\w+)")
 async def uninstall(event):
     if event.fwd_from:
         return

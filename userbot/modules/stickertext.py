@@ -11,7 +11,6 @@ import textwrap
 
 
 from PIL import Image, ImageDraw, ImageFont
-from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.events import register
 

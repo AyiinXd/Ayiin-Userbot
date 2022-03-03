@@ -19,7 +19,7 @@ from userbot.utils import ayiin_cmd
 p, pp = print, pprint
 
 
-@ayiin_cmd(pattern="eval(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="eval(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
@@ -75,7 +75,13 @@ async def _(event):
     final_output = f"**•  Eval : **\n`{cmd}` \n\n**•  Result : **\n`{evaluation}` \n"
 
     if len(final_output) > 4096:
-        yins = final_output.replace("`", "").replace("**", "").replace("__", "")
+        yins = final_output.replace(
+            "`",
+            "").replace(
+            "**",
+            "").replace(
+            "__",
+            "")
         with io.BytesIO(str.encode(yins)) as out_file:
             out_file.name = "eval.txt"
             await event.client.send_file(
@@ -92,7 +98,7 @@ async def _(event):
         await xx.edit(final_output)
 
 
-@ayiin_cmd(pattern="exec(?: |$|\n)([\s\S]*)")
+@ayiin_cmd(pattern="exec(?: |$|\n)([\\s\\S]*)")
 async def run(event):
     code = event.pattern_match.group(1)
     if not code:
@@ -105,8 +111,14 @@ async def run(event):
     else:
         clines = code.splitlines()
         codepre = (
-            clines[0] + "\n" + clines[1] + "\n" + clines[2] + "\n" + clines[3] + "..."
-        )
+            clines[0] +
+            "\n" +
+            clines[1] +
+            "\n" +
+            clines[2] +
+            "\n" +
+            clines[3] +
+            "...")
     command = "".join(f"\n {l}" for l in code.split("\n.strip()"))
     process = await asyncio.create_subprocess_exec(
         sys.executable,
@@ -136,7 +148,7 @@ async def run(event):
     await event.edit(f"**Query:**\n`{codepre}`\n\n**Result:**\n`{stdout}`")
 
 
-@ayiin_cmd(pattern="term(?: |$|\n)([\s\S]*)")
+@ayiin_cmd(pattern="term(?: |$|\n)([\\s\\S]*)")
 async def terminal_runner(event):
     command = event.pattern_match.group(1)
     if not command:

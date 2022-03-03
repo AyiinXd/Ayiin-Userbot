@@ -5,7 +5,6 @@
 
 from time import sleep
 
-from userbot import BLACKLIST_CHAT
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.utils import edit_or_reply, ayiin_cmd
@@ -41,6 +40,7 @@ async def _(event):
     sleep(1)
     await ayiin.edit("𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝘽𝙚𝙧𝙨𝙮𝙪𝙠𝙪𝙧")
 # Create by myself @AyiinXd
+
 
 @ayiin_cmd(pattern=r"mengeluh(?: |$)(.*)")
 async def _(event):

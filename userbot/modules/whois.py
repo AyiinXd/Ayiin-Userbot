@@ -75,7 +75,9 @@ async def get_user(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+            if isinstance(
+                    probable_user_mention_entity,
+                    MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 replied_user = await event.client(GetFullUserRequest(user_id))
                 return replied_user
@@ -119,12 +121,10 @@ async def fetch_info(replied_user, event):
     photo = await event.client.download_profile_photo(
         user_id, TEMP_DOWNLOAD_DIRECTORY + str(user_id) + ".jpg", download_big=True
     )
-    first_name = (
-        first_name.replace("\u2060", "") if first_name else ("Tidak Ada Nama Depan")
-    )
-    last_name = (
-        last_name.replace("\u2060", "") if last_name else ("Tidak Ada Nama Belakang")
-    )
+    first_name = (first_name.replace("\u2060", "")
+                  if first_name else ("Tidak Ada Nama Depan"))
+    last_name = (last_name.replace("\u2060", "")
+                 if last_name else ("Tidak Ada Nama Belakang"))
     username = f"@{username}" if username else ("Tidak Menggunakan Username")
     user_bio = "Tidak Menggunakan Bio" if not user_bio else user_bio
 

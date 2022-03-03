@@ -34,8 +34,7 @@ async def gengkapak(e):
             run += 1
             r1 = ts[run]
             list1 = "<-----{}----->\nName: {}\nSeeders: {}\nSize: {}\nAge: {}\n<--Magnet Below-->\n{}\n\n\n".format(
-                run, r1["name"], r1["seeder"], r1["size"], r1["age"], r1["magnet"]
-            )
+                run, r1["name"], r1["seeder"], r1["size"], r1["age"], r1["magnet"])
             listdata += list1
         except BaseException:
             break
@@ -48,12 +47,8 @@ async def gengkapak(e):
         out_file.write(str(listdata))
     fd = codecs.open(tsfileloc, "r", encoding="utf-8")
     data = fd.read()
-    key = (
-        requests.post("https://nekobin.com/api/documents", json={"content": data})
-        .json()
-        .get("result")
-        .get("key")
-    )
+    key = (requests.post("https://nekobin.com/api/documents",
+                         json={"content": data}) .json() .get("result") .get("key"))
     url = f"https://nekobin.com/raw/{key}"
     caption = (
         f"**Here the results for the query:** `{query}`\n\nPasted to: [Nekobin]({url})"
@@ -98,8 +93,9 @@ async def tor_search(event):
 
     else:
         res = requests.get(
-            "https://www.torrentdownloads.me/search/?search=" + search_str, headers
-        )
+            "https://www.torrentdownloads.me/search/?search=" +
+            search_str,
+            headers)
 
     source = bs(res.text, "lxml")
     urls = []
@@ -141,7 +137,8 @@ async def tor_search(event):
         search_str = search_str.replace("+", " ")
     except BaseException:
         pass
-    msg = "**Torrent Search Query**\n`{}`".format(search_str) + "\n**Results**\n"
+    msg = "**Torrent Search Query**\n`{}`".format(
+        search_str) + "\n**Results**\n"
     counter = 0
     while counter != len(titles):
         msg = (

@@ -29,7 +29,7 @@ async def notes_active(svd):
     await svd.edit(message)
 
 
-@ayiin_cmd(pattern="clear (\w*)")
+@ayiin_cmd(pattern="clear (\\w*)")
 async def remove_notes(clr):
     """For .clear command, clear note with the given name."""
     try:
@@ -44,7 +44,7 @@ async def remove_notes(clr):
     return await clr.edit("**Berhasil Menghapus Catatan:** `{}`".format(notename))
 
 
-@ayiin_cmd(pattern="save (\w*)")
+@ayiin_cmd(pattern="save (\\w*)")
 async def add_note(fltr):
     try:
         from userbot.modules.sql_helper.notes_sql import add_note
@@ -78,7 +78,8 @@ async def add_note(fltr):
     return await fltr.edit(success.format("Berhasil", keyword))
 
 
-@register(pattern=r"#\w*", disable_edited=True, disable_errors=True, ignore_unsafe=True)
+@register(pattern=r"#\w*", disable_edited=True,
+          disable_errors=True, ignore_unsafe=True)
 async def incom_note(getnt):
     """Notes logic."""
     try:

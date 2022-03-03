@@ -8,7 +8,7 @@ from userbot.utils.logger import logging
 LOGS = logging.getLogger(__name__)
 
 
-@ayiin_cmd(pattern="(get_id|id)(?:\s|$)([\s\S]*)")
+@ayiin_cmd(pattern="(get_id|id)(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     input_str = event.pattern_match.group(2)
     if input_str:
