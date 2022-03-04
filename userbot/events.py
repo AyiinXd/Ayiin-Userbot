@@ -16,7 +16,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import CMD_HANDLER, CMD_LIST, DEFAULT, DEVS, AYIIN2, AYIIN3, AYIIN4, AYIIN5, bot
+from userbot import CMD_HANDLER, CMD_LIST, bot
 
 
 def ayiin_cmd(pattern=None, command=None, **args):
@@ -137,19 +137,12 @@ def register(**args):
     trigger_on_fwd = args.get("trigger_on_fwd", False)
     disable_errors = args.get("disable_errors", False)
     insecure = args.get("insecure", False)
-    args.get("sudo", False)
-    args.get("own", False)
 
     if pattern is not None and not pattern.startswith("(?i)"):
         args["pattern"] = "(?i)" + pattern
 
     if "disable_edited" in args:
         del args["disable_edited"]
-
-    if "sudo" in args:
-        del args["sudo"]
-        args["incoming"] = True
-        args["from_users"] = DEVS
 
     if "ignore_unsafe" in args:
         del args["ignore_unsafe"]
@@ -162,11 +155,6 @@ def register(**args):
 
     if "trigger_on_fwd" in args:
         del args["trigger_on_fwd"]
-
-    if "own" in args:
-        del args["own"]
-        args["incoming"] = True
-        args["from_users"] = DEFAULT
 
     if "insecure" in args:
         del args["insecure"]
@@ -246,26 +234,9 @@ def register(**args):
                     with open("error.log", "w+") as file:
                         file.write(ftext)
 
-        if bot:
-            if not disable_edited:
-                bot.add_event_handler(wrapper, events.MessageEdited(**args))
-            bot.add_event_handler(wrapper, events.NewMessage(**args))
-        if AYIIN2:
-            if not disable_edited:
-                AYIIN2.add_event_handler(wrapper, events.MessageEdited(**args))
-            AYIIN2.add_event_handler(wrapper, events.NewMessage(**args))
-        if AYIIN3:
-            if not disable_edited:
-                AYIIN3.add_event_handler(wrapper, events.MessageEdited(**args))
-            AYIIN3.add_event_handler(wrapper, events.NewMessage(**args))
-        if AYIIN4:
-            if not disable_edited:
-                AYIIN4.add_event_handler(wrapper, events.MessageEdited(**args))
-            AYIIN4.add_event_handler(wrapper, events.NewMessage(**args))
-        if AYIIN5:
-            if not disable_edited:
-                AYIIN5.add_event_handler(wrapper, events.MessageEdited(**args))
-            AYIIN5.add_event_handler(wrapper, events.NewMessage(**args))
+        if not disable_edited:
+            bot.add_event_handler(wrapper, events.MessageEdited(**args))
+        bot.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
 
     return decorator

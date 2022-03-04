@@ -1,11 +1,23 @@
 # by:koala @mixiologist
 # Lord Userbot
 
-from telethon.events import ChatAction
+import asyncio
+from datetime import datetime
+from io import BytesIO
 
-from userbot import DEVS, WHITELIST, blacklistayiin, bot
+from telethon.errors import BadRequestError
+from telethon.events import ChatAction
+from telethon.tl.functions.channels import EditBannedRequest
+from telethon.tl.types import Channel
+
+import userbot.modules.sql_helper.gban_sql as gban_sql
+from userbot import BOTLOG_CHATID
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, DEVS, WHITELIST, blacklistayiin
 from userbot.events import register
-from userbot.utils import get_user_from_event, ayiin_cmd
+from userbot.utils import chataction, edit_or_reply, get_user_from_event, ayiin_cmd
+
+from .admin import BANNED_RIGHTS, UNBAN_RIGHTS
 
 # Ported For Lord-Userbot by liualvinas/Alvin
 
@@ -33,7 +45,7 @@ async def handler(tele):
                             tele.chat_id, guser.id, view_messages=False
                         )
                         await tele.reply(
-                            f"**𝙂𝘽𝙖𝙣𝙣𝙚𝙙 𝙎𝙥𝙤𝙩𝙚𝙙** \n"
+                            f"**𝘽𝙖𝙣𝙣𝙚𝙙 𝙎𝙥𝙤𝙩𝙚𝙙** \n"
                             f"**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{guser.id}](tg://user?id={guser.id})\n"
                             f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝘽𝙖𝙣𝙣𝙚𝙙`\n"
                             f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮: ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
@@ -93,8 +105,9 @@ async def gben(userbot):
                     r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
                     f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
                     f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-                    f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙`\n"
-                    f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮:** `✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧`"
+                    f"**𝘼𝙘𝙩𝙞𝙤𝙣: 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝙄𝙣** `{count}` **𝙂𝙧𝙤𝙪𝙥**\n
+                    f"**𝘽𝙮 :** {me.first_name}`\n"
+                    f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮: ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
                 )
             except BaseException:
                 b += 1
@@ -112,7 +125,8 @@ async def gben(userbot):
         r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
         f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
         f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮:{me.first_name}`\n"
+        f"**𝘼𝙘𝙩𝙞𝙤𝙣: 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝙄𝙣** `{count}` **𝙂𝙧𝙤𝙪𝙥**\n
+        f"𝘽𝙮:{me.first_name}`\n"
         f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮:** `✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧`"
     )
 
@@ -176,6 +190,7 @@ async def gunben(userbot):
         r"\\**#𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
         f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
         f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣:** `𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 {me.first_name}`\n"
+        f"**𝘼𝙘𝙩𝙞𝙤𝙣: 𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 𝙄𝙣** `{count}` **𝙂𝙧𝙤𝙪𝙥**\n
+        f"**𝘽𝙮 :** `{me.first_name}`\n"
         f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮: ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
     )

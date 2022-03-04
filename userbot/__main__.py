@@ -13,35 +13,67 @@
 
 import sys
 from importlib import import_module
-from platform import python_version
 
-from pytgcalls import __version__ as pytgcalls
+import requests
 from pytgcalls import idle
-from telethon import version
+from telethon.tl.functions.channels import InviteToChannelRequest
 
-from userbot import BOT_TOKEN
-from userbot import BOT_VER as ubotversion
-from userbot import LOGS, bot
-from userbot.clients import ayiin_userbot_on, multiayiin
+
+from userbot import BOT_TOKEN, BOT_USERNAME, BOT_VER, BOTLOG_CHATID
+from userbot import CMD_HANDLER as cmd
+from userbot import DEVS, LOGS, bot, branch, call_py
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot, checking
 
 try:
-    for module_name in ALL_MODULES:
-        imported_module = import_module(f"userbot.modules.{module_name}")
-    client = multiayiin()
-    total = 5 - client
-    LOGS.info(f"Total Clients = {total} User")
-    LOGS.info(f"Python Version - {python_version()}")
-    LOGS.info(f"Telethon Version - {version.__version__}")
-    LOGS.info(f"PyTgCalls Version - {pytgcalls.__version__}")
-    LOGS.info(
-        f"Ayiin-Userbot Version - {ubotversion} [✨ BERHASIL DIAKTIFKAN! ✨]")
-except (ConnectionError, KeyboardInterrupt, NotImplementedError, SystemExit):
-    pass
-except BaseException as e:
+    bot.start()
+    call_py.start()
+    user = bot.get_me()
+    blacklistayiin = requests.get(
+        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/ayiinblacklist.json"
+    ).json()
+    if user.id in blacklistayiin:
+        LOGS.warning(
+            "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE JAMET KEK LU.\nCredits: @mrismanaziz"
+        )
+        sys.exit(1)
+    if 1700405732 not in DEVS:
+        LOGS.warning(
+            f"EOL\nAyiin-UserBot v{BOT_VER}, Copyright © 2021-2022 𝙰𝚈𝙸𝙸𝙽𝚇𝙳• <https://github.com/AyiinXd>"
+        )
+        sys.exit(1)
+except Exception as e:
     LOGS.info(str(e), exc_info=True)
     sys.exit(1)
+
+for module_name in ALL_MODULES:
+    imported_module = import_module("userbot.modules." + module_name)
+
+LOGS.info(
+    f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AyiinXdSupport"
+)
+
+LOGS.info(f"᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃️ ⚙️ V{BOT_VER} ᯽ [᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙳𝙸𝙰𝙺𝚃𝙸𝙵𝙺𝙰𝙽 ᯽]")
+
+
+async def ayiin_userbot_on():
+    try:
+        if BOTLOG_CHATID != 0:
+            await bot.send_message(
+                BOTLOG_CHATID,
+                f"**᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽ 𝙱𝙴𝚁𝙷𝙰𝚂𝙸𝙻 𝙳𝙸 𝙰𝙺𝚃𝙸𝙵𝙺𝙰𝙽**\n━━\n➠ **𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 -** `{BOT_VER} @{branch}`\n➠ **𝙺𝙴𝚃𝙸𝙺** `{cmd}alive` **𝚄𝙽𝚃𝚄𝙺 𝙼𝙴𝙽𝙶𝙴𝙲𝙴𝙺 𝙱𝙾𝚃**\n━━",
+            )
+    except Exception as e:
+        LOGS.info(str(e))
+    try:
+        await bot(JoinChannelRequest("@AyiinXdSupport"))
+    except BaseException:
+        pass
+    try:
+        await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [BOT_USERNAME]))
+    except BaseException:
+        pass
+
 
 
 bot.loop.run_until_complete(checking())
