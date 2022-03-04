@@ -97,11 +97,11 @@ def ayiin_cmd(
                     ),
                 )
         bot.add_event_handler(
-                func,
-                events.NewMessage(
-                    **args, from_users=list(SUDO_USERS), pattern=sudo_reg
-                ),
-            )
+            func,
+            events.NewMessage(
+                **args, from_users=list(SUDO_USERS), pattern=sudo_reg
+            ),
+        )
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
