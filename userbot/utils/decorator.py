@@ -96,7 +96,7 @@ def ayiin_cmd(
                         **args, from_users=list(SUDO_USERS), pattern=sudo_reg
                     ),
                 )
-          bot.add_event_handler(
+        bot.add_event_handler(
                 func,
                 events.NewMessage(
                     **args, from_users=list(SUDO_USERS), pattern=sudo_reg
