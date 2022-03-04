@@ -96,12 +96,12 @@ def ayiin_cmd(
                         **args, from_users=list(SUDO_USERS), pattern=sudo_reg
                     ),
                 )
-        bot.add_event_handler(
+          bot.add_event_handler(
                 func,
                 events.NewMessage(
                     **args, from_users=list(SUDO_USERS), pattern=sudo_reg
                 ),
-           )
+            )
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
@@ -137,10 +137,11 @@ def asst_cmd(**args):
 
 
 def callback(**args):
-      """Assistant's callback decorator"""
+    """Assistant's callback decorator"""
+
     def decorator(func):
         if tgbot:
             tgbot.add_event_handler(func, events.CallbackQuery(**args))
         return func
 
-    return decorator
+   return decorator
