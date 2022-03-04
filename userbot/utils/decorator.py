@@ -131,6 +131,15 @@ def asst_cmd(**args):
     return decorator
 
 
+def chataction(**args):
+    def decorator(func):
+        if bot:
+            bot.add_event_handler(func, events.ChatAction(**args))
+        return func
+
+    return decorator
+
+
 def callback(**args):
     """Assistant's callback decorator"""
 
