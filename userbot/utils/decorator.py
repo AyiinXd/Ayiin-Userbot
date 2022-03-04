@@ -86,7 +86,7 @@ def ayiin_cmd(
             bot.add_event_handler(func, events.MessageEdited(
                 **args, outgoing=True, pattern=ayiin_reg))
         bot.add_event_handler(
-            func, events.NewMessage(**args, outgoing=True, pattern=man_reg)
+            func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
         )
         if allow_sudo:
             if not disable_edited:
