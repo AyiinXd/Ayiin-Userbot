@@ -62,14 +62,8 @@ def ayiin_cmd(
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (ayiin_ +
-                     pattern).replace(
-                        "$",
-                        "").replace(
-                        "\\",
-                        "").replace(
-                        "^",
-                        ""))
+                    (ayiin_ + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                )
                 cmd2 = (
                     (sudo_ + pattern)
                     .replace("$", "")
@@ -83,8 +77,9 @@ def ayiin_cmd(
 
     def decorator(func):
         if not disable_edited:
-            bot.add_event_handler(func, events.MessageEdited(
-                **args, outgoing=True, pattern=ayiin_reg))
+            bot.add_event_handler(
+                func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
+            )
         bot.add_event_handler(
             func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
         )
@@ -96,12 +91,12 @@ def ayiin_cmd(
                         **args, from_users=list(SUDO_USERS), pattern=sudo_reg
                     ),
                 )
-        bot.add_event_handler(
-            func,
-            events.NewMessage(
-                **args, from_users=list(SUDO_USERS), pattern=sudo_reg
-            ),
-        )
+            bot.add_event_handler(
+                func,
+                events.NewMessage(
+                    **args, from_users=list(SUDO_USERS), pattern=sudo_reg
+                ),
+            )
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
