@@ -30,7 +30,7 @@ try:
     call_py.start()
     user = bot.get_me()
     blacklistayiin = requests.get(
-        "https://raw.githubusercontent.com/mrismanaziz/Reforestation/master/ayiinblacklist.json"
+        "https://raw.githubusercontent.com/AyiinXd/Reforestation/master/ayiinblacklist.json"
     ).json()
     if user.id in blacklistayiin:
         LOGS.warning(
