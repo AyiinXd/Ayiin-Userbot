@@ -3,7 +3,6 @@ This module updates the userbot based on upstream revision
 """
 
 import sys
-from base64 import b64decode
 from os import environ, execle, remove
 
 from git import Repo
