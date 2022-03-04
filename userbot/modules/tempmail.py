@@ -2,12 +2,12 @@
 from telethon import events
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.utils import edit_or_reply
+from userbot.utils import edit_or_reply, ayiin_cmd
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import asyncio
 
 
-@register(outgoing=true, pattern=r"^\tm(?: |$)(.*)")
+@ayiin_cmd(pattern=r"^\tm(?: |$)(.*)")
 async def _(event):
     chat = "@TempMailBot"
     yins = await edit_or_reply(event, "Sabar Tod Sedang Memprosess...")
