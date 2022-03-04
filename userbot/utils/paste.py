@@ -17,7 +17,10 @@ async def p_paste(message, extension=None):
     siteurl = "https://pasty.lus.pm/api/v1/pastes"
     data = {"content": message}
     try:
-        response = requests.post(url=siteurl, data=json.dumps(data), headers=headers)
+        response = requests.post(
+            url=siteurl,
+            data=json.dumps(data),
+            headers=headers)
     except Exception as e:
         return {"error": str(e)}
     if response.ok:
