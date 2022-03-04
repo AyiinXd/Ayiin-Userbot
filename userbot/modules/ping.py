@@ -166,11 +166,14 @@ async def _(pong):
     await kping.edit("8===✊D")
     await kping.edit("8===✊D💦")
     await kping.edit("8====D💦💦")
-    await kping.edit("**CROOTTTT PINGGGG!**")
+    await kping.edit("**CROOTTTT**")
+    await kping.edit("**CROOTTTT AAAHHH.....**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
+    await kping.edit("🥵")
+    sleep(3)
     await kping.edit(
-        f"**NGENTOT!! 🐨**\n**KAMPANG** : %sms\n**Bot Uptime** : {uptime}🕛" % (duration)
+        f"**𝙽𝙶𝙴𝙽𝚃𝙾𝚃 𝙰𝙷𝙷!! 🥵**\n**𝙺𝚄𝚃𝙰𝙽𝙶** : %sms\n**𝙱𝙾𝚃 𝚄𝙿𝚃𝙸𝙼𝙴** : {uptime}🕛" % (duration)
     )
 
 
@@ -208,10 +211,13 @@ async def _(speed):
 @ayiin_cmd(pattern="pong$")
 async def _(pong):
     start = datetime.now()
-    xx = await edit_or_reply(pong, "`Sepong.....🏓`")
+    xx = await edit_or_reply(pong, "`Sepong`")
+         await xx.edit("Sepong Sayang.....")
     end = datetime.now()
     duration = (end - start).microseconds / 9000
-    await xx.edit("🏓 **Ping!**\n`%sms`" % (duration))
+    await xx.edit("🥵")
+    sleep(3)
+    await xx.edit("**𝙿𝙸𝙽𝙶!**\n`%sms`" % (duration))
 
 
 # KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡

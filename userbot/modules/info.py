@@ -13,11 +13,12 @@ from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
+from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from userbot.events import register
+from userbot.events import register, ayiin_cmd
 
 
-@register(pattern="$info(?: |$)(.*)", outgoing=True)
+@register(pattern="info(?: |$)(.*)", outgoing=True)
 async def who(event):
 
     await event.edit(
@@ -127,26 +128,28 @@ async def fetch_info(replied_user, event):
         "Tidak Menggunakan Username")
     user_bio = "Tidak Punya Bio" if not user_bio else user_bio
 
-    caption = "<b>INFORMASI PENGGUNA:</b>\n\n"
-    caption += f"Nama Depan: {first_name}\n"
-    caption += f"Nama Belakang: {last_name}\n"
-    caption += f"Username: {username}\n"
-    caption += f"Data Centre ID: {dc_id}\n"
-    caption += f"Total Foto Profil: {replied_user_profile_photos_count}\n"
-    caption += f"Apakah Bot: {is_bot}\n"
-    caption += f"Dibatasi: {restricted}\n"
-    caption += f"Diverifikasi Oleh Telegram: {verified}\n"
-    caption += f"ID: <code>{user_id}</code>\n\n"
-    caption += f"Bio: \n<code>{user_bio}</code>\n\n"
-    caption += f"Obrolan Umum Dengan Pengguna Ini: {common_chat}\n"
-    caption += f"Link Permanen Ke Profil: "
+    caption = "<b>𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝚂𝙸 𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰</b>\n\n"
+    caption += f"𝙽𝙰𝙼𝙰 𝙳𝙴𝙿𝙰𝙽 : {first_name}\n"
+    caption += f"𝙽𝙰𝙼𝙰 𝙱𝙴𝙻𝙰𝙺𝙰𝙽𝙶 : {last_name}\n"
+    caption += f"𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 : {username}\n"
+    caption += f"𝙳𝙰𝚃𝙰 𝙲𝙴𝙽𝚃𝚁𝙴 𝙸𝙳 : {dc_id}\n"
+    caption += f"𝚃𝙾𝚃𝙰𝙻 𝙵𝙾𝚃𝙾 𝙿𝚁𝙾𝙵𝙸𝙻 : {replied_user_profile_photos_count}\n"
+    caption += f"𝙰𝙿𝙰𝙺𝙰𝙷 𝙱𝙾𝚃 : {is_bot}\n"
+    caption += f"𝙳𝙸𝙱𝙰𝚃𝙰𝚂𝙸 : {restricted}\n"
+    caption += f"𝙳𝙸𝚅𝙴𝚁𝙸𝙵𝙸𝙺𝙰𝚂𝙸 𝙾𝙻𝙴𝙷 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼 : {verified}\n"
+    caption += f"𝙸𝙳 : <code>{user_id}</code>\n\n"
+    caption += f"𝙱𝙸𝙾 : \n<code>{user_bio}</code>\n\n"
+    caption += f"𝙾𝙱𝚁𝙾𝙻𝙰𝙽 𝚄𝙼𝚄𝙼 𝙳𝙴𝙽𝙶𝙰𝙽 𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰 𝙸𝙽𝙸 : {common_chat}\n"
+    caption += f"𝙻𝙸𝙽𝙺 𝙿𝙴𝚁𝙼𝙰𝙽𝙴𝙽 𝙺𝙴 𝙿𝚁𝙾𝙵𝙸𝙻 : "
     caption += f"<a href=\"tg://user?id={user_id}\">{first_name}</a>"
 
     return photo, caption
 
 
-CMD_HELP.update({
-    "info":
-    ">`$info <username> Atau Balas Ke Pesan Pengguna Ketik .info`"
-    "\nUsage: Mendapatkan Informasi Pengguna."
-})
+CMD_HELP.update(
+    {
+        "info": f"**Plugin : **`info`\
+        \n\n  •  **Syntax :** `{cmd}info <username>` Atau Balas Ke Pesan Pengguna Ketik `{cmd}info`\
+        \n  •  **Function:** Mendapatkan Informasi Pengguna."
+    }
+)
