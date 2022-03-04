@@ -10,7 +10,7 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME
+from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, UPSTREAM_REPO_URL
 from userbot.events import register
 from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd
 
@@ -129,9 +129,7 @@ async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     xx = await edit_or_reply(event, "`Mengecek Pembaruan, Tunggu Sebentar Ya Kentod...`")
     conf = event.pattern_match.group(1).strip()
-    off_repo = b64decode(
-        "aHR0cHM6Ly9naXRodWIuY29tL0F5aWluWGQvQXlpaW4tVXNlcmJvdA=="
-    ).decode("utf-8")
+    off_repo = UPSTREAM_REPO_URL
     force_update = False
     try:
         txt = (
