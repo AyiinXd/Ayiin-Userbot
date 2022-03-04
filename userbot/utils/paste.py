@@ -3,19 +3,21 @@ import json
 import requests
 
 from userbot import BOTLOG_CHATID
-            
+
             from userbot.utils.logger import logging
-            
+
             LOGS = logging.getLogger("AyiinUserBot")
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36",
                 "content-type": "application/json",
             }
+
             async def p_paste(message, extension=None):
                 siteurl = "https://pasty.lus.pm/api/v1/pastes"
                 data = {"content": message}
                 try:
-                    response = requests.post(url=siteurl, data=json.dumps(data), headers=headers)
+                    response = requests.post(
+    url=siteurl, data=json.dumps(data), headers=headers)
                 except Exception as e:
                     return {"error": str(e)}
                 if response.ok:

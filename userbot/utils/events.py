@@ -1,16 +1,17 @@
 import pybase64
-    from telethon.tl.functions.channels import JoinChannelRequest as Get
-    from telethon.tl.types import MessageEntityMentionName
-    
-    from userbot import bot
-    
-    from .logger import logging
-    from .tools import edit_delete
-    LOGS = logging.getLogger(__name__)
-    async def get_user_from_event(
-        event, yinsevent=None, secondgroup=None, nogroup=False, noedits=False
-    ):
-        if yinsevent is None:
+from telethon.tl.functions.channels import JoinChannelRequest as Get
+from telethon.tl.types import MessageEntityMentionName
+
+from userbot import bot
+
+from .logger import logging
+from .tools import edit_delete
+ LOGS = logging.getLogger(__name__)
+
+  async def get_user_from_event(
+       event, yinsevent=None, secondgroup=None, nogroup=False, noedits=False
+       ):
+       if yinsevent is None:
             yinsevent = event
         if nogroup is False:
             if secondgroup:
@@ -23,11 +24,14 @@ import pybase64
                 user = args[0]
                 if len(args) > 1:
                     extra = "".join(args[1:])
-                if user.isnumeric() or (user.startswith("-") and user[1:].isnumeric()):
+                if user.isnumeric() or (user.startswith("-")
+                                        and user[1:].isnumeric()):
                     user = int(user)
                 if event.message.entities:
                     probable_user_mention_entity = event.message.entities[0]
-                    if isinstance(probable_user_mention_entity, MessageEntityMentionName):
+                    if isinstance(
+                            probable_user_mention_entity,
+                            MessageEntityMentionName):
                         user_id = probable_user_mention_entity.user_id
                         user_obj = await event.client.get_entity(user_id)
                         return user_obj, extra
