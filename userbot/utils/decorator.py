@@ -144,4 +144,4 @@ def callback(**args):
             tgbot.add_event_handler(func, events.CallbackQuery(**args))
         return func
 
-   return decorator
+    return decorator
