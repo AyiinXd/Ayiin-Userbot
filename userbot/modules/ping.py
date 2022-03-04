@@ -212,7 +212,7 @@ async def _(speed):
 async def _(pong):
     start = datetime.now()
     xx = await edit_or_reply(pong, "`Sepong`")
-         await xx.edit("Sepong Sayang.....")
+    await xx.edit("Sepong Sayang.....")
     end = datetime.now()
     duration = (end - start).microseconds / 9000
     await xx.edit("🥵")

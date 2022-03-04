@@ -2,7 +2,7 @@
 from telethon import events
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
-from userbot.utils import edit_or_reply, ayiin_cmd
+from userbot.utils import edit_or_reply
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import asyncio
 
