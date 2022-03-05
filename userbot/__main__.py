@@ -26,6 +26,7 @@ from userbot.modules import ALL_MODULES
 from userbot.utils import autobot, checking
 
 if STRING_SESSION:
+
 try:
     bot.start()
     call_py.start()
