@@ -348,6 +348,7 @@ async def ungmoot(un_gmute):
     except AttributeError:
         return await edit_delete(un_gmute, NO_SQL)
     ayiin = await edit_or_reply(un_gmute, "`Processing...`")
+    user = await get_user_from_event(un_gmute)
     user = user[0]
     if not user:
         return
