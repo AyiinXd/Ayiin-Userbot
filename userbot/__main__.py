@@ -21,11 +21,9 @@ from telethon.tl.functions.channels import InviteToChannelRequest
 
 from userbot import BOT_TOKEN, BOT_USERNAME, BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import DEVS, LOGS, STRING_SESSION, blacklistayiin, bot, branch, call_py
+from userbot import DEVS, LOGS, blacklistayiin, bot, branch, call_py
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot, checking
-
-if STRING_SESSION:
 
 try:
     bot.start()
