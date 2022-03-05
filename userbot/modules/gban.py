@@ -3,7 +3,7 @@
 
 from telethon.events import ChatAction
 
-from userbot import DEVS, bot
+from userbot import DEVS, WHITELIST, blacklistayiin, bot
 from userbot.events import register
 from userbot.utils import get_user_from_event, ayiin_cmd
 
@@ -145,7 +145,7 @@ async def gunben(userbot):
     except BaseException:
         return await dark.edit("**`𝙂𝙖𝙜𝙖𝙡 𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 :(`**")
     if user:
-        if user.id in DEVS:
+        if user.id in blacklistayiin:
             return await dark.edit(
                 "**𝙂𝙖𝙜𝙖𝙡 𝙐𝙣𝙜𝙗𝙖𝙣𝙣𝙚𝙙, 𝙆𝙖𝙧𝙚𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖 𝘿𝙞 𝘽𝙡𝙖𝙘𝙠𝙡𝙞𝙨𝙩 𝘼𝙮𝙞𝙞𝙣**"
             )
