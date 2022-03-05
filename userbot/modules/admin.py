@@ -195,15 +195,22 @@ async def ban(bon):
     if reason:
         await ayiin.edit(
             bon,
-            r"\\**#Banned_User**//"
-            f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-            f"**User ID:** `{str(user.id)}`\n"
-            f"**Reason:** `{reason}`",
+            r"\\**#𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
+            f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚:** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{str(user.id)}`\n"
+            f"**𝙍𝙚𝙖𝙨𝙤𝙣 :** `{reason}`\n"
+            f"**𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 :** {me.first_name}\n"
+            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 :** `✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧`"
         )
     else:
         await ayiin.edit(
             bon,
-            f"\\\\**#Banned_User**//\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n**User ID:** `{user.id}`\n**Action:** `Banned User by {me.first_name}`",
+            f"\\\\**#𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//
+            f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
+            f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `Banned User\n"
+            f"**𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 :**by {me.first_name}`\n"
+            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 :** `✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧`"
         )
 
 
@@ -250,10 +257,12 @@ async def spider(spdr):
     if user.id in WHITELIST:
         return await ayiin.edit("**Gagal Mute, dia adalah admin suhu udara 🤪**")
     await ayiin.edit(
-        r"\\**#Muted_User**//"
-        f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-        f"**User ID:** `{user.id}`\n"
-        f"**Action:** `Mute by {self_user.first_name}`",
+        r"\\**#𝙈𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
+        f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
+        f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
+        f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙈𝙪𝙩𝙚𝙙\n"
+        f"**𝙈𝙪𝙩𝙚𝙙 𝘽𝙮 :** {self_user.first_name}`\n"
+        f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 :** ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧"
     )
     if mute(spdr.chat_id, user.id) is False:
         return await edit_delete(ayiin, "**ERROR:** `Pengguna Sudah Dibisukan.`")
@@ -261,17 +270,21 @@ async def spider(spdr):
         await spdr.client(EditBannedRequest(spdr.chat_id, user.id, MUTE_RIGHTS))
         if reason:
             await ayiin.edit(
-                r"\\**#Muted_User**//"
-                f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-                f"**User ID:** `{user.id}`\n"
-                f"**Reason:** `{reason}`",
+                r"\\**#𝙈𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
+                f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
+                f"**Reason:** `{reason}`\n"
+                f"**𝙈𝙪𝙩𝙚𝙙 𝘽𝙮 :** {self_user.first_name}`\n"
+                f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 :** ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧"
             )
         else:
             await ayiin.edit(
-                r"\\**#Muted_User**//"
-                f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-                f"**User ID:** `{user.id}`\n"
-                f"**Action:** `Mute by {self_user.first_name}`",
+                r"\\**#𝙈𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
+                f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
+                f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
+                f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙈𝙪𝙩𝙚`\n"
+                f"**𝙈𝙪𝙩𝙚𝙙 𝘽𝙮 :** {self_user.first_name}`\n"
+                f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 :** ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧"
             )
     except UserIdInvalidError:
         return await edit_delete(ayiin, "**Terjadi ERROR!**")
@@ -387,17 +400,20 @@ async def gspider(gspdr):
         await edit_delete(gspdr, "**ERROR! Pengguna Sudah Dibisukan.**")
     elif reason:
         await ayiin.edit(
-            r"\\**#GMuted_User**//"
-            f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-            f"**User ID:** `{user.id}`\n"
-            f"**Reason:** `{reason}`",
+            r"\\**#𝙂𝙈𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
+            f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
+            f"**𝙍𝙚𝙖𝙨𝙤𝙣 :** `{reason}`\n"
+            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 :** ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧"
         )
     else:
         await ayiin.edit(
-            r"\\**#GMuted_User**//"
-            f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-            f"**User ID:** `{user.id}`\n"
-            f"**Action:** `Global Muted by {self_user.first_name}`",
+            r"\\**#𝙂𝙢𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
+            f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
+            f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙂𝙡𝙤𝙗𝙖𝙡 𝙈𝙪𝙩𝙚𝙙`\n"
+            f"**𝙂𝙢𝙪𝙩𝙚𝙙 𝘽𝙮 :** `{self_user.first_name}`\n"
+            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 :** ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧"
         )
 
 
@@ -461,16 +477,16 @@ async def rm_deletedacc(show):
 async def get_admin(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title or "Grup Ini"
-    mentions = f"<b>👑 Daftar Admin Grup {title}:</b> \n"
+    mentions = f"<b>♕︎ Daftar Admin Grup {title}:</b> \n"
     try:
         async for user in show.client.iter_participants(
             show.chat_id, filter=ChannelParticipantsAdmins
         ):
             if not user.deleted:
                 link = f'<a href="tg://user?id={user.id}">{user.first_name}</a>'
-                mentions += f"\n⚜️ {link}"
+                mentions += f"\n✧ {link}"
             else:
-                mentions += f"\n⚜ Akun Terhapus <code>{user.id}</code>"
+                mentions += f"\n⍟ Akun Terhapus <code>{user.id}</code>"
     except ChatAdminRequiredError as err:
         mentions += f" {str(err)}" + "\n"
     await show.edit(mentions, parse_mode="html")
@@ -501,7 +517,7 @@ async def pin(event):
     if not to_unpin and options != "all":
         return await edit_delete(
             event,
-            "**Reply ke Pesan untuk melepas Pin atau Gunakan** `.unpin all` **untuk melepas pin semua**",
+            f"**Reply ke Pesan untuk melepas Pin atau Gunakan** `{cmd}unpin all` **untuk melepas pin semua**",
             45,
         )
     try:
@@ -512,7 +528,7 @@ async def pin(event):
         else:
             return await edit_delete(
                 event,
-                "**Reply ke Pesan untuk melepas pin atau gunakan** `.unpin all`",
+                f"**Reply ke Pesan untuk melepas pin atau gunakan** `{cmd}unpin all`",
                 45,
             )
     except BadRequestError:

@@ -116,7 +116,7 @@ async def lsnote(event):
     OUT_STR = "**List Custom yang tersedia:**\n"
     if len(all_snips) > 0:
         for a_snip in all_snips:
-            OUT_STR += f"✣ `#{a_snip.keyword}` \n"
+            OUT_STR += f"✧ `#{a_snip.keyword}` \n"
     else:
         OUT_STR = "**Tidak ada custom cmd yang disimpan.**"
     if len(OUT_STR) > 4000:
@@ -138,7 +138,7 @@ async def lsnote(event):
 CMD_HELP.update(
     {
         "custom": f"**Plugin : **`custom`\
-        \n\n  •  **Syntax :** `{cmd}custom` <nama> <data> atau membalas pesan dengan .custom <nama>\
+        \n\n  •  **Syntax :** `{cmd}custom` <nama> <data> atau membalas pesan dengan `{cmd}custom <nama>`\
         \n  •  **Function : **Menyimpan pesan custom (catatan global) dengan nama. (bisa dengan gambar, docs, dan stickers!)\
         \n\n  •  **Syntax :** `{cmd}customs`\
         \n  •  **Function : **Mendapat semua customs yang disimpan.\

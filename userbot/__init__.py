@@ -197,7 +197,7 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 ALIVE_TEKS_CUSTOM = os.environ.get("ALIVE_TEKS_CUSTOM", "Hey, I am Alive.")
 
 # Default .alive name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", "𝘼𝙮𝙞𝙞𝙣𝙓𝙙")
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "Yins")
 
 # Custom Emoji Alive
 ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "✧")
@@ -326,7 +326,7 @@ except Exception as e:
 async def check_botlog_chatid() -> None:
     if not BOTLOG_CHATID:
         LOGS.warning(
-            "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
+            "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @YinzRobot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
         )
         sys.exit(1)
 

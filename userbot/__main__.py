@@ -21,14 +21,17 @@ from telethon.tl.functions.channels import InviteToChannelRequest
 
 from userbot import BOT_TOKEN, BOT_USERNAME, BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
-from userbot import DEVS, LOGS, bot, branch, call_py
+from userbot import DEVS, LOGS, STRING_SESSION, blacklistayiin, bot, branch, call_py
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot, checking
 
+if STRING_SESSION:
 try:
     bot.start()
     call_py.start()
     user = bot.get_me()
+    name = user.first_name
+    uid = user.id
     blacklistayiin = requests.get(
         "https://raw.githubusercontent.com/AyiinXd/Reforestation/master/ayiinblacklist.json"
     ).json()
@@ -50,10 +53,14 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 LOGS.info(
-    f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AyiinXdSupport"
+    f"STRING_SESSION detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——"
+)
+            
+LOGS.info(
+    f"Jika {name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AyiinXdSupport"
 )
 
-LOGS.info(f"᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃️ ⚙️ V{BOT_VER} ᯽ [᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙳𝙸𝙰𝙺𝚃𝙸𝙵𝙺𝙰𝙽 ᯽]")
+LOGS.info(f"᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃️ ✧ ⚙️ V{BOT_VER} [✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙳𝙸𝙰𝙺𝚃𝙸𝙵𝙺𝙰𝙽 ✧]")
 
 
 async def ayiin_userbot_on():
@@ -61,7 +68,7 @@ async def ayiin_userbot_on():
         if BOTLOG_CHATID != 0:
             await bot.send_message(
                 BOTLOG_CHATID,
-                f"**᯽ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ᯽ 𝙱𝙴𝚁𝙷𝙰𝚂𝙸𝙻 𝙳𝙸 𝙰𝙺𝚃𝙸𝙵𝙺𝙰𝙽**\n━━\n➠ **𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 -** `{BOT_VER} @{branch}`\n➠ **𝙺𝙴𝚃𝙸𝙺** `{cmd}alive` **𝚄𝙽𝚃𝚄𝙺 𝙼𝙴𝙽𝙶𝙴𝙲𝙴𝙺 𝙱𝙾𝚃**\n━━",
+                f"**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧\n**✨ 𝙱𝙴𝚁𝙷𝙰𝚂𝙸𝙻 𝙳𝙸 𝙰𝙺𝚃𝙸𝙵𝙺𝙰𝙽**\n━━\n➠ **𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 -** `{BOT_VER} @{branch}`\n➠ **𝙺𝙴𝚃𝙸𝙺** `{cmd}alive` **𝚄𝙽𝚃𝚄𝙺 𝙼𝙴𝙽𝙶𝙴𝙲𝙴𝙺 𝙱𝙾𝚃**\n━━",
             )
     except Exception as e:
         LOGS.info(str(e))
