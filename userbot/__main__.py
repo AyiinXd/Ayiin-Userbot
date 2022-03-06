@@ -54,7 +54,7 @@ for module_name in ALL_MODULES:
 LOGS.info(
     f"STRING_SESSION detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——"
 )
-            
+
 LOGS.info(
     f"Jika {name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AyiinXdSupport"
 )

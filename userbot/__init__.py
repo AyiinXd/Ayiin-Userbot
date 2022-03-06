@@ -109,7 +109,7 @@ while 0 < 6:
             1700405732,
             1700405732,
             1607338903
-         ]
+        ]
         break
     DEVS = _DEVS.json()
     break
