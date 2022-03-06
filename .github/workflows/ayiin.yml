@@ -1,28 +1,59 @@
-name: Black
+name: Ayiin-Userbot
 
-on: push
+on: [push, pull_request]
 
 jobs:
-  black:
+
+  PEP8:
+
     runs-on: ubuntu-latest
+
     steps:
+
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - name: Install black
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -U black
-      - name: Run black
-        run: black .
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+
+      - name: Setup Python
+
+        uses: actions/setup-python@v1
+
         with:
-          commit-message: Automated code formatting
-          title: Format code.
-          body: Automated code formatting.
-          labels: ⚫️ black
-          branch: autofix
-          committer: AyiinXd <ayingaming98@gmail.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          signoff: true
-          delete-branch: true
+
+          python-version: 3.9
+
+      - name: Install Python lint libraries
+
+        run: |
+
+          pip install autopep8 autoflake
+
+      - name: Check for showstoppers
+
+        run: |
+
+          autopep8 --verbose --in-place --recursive --aggressive --aggressive . *.py
+
+      - name: Remove unused imports and variables
+
+        run: |
+
+          autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
+
+      
+
+      # commit changes
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+
+        with:
+
+          commit_message: 'Ayiin-Userbot: auto fixes'
+
+          commit_options: '--no-verify --signoff'
+
+          repository: .
+
+          commit_user_name: AyiinXd
+
+          commit_user_email: ayingaming98@gmail.com
+
+          commit_author: AyiinXd <ayingaming98@gmail.com>
