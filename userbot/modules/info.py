@@ -21,8 +21,7 @@ from userbot.events import register
 @register(pattern="info(?: |$)(.*)", outgoing=True)
 async def who(event):
 
-    await event.edit(
-        "`Mengambil Informasi Pengguna Ini...`")
+    await event.edit("`Mengambil Informasi Pengguna Ini...`")
 
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
@@ -40,13 +39,15 @@ async def who(event):
         message_id_to_reply = None
 
     try:
-        await event.client.send_file(event.chat_id,
-                                     photo,
-                                     caption=caption,
-                                     link_preview=False,
-                                     force_document=False,
-                                     reply_to=message_id_to_reply,
-                                     parse_mode="html")
+        await event.client.send_file(
+            event.chat_id,
+            photo,
+            caption=caption,
+            link_preview=False,
+            force_document=False,
+            reply_to=message_id_to_reply,
+            parse_mode="html",
+        )
 
         if not photo.startswith("http"):
             os.remove(photo)
@@ -57,11 +58,10 @@ async def who(event):
 
 
 async def get_user(event):
-    """ Get the user from argument or replied message. """
+    """Get the user from argument or replied message."""
     if event.reply_to_msg_id and not event.pattern_match.group(1):
         previous_message = await event.get_reply_message()
-        replied_user = await event.client(
-            GetFullUserRequest(previous_message.from_id))
+        replied_user = await event.client(GetFullUserRequest(previous_message.from_id))
     else:
         user = event.pattern_match.group(1)
 
@@ -75,15 +75,13 @@ async def get_user(event):
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
 
-            if isinstance(probable_user_mention_entity,
-                          MessageEntityMentionName):
+            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
                 user_id = probable_user_mention_entity.user_id
                 replied_user = await event.client(GetFullUserRequest(user_id))
                 return replied_user
         try:
             user_object = await event.client.get_entity(user)
-            replied_user = await event.client(
-                GetFullUserRequest(user_object.id))
+            replied_user = await event.client(GetFullUserRequest(user_object.id))
         except (TypeError, ValueError) as err:
             return await event.edit(str(err))
 
@@ -91,13 +89,15 @@ async def get_user(event):
 
 
 async def fetch_info(replied_user, event):
-    """ Get details from the User object. """
+    """Get details from the User object."""
     replied_user_profile_photos = await event.client(
-        GetUserPhotosRequest(user_id=replied_user.user.id,
-                             offset=42,
-                             max_id=0,
-                             limit=80))
-    replied_user_profile_photos_count = "Orang tersebut membutuhkan bantuan untuk mengupload gambar profil."
+        GetUserPhotosRequest(
+            user_id=replied_user.user.id, offset=42, max_id=0, limit=80
+        )
+    )
+    replied_user_profile_photos_count = (
+        "Orang tersebut membutuhkan bantuan untuk mengupload gambar profil."
+    )
     try:
         replied_user_profile_photos_count = replied_user_profile_photos.count
     except AttributeError:
@@ -116,16 +116,16 @@ async def fetch_info(replied_user, event):
     is_bot = replied_user.user.bot
     restricted = replied_user.user.restricted
     verified = replied_user.user.verified
-    photo = await event.client.download_profile_photo(user_id,
-                                                      TEMP_DOWNLOAD_DIRECTORY +
-                                                      str(user_id) + ".jpg",
-                                                      download_big=True)
-    first_name = first_name.replace(
-        "\u2060", "") if first_name else ("Tidak Ada Nama Depan")
-    last_name = last_name.replace(
-        "\u2060", "") if last_name else ("Tidak Ada Nama Belakang")
-    username = "@{}".format(username) if username else (
-        "Tidak Menggunakan Username")
+    photo = await event.client.download_profile_photo(
+        user_id, TEMP_DOWNLOAD_DIRECTORY + str(user_id) + ".jpg", download_big=True
+    )
+    first_name = (
+        first_name.replace("\u2060", "") if first_name else ("Tidak Ada Nama Depan")
+    )
+    last_name = (
+        last_name.replace("\u2060", "") if last_name else ("Tidak Ada Nama Belakang")
+    )
+    username = "@{}".format(username) if username else ("Tidak Menggunakan Username")
     user_bio = "Tidak Punya Bio" if not user_bio else user_bio
 
     caption = "<b>𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝚂𝙸 𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰</b>\n\n"
@@ -141,7 +141,7 @@ async def fetch_info(replied_user, event):
     caption += f"𝙱𝙸𝙾 : \n<code>{user_bio}</code>\n\n"
     caption += f"𝙾𝙱𝚁𝙾𝙻𝙰𝙽 𝚄𝙼𝚄𝙼 𝙳𝙴𝙽𝙶𝙰𝙽 𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰 𝙸𝙽𝙸 : {common_chat}\n"
     caption += f"𝙻𝙸𝙽𝙺 𝙿𝙴𝚁𝙼𝙰𝙽𝙴𝙽 𝙺𝙴 𝙿𝚁𝙾𝙵𝙸𝙻 : "
-    caption += f"<a href=\"tg://user?id={user_id}\">{first_name}</a>"
+    caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
 
     return photo, caption
 

@@ -762,7 +762,9 @@ async def _(event):
 
 @ayiin_cmd(pattern="huh(?: |$)(.*)")
 async def _(event):
-    typew = await edit_or_reply(event, "`\n(\\_/)`" "`\n(●_●)`" "`\n />❤️ *Ini Buat Kamu`")
+    typew = await edit_or_reply(
+        event, "`\n(\\_/)`" "`\n(●_●)`" "`\n />❤️ *Ini Buat Kamu`"
+    )
     sleep(3)
     await typew.edit("`\n(\\_/)`" "`\n(●_●)`" "`\n/>💔  *Aku Ambil Lagi`")
     sleep(2)
@@ -1135,7 +1137,9 @@ async def _(event):
 
 @ayiin_cmd(pattern="nah(?: |$)(.*)")
 async def _(event):
-    typew = await edit_or_reply(event, "`\n(\\_/)`" "`\n(●_●)`" "`\n />💖 *Ini Buat Kamu`")
+    typew = await edit_or_reply(
+        event, "`\n(\\_/)`" "`\n(●_●)`" "`\n />💖 *Ini Buat Kamu`"
+    )
     sleep(2)
     await typew.edit("`\n(\\_/)`" "`\n(●_●)`" "`\n💖<\\  *Tapi Bo'ong`")
 

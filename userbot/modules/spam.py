@@ -151,8 +151,7 @@ async def nyespam(event):
 @ayiin_cmd(pattern="sspam$")
 async def stickerpack_spam(event):
     reply = await event.get_reply_message()
-    if not reply or media_type(
-            reply) is None or media_type(reply) != "Sticker":
+    if not reply or media_type(reply) is None or media_type(reply) != "Sticker":
         return await edit_delete(
             event,
             "**Balas stiker apa pun untuk mengirim semua stiker dalam paket itu**",

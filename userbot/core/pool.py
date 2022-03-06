@@ -11,8 +11,7 @@ _LOG = logging.getLogger(__name__)
 _LOG_STR = "<<<[  %s  ]>>>"
 
 
-def submit_thread(func: Callable[[Any], Any],
-                  *args: Any, **kwargs: Any) -> Future:
+def submit_thread(func: Callable[[Any], Any], *args: Any, **kwargs: Any) -> Future:
     """submit thread to thread pool"""
     return _EXECUTOR.submit(func, *args, **kwargs)
 

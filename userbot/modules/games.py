@@ -35,8 +35,7 @@ async def tod(event):
     else:
         xxnx = await edit_or_reply(event, f"`Tugas {tod} acak untuk Anda...`")
     category = event.pattern_match.group(2)
-    category = int(random.choice(category)
-                   ) if category else random.choice([1, 2])
+    category = int(random.choice(category)) if category else random.choice([1, 2])
     try:
         task = await get_task(tod, category)
         if tod == "truth":

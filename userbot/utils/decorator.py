@@ -62,7 +62,10 @@ def ayiin_cmd(
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (ayiin_ + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                    (ayiin_ + pattern)
+                    .replace("$", "")
+                    .replace("\\", "")
+                    .replace("^", "")
                 )
                 cmd2 = (
                     (sudo_ + pattern)

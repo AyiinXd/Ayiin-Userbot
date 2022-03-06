@@ -155,9 +155,7 @@ async def gablist(event):
             if a_user.reason:
                 GBANNED_LIST += f"☞︎︎︎ [{a_user.chat_id}](tg://user?id={a_user.chat_id}) **𝙍𝙚𝙖𝙨𝙤𝙣** `{a_user.reason}`\n"
             else:
-                GBANNED_LIST += (
-                    f"☞︎︎︎ [{a_user.chat_id}](tg://user?id={a_user.chat_id}) `No Reason`\n"
-                )
+                GBANNED_LIST += f"☞︎︎︎ [{a_user.chat_id}](tg://user?id={a_user.chat_id}) `No Reason`\n"
     if len(gbanned_users) >= 4096:
         with BytesIO(str.encode(GBANNED_LIST)) as fileuser:
             fileuser.name = "list-gban.txt"
@@ -179,8 +177,7 @@ async def _(event):
     if event.user_joined or event.added_by:
         user = await event.get_user()
         chat = await event.get_chat()
-        if gban_sql.is_gbanned(
-                user.id) and blacklistayiin and chat.admin_rights:
+        if gban_sql.is_gbanned(user.id) and blacklistayiin and chat.admin_rights:
             try:
                 await event.client.edit_permissions(
                     chat.id,

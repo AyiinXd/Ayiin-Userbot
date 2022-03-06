@@ -26,6 +26,8 @@ async def _(event):
     await event.edit("**SAMA ORANG LAIN**")
     sleep(1)
     await event.edit("**HAHAHAHA**")
+
+
 # Create by myself @localheart
 
 
@@ -50,6 +52,8 @@ async def _(event):
     await event.edit("**EHHH SANGE NYA MAU DAPAT YANG CANTIK**")
     sleep(1)
     await event.edit("**HAHAHAHA**")
+
+
 # Create by myself @localheart
 
 
@@ -74,6 +78,8 @@ async def _(event):
     await event.edit("**EHHH SANGE NYA MAU DAPAT YANG CANTIK**")
     sleep(1)
     await event.edit("**HAHAHAHA**")
+
+
 # Create by myself @localheart
 
 
@@ -98,6 +104,8 @@ async def _(event):
     await event.edit("`MAAF YA, CANDAA BEBANNNN xixixi 🙈`")
     sleep(1)
     await event.edit("`Tapi Bo'ong Hiyahiyahiya`")
+
+
 # Create by myself @localheart
 
 
@@ -126,6 +134,7 @@ async def _(event):
     await event.edit("**BIAR LO PUNYA KONTOLL**")
     sleep(1.5)
     await event.edit("**KASIAN CACAD GAPUNYA KONTOLL**")
+
 
 CMD_HELP.update(
     {

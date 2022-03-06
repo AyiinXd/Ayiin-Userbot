@@ -373,10 +373,7 @@ async def yt_search(video_q):
         await edit_delete(video_q, "`Masukkan keyword untuk dicari`")
     xx = await edit_or_reply(video_q, "`Processing...`")
     try:
-        results = json.loads(
-            YoutubeSearch(
-                query,
-                max_results=counter).to_json())
+        results = json.loads(YoutubeSearch(query, max_results=counter).to_json())
     except KeyError:
         return await edit_delete(
             xx, "`Pencarian Youtube menjadi lambat.\nTidak dapat mencari keyword ini!`"
@@ -450,9 +447,8 @@ async def download_video(v_url):
             "nocheckcertificate": True,
             "noprogress": True,
             "outtmpl": os.path.join(
-                TEMP_DOWNLOAD_DIRECTORY,
-                str(s_time),
-                "%(title)s.%(ext)s"),
+                TEMP_DOWNLOAD_DIRECTORY, str(s_time), "%(title)s.%(ext)s"
+            ),
             "logtostderr": False,
             "quiet": True,
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75",
@@ -495,11 +491,7 @@ async def download_video(v_url):
             f"**Sedang Mengupload Lagu:**\n`{rip_data.get('title')}`"
             f"\nby **{rip_data.get('uploader')}**"
         )
-        f_name = glob(
-            os.path.join(
-                TEMP_DOWNLOAD_DIRECTORY,
-                str(s_time),
-                "*.mp3"))[0]
+        f_name = glob(os.path.join(TEMP_DOWNLOAD_DIRECTORY, str(s_time), "*.mp3"))[0]
         with open(f_name, "rb") as f:
             result = await upload_file(
                 client=v_url.client,
@@ -540,20 +532,12 @@ async def download_video(v_url):
             f"**Sedang Mengupload Video:**\n`{rip_data.get('title')}`"
             f"\nby **{rip_data.get('uploader')}**"
         )
-        f_path = glob(
-            os.path.join(
-                TEMP_DOWNLOAD_DIRECTORY,
-                str(s_time),
-                "*"))[0]
+        f_path = glob(os.path.join(TEMP_DOWNLOAD_DIRECTORY, str(s_time), "*"))[0]
         # Noob way to convert from .mkv to .mp4
         if f_path.endswith(".mkv") or f_path.endswith(".webm"):
             base = os.path.splitext(f_path)[0]
             os.rename(f_path, base + ".mp4")
-            f_path = glob(
-                os.path.join(
-                    TEMP_DOWNLOAD_DIRECTORY,
-                    str(s_time),
-                    "*"))[0]
+            f_path = glob(os.path.join(TEMP_DOWNLOAD_DIRECTORY, str(s_time), "*"))[0]
         f_name = os.path.basename(f_path)
         with open(f_path, "rb") as f:
             result = await upload_file(
@@ -768,8 +752,7 @@ async def bq(event):
 
     bar_code_type = "code128"
     try:
-        bar_code_mode_f = barcode.get(
-            bar_code_type, message, writer=ImageWriter())
+        bar_code_mode_f = barcode.get(bar_code_type, message, writer=ImageWriter())
         filename = bar_code_mode_f.save(bar_code_type)
         await event.client.send_file(event.chat_id, filename, reply_to=reply_msg_id)
         os.remove(filename)
@@ -794,9 +777,7 @@ async def make_qr(makeqr):
             m_list = None
             with open(downloaded_file_name, "rb") as file:
                 m_list = file.readlines()
-            message = "".join(
-                media.decode("UTF-8") +
-                "\r\n" for media in m_list)
+            message = "".join(media.decode("UTF-8") + "\r\n" for media in m_list)
             os.remove(downloaded_file_name)
         else:
             message = previous_message.message
@@ -836,11 +817,13 @@ async def capture(url):
     height = driver.execute_script(
         "return Math.max(document.body.scrollHeight, document.body.offsetHeight, "
         "document.documentElement.clientHeight, document.documentElement.scrollHeight, "
-        "document.documentElement.offsetHeight);")
+        "document.documentElement.offsetHeight);"
+    )
     width = driver.execute_script(
         "return Math.max(document.body.scrollWidth, document.body.offsetWidth, "
         "document.documentElement.clientWidth, document.documentElement.scrollWidth, "
-        "document.documentElement.offsetWidth);")
+        "document.documentElement.offsetWidth);"
+    )
     driver.set_window_size(width + 125, height + 125)
     wait_for = height / 1000
     await xx.edit(

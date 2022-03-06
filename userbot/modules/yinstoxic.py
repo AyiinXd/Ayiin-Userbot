@@ -1,4 +1,3 @@
-
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot
 from userbot.events import ayiin_cmd
@@ -96,7 +95,9 @@ async def _(event):
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"y(?: |$)(.*)"))
 async def _(event):
-    await event.edit("**War War Tai anjing, Ketrigger minta sharelok, Udah di sharelok Ga nyamperin,Keras di sosmed Bhakss...**")
+    await event.edit(
+        "**War War Tai anjing, Ketrigger minta sharelok, Udah di sharelok Ga nyamperin,Keras di sosmed Bhakss...**"
+    )
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"h(?: |$)(.*)"))
@@ -106,12 +107,17 @@ async def _(event):
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"o(?: |$)(.*)"))
 async def _(event):
-    await event.edit("**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**")
+    await event.edit(
+        "**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**"
+    )
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"a(?: |$)(.*)"))
 async def _(event):
-    await event.edit("**NORAK LU KONTOL!! MAKE USERBOT CUMAN BUAT WAR MALAH SOK KERAS**")
+    await event.edit(
+        "**NORAK LU KONTOL!! MAKE USERBOT CUMAN BUAT WAR MALAH SOK KERAS**"
+    )
+
 
 CMD_HELP.update(
     {

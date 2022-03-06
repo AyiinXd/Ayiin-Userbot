@@ -246,7 +246,9 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        return await edit_delete(apprvpm, "**Pesan Lu Sudah Diterima Ya Tod, Silahkan Ngegibah anj**")
+        return await edit_delete(
+            apprvpm, "**Pesan Lu Sudah Diterima Ya Tod, Silahkan Ngegibah anj**"
+        )
 
     await edit_delete(
         apprvpm, f"**Menerima Pesan Cucu Dajjal** [{name0}](tg://user?id={uid})", 5

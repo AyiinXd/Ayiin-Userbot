@@ -25,7 +25,9 @@ async def impostor(event):
     if "restore" in inputArgs:
         await event.edit("**Kembali ke identitas asli...**")
         if not STORAGE.userObj:
-            return await xx.edit("**Anda Harus Mengclone Dajjal Dulu Sebelum Kembali!**")
+            return await xx.edit(
+                "**Anda Harus Mengclone Dajjal Dulu Sebelum Kembali!**"
+            )
         await updateProfile(event, STORAGE.userObj, restore=True)
         return await xx.edit("**Berhasil Mengembalikan Akun Anda Dari Dajjal**")
     if inputArgs:

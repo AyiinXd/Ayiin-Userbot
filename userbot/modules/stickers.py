@@ -178,7 +178,8 @@ async def kang(args):
                         packnick = f"{custompack}"
                     else:
                         f_name = (
-                            f"@{user.username}" if user.username else user.first_name)
+                            f"@{user.username}" if user.username else user.first_name
+                        )
                         packname = f"Sticker_u{user.id}_Ke{pack}"
                         packnick = f"Sticker Pack {f_name}"
                     await xx.edit(
@@ -439,7 +440,8 @@ async def get_pack_info(event):
         f"➠ **Official:** `{get_stickerset.set.official}`\n"
         f"➠ **Arsip:** `{get_stickerset.set.archived}`\n"
         f"➠ **Sticker Dalam Pack:** `{len(get_stickerset.packs)}`\n"
-        f"➠ **Emoji Dalam Pack:** {' '.join(pack_emojis)}")
+        f"➠ **Emoji Dalam Pack:** {' '.join(pack_emojis)}"
+    )
 
     await xx.edit(OUTPUT)
 

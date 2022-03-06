@@ -26,8 +26,7 @@ class PasteBin:
         self.retries = 5
 
     def __bool__(self):
-        return bool(
-            self._dkey or self._nkey or self._hkey or self._kkey or self._skey)
+        return bool(self._dkey or self._nkey or self._hkey or self._kkey or self._skey)
 
     async def __aenter__(self):
         return self

@@ -201,7 +201,7 @@ async def ban(bon):
             f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝘽𝙖𝙣𝙣𝙚𝙙 𝙐𝙨𝙚𝙧`\n"
             f"**𝙍𝙚𝙖𝙨𝙤𝙣 :** `{reason}`\n"
             f"**𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 :** `{me.first_name}`\n"
-            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
+            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**",
         )
     else:
         await ayiin.edit(
@@ -211,7 +211,7 @@ async def ban(bon):
             f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
             f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝘽𝙖𝙣𝙣𝙚𝙙 𝙐𝙨𝙚𝙧`\n"
             f"**𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 :** `{me.first_name}`\n"
-            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
+            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**",
         )
 
 
@@ -252,7 +252,9 @@ async def spider(spdr):
         return
     self_user = await spdr.client.get_me()
     if user.id == self_user.id:
-        return await edit_or_reply(ayiin, "**Tidak Bisa Membisukan Diri Sendiri..（>﹏<）**")
+        return await edit_or_reply(
+            ayiin, "**Tidak Bisa Membisukan Diri Sendiri..（>﹏<）**"
+        )
     if user.id in DEVS:
         return await ayiin.edit("**Gagal Mute, dia adalah Pembuat Saya 🤪**")
     if user.id in WHITELIST:
@@ -432,7 +434,8 @@ async def rm_deletedacc(show):
         if del_u > 0:
             del_status = (
                 f"**Menemukan** `{del_u}` **Akun Depresi/Terhapus/Zombie Dalam Grup Ini,**"
-                f"\n**Bersihkan Itu Menggunakan Perintah** `{cmd}zombies clean`")
+                f"\n**Bersihkan Itu Menggunakan Perintah** `{cmd}zombies clean`"
+            )
         return await show.edit(del_status)
     chat = await show.get_chat()
     admin = chat.admin_rights

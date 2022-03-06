@@ -31,12 +31,7 @@ def add_user_to_bl(
     """add the user to the blacklist"""
     to_check = check_is_black_list(chat_id)
     if not to_check:
-        __user = Bot_BlackList(
-            str(chat_id),
-            first_name,
-            username,
-            reason,
-            date)
+        __user = Bot_BlackList(str(chat_id), first_name, username, reason, date)
         SESSION.add(__user)
         SESSION.commit()
     rem = SESSION.query(Bot_BlackList).get(str(chat_id))

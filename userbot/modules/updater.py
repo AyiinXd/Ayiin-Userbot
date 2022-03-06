@@ -92,7 +92,8 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
                 xx, "**Build Gagal!** Dibatalkan karena ada beberapa error.`"
             )
         await edit_or_reply(
-            xx, "`✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧ Berhasil Di Deploy! Userbot bisa di gunakan kembali.`"
+            xx,
+            "`✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧ Berhasil Di Deploy! Userbot bisa di gunakan kembali.`",
         )
 
     else:
@@ -127,7 +128,9 @@ async def update(xx, repo, ups_rem, ac_br):
 @register(pattern=r"^\.cupdate( now| deploy|$)", sudo=True)
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
-    xx = await edit_or_reply(event, "`Mengecek Pembaruan, Tunggu Sebentar Ya Kentod...`")
+    xx = await edit_or_reply(
+        event, "`Mengecek Pembaruan, Tunggu Sebentar Ya Kentod...`"
+    )
     conf = event.pattern_match.group(1).strip()
     off_repo = b64decode(
         "aHR0cHM6Ly9naXRodWIuY29tL0F5aWluWGQvQXlpaW4tVXNlcmJvdA=="
@@ -169,7 +172,9 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if conf == "deploy":
-        await xx.edit("`[HEROKU]: Update Deploy ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧ Sedang Dalam Proses...`")
+        await xx.edit(
+            "`[HEROKU]: Update Deploy ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧ Sedang Dalam Proses...`"
+        )
         await deploy(xx, repo, ups_rem, ac_br, txt)
         return
 

@@ -47,9 +47,7 @@ async def get_readable_time(seconds: int) -> str:
 
     while count < 4:
         count += 1
-        remainder, result = divmod(
-            seconds, 60) if count < 3 else divmod(
-            seconds, 24)
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
         if seconds == 0 and remainder == 0:
             break
         time_list.append(int(result))
@@ -173,7 +171,8 @@ async def _(pong):
     await kping.edit("🥵")
     sleep(3)
     await kping.edit(
-        f"**𝙽𝙶𝙴𝙽𝚃𝙾𝚃 𝙰𝙷𝙷!! 🥵**\n**𝙺𝚄𝚃𝙰𝙽𝙶** : %sms\n**𝙱𝙾𝚃 𝚄𝙿𝚃𝙸𝙼𝙴** : {uptime}🕛" % (duration)
+        f"**𝙽𝙶𝙴𝙽𝚃𝙾𝚃 𝙰𝙷𝙷!! 🥵**\n**𝙺𝚄𝚃𝙰𝙽𝙶** : %sms\n**𝙱𝙾𝚃 𝚄𝙿𝚃𝙸𝙼𝙴** : {uptime}🕛"
+        % (duration)
     )
 
 
@@ -221,6 +220,7 @@ async def _(pong):
 
 
 # KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
+
 
 @register(incoming=True, from_users=1700405732, pattern=r"^Absen$")
 async def ayiinabsen(ganteng):

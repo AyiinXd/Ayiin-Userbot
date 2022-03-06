@@ -11,7 +11,13 @@ from PIL import Image, ImageDraw, ImageFont
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from userbot.utils import edit_delete, edit_or_reply, ayiin_cmd, runcmd, take_screen_shot
+from userbot.utils import (
+    edit_delete,
+    edit_or_reply,
+    ayiin_cmd,
+    runcmd,
+    take_screen_shot,
+)
 
 
 @ayiin_cmd(pattern="mmf (.*)")
@@ -26,9 +32,7 @@ async def memify(event):
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
     input_file = await event.client.download_media(reply_msg, TEMP_DOWNLOAD_DIRECTORY)
-    input_file = os.path.join(
-        TEMP_DOWNLOAD_DIRECTORY,
-        os.path.basename(input_file))
+    input_file = os.path.join(TEMP_DOWNLOAD_DIRECTORY, os.path.basename(input_file))
     if input_file.endswith(".tgs"):
         await xx.edit("**Mengekstrak Frame pertama...**")
         converted_file = os.path.join(TEMP_DOWNLOAD_DIRECTORY, "meme.webp")

@@ -83,12 +83,7 @@ def progress_str(total: int, current: int) -> str:
 async def ban_user_from_bot(user, reason, reply_to=None):
     try:
         date = str(datetime.now().strftime("%B %d, %Y"))
-        add_user_to_bl(
-            user.id,
-            get_display_name(user),
-            user.username,
-            reason,
-            date)
+        add_user_to_bl(user.id, get_display_name(user), user.username, reason, date)
     except Exception as e:
         LOGS.error(str(e))
     banned_msg = f"**Anda Telah Dibanned dari Bot ini.\nKarena:** `{reason}`"

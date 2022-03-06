@@ -12,14 +12,7 @@ class Bot_Users(BASE):
     logger_id = Column(Integer)
     result_id = Column(Integer, primary_key=True)
 
-    def __init__(
-            self,
-            message_id,
-            first_name,
-            chat_id,
-            reply_id,
-            logger_id,
-            result_id):
+    def __init__(self, message_id, first_name, chat_id, reply_id, logger_id, result_id):
         self.message_id = message_id
         self.first_name = first_name
         self.chat_id = str(chat_id)
@@ -31,13 +24,7 @@ class Bot_Users(BASE):
 Bot_Users.__table__.create(checkfirst=True)
 
 
-def add_user_to_db(
-        message_id,
-        first_name,
-        chat_id,
-        reply_id,
-        logger_id,
-        result_id):
+def add_user_to_db(message_id, first_name, chat_id, reply_id, logger_id, result_id):
     user = Bot_Users(
         message_id, first_name, str(chat_id), reply_id, logger_id, result_id
     )
@@ -69,8 +56,7 @@ def del_user_from_db(message_id):
         )
         if _result:
             for rst in _result:
-                rem = SESSION.query(Bot_Users).get(
-                    (str(rst.message_id), rst.result_id))
+                rem = SESSION.query(Bot_Users).get((str(rst.message_id), rst.result_id))
                 SESSION.delete(rem)
                 SESSION.commit()
             return True
@@ -81,8 +67,9 @@ def del_user_from_db(message_id):
 
 def get_user_reply(reply_id):
     try:
-        _result = (SESSION.query(Bot_Users).filter(
-            Bot_Users.reply_id == str(reply_id)).all())
+        _result = (
+            SESSION.query(Bot_Users).filter(Bot_Users.reply_id == str(reply_id)).all()
+        )
         if _result:
             return _result
         return None
@@ -92,8 +79,9 @@ def get_user_reply(reply_id):
 
 def get_user_results(result_id):
     try:
-        _result = (SESSION.query(Bot_Users).filter(
-            Bot_Users.result_id == str(result_id)).all())
+        _result = (
+            SESSION.query(Bot_Users).filter(Bot_Users.result_id == str(result_id)).all()
+        )
         if _result:
             return _result
         return None
@@ -103,8 +91,9 @@ def get_user_results(result_id):
 
 def get_user_logging(logger_id):
     try:
-        _result = (SESSION.query(Bot_Users).filter(
-            Bot_Users.logger_id == str(logger_id)).all())
+        _result = (
+            SESSION.query(Bot_Users).filter(Bot_Users.logger_id == str(logger_id)).all()
+        )
         if _result:
             return _result
         return None

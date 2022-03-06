@@ -71,7 +71,9 @@ async def gben(userbot):
         return await dark.edit("**𝘼𝙣𝙟𝙞𝙣𝙜 𝙂𝙖𝙜𝙖𝙡 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 :(**")
     if user:
         if user.id in DEVS:
-            return await dark.edit("**𝙂𝙖𝙜𝙖𝙡 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝙏𝙤𝙙, 𝙆𝙖𝙧𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖𝙡𝙖𝙝 𝘽𝙤𝙨𝙨 𝙂𝙪𝙖 🤪**")
+            return await dark.edit(
+                "**𝙂𝙖𝙜𝙖𝙡 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝙏𝙤𝙙, 𝙆𝙖𝙧𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖𝙡𝙖𝙝 𝘽𝙤𝙨𝙨 𝙂𝙪𝙖 🤪**"
+            )
         if user.id in WHITELIST:
             return await dark.edit(
                 "**Gagal Global Banned, Karna dia adalah suhu cuaca 🤪**"

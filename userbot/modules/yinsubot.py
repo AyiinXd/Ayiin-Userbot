@@ -58,9 +58,13 @@ async def _(event):
     sleep(2)
     await ayiin.edit("**Kesannya lo ngasih kita hiburan.**")
     sleep(2)
-    await ayiin.edit("**Kasian badut🤡, Ga di hargain pengunjung, Eh lampiaskan nya ke Tele, Wkwkwk**")
+    await ayiin.edit(
+        "**Kasian badut🤡, Ga di hargain pengunjung, Eh lampiaskan nya ke Tele, Wkwkwk**"
+    )
     sleep(3)
-    await ayiin.edit("**Dah sana cabut, Makasih hiburannya, Udah bikin Gua tawa ngakak**")
+    await ayiin.edit(
+        "**Dah sana cabut, Makasih hiburannya, Udah bikin Gua tawa ngakak**"
+    )
 
 
 @ayiin_cmd(pattern=r"alay(?: |$)(.*)")
@@ -113,7 +117,9 @@ async def _(event):
     sleep(4)
     await ayiin.edit("**YAELAH BRO MENTAL LO CUMA DI SOSMED APA GIMANE?**")
     sleep(2)
-    await ayiin.edit("**PERASAAN DULU TELEGRAM GAADA DEH BOCAH BOCAH SOK JAGO KEK GINI**")
+    await ayiin.edit(
+        "**PERASAAN DULU TELEGRAM GAADA DEH BOCAH BOCAH SOK JAGO KEK GINI**"
+    )
     sleep(2)
     await ayiin.edit("**GILIRAN TITLE NYA DI EJEK NGADU KE OWNER NYA**")
     sleep(4)
@@ -132,6 +138,7 @@ async def _(event):
     await ayiin.edit("**MANA VIRTUAL LAGI, SOK JAGO LAGI DUH**")
     sleep(3)
     await ayiin.edit("**SEMOGA CEPET SADAR YA HAHAHAHA**")
+
 
 CMD_HELP.update(
     {

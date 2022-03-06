@@ -243,11 +243,11 @@ async def devices_specifications(request):
         return await request.edit("`Usage: .specs <brand> <device>`")
     all_brands = (
         BeautifulSoup(
-            get("https://www.devicespecifications.com/en/brand-more").content,
-            "lxml") .find(
-            "div",
-            {
-                "class": "brand-listing-container-news"}) .findAll("a"))
+            get("https://www.devicespecifications.com/en/brand-more").content, "lxml"
+        )
+        .find("div", {"class": "brand-listing-container-news"})
+        .findAll("a")
+    )
     brand_page_url = None
     try:
         brand_page_url = [

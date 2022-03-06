@@ -50,6 +50,7 @@ async def _(event):
     await ayiin.edit("`🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
     await ayiin.edit("`🧎🏻‍♂️ huhh... akhirnya bisa lolos dari wibu mematikan`")
 
+
 # create by ayiin
 
 

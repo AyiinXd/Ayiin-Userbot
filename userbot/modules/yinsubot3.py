@@ -19,6 +19,8 @@ async def _(event):
     await ayiin.edit("𝙏𝙞𝙣𝙜𝙜𝙖𝙡 𝘿𝙞 𝘽𝙖𝙡𝙞...")
     sleep(3)
     await ayiin.edit("𝙊𝙬𝙣𝙚𝙧 𝘿𝙖𝙧𝙞 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩, 𝙎𝙖𝙡𝙖𝙢 𝙆𝙚𝙣𝙖𝙡 😁")
+
+
 # Create by myself @AyiinXd
 
 
@@ -29,6 +31,8 @@ async def _(event):
     await ayiin.edit("𝘼𝙠𝙪 𝙎𝙖𝙮𝙖𝙣𝙜 𝙆𝙖𝙢𝙪 😘")
     sleep(1)
     await ayiin.edit("𝙈𝙪𝙖𝙖𝙘𝙘𝙝𝙝𝙝 😘💕")
+
+
 # Create by myself @AyiinXd
 
 
@@ -39,6 +43,8 @@ async def _(event):
     await ayiin.edit("𝙏𝙚𝙩𝙖𝙥𝙡𝙖𝙝 𝘽𝙚𝙧𝙣𝙖𝙥𝙖𝙨")
     sleep(1)
     await ayiin.edit("𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝘽𝙚𝙧𝙨𝙮𝙪𝙠𝙪𝙧")
+
+
 # Create by myself @AyiinXd
 
 
@@ -49,6 +55,8 @@ async def _(event):
     await ayiin.edit("𝙏𝙚𝙩𝙖𝙥𝙡𝙖𝙝 𝙈𝙚𝙣𝙜𝙚𝙡𝙪𝙝")
     sleep(1)
     await ayiin.edit("𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝙋𝙪𝙩𝙪𝙨 𝘼𝙨𝙖")
+
+
 # Create by myself @AyiinXd
 
 
