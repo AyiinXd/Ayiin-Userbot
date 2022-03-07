@@ -5,6 +5,7 @@
 #
 """ Userbot module for filter commands """
 
+
 import asyncio
 import os
 import time
@@ -16,7 +17,7 @@ from telethon import functions, types
 from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot.utils import check_media, edit_delete, edit_or_reply, ayiin_cmd, progress
 
-Glitched = TEMP_DOWNLOAD_DIRECTORY + "glitch.gif"
+Glitched = f'{TEMP_DOWNLOAD_DIRECTORY}glitch.gif'
 
 
 @ayiin_cmd(pattern="glitch(?: |$)(.*)")
@@ -29,12 +30,11 @@ async def glitch(event):
         return await edit_delete(event, "`Bales Ke Gambar/Sticker`")
     await event.client.download_file(reply_message.media)
     await xx.edit("`Sedang Mendownload Media....`")
-    if event.is_reply:
-        data = await check_media(reply_message)
-        if isinstance(data, bool):
-            return await edit_delete(event, "`File Tidak Di Dukung...`")
-    else:
+    if not event.is_reply:
         return await xx.edit("`Balas Ke Media....`")
+    data = await check_media(reply_message)
+    if isinstance(data, bool):
+        return await edit_delete(event, "`File Tidak Di Dukung...`")
     try:
         value = int(event.pattern_match.group(1))
         if value > 8:

@@ -108,7 +108,7 @@ async def img_sampler(event):
     try:
         lim = lim[0]
         lim = lim.replace("lim=", "")
-        query = query.replace("lim=" + lim[0], "")
+        query = query.replace(f"lim={lim[0]}", "")
     except IndexError:
         lim = 15
     response = googleimagesdownload()
@@ -161,13 +161,13 @@ async def gsearch(q_event):
     try:
         page = page[0]
         page = page.replace("-p", "")
-        match = match.replace("-p" + page, "")
+        match = match.replace(f"-p{page}", "")
     except IndexError:
         page = 1
     try:
         lim = lim[0]
         lim = lim.replace("-l", "")
-        match = match.replace("-l" + lim, "")
+        match = match.replace(f"-l{lim}", "")
         lim = int(lim)
         if lim <= 0:
             lim = int(5)
@@ -252,7 +252,7 @@ async def _(event):
             )
         )
     except asyncurban.WordNotFoundError:
-        await xx.edit("Tidak ada hasil untuk **" + word + "**")
+        await xx.edit(f"Tidak ada hasil untuk **{word}**")
 
 
 @ayiin_cmd(pattern="tts(?: |$)([\\s\\S]*)")
@@ -548,7 +548,7 @@ async def download_video(v_url):
         # Noob way to convert from .mkv to .mp4
         if f_path.endswith(".mkv") or f_path.endswith(".webm"):
             base = os.path.splitext(f_path)[0]
-            os.rename(f_path, base + ".mp4")
+            os.rename(f_path, f'{base}.mp4')
             f_path = glob(
                 os.path.join(
                     TEMP_DOWNLOAD_DIRECTORY,
@@ -720,9 +720,10 @@ async def parseqr(qr_e):
         "-X",
         "POST",
         "-F",
-        "f=@" + downloaded_file_name + "",
+        f"f=@{downloaded_file_name}",
         "https://zxing.org/w/decode",
     ]
+
     process = await asyncio.create_subprocess_exec(
         *command_to_exec,
         # stdout must a pipe to be accessible as process.stdout
@@ -827,8 +828,7 @@ async def capture(url):
     chrome_options.arguments.remove("--window-size=1920x1080")
     driver = await chrome(chrome_options=chrome_options)
     input_str = url.pattern_match.group(1)
-    link_match = match(r"\bhttps?://.*\.\S+", input_str)
-    if link_match:
+    if link_match := match(r"\bhttps?://.*\.\S+", input_str):
         link = link_match.group()
     else:
         return await edit_delete(xx, "`I need a valid link to take screenshots from.`")
@@ -853,9 +853,7 @@ async def capture(url):
     im_png = driver.get_screenshot_as_png()
     # saves screenshot of entire page
     driver.quit()
-    message_id = url.message.id
-    if url.reply_to_msg_id:
-        message_id = url.reply_to_msg_id
+    message_id = url.reply_to_msg_id or url.message.id
     with io.BytesIO(im_png) as out_file:
         out_file.name = "screencapture.png"
         await xx.edit("`Uploading screenshot as file..`")

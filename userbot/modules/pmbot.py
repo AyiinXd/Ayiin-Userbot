@@ -75,8 +75,10 @@ def progress_str(total: int, current: int) -> str:
     prog_arg = "**Progress** : `{}%`\n" "```[{}{}]```"
     return prog_arg.format(
         percentage,
-        "".join((FINISHED_PROGRESS_STR for i in range(floor(percentage / 5)))),
-        "".join((UNFINISHED_PROGRESS_STR for i in range(20 - floor(percentage / 5)))),
+        "".join(FINISHED_PROGRESS_STR for _ in range(floor(percentage / 5))),
+        "".join(
+            UNFINISHED_PROGRESS_STR for _ in range(20 - floor(percentage / 5))
+        ),
     )
 
 
@@ -212,8 +214,7 @@ async def ban_botpms(event):
         return await event.reply(f"**ERROR:**\n`{e}`")
     if user_id == OWNER_ID:
         return await event.reply("**Saya Tidak Bisa Membanned Master** 🥺")
-    check = check_is_black_list(user.id)
-    if check:
+    if check := check_is_black_list(user.id):
         return await event.client.send_message(
             event.chat_id,
             f"**#Already_Banned**\

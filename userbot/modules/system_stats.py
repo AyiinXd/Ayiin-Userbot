@@ -126,7 +126,7 @@ async def sysdetails(sysd):
             result = str(stdout.decode().strip()) + \
                 str(stderr.decode().strip())
 
-            await edit_or_reply(sysd, "`" + result + "`")
+            await edit_or_reply(sysd, f"`{result}`")
         except FileNotFoundError:
             await edit_or_reply(sysd, "**Install neofetch Terlebih dahulu!!**")
 

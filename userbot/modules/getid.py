@@ -10,8 +10,7 @@ LOGS = logging.getLogger(__name__)
 
 @ayiin_cmd(pattern="(get_id|id)(?:\\s|$)([\\s\\S]*)")
 async def _(event):
-    input_str = event.pattern_match.group(2)
-    if input_str:
+    if input_str := event.pattern_match.group(2):
         try:
             p = await event.client.get_entity(input_str)
         except Exception as e:

@@ -948,9 +948,7 @@ async def slap(replied_user, event):
     """Construct a funny slap sentence !!"""
     user_id = replied_user.id
     first_name = replied_user.first_name
-    username = replied_user.username
-
-    if username:
+    if username := replied_user.username:
         slapped = "@{}".format(username)
     else:
         slapped = f"[{first_name}](tg://user?id={user_id})"
@@ -1024,7 +1022,7 @@ async def _(event):
 async def _(idk):
     t = ";_;"
     for _ in range(10):
-        t = t[:-1] + "_;"
+        t = f'{t[:-1]}_;'
         await idk.edit(t)
 
 
@@ -1180,9 +1178,9 @@ async def _(owo):
     reply_text = sub(r"(R|L)", "W", reply_text)
     reply_text = sub(r"n([aeiou])", r"ny\1", reply_text)
     reply_text = sub(r"N([aeiouAEIOU])", r"Ny\1", reply_text)
-    reply_text = sub(r"\!+", " " + choice(UWUS), reply_text)
+    reply_text = sub(r"\!+", f" {choice(UWUS)}", reply_text)
     reply_text = reply_text.replace("ove", "uv")
-    reply_text += " " + choice(UWUS)
+    reply_text += f" {choice(UWUS)}"
     await owo.edit(reply_text)
 
 
@@ -1220,7 +1218,7 @@ async def _(hahayes):
 async def _(e):
     t = "Oem"
     for _ in range(16):
-        t = t[:-1] + "em"
+        t = f'{t[:-1]}em'
         await e.edit(t)
 
 
@@ -1228,7 +1226,7 @@ async def _(e):
 async def _(e):
     t = "Oem"
     for _ in range(16):
-        t = t[:-1] + "em"
+        t = f'{t[:-1]}em'
         await e.edit(t)
 
 
@@ -1537,8 +1535,7 @@ async def _(event):
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"lfy (.*)"))
 async def _(lmgtfy_q):
     textx = await lmgtfy_q.get_reply_message()
-    qry = lmgtfy_q.pattern_match.group(1)
-    if qry:
+    if qry := lmgtfy_q.pattern_match.group(1):
         query = str(qry)
     elif textx:
         query = textx
@@ -1557,7 +1554,7 @@ async def _(sigh):
     """Ok..."""
     okay = "-_-"
     for _ in range(10):
-        okay = okay[:-1] + "_-"
+        okay = f'{okay[:-1]}_-'
         await sigh.edit(okay)
 
 
@@ -1635,8 +1632,8 @@ async def _(typew):
     await typew.edit(typing_symbol)
     await sleep(sleep_time)
     for character in message:
-        old_text = old_text + "" + character
-        typing_text = old_text + "" + typing_symbol
+        old_text = f'{old_text}{character}'
+        typing_text = f'{old_text}{typing_symbol}'
         await typew.edit(typing_text)
         await sleep(sleep_time)
         await typew.edit(old_text)
@@ -1854,8 +1851,8 @@ async def _(siwis):
 
     reply_text = sub(r"(a|i|u|e|o)", "i", message)
     reply_text = sub(r"(A|I|U|E|O)", "I", reply_text)
-    reply_text = sub(r"\!+", " " + choice(IWIS), reply_text)
-    reply_text += " " + choice(IWIS)
+    reply_text = sub(r"\!+", f" {choice(IWIS)}", reply_text)
+    reply_text += f" {choice(IWIS)}"
     await siwis.edit(reply_text)
 
 

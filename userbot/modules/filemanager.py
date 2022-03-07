@@ -42,7 +42,7 @@ async def lst(event):
         files = ""
         folders = ""
         for contents in os_sorted(lists):
-            catpath = path + "/" + contents
+            catpath = f'{path}/{contents}'
             if not isdir(catpath):
                 size = os.stat(catpath).st_size
                 if contents.endswith((".mp3", ".flac", ".wav", ".m4a")):
@@ -161,7 +161,7 @@ async def zip_file(event):
     input_str = event.pattern_match.group(1)
     path = input_str
     zip_name = ""
-    if "|" in input_str:
+    if "|" in path:
         path, zip_name = path.split("|")
         path = path.strip()
         zip_name = zip_name.strip()
@@ -172,7 +172,7 @@ async def zip_file(event):
             dir_path = path.split("/")[-1]
             if path.endswith("/"):
                 dir_path = path.split("/")[-2]
-            zip_path = join(TEMP_DOWNLOAD_DIRECTORY, dir_path) + ".zip"
+            zip_path = f'{join(TEMP_DOWNLOAD_DIRECTORY, dir_path)}.zip'
             if zip_name:
                 zip_path = join(TEMP_DOWNLOAD_DIRECTORY, zip_name)
                 if not zip_name.endswith(".zip"):
@@ -189,7 +189,7 @@ async def zip_file(event):
             )
         elif isfile(path):
             file_name = basename(path)
-            zip_path = join(TEMP_DOWNLOAD_DIRECTORY, file_name) + ".zip"
+            zip_path = f'{join(TEMP_DOWNLOAD_DIRECTORY, file_name)}.zip'
             if zip_name:
                 zip_path = join(TEMP_DOWNLOAD_DIRECTORY, zip_name)
                 if not zip_name.endswith(".zip"):

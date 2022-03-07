@@ -23,7 +23,7 @@ async def _(event):
     URL = f"https://api.github.com/users/{username}"
     async with aiohttp.ClientSession() as session, session.get(URL) as request:
         if request.status == 404:
-            return await edit_delete(event, "`" + username + " Not Found`")
+            return await edit_delete(event, f"`{username} Not Found`")
         catevent = await edit_or_reply(event, "`fetching github info ...`")
         result = await request.json()
         photo = result["avatar_url"]

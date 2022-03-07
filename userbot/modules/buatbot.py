@@ -47,10 +47,6 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "buatbot": f"**Plugin : **`buatbot`\
-        \n\n  •  **Syntax :** `Botbaru`\
-        \n  •  **Function : **Buat Bot Baru Di Bot Father\
-        \n\n**Untuk Membuat Bot Dari Bot Father, Ketik** `Botbaru < bot_name > < bot_username >`\
-    "
+        "buatbot": "**Plugin : **`buatbot`\\\x1f        \\n\\n  •  **Syntax :** `Botbaru`\\\x1f        \\n  •  **Function : **Buat Bot Baru Di Bot Father\\\x1f        \\n\\n**Untuk Membuat Bot Dari Bot Father, Ketik** `Botbaru < bot_name > < bot_username >`\\\x1f    "
     }
 )

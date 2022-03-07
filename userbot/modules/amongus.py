@@ -56,7 +56,7 @@ async def f_load(message):
         )
         return
     url = "https://raw.githubusercontent.com/KeyZenD/AmongUs/master/"
-    font = ImageFont.truetype(BytesIO(get(url + "bold.ttf").content), 60)
+    font = ImageFont.truetype(BytesIO(get(f'{url}bold.ttf').content), 60)
     imposter = Image.open(BytesIO(get(f"{url}{clr}.png").content))
     text_ = "\n".join("\n".join(wrap(part, 30)) for part in text.split("\n"))
     w, h = ImageDraw.Draw(Image.new("RGB", (1, 1))).multiline_textsize(
@@ -83,8 +83,8 @@ async def f_load(message):
 async def bruh(message, user):
     fn = user.first_name
     ln = user.last_name
-    name = fn + (" " + ln if ln else "")
-    name = "***" + name
+    name = fn + (f" {ln}" if ln else "")
+    name = f"***{name}"
     await message.edit(name + choice([" ", " Tidak "]) + "Adalah Seorang Penipu! ***")
 
 

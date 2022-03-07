@@ -66,7 +66,7 @@ async def okgoogle(img):
         "\n**Parsing source now. Maybe.**"
     )
     os.remove(name)
-    match = await ParseSauce(fetchUrl + "&preferences?hl=en&fg=1#languages")
+    match = await ParseSauce(f'{fetchUrl}&preferences?hl=en&fg=1#languages')
     guess = str(match["best_guess"])
     imgspage = match["similar_images"]
     if not guess and not imgspage:

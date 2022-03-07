@@ -51,7 +51,7 @@ async def download(target_file):
                     head)):
                 os.makedirs(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head))
                 file_name = os.path.join(head, tail)
-        downloaded_file_name = TEMP_DOWNLOAD_DIRECTORY + "" + file_name
+        downloaded_file_name = f'{TEMP_DOWNLOAD_DIRECTORY}{file_name}'
         downloader = SmartDL(url, downloaded_file_name, progress_bar=False)
         downloader.start(blocking=False)
         c_time = time.time()
@@ -241,8 +241,7 @@ async def upload(event):
             start_time = datetime.now()
             lst_files = []
             for root, dirs, files in os.walk(input_str):
-                for file in files:
-                    lst_files.append(os.path.join(root, file))
+                lst_files.extend(os.path.join(root, file) for file in files)
             if not lst_files:
                 return await event.edit(f"`{input_str}` is empty.")
             await xx.edit(f"Found `{len(lst_files)}` files. Now uploading...")

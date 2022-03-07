@@ -15,7 +15,7 @@ import asyncio
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"hack(?: |$)(.*)"))
 async def _(event):
-    range(0, 11)
+    range(11)
     await event.edit("Installing.")
     await event.edit("Installing..")
     await event.edit("Installing...")

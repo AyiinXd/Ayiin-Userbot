@@ -35,7 +35,6 @@ def mute(chat_id, sender):
 
 
 def unmute(chat_id, sender):
-    rem = SESSION.query(Mute).get(((str(chat_id)), (str(sender))))
-    if rem:
+    if rem := SESSION.query(Mute).get(((str(chat_id)), (str(sender)))):
         SESSION.delete(rem)
         SESSION.commit()

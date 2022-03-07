@@ -133,7 +133,7 @@ async def kick_marie_notes(kick):
     await kick.respond("```Successfully purged bots notes yaay!```\n Gimme cookies!")
     if BOTLOG_CHATID:
         await kick.client.send_message(
-            BOTLOG_CHATID, "I cleaned all Notes at " + str(kick.chat_id)
+            BOTLOG_CHATID, f"I cleaned all Notes at {str(kick.chat_id)}"
         )
 
 

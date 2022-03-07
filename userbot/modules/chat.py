@@ -53,15 +53,15 @@ async def useridgetter(target):
         if not message.forward:
             user_id = message.sender.id
             if message.sender.username:
-                name = "@" + message.sender.username
+                name = f"@{message.sender.username}"
             else:
-                name = "**" + message.sender.first_name + "**"
+                name = f"**{message.sender.first_name}**"
         else:
             user_id = message.forward.sender.id
             if message.forward.sender.username:
-                name = "@" + message.forward.sender.username
+                name = f"@{message.forward.sender.username}"
             else:
-                name = "*" + message.forward.sender.first_name + "*"
+                name = f"*{message.forward.sender.first_name}*"
         await edit_or_reply(target, f"**Username:** {name} \n**User ID:** `{user_id}`")
 
 
@@ -108,7 +108,7 @@ async def _(event):
                     x.first_name, x.id, x.id
                 )
     except Exception as e:
-        mentions += " " + str(e) + "\n"
+        mentions += f" {str(e)}" + "\n"
     await edit_or_reply(event, mentions)
 
 

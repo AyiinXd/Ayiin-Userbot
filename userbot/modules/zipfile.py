@@ -51,13 +51,14 @@ async def _(event):
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await mone.edit(str(e))
-    zipfile.ZipFile(directory_name + ".zip", "w", zipfile.ZIP_DEFLATED).write(
+    zipfile.ZipFile(f'{directory_name}.zip', "w", zipfile.ZIP_DEFLATED).write(
         directory_name
     )
+
     c_time = time.time()
     await event.client.send_file(
         event.chat_id,
-        directory_name + ".zip",
+        f'{directory_name}.zip',
         force_document=True,
         allow_cache=False,
         reply_to=event.message.id,
@@ -65,6 +66,7 @@ async def _(event):
             progress(d, t, mone, c_time, "[UPLOADING]")
         ),
     )
+
     await event.edit("`Done!!`")
     await asyncio.sleep(7)
     await event.delete()
@@ -111,14 +113,14 @@ async def upload_zip(up):
     mone = await up.edit("`Zipping File...`")
     input_str = up.pattern_match.group(1)
     curdate = today.strftime("%m%d%y")
-    title = str(input_str) if input_str else "zipfile" + f"{curdate}"
-    zipf = zipfile.ZipFile(title + ".zip", "w", zipfile.ZIP_DEFLATED)
+    title = str(input_str) if input_str else f"zipfile{curdate}"
+    zipf = zipfile.ZipFile(f'{title}.zip', "w", zipfile.ZIP_DEFLATED)
     zipdir(ZIP_DOWNLOAD_DIRECTORY, zipf)
     zipf.close()
     c_time = time.time()
     await up.client.send_file(
         up.chat_id,
-        title + ".zip",
+        f'{title}.zip',
         force_document=True,
         allow_cache=False,
         reply_to=up.message.id,
@@ -126,6 +128,7 @@ async def upload_zip(up):
             progress(d, t, mone, c_time, "[UPLOADING]", input_str)
         ),
     )
+
     os.rmdir(ZIP_DOWNLOAD_DIRECTORY)
     await up.delete()
 

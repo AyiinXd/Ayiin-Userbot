@@ -48,7 +48,7 @@ async def telegraphs(graph):
                 try:
                     media_urls = upload_file(downloaded_file_name)
                 except exceptions.TelegraphException as exc:
-                    await xxnx.edit("**ERROR:** " + str(exc))
+                    await xxnx.edit(f"**ERROR:** {str(exc)}")
                     os.remove(downloaded_file_name)
                 else:
                     os.remove(downloaded_file_name)

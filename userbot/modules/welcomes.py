@@ -25,8 +25,7 @@ async def welcome_to_chat(event):
         )
     except AttributeError:
         return
-    cws = get_current_welcome_settings(event.chat_id)
-    if cws:
+    if cws := get_current_welcome_settings(event.chat_id):
         """user_added=True,
         user_joined=True,
         user_left=False,

@@ -38,10 +38,10 @@ def ayiin_cmd(pattern=None, command=None, **args):
                 CMD_LIST.update({file_test: [cmd]})
         else:
             if len(CMD_HANDLER) == 2:
-                catreg = "^" + CMD_HANDLER
+                catreg = f"^{CMD_HANDLER}"
                 reg = CMD_HANDLER[1]
             elif len(CMD_HANDLER) == 1:
-                catreg = "^\\" + CMD_HANDLER
+                catreg = f"^\\{CMD_HANDLER}"
                 reg = CMD_HANDLER
             args["pattern"] = re.compile(catreg + pattern)
             if command is not None:
@@ -206,13 +206,19 @@ def register(**args):
                 if not disable_errors:
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
-                    text = "**✘ AYIIN-USERBOT ERROR REPORT ✘**\n\n"
                     link = "[Group Support](https://t.me/AyiinXdSupport)"
-                    text += "Jika mau, Anda bisa melaporkan error ini, "
+                    text = (
+                        "**✘ AYIIN-USERBOT ERROR REPORT ✘**\n\n"
+                        + "Jika mau, Anda bisa melaporkan error ini, "
+                    )
+
                     text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 
-                    ftext = "========== DISCLAIMER =========="
-                    ftext += "\nFile ini HANYA diupload di sini,"
+                    ftext = (
+                        "========== DISCLAIMER =========="
+                        + "\nFile ini HANYA diupload di sini,"
+                    )
+
                     ftext += "\nkami hanya mencatat fakta error dan tanggal,"
                     ftext += "\nkami menghormati privasi Anda."
                     ftext += "\nJika mau, Anda bisa melaporkan error ini,"

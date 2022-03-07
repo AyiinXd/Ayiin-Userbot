@@ -140,7 +140,7 @@ async def fetch_info(replied_user, event):
     caption += f"𝙸𝙳 : <code>{user_id}</code>\n\n"
     caption += f"𝙱𝙸𝙾 : \n<code>{user_bio}</code>\n\n"
     caption += f"𝙾𝙱𝚁𝙾𝙻𝙰𝙽 𝚄𝙼𝚄𝙼 𝙳𝙴𝙽𝙶𝙰𝙽 𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰 𝙸𝙽𝙸 : {common_chat}\n"
-    caption += f"𝙻𝙸𝙽𝙺 𝙿𝙴𝚁𝙼𝙰𝙽𝙴𝙽 𝙺𝙴 𝙿𝚁𝙾𝙵𝙸𝙻 : "
+    caption += "𝙻𝙸𝙽𝙺 𝙿𝙴𝚁𝙼𝙰𝙽𝙴𝙽 𝙺𝙴 𝙿𝚁𝙾𝙵𝙸𝙻 : "
     caption += f"<a href=\"tg://user?id={user_id}\">{first_name}</a>"
 
     return photo, caption

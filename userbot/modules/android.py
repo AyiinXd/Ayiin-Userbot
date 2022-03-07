@@ -170,9 +170,9 @@ async def download_api(dl):
     complete = False
     start = time.time()
     while not complete:
-        if os.path.isfile(file_path + ".crdownload"):
+        if os.path.isfile(f'{file_path}.crdownload'):
             try:
-                downloaded = os.stat(file_path + ".crdownload").st_size
+                downloaded = os.stat(f'{file_path}.crdownload').st_size
                 status = "Downloading"
             except OSError:  # Rare case
                 await asyncio.sleep(1)
@@ -190,10 +190,11 @@ async def download_api(dl):
         eta = round((file_size - downloaded) / speed)
         prog_str = "`{0}` | [{1}{2}] `{3}%`".format(
             status,
-            "".join("●" for i in range(math.floor(percentage / 10))),
-            "".join("○" for i in range(10 - math.floor(percentage / 10))),
+            "".join("●" for _ in range(math.floor(percentage / 10))),
+            "".join("○" for _ in range(10 - math.floor(percentage / 10))),
             round(percentage, 2),
         )
+
 
         current_message = (
             "`[DOWNLOAD]`\n\n"

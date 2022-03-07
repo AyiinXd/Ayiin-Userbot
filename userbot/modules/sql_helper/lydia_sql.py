@@ -50,7 +50,6 @@ def add_s(user_id, chat_id, session_id, session_expires):
 
 
 def remove_s(user_id, chat_id):
-    note = SESSION.query(LydiaAI).get((user_id, chat_id))
-    if note:
+    if note := SESSION.query(LydiaAI).get((user_id, chat_id)):
         SESSION.delete(note)
         SESSION.commit()

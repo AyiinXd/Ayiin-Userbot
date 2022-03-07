@@ -85,7 +85,7 @@ async def _(event):
         return await edit_delete(
             event, "**Teks apa yang harus saya gunakan di pesan button?**"
         )
-    catinput = "Inline buttons " + markdown_note
+    catinput = f"Inline buttons {markdown_note}"
     results = await event.client.inline_query(BOT_USERNAME, catinput)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()

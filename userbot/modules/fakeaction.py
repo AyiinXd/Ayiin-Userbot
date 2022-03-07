@@ -24,7 +24,7 @@ async def _(e):
     act = e.pattern_match.group(1)
     t = e.pattern_match.group(2)
     if act in ["audio", "round", "video"]:
-        act = "record-" + act
+        act = f"record-{act}"
     if t.isdigit():
         t = int(t)
     elif t.endswith(("s", "h", "d", "m")):

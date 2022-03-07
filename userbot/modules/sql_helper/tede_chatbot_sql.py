@@ -37,7 +37,6 @@ def set_tede(chat_id):
 
 def rem_tede(chat_id):
     with INSERTION_LOCK:
-        tedechat = SESSION.query(TedeChatBot).get(str(chat_id))
-        if tedechat:
+        if tedechat := SESSION.query(TedeChatBot).get(str(chat_id)):
             SESSION.delete(tedechat)
         SESSION.commit()

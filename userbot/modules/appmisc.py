@@ -88,7 +88,7 @@ weebyfont = [
 
 
 logger = logging.getLogger(__name__)
-thumb_image_path = TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+thumb_image_path = f'{TEMP_DOWNLOAD_DIRECTORY}/thumb_image.jpg'
 name = "Profile Photos"
 
 
@@ -100,8 +100,9 @@ async def apk(e):
         remove_space = app_name.split(" ")
         final_name = "+".join(remove_space)
         page = requests.get(
-            "https://play.google.com/store/search?q=" + final_name + "&c=apps"
+            f"https://play.google.com/store/search?q={final_name}&c=apps"
         )
+
         str(page.status_code)
         soup = bs4.BeautifulSoup(page.content, "lxml", from_encoding="utf-8")
         results = soup.findAll("div", "ZmHEEd")
@@ -141,7 +142,7 @@ async def apk(e):
             .img["data-src"]
         )
         app_details = "<a href='" + app_icon + "'>📲&#8203;</a>"
-        app_details += "<b>" + app_name + "</b>"
+        app_details += f"<b>{app_name}</b>"
         app_details += ("\n\n<b>Developer :</b> <a href='" +
                         app_dev_link + "'>" + app_dev + "</a>")
         app_details += "\n<b>Rating :</b> " + app_rating.replace(
@@ -160,7 +161,7 @@ async def apk(e):
             xx, "**Pencarian tidak ditemukan. Mohon masukkan** `Nama app yang valid`"
         )
     except Exception as err:
-        await edit_delete(xx, "Exception Occured:- " + str(err))
+        await edit_delete(xx, f"Exception Occured:- {str(err)}")
 
 
 @ayiin_cmd(pattern="calc(?: |$)(.*)")
@@ -168,7 +169,7 @@ async def _(event):
     if event.fwd_from:
         return
     input = event.pattern_match.group(1)  # get input
-    exp = "Given expression is " + input  # report back input
+    exp = f"Given expression is {input}"
     xx = await edit_or_reply(event, "`Processing...`")
     # lazy workaround to add support for two digits
     final_input = tuple(input)
