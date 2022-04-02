@@ -18,13 +18,13 @@ from time import sleep
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot import ayiin_cmd, edit_or_reply
+from userbot.utils import ayiin_cmd, edit_or_reply
 
 
 @ayiin_cmd(pattern="ceking(?: |$)(.*)")
 async def _(mnghna):
     Ayiin = await edit_or_reply(mnghna, "**GIGI KUNING MATA MERAH BADAN KURUS CEKING EMANG PANTES...**")
-    sleep(1.5)
+    sleep(1)
     await Ayiin.edit("**DI KENCINGIN JAHANAM**")
     sleep(1)
     await Ayiin.edit("**ORANG KAYA LUH ITU...**")
