@@ -39,26 +39,26 @@ async def _(e):
 CMD_HELP.update(
     {
         "fakeaction": f"**Plugin :** `fakeaction`\
-        \n\n  •  **Syntax :** `{cmd}ftyping`  <jumlah detik>\
-        \n  •  **Function :** Menampilkan Pengetikan Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}faudio` <jumlah detik>\
-        \n  •  **Function :** Menampilkan Tindakan Merekam suara Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}fvideo` <jumlah detik>\
-        \n  •  **Function :** Menampilkan Tindakan Merekam Video Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}fround` <jumlah detik>\
-        \n  •  **Function :** Menampilkan Tindakan Merekam Live Video Round Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}fgame` <jumlah detik>\
-        \n  •  **Function :** Menampilkan sedang bermain game Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}fphoto` <jumlah detik>\
-        \n  •  **Function :** Menampilkan Tindakan Mengirim Photo Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}fdocument` <jumlah detik>\
-        \n  •  **Function :** Menampilkan Tindakan Mengirim Document/File Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}flocation` <jumlah detik>\
-        \n  •  **Function :** Menampilkan Tindakan Share Lokasi Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}fcontact` <jumlah detik>\
-        \n  •  **Function :** Menampilkan Tindakan Share Contact Palsu dalam obrolan\
-        \n\n  •  **Syntax :** `{cmd}fsticker` <jumlah detik>\
-        \n  •  **Function :** Menampilkan Tindakan Memilih Sticker Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}ftyping`  <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Pengetikan Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}faudio` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Tindakan Merekam suara Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}fvideo` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Tindakan Merekam Video Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}fround` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Tindakan Merekam Live Video Round Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}fgame` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan sedang bermain game Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}fphoto` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Tindakan Mengirim Photo Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}fdocument` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Tindakan Mengirim Document/File Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}flocation` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Tindakan Share Lokasi Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}fcontact` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Tindakan Share Contact Palsu dalam obrolan\
+        \n\n  »  **Perintah :** `{cmd}fsticker` <jumlah detik>\
+        \n  »  **Kegunaan :** Menampilkan Tindakan Memilih Sticker Palsu dalam obrolan\
     "
     }
 )

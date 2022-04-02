@@ -94,8 +94,8 @@ async def git_commit(file_name, mone):
 CMD_HELP.update(
     {
         "gcommit": "**Plugin : **`gcommit`\
-        \n\n  •  **Syntax :** `.gcommit`\
-        \n  •  **Function : **Plugin Pengunggah File GITHUB untuk userbot. Otomatisasi Heroku harus Diaktifkan. Untuk orang pemalas\
+        \n\n  »  **Perintah :** `.gcommit`\
+        \n  »  **Kegunaan : **Plugin Pengunggah File GITHUB untuk userbot. Otomatisasi Heroku harus Diaktifkan. Untuk orang pemalas\
         \n\n  •  **Instructions:-** Pertama Atur variabel GITHUB_ACCESS_TOKEN dan GIT_REPO_NAME di Heroku vars.\n.commit reply_to_any_plugin bisa menjadi tipe berkas apapun juga. tetapi untuk plugin harus di .py\
     "
     }

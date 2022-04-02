@@ -55,10 +55,10 @@ async def _(ayiin):
 CMD_HELP.update(
     {
         "yinsban": f"**Plugin : **`yinsban`\
-        \n\n  •  **Syntax :** `{cmd}banall`\
-        \n  •  **Function :** Banned Semua Member Dalam Satu Ketikan.\
-        \n\n  •  **Syntax :** `{cmd}unbanall`\
-        \n  •  **Function :** Membatalkan Banned Anggota Group.\
+        \n\n  »  **Perintah :** `{cmd}banall`\
+        \n  »  **Kegunaan :** Banned Semua Member Dalam Satu Ketikan.\
+        \n\n  »  **Perintah :** `{cmd}unbanall`\
+        \n  »  **Kegunaan :** Membatalkan Banned Anggota Group.\
     "
     }
 )

@@ -232,15 +232,15 @@ async def set_gruplog(event):
 CMD_HELP.update(
     {
         "log": f"**Plugin : **`log`\
-        \n\n  •  **Syntax :** `{cmd}save`\
-        \n  •  **Function : **__Untuk Menyimpan pesan yang ditandai ke grup pribadi.__\
-        \n\n  •  **Syntax :** `{cmd}log`\
-        \n  •  **Function : **__Untuk mengaktifkan Log Chat dari obrolan/grup itu.__\
-        \n\n  •  **Syntax :** `{cmd}nolog`\
-        \n  •  **Function : **__Untuk menonaktifkan Log Chat dari obrolan/grup itu.__\
-        \n\n  •  **Syntax :** `{cmd}pmlog on/off`\
-        \n  •  **Function : **__Untuk mengaktifkan atau menonaktifkan pencatatan pesan pribadi__\
-        \n\n  •  **Syntax :** `{cmd}gruplog on/off`\
-        \n  •  **Function : **__Untuk mengaktifkan atau menonaktifkan tag grup, yang akan masuk ke grup pmlogger.__"
+        \n\n  »  **Perintah :** `{cmd}save`\
+        \n  »  **Kegunaan : **__Untuk Menyimpan pesan yang ditandai ke grup pribadi.__\
+        \n\n  »  **Perintah :** `{cmd}log`\
+        \n  »  **Kegunaan : **__Untuk mengaktifkan Log Chat dari obrolan/grup itu.__\
+        \n\n  »  **Perintah :** `{cmd}nolog`\
+        \n  »  **Kegunaan : **__Untuk menonaktifkan Log Chat dari obrolan/grup itu.__\
+        \n\n  »  **Perintah :** `{cmd}pmlog on/off`\
+        \n  »  **Kegunaan : **__Untuk mengaktifkan atau menonaktifkan pencatatan pesan pribadi__\
+        \n\n  »  **Perintah :** `{cmd}gruplog on/off`\
+        \n  »  **Kegunaan : **__Untuk mengaktifkan atau menonaktifkan tag grup, yang akan masuk ke grup pmlogger.__"
     }
 )

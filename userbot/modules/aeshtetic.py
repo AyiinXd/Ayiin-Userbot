@@ -37,8 +37,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "aeshtetic": f"**Plugin : **`aeshtetic`\
-        \n\n  •  **Syntax :** `{cmd}ae <teks>`\
-        \n  •  **Function : **Mengubah font teks Menjadi aeshtetic.\
+        \n\n  »  **Perintah :** `{cmd}ae <teks>`\
+        \n  »  **Kegunaan : **Mengubah font teks Menjadi aeshtetic.\
     "
     }
 )

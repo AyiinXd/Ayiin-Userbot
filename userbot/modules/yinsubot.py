@@ -142,20 +142,20 @@ async def _(event):
 CMD_HELP.update(
     {
         "yinsubot": f"**Plugin : **`yinsubot`\
-        \n\n  •  **Syntax :** `{cmd}sadboy`\
-        \n  •  **Function : **Gombalan sad\
-        \n\n  •  **Syntax :** `{cmd}wah`\
-        \n  •  **Function : **Ngeledek orang sok war\
-        \n\n  •  **Syntax :** `{cmd}sok`\
-        \n  •  **Function : **Ngeledek orang sok keras\
-        \n\n  •  **Syntax :** `{cmd}lah`\
-        \n  •  **Function : **Engga ketrigger tod\
-        \n\n  •  **Syntax :** `{cmd}alay`\
-        \n  •  **Function : **Ngatain orang spam bot\
-        \n\n  •  **Syntax :** `{cmd}erpe`\
-        \n  •  **Function : **Ngatain anak erpe\
-        \n\n  •  **Syntax :** `{cmd}tittle`\
-        \n  •  **Function : **Ngatain jamet haus tittle\
+        \n\n  »  **Perintah :** `{cmd}sadboy`\
+        \n  »  **Kegunaan : **Gombalan sad\
+        \n\n  »  **Perintah :** `{cmd}wah`\
+        \n  »  **Kegunaan : **Ngeledek orang sok war\
+        \n\n  »  **Perintah :** `{cmd}sok`\
+        \n  »  **Kegunaan : **Ngeledek orang sok keras\
+        \n\n  »  **Perintah :** `{cmd}lah`\
+        \n  »  **Kegunaan : **Engga ketrigger tod\
+        \n\n  »  **Perintah :** `{cmd}alay`\
+        \n  »  **Kegunaan : **Ngatain orang spam bot\
+        \n\n  »  **Perintah :** `{cmd}erpe`\
+        \n  »  **Kegunaan : **Ngatain anak erpe\
+        \n\n  »  **Perintah :** `{cmd}tittle`\
+        \n  »  **Kegunaan : **Ngatain jamet haus tittle\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }

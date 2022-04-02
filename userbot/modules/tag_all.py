@@ -117,12 +117,12 @@ async def _(event):
 CMD_HELP.update(
     {
         "tag": f"**Plugin : **`tag`\
-        \n\n  •  **Syntax :** `{cmd}mention`\
-        \n  •  **Function : **Untuk Menmention semua anggota yang ada di group tanpa menyebut namanya.\
-        \n\n  •  **Syntax :** `{cmd}all` <text>\
-        \n  •  **Function : **Untuk Mengetag semua anggota Maksimal 3.000 orang yg akan ditag di grup untuk mengurangi flood wait telegram.\
-        \n\n  •  **Syntax :** `{cmd}emojitag` <text>\
-        \n  •  **Function : **Untuk Mengetag semua anggota di grup dengan random emoji berbeda.\
+        \n\n  »  **Perintah :** `{cmd}mention`\
+        \n  »  **Kegunaan : **Untuk Menmention semua anggota yang ada di group tanpa menyebut namanya.\
+        \n\n  »  **Perintah :** `{cmd}all` <text>\
+        \n  »  **Kegunaan : **Untuk Mengetag semua anggota Maksimal 3.000 orang yg akan ditag di grup untuk mengurangi flood wait telegram.\
+        \n\n  »  **Perintah :** `{cmd}emojitag` <text>\
+        \n  »  **Kegunaan : **Untuk Mengetag semua anggota di grup dengan random emoji berbeda.\
         \n\n  •  **NOTE :** Untuk Memberhentikan Tag ketik `{cmd}restart`\
     "
     }

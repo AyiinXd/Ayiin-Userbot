@@ -51,8 +51,8 @@ async def figlet(event):
 CMD_HELP.update(
     {
         "figlet": f"**Plugin : **`figlet`\
-        \n\n  •  **Syntax :** `{cmd}figlet` <style> <text>\
-        \n  •  **Function : **Menyesuaikan gaya teks Anda dengan figlet.\
+        \n\n  »  **Perintah :** `{cmd}figlet` <style> <text>\
+        \n  »  **Kegunaan : **Menyesuaikan gaya teks Anda dengan figlet.\
         \n\n  •  **List style :** `slant`, `3d`, `5line`, `alpha`, `banner`, `doh`, `iso`, `letter`, `allig`, `dotm`, `bubble`, `bulb`, `digi`\
     "
     }

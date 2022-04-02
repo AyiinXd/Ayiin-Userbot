@@ -362,8 +362,8 @@ def useragent():
 CMD_HELP.update(
     {
         "direct": f"**Plugin : **`direct`\
-        \n\n  •  **Syntax :** `{cmd}direct` <url>\
-        \n  •  **Function : **Balas tautan atau tempel URL untuk membuat tautan unduhan langsung.\
+        \n\n  »  **Perintah :** `{cmd}direct` <url>\
+        \n  »  **Kegunaan : **Balas tautan atau tempel URL untuk membuat tautan unduhan langsung.\
         \n\n  •  **Supported URL :** `Google Drive` - `Cloud Mail` - `Yandex.Disk` - `AFH` - `ZippyShare` - `MediaFire` - `SourceForge` - `OSDN` - `GitHub`\
     "
     }

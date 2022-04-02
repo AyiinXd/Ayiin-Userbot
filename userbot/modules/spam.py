@@ -283,18 +283,18 @@ async def dlyspam(event):
 CMD_HELP.update(
     {
         "spam": f"**Plugin : **`spam`\
-        \n\n  •  **Syntax :** `{cmd}spam` <jumlah spam> <text>\
-        \n  •  **Function : **Membanjiri teks dalam obrolan!!\
-        \n\n  •  **Syntax :** `{cmd}cspam` <text>\
-        \n  •  **Function : **Spam surat teks dengan huruf.\
-        \n\n  •  **Syntax :** `{cmd}sspam` <reply sticker>\
-        \n  •  **Function : **Spam sticker dari Seluruh isi Sticker Pack.\
-        \n\n  •  **Syntax :** `{cmd}wspam` <text>\
-        \n  •  **Function : **Spam kata teks demi kata.\
-        \n\n  •  **Syntax :** `{cmd}picspam` <jumlah spam> <link image/gif>\
-        \n  •  **Function : **Spam Foto Seolah-olah spam teks tidak cukup !!\
-        \n\n  •  **Syntax :** `{cmd}delayspam` <detik> <jumlah spam> <text>\
-        \n  •  **Function : **Spam surat teks dengan huruf.\
+        \n\n  »  **Perintah :** `{cmd}spam` <jumlah spam> <text>\
+        \n  »  **Kegunaan : **Membanjiri teks dalam obrolan!!\
+        \n\n  »  **Perintah :** `{cmd}cspam` <text>\
+        \n  »  **Kegunaan : **Spam surat teks dengan huruf.\
+        \n\n  »  **Perintah :** `{cmd}sspam` <reply sticker>\
+        \n  »  **Kegunaan : **Spam sticker dari Seluruh isi Sticker Pack.\
+        \n\n  »  **Perintah :** `{cmd}wspam` <text>\
+        \n  »  **Kegunaan : **Spam kata teks demi kata.\
+        \n\n  »  **Perintah :** `{cmd}picspam` <jumlah spam> <link image/gif>\
+        \n  »  **Kegunaan : **Spam Foto Seolah-olah spam teks tidak cukup !!\
+        \n\n  »  **Perintah :** `{cmd}delayspam` <detik> <jumlah spam> <text>\
+        \n  »  **Kegunaan : **Spam surat teks dengan huruf.\
         \n\n  •  **NOTE : Spam dengan Risiko Anda sendiri**\
     "
     }

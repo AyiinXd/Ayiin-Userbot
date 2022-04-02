@@ -76,12 +76,12 @@ async def uninstall(event):
 CMD_HELP.update(
     {
         "core": f"**Plugin : **`core`\
-        \n\n  •  **Syntax :** `{cmd}install` <reply ke file module>\
-        \n  •  **Function : **Untuk Menginstall module userbot secara instan.\
-        \n\n  •  **Syntax :** `{cmd}uninstall` <nama module>\
-        \n  •  **Function : **Untuk Menguninstall / Menghapus module userbot secara instan.\
-        \n\n  •  **Syntax :** `{cmd}psend` <nama module>\
-        \n  •  **Function : **Untuk Mengirim module userbot secara instan.\
+        \n\n  »  **Perintah :** `{cmd}install` <reply ke file module>\
+        \n  »  **Kegunaan : **Untuk Menginstall module userbot secara instan.\
+        \n\n  »  **Perintah :** `{cmd}uninstall` <nama module>\
+        \n  »  **Kegunaan : **Untuk Menguninstall / Menghapus module userbot secara instan.\
+        \n\n  »  **Perintah :** `{cmd}psend` <nama module>\
+        \n  »  **Kegunaan : **Untuk Mengirim module userbot secara instan.\
     "
     }
 )

@@ -59,8 +59,8 @@ async def stext(event):
 CMD_HELP.update(
     {
         "stickerteks": f"**Plugin : **`stickerteks`\
-        \n\n  •  **Syntax :** `{cmd}stick` `<teks>`\
-        \n  •  **Function : **Membuat Sticker Text.\
+        \n\n  »  **Perintah :** `{cmd}stick` `<teks>`\
+        \n  »  **Kegunaan : **Membuat Sticker Text.\
     "
     }
 )

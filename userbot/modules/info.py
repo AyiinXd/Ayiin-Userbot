@@ -150,7 +150,7 @@ async def fetch_info(replied_user, event):
 CMD_HELP.update(
     {
         "info": f"**Plugin : **`info`\
-        \n\n  •  **Syntax :** `{cmd}info <username>` Atau Balas Ke Pesan Pengguna Ketik `{cmd}info`\
-        \n  •  **Function:** Mendapatkan Informasi Pengguna."
+        \n\n  »  **Perintah :** `{cmd}info <username>` Atau Balas Ke Pesan Pengguna Ketik `{cmd}info`\
+        \n  »  **Kegunaan:** Mendapatkan Informasi Pengguna."
     }
 )

@@ -96,10 +96,10 @@ def resize_image(image):
 CMD_HELP.update(
     {
         "telegraph": f"**Plugin : **`telegraph`\
-        \n\n  •  **Syntax :** `{cmd}tg` m\
-        \n  •  **Function : **Mengunggah m(Media) Ke Telegraph.\
-        \n\n  •  **Syntax :** `{cmd}tg` t\
-        \n  •  **Function : **Mengunggah t(Teks) Ke Telegraph.\
+        \n\n  »  **Perintah :** `{cmd}tg` m\
+        \n  »  **Kegunaan : **Mengunggah m(Media) Ke Telegraph.\
+        \n\n  »  **Perintah :** `{cmd}tg` t\
+        \n  »  **Kegunaan : **Mengunggah t(Teks) Ke Telegraph.\
     "
     }
 )

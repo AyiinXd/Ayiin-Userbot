@@ -601,10 +601,10 @@ async def fonts(yins):
 CMD_HELP.update(
     {
         "yinsfont": f"**Plugin : **`yinsfont`\
-        \n\n  •  **Syntax :** `{cmd}font` `<nama font>` `<teks/balas ke pesan>`\
-        \n  •  **Function : **Membuat Text dengan Fonts Style.\
-        \n\n  •  **Syntax :** `{cmd}lf`\
-        \n  •  **Function : **Untuk Melihat Daftar Font.\
+        \n\n  »  **Perintah :** `{cmd}font` `<nama font>` `<teks/balas ke pesan>`\
+        \n  »  **Kegunaan : **Membuat Text dengan Fonts Style.\
+        \n\n  »  **Perintah :** `{cmd}lf`\
+        \n  »  **Kegunaan : **Untuk Melihat Daftar Font.\
     "
     }
 )

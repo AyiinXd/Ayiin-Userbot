@@ -55,12 +55,12 @@ async def kickmeall(event):
 CMD_HELP.update(
     {
         "kickme": f"**Plugin : **`kickme`\
-        \n\n  •  **Syntax :** `{cmd}kickme`\
-        \n  •  **Function : **Keluar grup dengan menampilkan pesan Master has left this group, bye!!\
-        \n\n  •  **Syntax :** `{cmd}kikme`\
-        \n  •  **Function : **Keluar grup dengan menampilkan pesan GC NYA JELEK GOBLOK KELUAR DULU AH CROTT 🥴\
-        \n\n  •  **Syntax :** `{cmd}leaveall`\
-        \n  •  **Function : **Keluar dari semua grup telegram yang anda gabung.\
+        \n\n  »  **Perintah :** `{cmd}kickme`\
+        \n  »  **Kegunaan : **Keluar grup dengan menampilkan pesan Master has left this group, bye!!\
+        \n\n  »  **Perintah :** `{cmd}kikme`\
+        \n  »  **Kegunaan : **Keluar grup dengan menampilkan pesan GC NYA JELEK GOBLOK KELUAR DULU AH CROTT 🥴\
+        \n\n  »  **Perintah :** `{cmd}leaveall`\
+        \n  »  **Kegunaan : **Keluar dari semua grup telegram yang anda gabung.\
     "
     }
 )

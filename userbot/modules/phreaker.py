@@ -129,16 +129,16 @@ async def _(event):
 CMD_HELP.update(
     {
         "phreaker": f"**Plugin : **`phreaker`\
-        \n\n  •  **Syntax :** `{cmd}nmap` <bug hosts>\
-        \n  •  **Function : **Untuk mendapatkan info bug / host.\
-        \n\n  •  **Syntax :** `{cmd}subd` <bug hosts>\
-        \n  •  **Function : **Untuk mendapatkan bug / host subdomain.\
-        \n\n  •  **Syntax :** `{cmd}cek <bug hosts>\
-        \n  •  **Function : **Untuk cek respons bug / host.\
-        \n\n  •  **Syntax :** `{cmd}bin <bin number>\
-        \n  •  **Function : **untuk cek bin ip.\
-        \n\n  •  **Syntax :** `{cmd}cc <mm|yy|cvv>\
-        \n  •  **Function : **untuk cek Statistik Kartu Kredit.\
+        \n\n  »  **Perintah :** `{cmd}nmap` <bug hosts>\
+        \n  »  **Kegunaan : **Untuk mendapatkan info bug / host.\
+        \n\n  »  **Perintah :** `{cmd}subd` <bug hosts>\
+        \n  »  **Kegunaan : **Untuk mendapatkan bug / host subdomain.\
+        \n\n  »  **Perintah :** `{cmd}cek <bug hosts>\
+        \n  »  **Kegunaan : **Untuk cek respons bug / host.\
+        \n\n  »  **Perintah :** `{cmd}bin <bin number>\
+        \n  »  **Kegunaan : **untuk cek bin ip.\
+        \n\n  »  **Perintah :** `{cmd}cc <mm|yy|cvv>\
+        \n  »  **Kegunaan : **untuk cek Statistik Kartu Kredit.\
     "
     }
 )

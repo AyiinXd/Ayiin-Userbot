@@ -46,8 +46,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "logo": f"**Plugin : **`logo`\
-        \n\n  •  **Syntax :** `{cmd}logo` <text>\
-        \n  •  **Function : **Membuat logo dari Teks yang diberikan\
+        \n\n  »  **Perintah :** `{cmd}logo` <text>\
+        \n  »  **Kegunaan : **Membuat logo dari Teks yang diberikan\
     "
     }
 )

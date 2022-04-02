@@ -614,25 +614,25 @@ async def _iundlt(event):
 CMD_HELP.update(
     {
         "admin": f"**Plugin : **`admin`\
-        \n\n  •  **Syntax :** `{cmd}promote <username/reply> <nama title (optional)>`\
-        \n  •  **Function : **Mempromosikan member sebagai admin.\
-        \n\n  •  **Syntax :** `{cmd}demote <username/balas ke pesan>`\
-        \n  •  **Function : **Menurunkan admin sebagai member.\
-        \n\n  •  **Syntax :** `{cmd}ban <username/balas ke pesan> <alasan (optional)>`\
-        \n  •  **Function : **Membanned Pengguna dari grup.\
-        \n\n  •  **Syntax :** `{cmd}unban <username/reply>`\
-        \n  •  **Function : **Unbanned pengguna jadi bisa join grup lagi.\
-        \n\n  •  **Syntax :** `{cmd}mute <username/reply> <alasan (optional)>`\
-        \n  •  **Function : **Membisukan Seseorang Di Grup, Bisa Ke Admin Juga.\
-        \n\n  •  **Syntax :** `{cmd}unmute <username/reply>`\
-        \n  •  **Function : **Membuka bisu orang yang dibisukan.\
-        \n  •  **Function : ** Membuka global mute orang yang dibisukan.\
-        \n\n  •  **Syntax :** `{cmd}all`\
-        \n  •  **Function : **Tag semua member dalam grup.\
-        \n\n  •  **Syntax :** `{cmd}admins`\
-        \n  •  **Function : **Melihat daftar admin di grup.\
-        \n\n  •  **Syntax :** `{cmd}setgpic <flags> <balas ke gambar>`\
-        \n  •  **Function : **Untuk mengubah foto profil grup atau menghapus gambar foto profil grup.\
+        \n\n  »  **Perintah :** `{cmd}promote <username/reply> <nama title (optional)>`\
+        \n  »  **Kegunaan : **Mempromosikan member sebagai admin.\
+        \n\n  »  **Perintah :** `{cmd}demote <username/balas ke pesan>`\
+        \n  »  **Kegunaan : **Menurunkan admin sebagai member.\
+        \n\n  »  **Perintah :** `{cmd}ban <username/balas ke pesan> <alasan (optional)>`\
+        \n  »  **Kegunaan : **Membanned Pengguna dari grup.\
+        \n\n  »  **Perintah :** `{cmd}unban <username/reply>`\
+        \n  »  **Kegunaan : **Unbanned pengguna jadi bisa join grup lagi.\
+        \n\n  »  **Perintah :** `{cmd}mute <username/reply> <alasan (optional)>`\
+        \n  »  **Kegunaan : **Membisukan Seseorang Di Grup, Bisa Ke Admin Juga.\
+        \n\n  »  **Perintah :** `{cmd}unmute <username/reply>`\
+        \n  »  **Kegunaan : **Membuka bisu orang yang dibisukan.\
+        \n  »  **Kegunaan : ** Membuka global mute orang yang dibisukan.\
+        \n\n  »  **Perintah :** `{cmd}all`\
+        \n  »  **Kegunaan : **Tag semua member dalam grup.\
+        \n\n  »  **Perintah :** `{cmd}admins`\
+        \n  »  **Kegunaan : **Melihat daftar admin di grup.\
+        \n\n  »  **Perintah :** `{cmd}setgpic <flags> <balas ke gambar>`\
+        \n  »  **Kegunaan : **Untuk mengubah foto profil grup atau menghapus gambar foto profil grup.\
         \n  •  **Flags :** `-s` = **Untuk mengubah foto grup** atau `-d` = **Untuk menghapus foto grup**\
     "
     }
@@ -642,14 +642,14 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "pin": f"**Plugin : **`pin`\
-        \n\n  •  **Syntax :** `{cmd}pin` <reply chat>\
-        \n  •  **Function : **Untuk menyematkan pesan dalam grup.\
-        \n\n  •  **Syntax :** `{cmd}pin loud` <reply chat>\
-        \n  •  **Function : **Untuk menyematkan pesan dalam grup (tanpa notifikasi) / menyematkan secara diam diam.\
-        \n\n  •  **Syntax :** `{cmd}unpin` <reply chat>\
-        \n  •  **Function : **Untuk melepaskan pin pesan dalam grup.\
-        \n\n  •  **Syntax :** `{cmd}unpin all`\
-        \n  •  **Function : **Untuk melepaskan semua sematan pesan dalam grup.\
+        \n\n  »  **Perintah :** `{cmd}pin` <reply chat>\
+        \n  »  **Kegunaan : **Untuk menyematkan pesan dalam grup.\
+        \n\n  »  **Perintah :** `{cmd}pin loud` <reply chat>\
+        \n  »  **Kegunaan : **Untuk menyematkan pesan dalam grup (tanpa notifikasi) / menyematkan secara diam diam.\
+        \n\n  »  **Perintah :** `{cmd}unpin` <reply chat>\
+        \n  »  **Kegunaan : **Untuk melepaskan pin pesan dalam grup.\
+        \n\n  »  **Perintah :** `{cmd}unpin all`\
+        \n  »  **Kegunaan : **Untuk melepaskan semua sematan pesan dalam grup.\
     "
     }
 )
@@ -658,10 +658,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "undelete": f"**Plugin : **`undelete`\
-        \n\n  •  **Syntax :** `{cmd}undlt` <jumlah chat>\
-        \n  •  **Function : **Untuk mendapatkan pesan yang dihapus baru-baru ini di grup\
-        \n\n  •  **Syntax :** `{cmd}undlt -u` <jumlah chat>\
-        \n  •  **Function : **Untuk mendapatkan pesan media yang dihapus baru-baru ini di grup \
+        \n\n  »  **Perintah :** `{cmd}undlt` <jumlah chat>\
+        \n  »  **Kegunaan : **Untuk mendapatkan pesan yang dihapus baru-baru ini di grup\
+        \n\n  »  **Perintah :** `{cmd}undlt -u` <jumlah chat>\
+        \n  »  **Kegunaan : **Untuk mendapatkan pesan media yang dihapus baru-baru ini di grup \
         \n  •  **Flags :** `-u` = **Gunakan flags ini untuk mengunggah media.**\
         \n\n  •  **NOTE : Membutuhkan Hak admin Grup** \
     "
@@ -672,10 +672,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "gmute": f"**Plugin : **`gmute`\
-        \n\n  •  **Syntax :** `{cmd}gmute` <username/reply> <alasan (optional)>\
-        \n  •  **Function : **Untuk Membisukan Pengguna di semua grup yang kamu admin.\
-        \n\n  •  **Syntax :** `{cmd}ungmute` <username/reply>\
-        \n  •  **Function : **Untuk Membuka global mute Pengguna di semua grup yang kamu admin.\
+        \n\n  »  **Perintah :** `{cmd}gmute` <username/reply> <alasan (optional)>\
+        \n  »  **Kegunaan : **Untuk Membisukan Pengguna di semua grup yang kamu admin.\
+        \n\n  »  **Perintah :** `{cmd}ungmute` <username/reply>\
+        \n  »  **Kegunaan : **Untuk Membuka global mute Pengguna di semua grup yang kamu admin.\
     "
     }
 )
@@ -684,10 +684,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "zombies": f"**Plugin : **`zombies`\
-        \n\n  •  **Syntax :** `{cmd}zombies`\
-        \n  •  **Function : **Untuk mencari akun terhapus dalam grup\
-        \n\n  •  **Syntax :** `{cmd}zombies clean`\
-        \n  •  **Function : **untuk menghapus Akun Terhapus dari grup.\
+        \n\n  »  **Perintah :** `{cmd}zombies`\
+        \n  »  **Kegunaan : **Untuk mencari akun terhapus dalam grup\
+        \n\n  »  **Perintah :** `{cmd}zombies clean`\
+        \n  »  **Kegunaan : **untuk menghapus Akun Terhapus dari grup.\
     "
     }
 )

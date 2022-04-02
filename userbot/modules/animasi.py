@@ -83,14 +83,14 @@ async def _(event):
 CMD_HELP.update(
     {
         "animasi": f"**Plugin : **`animasi`\
-        \n\n  •  **Syntax :** `{cmd}skull`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}wlc`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}klb`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}fucek`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}skull`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}wlc`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}klb`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}fucek`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }

@@ -328,14 +328,14 @@ async def setpmbot(event):
 CMD_HELP.update(
     {
         "pmbot": f"**Plugin : **`pmbot`\
-        \n\n  •  **Syntax :** `{cmd}bblist`\
-        \n  •  **Function : **Untuk Melihat Daftar pengguna yang dibanned di bot anda.\
-        \n\n  •  **Syntax :** `{cmd}botuser`\
-        \n  •  **Function : **Untuk Melihat Daftar Pengguna yang Memulai Bot anda.\
-        \n\n  •  **Syntax :** `{cmd}set pmbot` <balas ke pesan>\
-        \n  •  **Function : **Mengcustom Pesan start pmbot.\
-        \n\n  •  **Syntax :** `{cmd}reset pmbot`\
-        \n  •  **Function : **Mengembalikan Custom Start PMBOT menjadi default.\
+        \n\n  »  **Perintah :** `{cmd}bblist`\
+        \n  »  **Kegunaan : **Untuk Melihat Daftar pengguna yang dibanned di bot anda.\
+        \n\n  »  **Perintah :** `{cmd}botuser`\
+        \n  »  **Kegunaan : **Untuk Melihat Daftar Pengguna yang Memulai Bot anda.\
+        \n\n  »  **Perintah :** `{cmd}set pmbot` <balas ke pesan>\
+        \n  »  **Kegunaan : **Mengcustom Pesan start pmbot.\
+        \n\n  »  **Perintah :** `{cmd}reset pmbot`\
+        \n  »  **Kegunaan : **Mengembalikan Custom Start PMBOT menjadi default.\
     "
     }
 )

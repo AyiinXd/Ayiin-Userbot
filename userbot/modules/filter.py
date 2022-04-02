@@ -152,14 +152,14 @@ async def filters_active(event):
 CMD_HELP.update(
     {
         "filter": f"**Plugin : **`filter`\
-        \n\n  •  **Syntax :** `{cmd}filters`\
-        \n  •  **Function : **Melihat filter userbot yang aktif di obrolan.\
-        \n\n  •  **Syntax :** `{cmd}filter` <keyword> <balasan> atau balas ke pesan ketik `{cmd}filter` <keyword>\
-        \n  •  **Function : **Membuat filter di obrolan, Bot Akan Membalas Jika Ada Yang Menyebut 'keyword' yang dibuat. Bisa dipakai ke media/sticker/vn/file.\
-        \n\n  •  **Syntax :** `{cmd}stop` <keyword>\
-        \n  •  **Function : **Untuk Nonaktifkan Filter.\
-        \n\n  •  **Syntax :** `{cmd}delfilterbot` <marie/rose>\
-        \n  •  **Function : **Menghapus semua filter yang ada di bot grup (Saat ini bot yang didukung: Marie, Rose.) dalam obrolan.\
+        \n\n  »  **Perintah :** `{cmd}filters`\
+        \n  »  **Kegunaan : **Melihat filter userbot yang aktif di obrolan.\
+        \n\n  »  **Perintah :** `{cmd}filter` <keyword> <balasan> atau balas ke pesan ketik `{cmd}filter` <keyword>\
+        \n  »  **Kegunaan : **Membuat filter di obrolan, Bot Akan Membalas Jika Ada Yang Menyebut 'keyword' yang dibuat. Bisa dipakai ke media/sticker/vn/file.\
+        \n\n  »  **Perintah :** `{cmd}stop` <keyword>\
+        \n  »  **Kegunaan : **Untuk Nonaktifkan Filter.\
+        \n\n  »  **Perintah :** `{cmd}delfilterbot` <marie/rose>\
+        \n  »  **Kegunaan : **Menghapus semua filter yang ada di bot grup (Saat ini bot yang didukung: Marie, Rose.) dalam obrolan.\
     "
     }
 )

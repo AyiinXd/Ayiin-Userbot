@@ -128,10 +128,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "sosmed": f"**Plugin : **`sosmed`\
-        \n\n  •  **Syntax :** `{cmd}sosmed` <link>\
-        \n  •  **Function : **Download Media Dari Pinterest / Tiktok / Instagram.\
-        \n\n  •  **Syntax :** `{cmd}dez` <link>\
-        \n  •  **Function : **Download Lagu Via Deezloader\
+        \n\n  »  **Perintah :** `{cmd}sosmed` <link>\
+        \n  »  **Kegunaan : **Download Media Dari Pinterest / Tiktok / Instagram.\
+        \n\n  »  **Perintah :** `{cmd}dez` <link>\
+        \n  »  **Kegunaan : **Download Lagu Via Deezloader\
     "
     }
 )
@@ -140,8 +140,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "tiktok": f"**Plugin : **`tiktok`\
-        \n\n  •  **Syntax :** `{cmd}tiktok` <link>\
-        \n  •  **Function : **Download Video Tiktok Tanpa Watermark\
+        \n\n  »  **Perintah :** `{cmd}tiktok` <link>\
+        \n  »  **Kegunaan : **Download Video Tiktok Tanpa Watermark\
     "
     }
 )

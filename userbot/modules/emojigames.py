@@ -115,18 +115,18 @@ async def _(event):
 CMD_HELP.update(
     {
         "emojigames": f"**Plugin : **`emojigames`\
-        \n\n  •  **Syntax :** `{cmd}dice` 1-6\
-        \n  •  **Function : **Memainkan emoji game dice dengan score yg di tentukan kita.\
-        \n\n  •  **Syntax :** `{cmd}dart` 1-6\
-        \n  •  **Function : **Memainkan emoji game dart dengan score yg di tentukan kita.\
-        \n\n  •  **Syntax :** `{cmd}basket` 1-5\
-        \n  •  **Function : **Memainkan emoji game basket dengan score yg di tentukan kita.\
-        \n\n  •  **Syntax :** `{cmd}bowling` 1-6\
-        \n  •  **Function : **Memainkan emoji game bowling dengan score yg di tentukan kita.\
-        \n\n  •  **Syntax :** `{cmd}ball` 1-5\
-        \n  •  **Function : **Memainkan emoji game ball telegram score yg di tentukan kita.\
-        \n\n  •  **Syntax :** `{cmd}jackpot` 1\
-        \n  •  **Function : **Memainkan emoji game jackpot dengan score yg di tentukan kita.\
+        \n\n  »  **Perintah :** `{cmd}dice` 1-6\
+        \n  »  **Kegunaan : **Memainkan emoji game dice dengan score yg di tentukan kita.\
+        \n\n  »  **Perintah :** `{cmd}dart` 1-6\
+        \n  »  **Kegunaan : **Memainkan emoji game dart dengan score yg di tentukan kita.\
+        \n\n  »  **Perintah :** `{cmd}basket` 1-5\
+        \n  »  **Kegunaan : **Memainkan emoji game basket dengan score yg di tentukan kita.\
+        \n\n  »  **Perintah :** `{cmd}bowling` 1-6\
+        \n  »  **Kegunaan : **Memainkan emoji game bowling dengan score yg di tentukan kita.\
+        \n\n  »  **Perintah :** `{cmd}ball` 1-5\
+        \n  »  **Kegunaan : **Memainkan emoji game ball telegram score yg di tentukan kita.\
+        \n\n  »  **Perintah :** `{cmd}jackpot` 1\
+        \n  »  **Kegunaan : **Memainkan emoji game jackpot dengan score yg di tentukan kita.\
         \n\n  •  **NOTE: **Jangan gunakan nilai lebih atau bot akan Crash**\
     "
     }

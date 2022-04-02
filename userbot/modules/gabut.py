@@ -34,12 +34,12 @@ async def _(uno):
 CMD_HELP.update(
     {
         "gabut2": f"**Plugin : **`gabut2`\
-        \n\n  •  **Syntax :** `{cmd}teemo`\
-        \n  •  **Function : **Coba Sendiri Tod.\
-        \n\n  •  **Syntax :** `{cmd}give`\
-        \n  •  **Function : **Coba Sendiri Tod.\
-        \n\n  •  **Syntax :** `{cmd}uno`\
-        \n  •  **Function : **Coba Sendiri Tod.\
+        \n\n  »  **Perintah :** `{cmd}teemo`\
+        \n  »  **Kegunaan : **Coba Sendiri Tod.\
+        \n\n  »  **Perintah :** `{cmd}give`\
+        \n  »  **Kegunaan : **Coba Sendiri Tod.\
+        \n\n  »  **Perintah :** `{cmd}uno`\
+        \n  »  **Kegunaan : **Coba Sendiri Tod.\
     "
     }
 )

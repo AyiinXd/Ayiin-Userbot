@@ -94,8 +94,8 @@ async def ultiny(event):
 CMD_HELP.update(
     {
         "tiny": f"**Plugin : **`tiny`\
-        \n\n  •  **Syntax :** `{cmd}tiny` <sambil reply ke media>\
-        \n  •  **Function : **Untuk Mengubah Sticker Menjadi Kecil.\
+        \n\n  »  **Perintah :** `{cmd}tiny` <sambil reply ke media>\
+        \n  »  **Kegunaan : **Untuk Mengubah Sticker Menjadi Kecil.\
     "
     }
 )

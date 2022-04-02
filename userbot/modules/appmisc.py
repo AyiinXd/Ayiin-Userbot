@@ -951,8 +951,8 @@ async def xcursive(cursivelite):
 CMD_HELP.update(
     {
         "watch": f"**Plugin : **`watch`\
-        \n\n  •  **Syntax :** `{cmd}watch` <nama movie/tv>\
-        \n  •  **Function : **Untuk Mengetahui Detail Tentang Film.\
+        \n\n  »  **Perintah :** `{cmd}watch` <nama movie/tv>\
+        \n  »  **Kegunaan : **Untuk Mengetahui Detail Tentang Film.\
     "
     }
 )
@@ -960,8 +960,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "randompp": f"**Plugin : **`randompp`\
-        \n\n  •  **Syntax :** `{cmd}randompp`\
-        \n  •  **Function : **Otomatis Mengganti Foto Profile Mu, Untuk Stop ini Ketik .restart\
+        \n\n  »  **Perintah :** `{cmd}randompp`\
+        \n  »  **Kegunaan : **Otomatis Mengganti Foto Profile Mu, Untuk Stop ini Ketik .restart\
     "
     }
 )
@@ -969,8 +969,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "glitch": f"**Plugin : **`glitch`\
-        \n\n  •  **Syntax :** `{cmd}glitch` <Reply Ke Media>\
-        \n  •  **Function : **Memberikan Glitch (Gif , Stickers , Gambar, Video) Ke Gif Dan Level Glitch 1 - 8.\nJika Tidak Memberikan Level Otomatis Default Ke Level 2\
+        \n\n  »  **Perintah :** `{cmd}glitch` <Reply Ke Media>\
+        \n  »  **Kegunaan : **Memberikan Glitch (Gif , Stickers , Gambar, Video) Ke Gif Dan Level Glitch 1 - 8.\nJika Tidak Memberikan Level Otomatis Default Ke Level 2\
     "
     }
 )
@@ -978,10 +978,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "grab": f"**Plugin : **`grab`\
-        \n\n  •  **Syntax :** `{cmd}grab` <reply ke user yang ingin di grab>\
-        \n  •  **Function : **Balas Ke Pesan Pengguna Telegram dan Ketik `{cmd}grab` Atau `{cmd}grab <count>` Untuk Mengambil Foto Profil.\
-        \n\n  •  **Syntax :** `{cmd}grab` <jumlah foto>\
-        \n  •  **Function : **Untuk Mengambil Foto Profil dengan jumlah foto yg di inginkan.\
+        \n\n  »  **Perintah :** `{cmd}grab` <reply ke user yang ingin di grab>\
+        \n  »  **Kegunaan : **Balas Ke Pesan Pengguna Telegram dan Ketik `{cmd}grab` Atau `{cmd}grab <count>` Untuk Mengambil Foto Profil.\
+        \n\n  »  **Perintah :** `{cmd}grab` <jumlah foto>\
+        \n  »  **Kegunaan : **Untuk Mengambil Foto Profil dengan jumlah foto yg di inginkan.\
     "
     }
 )
@@ -989,26 +989,26 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "bannedall": f"**Plugin : **`bannedall`.\
-        \n\n  •  **Syntax :** `{cmd}remove`\
-        \n  •  **Function : **Untuk Menganalisa user dari grup secara spesifik\
-        \n\n  •  **Syntax :** `{cmd}remove d`\
-        \n  •  **Function : **Untuk mengkik user dari grup secara spesifik\
-        \n\n  •  **Syntax :** `{cmd}remove y`\
-        \n  •  **Function : **Untuk Membanned Akun yang Terakhir Dilihat setahun yang lalu\
-        \n\n  •  **Syntax :** `{cmd}remove m`\
-        \n  •  **Function : **Untuk Membanned Akun yang Terakhir Dilihat sebulan yang lalu\
-        \n\n  •  **Syntax :** `{cmd}remove w`\
-        \n  •  **Function : **Untuk Membanned Akun yang Terakhir Dilihat seminggu yang lalu\
-        \n\n  •  **Syntax :** `{cmd}remove o`\
-        \n  •  **Function : **Untuk Membanned Akun yang sedang offline\
-        \n\n  •  **Syntax :** `{cmd}remove q`\
-        \n  •  **Function : **Untuk Membanned Akun yang sedang online\
-        \n\n  •  **Syntax :** `{cmd}remove r`\
-        \n  •  **Function : **Untuk Membanned Akun yang terakhir dilihat\
-        \n\n  •  **Syntax :** `{cmd}remove b`\
-        \n  •  **Function : **Untuk Membanned Bot yang ada di Grup chat\
-        \n\n  •  **Syntax :** `{cmd}remove n`\
-        \n  •  **Function : **Untuk Membanned Akun yang Last Seen A Long Time Ago\
+        \n\n  »  **Perintah :** `{cmd}remove`\
+        \n  »  **Kegunaan : **Untuk Menganalisa user dari grup secara spesifik\
+        \n\n  »  **Perintah :** `{cmd}remove d`\
+        \n  »  **Kegunaan : **Untuk mengkik user dari grup secara spesifik\
+        \n\n  »  **Perintah :** `{cmd}remove y`\
+        \n  »  **Kegunaan : **Untuk Membanned Akun yang Terakhir Dilihat setahun yang lalu\
+        \n\n  »  **Perintah :** `{cmd}remove m`\
+        \n  »  **Kegunaan : **Untuk Membanned Akun yang Terakhir Dilihat sebulan yang lalu\
+        \n\n  »  **Perintah :** `{cmd}remove w`\
+        \n  »  **Kegunaan : **Untuk Membanned Akun yang Terakhir Dilihat seminggu yang lalu\
+        \n\n  »  **Perintah :** `{cmd}remove o`\
+        \n  »  **Kegunaan : **Untuk Membanned Akun yang sedang offline\
+        \n\n  »  **Perintah :** `{cmd}remove q`\
+        \n  »  **Kegunaan : **Untuk Membanned Akun yang sedang online\
+        \n\n  »  **Perintah :** `{cmd}remove r`\
+        \n  »  **Kegunaan : **Untuk Membanned Akun yang terakhir dilihat\
+        \n\n  »  **Perintah :** `{cmd}remove b`\
+        \n  »  **Kegunaan : **Untuk Membanned Bot yang ada di Grup chat\
+        \n\n  »  **Perintah :** `{cmd}remove n`\
+        \n  »  **Kegunaan : **Untuk Membanned Akun yang Last Seen A Long Time Ago\
         \n\n **HATI HATI PLUGIN INI BERBAHAYA, MOHON GUNAKAN DENGAN BIJAK**\
     "
     }
@@ -1017,8 +1017,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "rnupload": f"**Plugin : **`rnupload`\
-        \n\n  •  **Syntax :** `{cmd}rnupload`\
-        \n  •  **Function : **Untuk Rename dan Upload, Balas Ke Media Dan Ketik .rnupload xyz.jpg\
+        \n\n  »  **Perintah :** `{cmd}rnupload`\
+        \n  »  **Kegunaan : **Untuk Rename dan Upload, Balas Ke Media Dan Ketik .rnupload xyz.jpg\
     "
     }
 )

@@ -58,10 +58,10 @@ async def _(hylo):
 CMD_HELP.update(
     {
         "yinsubot7": f"**Plugin : **`yinsubot7`\
-        \n\n  •  **Syntax :** `{cmd}cacad`\
-        \n  •  **Function :** Coba Sendiri Tod.\
-        \n\n  •  **Syntax :** `{cmd}hayolo`\
-        \n  •  **Function :** Coba Senditi Tod.\
+        \n\n  »  **Perintah :** `{cmd}cacad`\
+        \n  »  **Kegunaan :** Coba Sendiri Tod.\
+        \n\n  »  **Perintah :** `{cmd}hayolo`\
+        \n  »  **Kegunaan :** Coba Senditi Tod.\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }

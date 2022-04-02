@@ -284,8 +284,8 @@ async def send(event):
 CMD_HELP.update(
     {
         "send": f"**Plugin : **`send`\
-        \n\n  •  **Syntax :** `{cmd}send` <username/id>\
-        \n  •  **Function : **Meneruskan pesan balasan ke obrolan tertentu tanpa tag Forwarded from. Bisa mengirim ke Group Chat atau ke Personal Message\
+        \n\n  »  **Perintah :** `{cmd}send` <username/id>\
+        \n  »  **Kegunaan : **Meneruskan pesan balasan ke obrolan tertentu tanpa tag Forwarded from. Bisa mengirim ke Group Chat atau ke Personal Message\
     "
     }
 )
@@ -293,8 +293,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "random": f"**Plugin : **`random`\
-        \n\n  •  **Syntax :** `{cmd}random`\
-        \n  •  **Function : **Dapatkan item acak dari daftar item. \
+        \n\n  »  **Perintah :** `{cmd}random`\
+        \n  »  **Kegunaan : **Dapatkan item acak dari daftar item. \
     "
     }
 )
@@ -302,8 +302,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "sleep": f"**Plugin : **`sleep`\
-        \n\n  •  **Syntax :** `{cmd}sleep`\
-        \n  •  **Function : **Biarkan Ayiin-Userbot tidur selama beberapa detik \
+        \n\n  »  **Perintah :** `{cmd}sleep`\
+        \n  »  **Kegunaan : **Biarkan Ayiin-Userbot tidur selama beberapa detik \
     "
     }
 )
@@ -312,10 +312,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "repo": f"**Plugin : **`Repository Ayiin-Userbot`\
-        \n\n  •  **Syntax :** `{cmd}repo`\
-        \n  •  **Function : **Menampilan link Repository Ayiin-Userbot\
-        \n\n  •  **Syntax :** `{cmd}string`\
-        \n  •  **Function : **Menampilan link String Ayiin-Userbot\
+        \n\n  »  **Perintah :** `{cmd}repo`\
+        \n  »  **Kegunaan : **Menampilan link Repository Ayiin-Userbot\
+        \n\n  »  **Perintah :** `{cmd}string`\
+        \n  »  **Kegunaan : **Menampilan link String Ayiin-Userbot\
     "
     }
 )
@@ -324,8 +324,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "readme": f"**Plugin : **`Panduan Menggunakan userbot`\
-        \n\n  •  **Syntax :** `{cmd}readme`\
-        \n  •  **Function : **Menyediakan tautan untuk mengatur userbot dan modulnya\
+        \n\n  »  **Perintah :** `{cmd}readme`\
+        \n  »  **Kegunaan : **Menyediakan tautan untuk mengatur userbot dan modulnya\
     "
     }
 )
@@ -334,8 +334,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "restart": f"**Plugin : **`Restart Ayiin-Userbot`\
-        \n\n  •  **Syntax :** `{cmd}restart`\
-        \n  •  **Function : **Untuk Merestart userbot.\
+        \n\n  »  **Perintah :** `{cmd}restart`\
+        \n  »  **Kegunaan : **Untuk Merestart userbot.\
     "
     }
 )
@@ -344,8 +344,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "shutdown": f"**Plugin : **`shutdown`\
-        \n\n  •  **Syntax :** `{cmd}shutdown`\
-        \n  •  **Function : **Mematikan Userbot.\
+        \n\n  »  **Perintah :** `{cmd}shutdown`\
+        \n  »  **Kegunaan : **Mematikan Userbot.\
     "
     }
 )
@@ -354,8 +354,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "raw": f"**Plugin : **`raw`\
-        \n\n  •  **Syntax :** `{cmd}raw`\
-        \n  •  **Function : **Dapatkan data berformat seperti JSON terperinci tentang pesan yang dibalas.\
+        \n\n  »  **Perintah :** `{cmd}raw`\
+        \n  »  **Kegunaan : **Dapatkan data berformat seperti JSON terperinci tentang pesan yang dibalas.\
     "
     }
 )
@@ -364,8 +364,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "repeat": f"**Plugin : **`repeat`\
-        \n\n  •  **Syntax :** `{cmd}repeat`\
-        \n  •  **Function : **Mengulangi teks untuk beberapa kali. Jangan bingung ini dengan spam tho.\
+        \n\n  »  **Perintah :** `{cmd}repeat`\
+        \n  »  **Kegunaan : **Mengulangi teks untuk beberapa kali. Jangan bingung ini dengan spam tho.\
     "
     }
 )

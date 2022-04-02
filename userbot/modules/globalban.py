@@ -202,12 +202,12 @@ async def _(event):
 CMD_HELP.update(
     {
         "gban": f"**Plugin : **`gban`\
-        \n\n  •  **Syntax :** `{cmd}gband` <username/id>\
-        \n  •  **Function : **Melakukan Banned Secara Global Ke Semua Grup Dimana anda Sebagai Admin.\
-        \n\n  •  **Syntax :** `{cmd}ungband` <username/id>\
-        \n  •  **Function : **Membatalkan Global Banned\
-        \n\n  •  **Syntax :** `{cmd}listgband`\
-        \n  •  **Function : **Menampilkan List Global Banned\
+        \n\n  »  **Perintah :** `{cmd}gband` <username/id>\
+        \n  »  **Kegunaan : **Melakukan Banned Secara Global Ke Semua Grup Dimana anda Sebagai Admin.\
+        \n\n  »  **Perintah :** `{cmd}ungband` <username/id>\
+        \n  »  **Kegunaan : **Membatalkan Global Banned\
+        \n\n  »  **Perintah :** `{cmd}listgband`\
+        \n  »  **Kegunaan : **Menampilkan List Global Banned\
     "
     }
 )

@@ -150,14 +150,14 @@ def zipdir(path, ziph):
 CMD_HELP.update(
     {
         "zipfile": f"**Plugin : **`zipfile`\
-        \n\n  •  **Syntax :** `{cmd}compress` **[optional: <reply to file>]**\
-        \n  •  **Function : **make files to zip.\
-        \n\n  •  **Syntax :** `{cmd}addzip` **<reply to file>**\
-        \n  •  **Function : **add files to zip list.\
-        \n\n  •  **Syntax :** `{cmd}upzip` **[optional: <zip title>]**\
-        \n  •  **Function : **upload zip list.\
-        \n\n  •  **Syntax :** `{cmd}rmzip` **[optional: <zip title>]**\
-        \n  •  **Function : **clear zip list.\
+        \n\n  »  **Perintah :** `{cmd}compress` **[optional: <reply to file>]**\
+        \n  »  **Kegunaan : **make files to zip.\
+        \n\n  »  **Perintah :** `{cmd}addzip` **<reply to file>**\
+        \n  »  **Kegunaan : **add files to zip list.\
+        \n\n  »  **Perintah :** `{cmd}upzip` **[optional: <zip title>]**\
+        \n  »  **Kegunaan : **upload zip list.\
+        \n\n  »  **Perintah :** `{cmd}rmzip` **[optional: <zip title>]**\
+        \n  »  **Kegunaan : **clear zip list.\
     "
     }
 )

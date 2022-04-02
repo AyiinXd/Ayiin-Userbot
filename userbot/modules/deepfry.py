@@ -118,10 +118,10 @@ async def deepfry(img: Image) -> Image:
 CMD_HELP.update(
     {
         "deepfry": f"**Plugin : **`deepfry`\
-        \n\n  •  **Syntax :** `{cmd}deepfry` atau `.deepfry` [level(1-8)]\
-        \n  •  **Function : **Deepfry foto atau sticker dari bot @image_deepfrybot.\
-        \n\n  •  **Syntax :** `{cmd}deepfry` [level(1-5)]\
-        \n  •  **Function : **Deepfry foto atau sticker.\
+        \n\n  »  **Perintah :** `{cmd}deepfry` atau `.deepfry` [level(1-8)]\
+        \n  »  **Kegunaan : **Deepfry foto atau sticker dari bot @image_deepfrybot.\
+        \n\n  »  **Perintah :** `{cmd}deepfry` [level(1-5)]\
+        \n  »  **Kegunaan : **Deepfry foto atau sticker.\
     "
     }
 )

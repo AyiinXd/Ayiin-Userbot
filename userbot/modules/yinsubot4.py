@@ -165,40 +165,40 @@ async def _(event):
 CMD_HELP.update(
     {
         "yinsubot4": f"**Plugin : **`war`\
-        \n\n  •  **Syntax :** `{cmd}jamet`\
-        \n  •  **Function : **Menghina Jamet telegram\
-        \n\n  •  **Syntax :** `{cmd}pp`\
-        \n  •  **Function : **Menghina Jamet telegram yang ga pake foto profil\
-        \n\n  •  **Syntax :** `{cmd}dp`\
-        \n  •  **Function : **Menghina Jamet muka hina!\
-        \n\n  •  **Syntax :** `{cmd}so`\
-        \n  •  **Function : **Ngeledek orang sokab\
-        \n\n  •  **Syntax :** `{cmd}nb`\
-        \n  •  **Function : **Ngeledek orang norak baru pake bot\
-        \n\n  •  **Syntax :** `{cmd}skb`\
-        \n  •  **Function : **Ngeledek orang sokab versi 2\
-        \n\n  •  **Syntax :** `{cmd}met`\
-        \n  •  **Function : **Ngeledek si jamet caper\
-        \n\n  •  **Syntax :** `{cmd}war`\
-        \n  •  **Function : **Ngeledek orang so keras ngajak war\
-        \n\n  •  **Syntax :** `{cmd}wartai`\
-        \n  •  **Function : **Ngeledek orang so ketrigger ngajak cod minta sharelok\
-        \n\n  •  **Syntax :** `{cmd}kismin`\
-        \n  •  **Function : **Ngeledek orang kismin so jagoan di tele\
-        \n\n  •  **Syntax :** `{cmd}ded`\
-        \n  •  **Function : **Nyuruh orang mati aja goblok wkwk\
-        \n\n  •  **Syntax :** `{cmd}sokab`\
-        \n  •  **Function : **Ngeledek orang so kenal so dekat padahal kga kenal goblok\
-        \n\n  •  **Syntax :** `{cmd}gembel`\
-        \n  •  **Function : **Ngeledek bapaknya si jamet\
-        \n\n  •  **Syntax :** `{cmd}cuih`\
-        \n  •  **Function : **Ngeludahin keluarganya satu satu wkwk\
-        \n\n  •  **Syntax :** `{cmd}dih`\
-        \n  •  **Function : **Ngeledek anak haram\
-        \n\n  •  **Syntax :** `{cmd}gcs`\
-        \n  •  **Function : **Ngeledek gc sampah\
-        \n\n  •  **Syntax :** `{cmd}virtual`\
-        \n  •  **Function : **Ngeledek orang pacaran virtual\
+        \n\n  »  **Perintah :** `{cmd}jamet`\
+        \n  »  **Kegunaan : **Menghina Jamet telegram\
+        \n\n  »  **Perintah :** `{cmd}pp`\
+        \n  »  **Kegunaan : **Menghina Jamet telegram yang ga pake foto profil\
+        \n\n  »  **Perintah :** `{cmd}dp`\
+        \n  »  **Kegunaan : **Menghina Jamet muka hina!\
+        \n\n  »  **Perintah :** `{cmd}so`\
+        \n  »  **Kegunaan : **Ngeledek orang sokab\
+        \n\n  »  **Perintah :** `{cmd}nb`\
+        \n  »  **Kegunaan : **Ngeledek orang norak baru pake bot\
+        \n\n  »  **Perintah :** `{cmd}skb`\
+        \n  »  **Kegunaan : **Ngeledek orang sokab versi 2\
+        \n\n  »  **Perintah :** `{cmd}met`\
+        \n  »  **Kegunaan : **Ngeledek si jamet caper\
+        \n\n  »  **Perintah :** `{cmd}war`\
+        \n  »  **Kegunaan : **Ngeledek orang so keras ngajak war\
+        \n\n  »  **Perintah :** `{cmd}wartai`\
+        \n  »  **Kegunaan : **Ngeledek orang so ketrigger ngajak cod minta sharelok\
+        \n\n  »  **Perintah :** `{cmd}kismin`\
+        \n  »  **Kegunaan : **Ngeledek orang kismin so jagoan di tele\
+        \n\n  »  **Perintah :** `{cmd}ded`\
+        \n  »  **Kegunaan : **Nyuruh orang mati aja goblok wkwk\
+        \n\n  »  **Perintah :** `{cmd}sokab`\
+        \n  »  **Kegunaan : **Ngeledek orang so kenal so dekat padahal kga kenal goblok\
+        \n\n  »  **Perintah :** `{cmd}gembel`\
+        \n  »  **Kegunaan : **Ngeledek bapaknya si jamet\
+        \n\n  »  **Perintah :** `{cmd}cuih`\
+        \n  »  **Kegunaan : **Ngeludahin keluarganya satu satu wkwk\
+        \n\n  »  **Perintah :** `{cmd}dih`\
+        \n  »  **Kegunaan : **Ngeledek anak haram\
+        \n\n  »  **Perintah :** `{cmd}gcs`\
+        \n  »  **Kegunaan : **Ngeledek gc sampah\
+        \n\n  »  **Perintah :** `{cmd}virtual`\
+        \n  »  **Kegunaan : **Ngeledek orang pacaran virtual\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }

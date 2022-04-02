@@ -116,50 +116,50 @@ async def _(norak):
 CMD_HELP.update(
     {
         "yinstoxic": f"**Plugin : **`yinstoxic`\
-        \n\n  •  **Syntax :** `{cmd}d`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}e`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}f`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}i`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}r`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}t`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}u`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}w`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}z`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}n`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}b`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}m`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}c`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}x`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}v`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}a`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}j`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}g`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}y`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}h`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}o`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}bct`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}d`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}e`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}f`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}i`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}r`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}t`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}u`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}w`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}z`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}n`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}b`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}m`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}c`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}x`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}v`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}a`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}j`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}g`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}y`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}h`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}o`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}bct`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }

@@ -94,8 +94,8 @@ async def glitch(event):
 CMD_HELP.update(
     {
         "glitch": "**Plugin : **`glitch`\
-        \n\n  •  **Syntax :** `.glitch` <reply Ke Sticker/Gambar>\
-        \n  •  **Function : **Glitch Level 1-8 Jika Tidak Membuat Level Maka Otomatis Default Level 2.\
+        \n\n  »  **Perintah :** `.glitch` <reply Ke Sticker/Gambar>\
+        \n  »  **Kegunaan : **Glitch Level 1-8 Jika Tidak Membuat Level Maka Otomatis Default Level 2.\
     "
     }
 )

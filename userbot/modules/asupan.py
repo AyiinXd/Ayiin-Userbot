@@ -78,12 +78,12 @@ async def _(event):
 CMD_HELP.update(
     {
         "asupan": f"**Plugin : **`asupan`\
-        \n\n  •  **Syntax :** `{cmd}asupan`\
-        \n  •  **Function : **Untuk Mengirim video asupan secara random.\
-        \n\n  •  **Syntax :** `{cmd}desahcowo`\
-        \n  •  **Function : **Untuk Mengirim voice desah cowo secara random.\
-        \n\n  •  **Syntax :** `{cmd}desahcewe`\
-        \n  •  **Function : **Untuk Mengirim voice desah cewe secara random.\
+        \n\n  »  **Perintah :** `{cmd}asupan`\
+        \n  »  **Kegunaan : **Untuk Mengirim video asupan secara random.\
+        \n\n  »  **Perintah :** `{cmd}desahcowo`\
+        \n  »  **Kegunaan : **Untuk Mengirim voice desah cowo secara random.\
+        \n\n  »  **Perintah :** `{cmd}desahcewe`\
+        \n  »  **Kegunaan : **Untuk Mengirim voice desah cewe secara random.\
     "
     }
 )

@@ -160,12 +160,12 @@ async def del_welcome(event):
 CMD_HELP.update(
     {
         "welcome": f"**Plugin : **`welcome`\
-        \n\n  •  **Syntax :** `{cmd}setwelcome` <pesan welcome> atau balas ke pesan ketik `{cmd}setwelcome`\
-        \n  •  **Function : **Menyimpan pesan welcome digrup.\
-        \n\n  •  **Syntax :** `{cmd}checkwelcome`\
-        \n  •  **Function : **Check pesan welcome yang anda simpan.\
-        \n\n  •  **Syntax :** `{cmd}rmwelcome`\
-        \n  •  **Function : **Menghapus pesan welcome yang anda simpan."
+        \n\n  »  **Perintah :** `{cmd}setwelcome` <pesan welcome> atau balas ke pesan ketik `{cmd}setwelcome`\
+        \n  »  **Kegunaan : **Menyimpan pesan welcome digrup.\
+        \n\n  »  **Perintah :** `{cmd}checkwelcome`\
+        \n  »  **Kegunaan : **Check pesan welcome yang anda simpan.\
+        \n\n  »  **Perintah :** `{cmd}rmwelcome`\
+        \n  »  **Kegunaan : **Menghapus pesan welcome yang anda simpan."
         "\n\n  •  **Format Variabel yang bisa digunakan di setwelcome :**\
         `{mention}`, `{title}`, `{count}`, `{first}`, `{last}`, `{fullname}`, `{userid}`, `{username}`, `{my_first}`, `{my_fullname}`, `{my_last}`, `{my_mention}`, `{my_username}`\
     "

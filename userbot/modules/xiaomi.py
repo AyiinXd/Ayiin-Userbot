@@ -204,22 +204,22 @@ async def _(event):
 CMD_HELP.update(
     {
         "xiaomi": f"**Plugin : **`xiaomi`\
-        \n\n  •  **Syntax :** `{cmd}firmware` (codename)\
-        \n  •  **Function : **Get lastest Firmware.\
-        \n\n  •  **Syntax :** `{cmd}pb` (codename)\
-        \n  •  **Function : **Get latest PitchBlack Recovery.\
-        \n\n  •  **Syntax :** `{cmd}specs` (codename)\
-        \n  •  **Function : **Get quick spec information about device.\
-        \n\n  •  **Syntax :** `{cmd}fastboot` (codename)\
-        \n  •  **Function : **Get latest fastboot MIUI.\
-        \n\n  •  **Syntax :** `{cmd}recovery` (codename)\
-        \n  •  **Function : **Get latest recovery MIUI.\
-        \n\n  •  **Syntax :** `{cmd}eu` (codename)\
-        \n  •  **Function : **Get latest xiaomi.eu rom.\
-        \n\n  •  **Syntax :** `{cmd}vendor` (codename)\
-        \n  •  **Function : **fetches latest vendor.\
-        \n\n  •  **Syntax :** `{cmd}of` (codename)\
-        \n  •  **Function : **Get latest ORangeFox Recovery.\
+        \n\n  »  **Perintah :** `{cmd}firmware` (codename)\
+        \n  »  **Kegunaan : **Get lastest Firmware.\
+        \n\n  »  **Perintah :** `{cmd}pb` (codename)\
+        \n  »  **Kegunaan : **Get latest PitchBlack Recovery.\
+        \n\n  »  **Perintah :** `{cmd}specs` (codename)\
+        \n  »  **Kegunaan : **Get quick spec information about device.\
+        \n\n  »  **Perintah :** `{cmd}fastboot` (codename)\
+        \n  »  **Kegunaan : **Get latest fastboot MIUI.\
+        \n\n  »  **Perintah :** `{cmd}recovery` (codename)\
+        \n  »  **Kegunaan : **Get latest recovery MIUI.\
+        \n\n  »  **Perintah :** `{cmd}eu` (codename)\
+        \n  »  **Kegunaan : **Get latest xiaomi.eu rom.\
+        \n\n  »  **Perintah :** `{cmd}vendor` (codename)\
+        \n  »  **Kegunaan : **fetches latest vendor.\
+        \n\n  »  **Perintah :** `{cmd}of` (codename)\
+        \n  »  **Kegunaan : **Get latest ORangeFox Recovery.\
     "
     }
 )

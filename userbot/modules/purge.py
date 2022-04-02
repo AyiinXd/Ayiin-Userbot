@@ -170,20 +170,20 @@ async def purgto(purgke):
 CMD_HELP.update(
     {
         "purge": f"**Plugin : **`Menghapus Kenangan Chat`\
-        \n\n  •  **Syntax :** `{cmd}purge`\
-        \n  •  **Function : **Menghapus semua pesan mulai dari pesan yang dibalas.\
-        \n\n  •  **Syntax :** `{cmd}purgefrom` atau `{cmd}pfrom`\
-        \n  •  **Function : **Menandai awal dari mana harus dihapus.\
-        \n\n  •  **Syntax :** `{cmd}purgeto` atau `{cmd}pto`\
-        \n  •  **Function : **Menandai akhir dari pesan yang akan dihapus.\
-        \n\n  •  **Syntax :** `{cmd}purgeme` <angka>\
-        \n  •  **Function : **Menghapus jumlah pesan anda, yang mau anda hapus.\
-        \n\n  •  **Syntax :** `{cmd}del`\
-        \n  •  **Function : **Menghapus pesan, balas ke pesan.\
-        \n\n  •  **Syntax :** `{cmd}edit <pesan baru>`\
-        \n  •  **Function : **Ganti pesan terakhir Anda dengan <pesan baru>.\
-        \n\n  •  **Syntax :** `{cmd}sd` <detik> <pesan>\
-        \n  •  **Function : **Membuat pesan yang hancur sendiri. harap pasang detik di bawah 100 untuk menghindari bot Anda akan sleep.\
+        \n\n  »  **Perintah :** `{cmd}purge`\
+        \n  »  **Kegunaan : **Menghapus semua pesan mulai dari pesan yang dibalas.\
+        \n\n  »  **Perintah :** `{cmd}purgefrom` atau `{cmd}pfrom`\
+        \n  »  **Kegunaan : **Menandai awal dari mana harus dihapus.\
+        \n\n  »  **Perintah :** `{cmd}purgeto` atau `{cmd}pto`\
+        \n  »  **Kegunaan : **Menandai akhir dari pesan yang akan dihapus.\
+        \n\n  »  **Perintah :** `{cmd}purgeme` <angka>\
+        \n  »  **Kegunaan : **Menghapus jumlah pesan anda, yang mau anda hapus.\
+        \n\n  »  **Perintah :** `{cmd}del`\
+        \n  »  **Kegunaan : **Menghapus pesan, balas ke pesan.\
+        \n\n  »  **Perintah :** `{cmd}edit <pesan baru>`\
+        \n  »  **Kegunaan : **Ganti pesan terakhir Anda dengan <pesan baru>.\
+        \n\n  »  **Perintah :** `{cmd}sd` <detik> <pesan>\
+        \n  »  **Kegunaan : **Membuat pesan yang hancur sendiri. harap pasang detik di bawah 100 untuk menghindari bot Anda akan sleep.\
     "
     }
 )

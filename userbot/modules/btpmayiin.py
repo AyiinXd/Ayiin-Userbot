@@ -152,9 +152,9 @@ async def on_btpm_list(event):
     for lbtpm in all_fbtpm:
         if message == "**Tidak ada daftar btpm yang tersedia saat ini.**":
             message = "Daftar Btpm yang tersedia :\n\n"
-            message += f"`${lbtpm.btpm}`\n"
+            message += f"**»** `${lbtpm.btpm}`\n"
         else:
-            message += f"`${lbtpm.btpm}`\n"
+            message += f"**»** `${lbtpm.btpm}`\n"
 
     await event.edit(message)
 
@@ -182,16 +182,16 @@ async def on_btpm_delete(event):
 CMD_HELP.update(
     {
         "btpmayiin": f"**Plugin:** `btpmayiin`\
-        \n\n  • **Perintah :** `{cmd}btpm` <nama_ch (TanpaSpasi)> <username ch>\
-        \n  •  **Kegunaan :** __Untuk Mendapatkan List Btpm Kosong.__\
-        \n\n  • **Perintah :** `{cmd}savebt` <nama_list>\
-        \n  •  **Kegunaan :** __Untuk Menyimpan List Btpm, Gunakan Nama Yang Berbeda.__\
-        \n\n  • **Perintah :** `{cmd}$`<nama_list>\
-        \n  •  **Kegunaan :** __Untuk Mendapatkan List Btpm Yang Tersimpan.__\
-        \n\n  • **Perintah :** `{cmd}delbt` <nama_list>\
-        \n  •  **Kegunaan :** __Menghapus List Btpm Yang Tersimpan.__\
-        \n\n  • **Perintah :** `{cmd}listbt` <nama_list>\
-        \n  •  **Kegunaan :** __Untuk Menlihat Semua List Btpm Yang Tersimpan.__\
+        \n\n  »  **Perintah : **`{cmd}btpm` <nama_ch (TanpaSpasi)> <username ch>\
+        \n  »  **Kegunaan :** __Untuk Mendapatkan List Btpm Kosong.__\
+        \n\n  »  **Perintah : **`{cmd}savebt` <nama_list>\
+        \n  »  **Kegunaan :** __Untuk Menyimpan List Btpm, Gunakan Nama Yang Berbeda.__\
+        \n\n  »  **Perintah : **$<nama_list>\
+        \n  »  **Kegunaan :** __Untuk Mendapatkan List Btpm Yang Tersimpan.__\
+        \n\n  »  **Perintah : **`{cmd}delbt` <nama_list>\
+        \n  »  **Kegunaan :** __Menghapus List Btpm Yang Tersimpan.__\
+        \n\n  »  **Perintah : **`{cmd}listbt` <nama_list>\
+        \n  »  **Kegunaan :** __Untuk Menlihat Semua List Btpm Yang Tersimpan.__\
     "
     }
 )

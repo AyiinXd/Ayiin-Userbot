@@ -146,10 +146,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "stats": f"**Plugin : **`stats`\
-        \n\n  •  **Syntax :** `{cmd}stats`\
-        \n  •  **Function : **Untuk memeriksa statistik pengguna\
-        \n\n  •  **Syntax :** `{cmd}ustat` atau `{cmd}ustats`\
-        \n  •  **Function : **Untuk memeriksa orang tersebut bergabung ke grup mana aja\
+        \n\n  »  **Perintah :** `{cmd}stats`\
+        \n  »  **Kegunaan : **Untuk memeriksa statistik pengguna\
+        \n\n  »  **Perintah :** `{cmd}ustat` atau `{cmd}ustats`\
+        \n  »  **Kegunaan : **Untuk memeriksa orang tersebut bergabung ke grup mana aja\
     "
     }
 )
@@ -158,8 +158,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "deteksi": f"**Plugin : **`deteksi`\
-        \n\n  •  **Syntax :** `{cmd}deteksi`\
-        \n  •  **Function : **Untuk memeriksa orang tersebut bergabung ke grup mana aja\
+        \n\n  »  **Perintah :** `{cmd}deteksi`\
+        \n  »  **Kegunaan : **Untuk memeriksa orang tersebut bergabung ke grup mana aja\
     "
     }
 )

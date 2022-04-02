@@ -65,8 +65,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "pdf": f"**Plugin : **`pdf`\
-        \n\n  •  **Syntax :** `{cmd}pdf` <reply text>\
-        \n  •  **Function : **Untuk Mengconvert teks menjadi file PDF menggunakan @office2pdf_bot\
+        \n\n  »  **Perintah :** `{cmd}pdf` <reply text>\
+        \n  »  **Kegunaan : **Untuk Mengconvert teks menjadi file PDF menggunakan @office2pdf_bot\
     "
     }
 )

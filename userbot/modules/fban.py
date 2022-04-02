@@ -224,20 +224,20 @@ async def clearf(event):
 CMD_HELP.update(
     {
         "fban": f"**Plugin : **`Federations Banned`\
-        \n\n  •  **Syntax :** `{cmd}fban` <id/username/reply> <reason>\
-        \n  •  **Function : **Membanned user dari federasi yang terhubung.\
-        \n\n  •  **Syntax :** `{cmd}dfban` <id/username/reply> <reason>\
-        \n  •  **Function : **Membanned user dari federasi yang terhubung dengan menghapus pesan yang dibalas.\
-        \n\n  •  **Syntax :** `{cmd}unfban` <id/username/reply> <reason>\
-        \n  •  **Function : **Membatalkan Federations Banned\
-        \n\n  •  **Syntax :** `{cmd}addf` <nama>\
-        \n  •  **Function : **Menambahkan grup saat ini dan menyimpannya sebagai <nama> di federasi yang terhubung. Menambahkan satu grup sudah cukup untuk satu federasi.\
-        \n\n  •  **Syntax :** `{cmd}delf`\
-        \n  •  **Function : **Menghapus grup saat ini dari federasi yang terhubung\
-        \n\n  •  **Syntax :** `{cmd}listf`\
-        \n  •  **Function : **Mencantumkan semua federasi yang terhubung dengan nama yang ditentukan.\
-        \n\n  •  **Syntax :** `{cmd}clearf`\
-        \n  •  **Function : **Menghapus dari semua federasi yang terhubung. Gunakan dengan hati-hati.\
+        \n\n  »  **Perintah :** `{cmd}fban` <id/username/reply> <reason>\
+        \n  »  **Kegunaan : **Membanned user dari federasi yang terhubung.\
+        \n\n  »  **Perintah :** `{cmd}dfban` <id/username/reply> <reason>\
+        \n  »  **Kegunaan : **Membanned user dari federasi yang terhubung dengan menghapus pesan yang dibalas.\
+        \n\n  »  **Perintah :** `{cmd}unfban` <id/username/reply> <reason>\
+        \n  »  **Kegunaan : **Membatalkan Federations Banned\
+        \n\n  »  **Perintah :** `{cmd}addf` <nama>\
+        \n  »  **Kegunaan : **Menambahkan grup saat ini dan menyimpannya sebagai <nama> di federasi yang terhubung. Menambahkan satu grup sudah cukup untuk satu federasi.\
+        \n\n  »  **Perintah :** `{cmd}delf`\
+        \n  »  **Kegunaan : **Menghapus grup saat ini dari federasi yang terhubung\
+        \n\n  »  **Perintah :** `{cmd}listf`\
+        \n  »  **Kegunaan : **Mencantumkan semua federasi yang terhubung dengan nama yang ditentukan.\
+        \n\n  »  **Perintah :** `{cmd}clearf`\
+        \n  »  **Kegunaan : **Menghapus dari semua federasi yang terhubung. Gunakan dengan hati-hati.\
     "
     }
 )

@@ -150,20 +150,20 @@ async def rotate(event):
 CMD_HELP.update(
     {
         "transform": f"**Plugin : **`transform`\
-        \n\n  •  **Syntax :** `{cmd}ghost`\
-        \n  •  **Function : **Enchance your image to become a ghost!.\
-        \n\n  •  **Syntax :** `{cmd}flip`\
-        \n  •  **Function : **Untuk membalikan gambar Anda.\
-        \n\n  •  **Syntax :** `{cmd}mirror`\
-        \n  •  **Function : **To mirror your image.\
-        \n\n  •  **Syntax :** `{cmd}bw`\
-        \n  •  **Function : **Untuk mengubah gambar berwarna Anda menjadi gambar b / w.\
-        \n\n  •  **Syntax :** `{cmd}poster`\
-        \n  •  **Function : **Untuk mem-poster gambar Anda.\
-        \n\n  •  **Syntax :** `{cmd}rotate` <value>\
-        \n  •  **Function : **Untuk mem-poster gambar Anda.\
-        \n\n  •  **Syntax :** `{cmd}poster`\
-        \n  •  **Function : **Untuk memutar gambar anda **Nilainya berkisar 1-360 jika tidak akan memberikan nilai default yaitu 90**\
+        \n\n  »  **Perintah :** `{cmd}ghost`\
+        \n  »  **Kegunaan : **Enchance your image to become a ghost!.\
+        \n\n  »  **Perintah :** `{cmd}flip`\
+        \n  »  **Kegunaan : **Untuk membalikan gambar Anda.\
+        \n\n  »  **Perintah :** `{cmd}mirror`\
+        \n  »  **Kegunaan : **To mirror your image.\
+        \n\n  »  **Perintah :** `{cmd}bw`\
+        \n  »  **Kegunaan : **Untuk mengubah gambar berwarna Anda menjadi gambar b / w.\
+        \n\n  »  **Perintah :** `{cmd}poster`\
+        \n  »  **Kegunaan : **Untuk mem-poster gambar Anda.\
+        \n\n  »  **Perintah :** `{cmd}rotate` <value>\
+        \n  »  **Kegunaan : **Untuk mem-poster gambar Anda.\
+        \n\n  »  **Perintah :** `{cmd}poster`\
+        \n  »  **Kegunaan : **Untuk memutar gambar anda **Nilainya berkisar 1-360 jika tidak akan memberikan nilai default yaitu 90**\
     "
     }
 )

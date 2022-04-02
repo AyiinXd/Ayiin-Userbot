@@ -140,16 +140,16 @@ async def kick_marie_notes(kick):
 CMD_HELP.update(
     {
         "notes": f"**Plugin : **`Notes`\
-        \n\n  •  **Syntax :** `#<notename>`\
-        \n  •  **Function : **Mendapat catatan yang ditentukan.\
-        \n\n  •  **Syntax :** `{cmd}save` <notename> <notedata> atau balas pesan dengan .save <notename>\
-        \n  •  **Function : **Menyimpan pesan yang dibalas sebagai catatan dengan notename. (Bekerja dengan foto, dokumen, dan stiker juga!).\
-        \n\n  •  **Syntax :** `{cmd}notes`\
-        \n  •  **Function : **Mendapat semua catatan yang disimpan dalam obrolan \
-        \n\n  •  **Syntax :** `{cmd}clear` <notename>\
-        \n  •  **Function : **Menghapus catatan yang ditentukan. \
-        \n\n  •  **Syntax :** `{cmd}rmbotnotes` <marie / rose>\
-        \n  •  **Function : **Menghapus semua catatan bot admin (Saat ini didukung: Marie, Rose, dan klonnya.) Dalam obrolan.\
+        \n\n  »  **Perintah :** `#<notename>`\
+        \n  »  **Kegunaan : **Mendapat catatan yang ditentukan.\
+        \n\n  »  **Perintah :** `{cmd}save` <notename> <notedata> atau balas pesan dengan .save <notename>\
+        \n  »  **Kegunaan : **Menyimpan pesan yang dibalas sebagai catatan dengan notename. (Bekerja dengan foto, dokumen, dan stiker juga!).\
+        \n\n  »  **Perintah :** `{cmd}notes`\
+        \n  »  **Kegunaan : **Mendapat semua catatan yang disimpan dalam obrolan \
+        \n\n  »  **Perintah :** `{cmd}clear` <notename>\
+        \n  »  **Kegunaan : **Menghapus catatan yang ditentukan. \
+        \n\n  »  **Perintah :** `{cmd}rmbotnotes` <marie / rose>\
+        \n  »  **Kegunaan : **Menghapus semua catatan bot admin (Saat ini didukung: Marie, Rose, dan klonnya.) Dalam obrolan.\
     "
     }
 )

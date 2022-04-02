@@ -65,14 +65,14 @@ async def _(event):
 CMD_HELP.update(
     {
         "yinsubot3": f"**Plugin : **`yinsubot3`\
-        \n\n  •  **Syntax :** `{cmd}yins`\
-        \n  •  **Function : **Perkenalan diri Yins\
-        \n\n  •  **Syntax :** `{cmd}sayang`\
-        \n  •  **Function : **Bucin\
-        \n\n  •  **Syntax :** `{cmd}semangat`\
-        \n  •  **Function : **Memberikan semangat!\
-        \n\n  •  **Syntax :** `{cmd}mengeluh`\
-        \n  •  **Function : **Ngeledek\
+        \n\n  »  **Perintah :** `{cmd}yins`\
+        \n  »  **Kegunaan : **Perkenalan diri Yins\
+        \n\n  »  **Perintah :** `{cmd}sayang`\
+        \n  »  **Kegunaan : **Bucin\
+        \n\n  »  **Perintah :** `{cmd}semangat`\
+        \n  »  **Kegunaan : **Memberikan semangat!\
+        \n\n  »  **Perintah :** `{cmd}mengeluh`\
+        \n  »  **Kegunaan : **Ngeledek\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }

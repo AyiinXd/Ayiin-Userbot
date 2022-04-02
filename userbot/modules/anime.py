@@ -485,24 +485,24 @@ def is_gif(file):
 CMD_HELP.update(
     {
         "anime": f"**Plugin : **`anime`\
-        \n\n  •  **Syntax :** `{cmd}anilist` **<nama anime>**\
-        \n  •  **Function : **Mencari informasi anime dari anilist\
-        \n\n  •  **Syntax :** `{cmd}anime` **<nama anime>**\
-        \n  •  **Function : **Mencari infomasi anime.\
-        \n\n  •  **Syntax :** `{cmd}manga` **<manga name>**\
-        \n  •  **Function : **Menari informasi manga.\
-        \n\n  •  **Syntax :** `{cmd}akaizoku` atau `.akayo` **<nama anime>**\
-        \n  •  **Function : **Mencari anime dan memberikan link tautan Unduh Anime.\
-        \n\n  •  **Syntax :** `{cmd}char` **<nama character anime>**\
-        \n  •  **Function : **Mencari informasi karakter anime.\
-        \n\n  •  **Syntax :** `{cmd}upcoming`\
-        \n  •  **Function : **Mencari informasi Anime yang akan datang.\
-        \n\n  •  **Syntax :** `{cmd}scanime` **<nama anime>** atau `{cmd}sanime` **<nama anime>**\
-        \n  •  **Function : **Mencari anime\
-        \n\n  •  **Syntax :** `{cmd}smanga` **<manga>**\
-        \n  •  **Function : **Untuk mencari akun terhapus dalam grup\
-        \n\n  •  **Syntax :** `{cmd}whatanime` **<Reply Gambar scene Anime.>**\
-        \n  •  **Function : **Temukan anime dari file media.\
+        \n\n  »  **Perintah : **`{cmd}anilist` **<nama anime>**\
+        \n  »  **Kegunaan :** Mencari informasi anime dari anilist\
+        \n\n  »  **Perintah : **`{cmd}anime` **<nama anime>**\
+        \n  »  **Kegunaan :** Mencari infomasi anime.\
+        \n\n  »  **Perintah : **`{cmd}manga` **<manga name>**\
+        \n  »  **Kegunaan :** Menari informasi manga.\
+        \n\n  »  **Perintah : **`{cmd}akaizoku` atau `{cmd}akayo` **<nama anime>**\
+        \n  »  **Kegunaan :** Mencari anime dan memberikan link tautan Unduh Anime.\
+        \n\n  »  **Perintah : **`{cmd}char` **<nama character anime>**\
+        \n  »  **Kegunaan :** Mencari informasi karakter anime.\
+        \n\n  »  **Perintah :** `{cmd}upcoming`\
+        \n  »  **Kegunaan : **Mencari informasi Anime yang akan datang.\
+        \n\n  »  **Perintah : **`{cmd}scanime` **<nama anime>** atau `{cmd}sanime` **<nama anime>**\
+        \n  »  **Kegunaan :** Mencari anime\
+        \n\n  »  **Perintah : **`{cmd}smanga` **<manga>**\
+        \n  »  **Kegunaan :** Untuk mencari akun terhapus dalam grup\
+        \n\n  »  **Perintah : **`{cmd}whatanime` **<Reply Gambar scene Anime.>**\
+        \n  »  **Kegunaan :** Temukan anime dari file media.\
     "
     }
 )

@@ -522,18 +522,18 @@ async def admem(event):
 CMD_HELP.update(
     {
         "chat": f"**Plugin : **`chat`\
-        \n\n  •  **Syntax :** `{cmd}userid`\
-        \n  •  **Function : **untuk Mengambil ID obrolan saat ini\
-        \n\n  •  **Syntax :** `{cmd}getbot`\
-        \n  •  **Function : **Dapatkan List Bot dalam grup chat.\
-        \n\n  •  **Syntax :** `{cmd}mutechat`\
-        \n  •  **Function : **membisukan Grup chat (membutuhkan hak admin).\
-        \n\n  •  **Syntax :** `{cmd}unmutechat`\
-        \n  •  **Function : **Membuka Grup chat yang dibisukan (membutuhkan hak admin).\
-        \n\n  •  **Syntax :** `{cmd}getbot`\
-        \n  •  **Function : **Dapatkan List Bot dalam grup chat.\
-        \n\n  •  **Syntax :** `{cmd}chatinfo [opsional: <reply/tag/chat id/invite link>]`\
-        \n  •  **Function : **Mendapatkan info obrolan. Beberapa info mungkin dibatasi karena izin yang hilang.\
+        \n\n  »  **Perintah :** `{cmd}userid`\
+        \n  »  **Kegunaan : **untuk Mengambil ID obrolan saat ini\
+        \n\n  »  **Perintah :** `{cmd}getbot`\
+        \n  »  **Kegunaan : **Dapatkan List Bot dalam grup chat.\
+        \n\n  »  **Perintah :** `{cmd}mutechat`\
+        \n  »  **Kegunaan : **membisukan Grup chat (membutuhkan hak admin).\
+        \n\n  »  **Perintah :** `{cmd}unmutechat`\
+        \n  »  **Kegunaan : **Membuka Grup chat yang dibisukan (membutuhkan hak admin).\
+        \n\n  »  **Perintah :** `{cmd}getbot`\
+        \n  »  **Kegunaan : **Dapatkan List Bot dalam grup chat.\
+        \n\n  »  **Perintah :** `{cmd}chatinfo [opsional: <reply/tag/chat id/invite link>]`\
+        \n  »  **Kegunaan : **Mendapatkan info obrolan. Beberapa info mungkin dibatasi karena izin yang hilang.\
     "
     }
 )
@@ -542,10 +542,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "invite": f"**Plugin : **`invite`\
-        \n\n  •  **Syntax :** `{cmd}invite` <username/user id>\
-        \n  •  **Function : **Untuk Menambahkan/invite pengguna ke group chat.\
-        \n\n  •  **Syntax :** `{cmd}inviteall` <username grup yang mau di culik membernya>\
-        \n  •  **Function : **Untuk Menambahkan/invite pengguna dari grup yang ditargetkan ke grup Anda. (ketik perintah `{cmd}inviteall` di gc lu)\
+        \n\n  »  **Perintah :** `{cmd}invite` <username/user id>\
+        \n  »  **Kegunaan : **Untuk Menambahkan/invite pengguna ke group chat.\
+        \n\n  »  **Perintah :** `{cmd}inviteall` <username grup yang mau di culik membernya>\
+        \n  »  **Kegunaan : **Untuk Menambahkan/invite pengguna dari grup yang ditargetkan ke grup Anda. (ketik perintah `{cmd}inviteall` di gc lu)\
     "
     }
 )
@@ -554,8 +554,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "link": f"**Plugin : **`link`\
-        \n\n  •  **Syntax :** `{cmd}link` <username/userid> <opsional teks> (atau) Reply pesan {cmd}link <teks opsional>\
-        \n  •  **Function : **Membuat link permanen ke profil pengguna dengan teks ubah sesuaikan opsional.\
+        \n\n  »  **Perintah :** `{cmd}link` <username/userid> <opsional teks> (atau) Reply pesan {cmd}link <teks opsional>\
+        \n  »  **Kegunaan : **Membuat link permanen ke profil pengguna dengan teks ubah sesuaikan opsional.\
         \n  •  **Contoh : **{cmd}link @AyiinXd Ganteng\
     "
     }
@@ -565,10 +565,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "scraper": f"**Plugin : **`scraper`\
-        \n\n  •  **Syntax :** `{cmd}getmember`\
-        \n  •  **Function : **Untuk Mengumpulkan Anggota dari group chat.\
-        \n\n  •  **Syntax :** `{cmd}addmember`\
-        \n  •  **Function : **Untuk Menambahkan Anggota ke group chat.\
+        \n\n  »  **Perintah :** `{cmd}getmember`\
+        \n  »  **Kegunaan : **Untuk Mengumpulkan Anggota dari group chat.\
+        \n\n  »  **Perintah :** `{cmd}addmember`\
+        \n  »  **Kegunaan : **Untuk Menambahkan Anggota ke group chat.\
         \n\n**Cara Menggunakannya:** \
         \n1. Anda harus melakukan `{cmd}getmember` terlebih dahulu di Grup Chat Orang lain.\
         \n2. Buka Grup Anda dan ketik `{cmd}addmember` untuk menambahkan mereka ke grup Anda.\

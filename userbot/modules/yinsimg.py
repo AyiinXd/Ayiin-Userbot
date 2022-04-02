@@ -484,28 +484,28 @@ async def pixelator(event):
 CMD_HELP.update(
     {
         "yinsimg": f"**Plugin : **`yinsimg`\
-        \n\n  •  **Syntax :** `{cmd}sketch` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}grey` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}blur` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}negative` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}miror` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}flp` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}quad` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}toon` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}danger` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}border` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
-        \n\n  •  **Syntax :** `{cmd}pixelator` <reply ke Foto/Sticker>\
-        \n  •  **Function :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}sketch` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}grey` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}blur` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}negative` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}miror` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}flp` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}quad` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}toon` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}danger` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}border` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
+        \n\n  »  **Perintah :** `{cmd}pixelator` <reply ke Foto/Sticker>\
+        \n  »  **Kegunaan :** Coba Dulu Tod.\
     "
     }
 )

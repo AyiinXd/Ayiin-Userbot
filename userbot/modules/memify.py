@@ -122,8 +122,8 @@ async def add_text_img(image_path, text):
 CMD_HELP.update(
     {
         "memify": f"**Plugin : **`memify`\
-        \n\n  •  **Syntax :** `{cmd}mmf` Teks Atas ; Teks Bawah\
-        \n  •  **Function :** Balas Ke Sticker/Gambar/Gif, Gambar akan Di ubah jadi teks meme yang di tentukan\
+        \n\n  »  **Perintah :** `{cmd}mmf` Teks Atas ; Teks Bawah\
+        \n  »  **Kegunaan :** Balas Ke Sticker/Gambar/Gif, Gambar akan Di ubah jadi teks meme yang di tentukan\
         \n\n  •  **NOTE :** Jika itu video, teks akan diedit di frame pertama.\
     "
     }

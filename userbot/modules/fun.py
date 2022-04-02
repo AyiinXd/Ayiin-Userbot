@@ -74,8 +74,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "rgif": f"**Plugin : **`rgif`\
-        \n\n  •  **Syntax :** `{cmd}gif` <sambil reply ke media>\
-        \n  •  **Function : **Untuk mengubah gambar jadi gif memutar.\
+        \n\n  »  **Perintah :** `{cmd}gif` <sambil reply ke media>\
+        \n  »  **Kegunaan : **Untuk mengubah gambar jadi gif memutar.\
     "
     }
 )
@@ -84,10 +84,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "fun": f"**Plugin : **`fun`\
-        \n\n  •  **Syntax :** `{cmd}rst` <text>\
-        \n  •  **Function : **Untuk membuat stiker teks dengan templat stiker acak.\
-        \n\n  •  **Syntax :** `{cmd}honka` <text>\
-        \n  •  **Function : **Untuk membuat stiker teks dengan templat stiker Honka bot.\
+        \n\n  »  **Perintah :** `{cmd}rst` <text>\
+        \n  »  **Kegunaan : **Untuk membuat stiker teks dengan templat stiker acak.\
+        \n\n  »  **Perintah :** `{cmd}honka` <text>\
+        \n  »  **Kegunaan : **Untuk membuat stiker teks dengan templat stiker Honka bot.\
     "
     }
 )

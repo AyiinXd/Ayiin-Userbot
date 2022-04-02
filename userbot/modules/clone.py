@@ -96,10 +96,10 @@ async def updateProfile(event, userObj, restore=False):
 CMD_HELP.update(
     {
         "clone": f"**Plugin : **`clone`\
-        \n\n  •  **Syntax :** `{cmd}clone` <reply/username/ID>\
-        \n  •  **Function : **Untuk mengclone identitas dari username/ID Telegram yang diberikan.\
-        \n\n  •  **Syntax :** `{cmd}clone restore`\
-        \n  •  **Function : **Mengembalikan ke identitas asli anda.\
+        \n\n  »  **Perintah :** `{cmd}clone` <reply/username/ID>\
+        \n  »  **Kegunaan : **Untuk mengclone identitas dari username/ID Telegram yang diberikan.\
+        \n\n  »  **Perintah :** `{cmd}clone restore`\
+        \n  »  **Kegunaan : **Mengembalikan ke identitas asli anda.\
         \n\n  •  **NOTE :** `{cmd}clone restore` terlebih dahulu sebelum mau nge `{cmd}clone` lagi.\
     "
     }

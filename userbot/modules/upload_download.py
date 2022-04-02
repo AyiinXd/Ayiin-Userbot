@@ -322,10 +322,10 @@ async def upload(event):
 CMD_HELP.update(
     {
         "download": f"**Plugin : **`download`\
-        \n\n  •  **Syntax :** `{cmd}download` <link|filename> atau reply ke media\
-        \n  •  **Function : **Untuk mengdownload file ke server.\
-        \n\n  •  **Syntax :** `{cmd}upload`\
-        \n  •  **Function : **Mengunggah file yang disimpan secara lokal ke obrolan.\
+        \n\n  »  **Perintah :** `{cmd}download` <link|filename> atau reply ke media\
+        \n  »  **Kegunaan : **Untuk mengdownload file ke server.\
+        \n\n  »  **Perintah :** `{cmd}upload`\
+        \n  »  **Kegunaan : **Mengunggah file yang disimpan secara lokal ke obrolan.\
     "
     }
 )

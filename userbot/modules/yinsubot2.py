@@ -102,20 +102,20 @@ async def _(event):
 CMD_HELP.update(
     {
         "yinsubot2": f"**Plugin : **`yinsubot2`\
-        \n\n  •  **Syntax :** `{cmd}lipkol`\
-        \n  •  **Function : **Ngajakin ayang slipkol\
-        \n\n  •  **Syntax :** `{cmd}nakal`\
-        \n  •  **Function : **Ga like ayang nakal\
-        \n\n  •  **Syntax :** `{cmd}favboy`\
-        \n  •  **Function : **Cowo idaman\
-        \n\n  •  **Syntax :** `{cmd}favgirl`\
-        \n  •  **Function : **Cewe idaman\
-        \n\n  •  **Syntax :** `{cmd}canlay`\
-        \n  •  **Function : **Ngatain si cantik alay\
-        \n\n  •  **Syntax :** `{cmd}ganlay`\
-        \n  •  **Function : **Ngatain si ganteng alay\
-        \n\n  •  **Syntax :** `{cmd}ange`\
-        \n  •  **Function : **Minta jatah ke ayang\
+        \n\n  »  **Perintah :** `{cmd}lipkol`\
+        \n  »  **Kegunaan : **Ngajakin ayang slipkol\
+        \n\n  »  **Perintah :** `{cmd}nakal`\
+        \n  »  **Kegunaan : **Ga like ayang nakal\
+        \n\n  »  **Perintah :** `{cmd}favboy`\
+        \n  »  **Kegunaan : **Cowo idaman\
+        \n\n  »  **Perintah :** `{cmd}favgirl`\
+        \n  »  **Kegunaan : **Cewe idaman\
+        \n\n  »  **Perintah :** `{cmd}canlay`\
+        \n  »  **Kegunaan : **Ngatain si cantik alay\
+        \n\n  »  **Perintah :** `{cmd}ganlay`\
+        \n  »  **Kegunaan : **Ngatain si ganteng alay\
+        \n\n  »  **Perintah :** `{cmd}ange`\
+        \n  »  **Kegunaan : **Minta jatah ke ayang\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }

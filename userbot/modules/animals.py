@@ -49,10 +49,10 @@ async def cats(event):
 CMD_HELP.update(
     {
         "animals": f"**Plugin : **`animals`\
-        \n\n  •  **Syntax :** `{cmd}cat`\
-        \n  •  **Function : **Untuk Mengirim gambar kucing secara random.\
-        \n\n  •  **Syntax :** `{cmd}shibe`\
-        \n  •  **Function : **Untuk Mengirim gambar random dari anjing jenis Shiba.\
+        \n\n  »  **Perintah :** `{cmd}cat`\
+        \n  »  **Kegunaan : **Untuk Mengirim gambar kucing secara random.\
+        \n\n  »  **Perintah :** `{cmd}shibe`\
+        \n  »  **Kegunaan : **Untuk Mengirim gambar random dari anjing jenis Shiba.\
     "
     }
 )

@@ -58,8 +58,8 @@ async def on_file_to_photo(pics):
 CMD_HELP.update(
     {
         "pic": f"**Plugin : **`pic`\
-        \n\n  •  **Syntax :** `{cmd}pic` <reply ke file document foto>\
-        \n  •  **Function : **Untuk Mengubah Gambar Dokumen apa pun menjadi Gambar Ukuran Penuh.\
+        \n\n  »  **Perintah :** `{cmd}pic` <reply ke file document foto>\
+        \n  »  **Kegunaan : **Untuk Mengubah Gambar Dokumen apa pun menjadi Gambar Ukuran Penuh.\
     "
     }
 )

@@ -178,10 +178,10 @@ async def date_func(dat):
 CMD_HELP.update(
     {
         "timedate": f"**Plugin : **`timedate`\
-        \n\n  •  **Syntax :** `{cmd}time` <country name/code> <timezone number>\
-        \n  •  **Function : **Dapatkan waktu suatu negara. Jika suatu negara memiliki beberapa zona waktu, itu akan mencantumkan semuanya dan memungkinkan Anda memilihnya.\
-        \n\n  •  **Syntax :** `{cmd}date` <country name/code> <timezone number>\
-        \n  •  **Function : **Dapatkan tanggal suatu negara. Jika suatu negara memiliki beberapa zona waktu, itu akan mencantumkan semuanya dan memungkinkan Anda memilihnya.\
+        \n\n  »  **Perintah :** `{cmd}time` <country name/code> <timezone number>\
+        \n  »  **Kegunaan : **Dapatkan waktu suatu negara. Jika suatu negara memiliki beberapa zona waktu, itu akan mencantumkan semuanya dan memungkinkan Anda memilihnya.\
+        \n\n  »  **Perintah :** `{cmd}date` <country name/code> <timezone number>\
+        \n  »  **Kegunaan : **Dapatkan tanggal suatu negara. Jika suatu negara memiliki beberapa zona waktu, itu akan mencantumkan semuanya dan memungkinkan Anda memilihnya.\
     "
     }
 )

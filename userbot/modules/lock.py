@@ -202,10 +202,10 @@ async def rem_locks(event):
 CMD_HELP.update(
     {
         "locks": f"**Plugin : **`locks`\
-        \n\n  •  **Syntax :** `{cmd}lock` <all atau Jenis lock>\
-        \n  •  **Function : **Memungkinkan anda Mengunci beberapa jenis pesan dalam obrolan.\
-        \n\n  •  **Syntax :** `{cmd}unlock` <all atau Jenis lock>\
-        \n  •  **Function : **Untuk membuka kunci, beberapa jenis pesan dalam obrolan.\
+        \n\n  »  **Perintah :** `{cmd}lock` <all atau Jenis lock>\
+        \n  »  **Kegunaan : **Memungkinkan anda Mengunci beberapa jenis pesan dalam obrolan.\
+        \n\n  »  **Perintah :** `{cmd}unlock` <all atau Jenis lock>\
+        \n  »  **Kegunaan : **Untuk membuka kunci, beberapa jenis pesan dalam obrolan.\
         \n\n  •  **Jenis pesan yang bisa dikunci atau dibuka adalah:**\
         \n  •  `all, msg, media, sticker, gif, game, inline, poll, invite, pin, info`\
         \n\n  •  **Contoh :** `{cmd}lock msg` atau `{cmd}unlock msg`\

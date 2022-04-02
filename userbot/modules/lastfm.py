@@ -243,12 +243,12 @@ async def lastlog(lstlog):
 CMD_HELP.update(
     {
         "lastfm": f"**Plugin : **`lastfm`\
-        \n\n  •  **Syntax :** `{cmd}lastfm`\
-        \n  •  **Function : **Menampilkan trek scrobbling saat ini atau scrobble terbaru jika tidak ada yang diputar.\
-        \n\n  •  **Syntax :** `{cmd}lastbio` <on/off>\
-        \n  •  **Function : **Mengaktifkan / Menonaktifkan pemutaran last.fm saat ini ke bio.\
-        \n\n  •  **Syntax :** `{cmd}lastlog` <on/off>\
-        \n  •  **Function : **Mengaktifkan / Menonaktifkan bio logging last.fm di grup bot-log.\
+        \n\n  »  **Perintah :** `{cmd}lastfm`\
+        \n  »  **Kegunaan : **Menampilkan trek scrobbling saat ini atau scrobble terbaru jika tidak ada yang diputar.\
+        \n\n  »  **Perintah :** `{cmd}lastbio` <on/off>\
+        \n  »  **Kegunaan : **Mengaktifkan / Menonaktifkan pemutaran last.fm saat ini ke bio.\
+        \n\n  »  **Perintah :** `{cmd}lastlog` <on/off>\
+        \n  »  **Kegunaan : **Mengaktifkan / Menonaktifkan bio logging last.fm di grup bot-log.\
     "
     }
 )

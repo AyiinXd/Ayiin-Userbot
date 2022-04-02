@@ -531,22 +531,22 @@ async def kickedvc(_, chat_id: int):
 CMD_HELP.update(
     {
         "vcplugin": f"**Plugin : **`vcplugin`\
-        \n\n  •  **Syntax :** `{cmd}play` <Judul Lagu/Link YT>\
-        \n  •  **Function : **Untuk Memutar Lagu di voice chat group dengan akun kamu\
-        \n\n  •  **Syntax :** `{cmd}vplay` <Judul Video/Link YT>\
-        \n  •  **Function : **Untuk Memutar Video di voice chat group dengan akun kamu\
-        \n\n  •  **Syntax :** `{cmd}end`\
-        \n  •  **Function : **Untuk Memberhentikan video/lagu yang sedang putar di voice chat group\
-        \n\n  •  **Syntax :** `{cmd}skip`\
-        \n  •  **Function : **Untuk Melewati video/lagu yang sedang di putar\
-        \n\n  •  **Syntax :** `{cmd}pause`\
-        \n  •  **Function : **Untuk memberhentikan video/lagu yang sedang diputar\
-        \n\n  •  **Syntax :** `{cmd}resume`\
-        \n  •  **Function : **Untuk melanjutkan pemutaran video/lagu yang sedang diputar\
-        \n\n  •  **Syntax :** `{cmd}volume` 1-200\
-        \n  •  **Function : **Untuk mengubah volume (Membutuhkan Hak admin)\
-        \n\n  •  **Syntax :** `{cmd}playlist`\
-        \n  •  **Function : **Untuk menampilkan daftar putar Lagu/Video\
+        \n\n  »  **Perintah :** `{cmd}play` <Judul Lagu/Link YT>\
+        \n  »  **Kegunaan : **Untuk Memutar Lagu di voice chat group dengan akun kamu\
+        \n\n  »  **Perintah :** `{cmd}vplay` <Judul Video/Link YT>\
+        \n  »  **Kegunaan : **Untuk Memutar Video di voice chat group dengan akun kamu\
+        \n\n  »  **Perintah :** `{cmd}end`\
+        \n  »  **Kegunaan : **Untuk Memberhentikan video/lagu yang sedang putar di voice chat group\
+        \n\n  »  **Perintah :** `{cmd}skip`\
+        \n  »  **Kegunaan : **Untuk Melewati video/lagu yang sedang di putar\
+        \n\n  »  **Perintah :** `{cmd}pause`\
+        \n  »  **Kegunaan : **Untuk memberhentikan video/lagu yang sedang diputar\
+        \n\n  »  **Perintah :** `{cmd}resume`\
+        \n  »  **Kegunaan : **Untuk melanjutkan pemutaran video/lagu yang sedang diputar\
+        \n\n  »  **Perintah :** `{cmd}volume` 1-200\
+        \n  »  **Kegunaan : **Untuk mengubah volume (Membutuhkan Hak admin)\
+        \n\n  »  **Perintah :** `{cmd}playlist`\
+        \n  »  **Kegunaan : **Untuk menampilkan daftar putar Lagu/Video\
     "
     }
 )

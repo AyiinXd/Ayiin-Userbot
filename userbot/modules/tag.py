@@ -55,20 +55,20 @@ async def _(e):
 CMD_HELP.update(
     {
         "tagger": f"**Plugin : **`tagger`\
-        \n\n  •  **Syntax :** `{cmd}tagall`\
-        \n  •  **Function : **Tag Top 100 Members di group chat.\
-        \n\n  •  **Syntax :** `{cmd}tagowner`\
-        \n  •  **Function : **Tag Owner group chat\
-        \n\n  •  **Syntax : **`{cmd}tagadmins`\
-        \n  •  **Function : **Tag Admins group chat.\
-        \n\n  •  **Syntax :** `{cmd}tagbots`\
-        \n  •  **Function : **Tag Bots group chat.\
-        \n\n  •  **Syntax :** `{cmd}tagrec`\
-        \n  •  **Function : **Tag Member yang Baru Aktif.\
-        \n\n  •  **Syntax :** `{cmd}tagon`\
-        \n  •  **Function : **Tag Online Members (hanya berfungsi jika privasi dimatikan)\
-        \n\n  •  **Syntax :** `{cmd}tagoff`\
-        \n  •  **Function : **Tag Offline Members (hanya berfungsi jika privasi dimatikan)\
+        \n\n  »  **Perintah :** `{cmd}tagall`\
+        \n  »  **Kegunaan : **Tag Top 100 Members di group chat.\
+        \n\n  »  **Perintah :** `{cmd}tagowner`\
+        \n  »  **Kegunaan : **Tag Owner group chat\
+        \n\n  »  **Perintah : **`{cmd}tagadmins`\
+        \n  »  **Kegunaan : **Tag Admins group chat.\
+        \n\n  »  **Perintah :** `{cmd}tagbots`\
+        \n  »  **Kegunaan : **Tag Bots group chat.\
+        \n\n  »  **Perintah :** `{cmd}tagrec`\
+        \n  »  **Kegunaan : **Tag Member yang Baru Aktif.\
+        \n\n  »  **Perintah :** `{cmd}tagon`\
+        \n  »  **Kegunaan : **Tag Online Members (hanya berfungsi jika privasi dimatikan)\
+        \n\n  »  **Perintah :** `{cmd}tagoff`\
+        \n  »  **Kegunaan : **Tag Offline Members (hanya berfungsi jika privasi dimatikan)\
         "
     }
 )

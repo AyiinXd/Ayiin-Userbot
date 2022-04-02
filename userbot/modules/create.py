@@ -73,12 +73,12 @@ async def _(grop):
 CMD_HELP.update(
     {
         "membuat": f"**Plugin : **`membuat`\
-        \n\n  •  **Syntax :** `{cmd}buat g` <nama grup>\
-        \n  •  **Function : **Membuat grup telegram.\
-        \n\n  •  **Syntax :** `{cmd}buat gb` <nama grup>\
-        \n  •  **Function : **Membuat Grup bersama bot.\
-        \n\n  •  **Syntax :** `{cmd}buat c` <nama channel>\
-        \n  •  **Function : **Membuat sebuah Channel.\
+        \n\n  »  **Perintah :** `{cmd}buat g` <nama grup>\
+        \n  »  **Kegunaan : **Membuat grup telegram.\
+        \n\n  »  **Perintah :** `{cmd}buat gb` <nama grup>\
+        \n  »  **Kegunaan : **Membuat Grup bersama bot.\
+        \n\n  »  **Perintah :** `{cmd}buat c` <nama channel>\
+        \n  »  **Kegunaan : **Membuat sebuah Channel.\
     "
     }
 )

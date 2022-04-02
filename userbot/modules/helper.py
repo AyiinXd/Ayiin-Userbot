@@ -28,14 +28,14 @@ async def var(event):
 CMD_HELP.update(
     {
         "helper": f"**Plugin : **`helper`\
-        \n\n  •  **Syntax :** `{cmd}ihelp`\
-        \n  •  **Function : **Bantuan Untuk Ayiin-Userbot.\
-        \n\n  •  **Syntax :** `{cmd}listvar`\
-        \n  •  **Function : **Melihat Daftar Vars.\
-        \n\n  •  **Syntax :** `{cmd}repo`\
-        \n  •  **Function : **Melihat Repository Ayiin-Userbot.\
-        \n\n  •  **Syntax :** `{cmd}string`\
-        \n  •  **Function : **Link untuk mengambil String Ayiin-Userbot.\
+        \n\n  »  **Perintah :** `{cmd}ihelp`\
+        \n  »  **Kegunaan : **Bantuan Untuk Ayiin-Userbot.\
+        \n\n  »  **Perintah :** `{cmd}listvar`\
+        \n  »  **Kegunaan : **Melihat Daftar Vars.\
+        \n\n  »  **Perintah :** `{cmd}repo`\
+        \n  »  **Kegunaan : **Melihat Repository Ayiin-Userbot.\
+        \n\n  »  **Perintah :** `{cmd}string`\
+        \n  »  **Kegunaan : **Link untuk mengambil String Ayiin-Userbot.\
     "
     }
 )

@@ -133,12 +133,12 @@ async def get_user(event):
 CMD_HELP.update(
     {
         "sudo": f"**Plugin : **`sudo`\
-        \n\n  •  **Syntax :** `{cmd}sudo`\
-        \n  •  **Function : **Untuk Mengecek informasi Sudo.\
-        \n\n  •  **Syntax :** `{cmd}addsudo` <reply/user id>\
-        \n  •  **Function : **Untuk Menambahkan User ke Pengguna Sudo.\
-        \n\n  •  **Syntax :** `{cmd}delsudo` <reply/user id>\
-        \n  •  **Function : **Untuk Menghapus User dari Pengguna Sudo.\
+        \n\n  »  **Perintah :** `{cmd}sudo`\
+        \n  »  **Kegunaan : **Untuk Mengecek informasi Sudo.\
+        \n\n  »  **Perintah :** `{cmd}addsudo` <reply/user id>\
+        \n  »  **Kegunaan : **Untuk Menambahkan User ke Pengguna Sudo.\
+        \n\n  »  **Perintah :** `{cmd}delsudo` <reply/user id>\
+        \n  »  **Kegunaan : **Untuk Menghapus User dari Pengguna Sudo.\
         \n\n  •  **NOTE: Berikan Hak Sudo anda Kepada orang yang anda percayai**\
     "
     }

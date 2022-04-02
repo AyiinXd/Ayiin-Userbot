@@ -71,8 +71,8 @@ async def ssvideo(event):
 CMD_HELP.update(
     {
         "ssvideo": f"**Plugin : **`ssvideo`\
-        \n\n  •  **Syntax :** `{cmd}ssvideo <frame>`\
-        \n  •  **Function : **Untuk Screenshot video dari frame per frame\
+        \n\n  »  **Perintah :** `{cmd}ssvideo <frame>`\
+        \n  »  **Kegunaan : **Untuk Screenshot video dari frame per frame\
     "
     }
 )

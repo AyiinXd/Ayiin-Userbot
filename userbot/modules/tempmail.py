@@ -32,6 +32,6 @@ async def _(event):
 CMD_HELP.update(
     {
         "tempmail": f"**Plugin : **`tempmail`\
-        \n\n  •  **Syntax :** `{cmd}tm`\
-        \n  •  **Function : Mendapatkan Email Gratis Dari Temp Mail"}
+        \n\n  »  **Perintah :** `{cmd}tm`\
+        \n  »  **Kegunaan : Mendapatkan Email Gratis Dari Temp Mail"}
 )

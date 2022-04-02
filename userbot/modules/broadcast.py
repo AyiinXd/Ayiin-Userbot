@@ -316,22 +316,22 @@ async def catbroadcast_delete(event):
 CMD_HELP.update(
     {
         "broadcast": f"**Plugin : **`broadcast`\
-        \n\n  •  **Syntax :** `{cmd}sendto` <category_name>\
-        \n  •  **Function : **akan mengirim pesan balasan ke semua obrolan dalam kategori yang diberikan.\
-        \n\n  •  **Syntax :** `{cmd}fwdto` <category_name>\
-        \n  •  **Function : **akan meneruskan pesan yang dibalas ke semua obrolan di kategori berikan. \
-        \n\n  •  **Syntax :** `{cmd}addto` <category name>\
-        \n  •  **Function : **Ini akan menambahkan obrolan / pengguna / saluran ini ke kategori nama yang diberikan. \
-        \n\n  •  **Syntax :** `{cmd}rmfrom` <category name>\
-        \n  •  **Function : **Untuk menghapus Obrolan / pengguna / saluran dari nama kategori yang diberikan. \
-        \n\n  •  **Syntax :** `{cmd}bclist` <category_name>\
-        \n  •  **Function : **Akan menampilkan daftar semua obrolan dalam kategori yang diberikan. \
-        \n\n  •  **Syntax :** `{cmd}bclistall`\
-        \n  •  **Function : **Akan menampilkan daftar semua nama kategori. \
-        \n\n  •  **Syntax :** `{cmd}frmfrom` <category_name/chat_id>\
-        \n  •  **Function : **Untuk memaksa menghapus chat_id yang diberikan dari nama kategori yang diberikan berguna ketika Anda meninggalkan obrolan itu atau melarang Anda di sana \
-        \n\n  •  **Syntax :** `{cmd}delc` <category_name>\
-        \n  •  **Function : **Menghapus kategori sepenuhnya di database \
+        \n\n  »  **Perintah :** `{cmd}sendto` <category_name>\
+        \n  »  **Kegunaan : **akan mengirim pesan balasan ke semua obrolan dalam kategori yang diberikan.\
+        \n\n  »  **Perintah :** `{cmd}fwdto` <category_name>\
+        \n  »  **Kegunaan : **akan meneruskan pesan yang dibalas ke semua obrolan di kategori berikan. \
+        \n\n  »  **Perintah :** `{cmd}addto` <category name>\
+        \n  »  **Kegunaan : **Ini akan menambahkan obrolan / pengguna / saluran ini ke kategori nama yang diberikan. \
+        \n\n  »  **Perintah :** `{cmd}rmfrom` <category name>\
+        \n  »  **Kegunaan : **Untuk menghapus Obrolan / pengguna / saluran dari nama kategori yang diberikan. \
+        \n\n  »  **Perintah :** `{cmd}bclist` <category_name>\
+        \n  »  **Kegunaan : **Akan menampilkan daftar semua obrolan dalam kategori yang diberikan. \
+        \n\n  »  **Perintah :** `{cmd}bclistall`\
+        \n  »  **Kegunaan : **Akan menampilkan daftar semua nama kategori. \
+        \n\n  »  **Perintah :** `{cmd}frmfrom` <category_name/chat_id>\
+        \n  »  **Kegunaan : **Untuk memaksa menghapus chat_id yang diberikan dari nama kategori yang diberikan berguna ketika Anda meninggalkan obrolan itu atau melarang Anda di sana \
+        \n\n  »  **Perintah :** `{cmd}delc` <category_name>\
+        \n  »  **Kegunaan : **Menghapus kategori sepenuhnya di database \
     "
     }
 )

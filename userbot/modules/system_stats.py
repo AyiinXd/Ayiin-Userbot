@@ -209,14 +209,14 @@ async def amireallyalive(alive):
 CMD_HELP.update(
     {
         "system": f"**Plugin : **`system`.\
-        \n\n  •  **Syntax :** `{cmd}sysinfo`\
-        \n  •  **Function : **Informasi sistem menggunakan neofetch mengirim sebagai gambar.\
-        \n\n  •  **Syntax :** `{cmd}sysd`\
-        \n  •  **Function : **Informasi sistem menggunakan neofetch.\
-        \n\n\n  •  **Syntax :** `{cmd}botver`\
-        \n  •  **Function : **Menampilkan versi userbot.\
-        \n\n  •  **Syntax :** `{cmd}spc`\
-        \n  •  **Function : **Menampilkan spesifikasi sistem secara lengkap.\
+        \n\n  »  **Perintah :** `{cmd}sysinfo`\
+        \n  »  **Kegunaan : **Informasi sistem menggunakan neofetch mengirim sebagai gambar.\
+        \n\n  »  **Perintah :** `{cmd}sysd`\
+        \n  »  **Kegunaan : **Informasi sistem menggunakan neofetch.\
+        \n\n\n  »  **Perintah :** `{cmd}botver`\
+        \n  »  **Kegunaan : **Menampilkan versi userbot.\
+        \n\n  »  **Perintah :** `{cmd}spc`\
+        \n  »  **Kegunaan : **Menampilkan spesifikasi sistem secara lengkap.\
     "
     }
 )
@@ -225,8 +225,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "alive": f"**Plugin : **`alive`\
-        \n\n  •  **Syntax :** `{cmd}alive` atau `{cmd}yinson`\
-        \n  •  **Function : **Untuk melihat apakah bot Anda berfungsi atau tidak.\
+        \n\n  »  **Perintah :** `{cmd}alive` atau `{cmd}yinson`\
+        \n  »  **Kegunaan : **Untuk melihat apakah bot Anda berfungsi atau tidak.\
     "
     }
 )

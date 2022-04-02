@@ -182,14 +182,14 @@ async def _(event):
 CMD_HELP.update(
     {
         "gcast": f"**Plugin : **`gcast`\
-        \n\n  •  **Syntax :** `{cmd}gcast` <text/reply media>\
-        \n  •  **Function : **Mengirim Global Broadcast pesan ke Seluruh Grup yang kamu masuk. (Bisa Mengirim Media/Sticker)\
-        \n\n  •  **Syntax :** `{cmd}blchat`\
-        \n  •  **Function : **Untuk Mengecek informasi daftar blacklist gcast.\
-        \n\n  •  **Syntax :** `{cmd}addblacklist`\
-        \n  •  **Function : **Untuk Menambahkan grup tersebut ke blacklist gcast.\
-        \n\n  •  **Syntax :** `{cmd}delblacklist`\
-        \n  •  **Function : **Untuk Menghapus grup tersebut dari blacklist gcast.\
+        \n\n  »  **Perintah :** `{cmd}gcast` <text/reply media>\
+        \n  »  **Kegunaan : **Mengirim Global Broadcast pesan ke Seluruh Grup yang kamu masuk. (Bisa Mengirim Media/Sticker)\
+        \n\n  »  **Perintah :** `{cmd}blchat`\
+        \n  »  **Kegunaan : **Untuk Mengecek informasi daftar blacklist gcast.\
+        \n\n  »  **Perintah :** `{cmd}addblacklist`\
+        \n  »  **Kegunaan : **Untuk Menambahkan grup tersebut ke blacklist gcast.\
+        \n\n  »  **Perintah :** `{cmd}delblacklist`\
+        \n  »  **Kegunaan : **Untuk Menghapus grup tersebut dari blacklist gcast.\
         \n  •  **Note : **Ketik perintah** `{cmd}addblacklist` **dan** `{cmd}delblacklist` **di grup yang kamu Blacklist.\
     "
     }
@@ -199,8 +199,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "gucast": f"**Plugin : **`gucast`\
-        \n\n  •  **Syntax :** `{cmd}gucast` <text/reply media>\
-        \n  •  **Function : **Mengirim Global Broadcast pesan ke Seluruh Private Massage / PC yang masuk. (Bisa Mengirim Media/Sticker)\
+        \n\n  »  **Perintah :** `{cmd}gucast` <text/reply media>\
+        \n  »  **Kegunaan : **Mengirim Global Broadcast pesan ke Seluruh Private Massage / PC yang masuk. (Bisa Mengirim Media/Sticker)\
     "
     }
 )

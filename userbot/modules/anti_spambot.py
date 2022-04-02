@@ -186,8 +186,8 @@ async def ANTI_SPAMBOTS(welcm):
 CMD_HELP.update(
     {
         "anti_spambot": "**Plugin : **`anti_spambot`\
-        \n\n  •  **Syntax :** Ubah Var **ANTI_SPAMBOT_SHOUT & ANTI_SPAMBOT** Menjadi **True**\
-        \n  •  **Function : **Modul ini akan melarang (atau memberi tahu admin grup tentang) spammer (s) jika mereka cocok dengan algoritma anti-spam userbot. Banned by cas ban @combot\
+        \n\n  »  **Perintah :** Ubah Var **ANTI_SPAMBOT_SHOUT & ANTI_SPAMBOT** Menjadi **True**\
+        \n  »  **Kegunaan : **Modul ini akan melarang (atau memberi tahu admin grup tentang) spammer (s) jika mereka cocok dengan algoritma anti-spam userbot. Banned by cas ban @combot\
     "
     }
 )

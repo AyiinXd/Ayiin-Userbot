@@ -34,8 +34,8 @@ async def gps(event):
 CMD_HELP.update(
     {
         "gps": f"**Plugin : **`gps`\
-        \n\n  •  **Syntax :** `{cmd}gps` <nama lokasi>\
-        \n  •  **Function : **Untuk Mendapatkan Lokasi Map.\
+        \n\n  »  **Perintah :** `{cmd}gps` <nama lokasi>\
+        \n  »  **Kegunaan : **Untuk Mendapatkan Lokasi Map.\
     "
     }
 )

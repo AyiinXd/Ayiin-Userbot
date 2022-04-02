@@ -72,8 +72,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "github": f"**Plugin : **`github`\
-        \n\n  •  **Syntax :** `{cmd}github` <username>\
-        \n  •  **Function : **Menampilkan informasi tentang user di GitHub dari username yang diberikan\
+        \n\n  »  **Perintah :** `{cmd}github` <username>\
+        \n  »  **Kegunaan : **Menampilkan informasi tentang user di GitHub dari username yang diberikan\
     "
     }
 )

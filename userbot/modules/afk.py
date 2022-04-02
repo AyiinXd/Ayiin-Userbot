@@ -188,10 +188,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "afk": f"**Plugin : **`afk`\
-        \n\n  •  **Syntax :** `{cmd}afk` <alasan> bisa <sambil reply sticker/foto/gif/media>\
-        \n  •  **Function : **Memberi tahu kalau Master sedang afk bisa dengan menampilkan media keren ketika seseorang menandai atau membalas salah satu pesan atau dm Anda.\
-        \n\n  •  **Syntax :** `{cmd}off`\
-        \n  •  **Function : **Memberi tahu kalau Master sedang OFFLINE, dan menguubah nama belakang menjadi 【 OFF 】 \
+        \n\n  »  **Perintah :** `{cmd}afk` <alasan> bisa <sambil reply sticker/foto/gif/media>\
+        \n  »  **Kegunaan : **Memberi tahu kalau Master sedang afk bisa dengan menampilkan media keren ketika seseorang menandai atau membalas salah satu pesan atau dm Anda.\
+        \n\n  »  **Perintah :** `{cmd}off`\
+        \n  »  **Kegunaan : **Memberi tahu kalau Master sedang OFFLINE, dan menguubah nama belakang menjadi 【 OFF 】 \
     "
     }
 )

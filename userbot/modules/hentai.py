@@ -42,8 +42,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "hentai": f"**Plugin : **`hentai`\
-        \n\n  •  **Syntax :** `{cmd}hentai` <link nhentai>\
-        \n  •  **Function : **Melihat nhentai di telegra.ph XD\
+        \n\n  »  **Perintah :** `{cmd}hentai` <link nhentai>\
+        \n  »  **Kegunaan : **Melihat nhentai di telegra.ph XD\
     "
     }
 )

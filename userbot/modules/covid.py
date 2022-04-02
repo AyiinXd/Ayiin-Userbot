@@ -57,10 +57,10 @@ async def corona(event):
 CMD_HELP.update(
     {
         "covid": f"**Plugin : **`covid`\
-        \n\n  •  **Syntax :** `{cmd}covid`\
-        \n  •  **Function : **Memberikan Informasi semua data COVID-19 dari semua negara.\
-        \n\n  •  **Syntax :** `{cmd}covid` <nama negara>\
-        \n  •  **Function : **Memberikan Informasi tentang data COVID-19 dari negara.\
+        \n\n  »  **Perintah :** `{cmd}covid`\
+        \n  »  **Kegunaan : **Memberikan Informasi semua data COVID-19 dari semua negara.\
+        \n\n  »  **Perintah :** `{cmd}covid` <nama negara>\
+        \n  »  **Kegunaan : **Memberikan Informasi tentang data COVID-19 dari negara.\
     "
     }
 )

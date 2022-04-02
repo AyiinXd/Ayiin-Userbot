@@ -61,12 +61,12 @@ async def _(event):
 CMD_HELP.update(
     {
         "truth_dare": f"**Plugin :** truth_dare\
-        \n\n  •  Perintah : `{cmd}truth`\
-        \n  •  Function : Untuk mengirim pesan truth\
-        \n\n  •  Perintah : `{cmd}dare`\
-        \n  •  Function : Untuk mengirim pesan dare\
-        \n\n  •  Perintah : `{cmd}spill`\
-        \n  •  Function : Untuk Pertanyaan\
+        \n\n  »  **Perintah :** `{cmd}truth`\
+        \n  »  **Function : **Untuk mengirim pesan truth.\
+        \n\n  »  **Perintah :** `{cmd}dare`\
+        \n  »  **Kegunaan : **Untuk mengirim pesan dare.\
+        \n\n  »  **Perintah :** `{cmd}spill`\
+        \n  »  **Function : **Untuk Pertanyaan.\
     "
     }
 )

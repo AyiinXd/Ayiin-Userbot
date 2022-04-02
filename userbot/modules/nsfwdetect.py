@@ -59,8 +59,8 @@ async def detect(event):
 CMD_HELP.update(
     {
         "nsfw": "**Plugin : **`nsfw`\
-        \n\n  •  **Syntax :** `.detect` <reply media>\
-        \n  •  **Function : **Untuk mendeteksi konten 18+ dengan gambar balasan.\
+        \n\n  »  **Perintah :** `.detect` <reply media>\
+        \n  »  **Kegunaan : **Untuk mendeteksi konten 18+ dengan gambar balasan.\
     "
     }
 )

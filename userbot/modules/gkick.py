@@ -71,8 +71,8 @@ async def gspide(rk):
 CMD_HELP.update(
     {
         "gkick": f"**Plugin : **`gkick`\
-        \n\n  •  **Syntax :** `{cmd}gkick` <alasan>\
-        \n  •  **Function : **kick pengguna secara global dari semua Administrasi Grup di mana Anda berada.\
+        \n\n  »  **Perintah :** `{cmd}gkick` <alasan>\
+        \n  »  **Kegunaan : **kick pengguna secara global dari semua Administrasi Grup di mana Anda berada.\
     "
     }
 )

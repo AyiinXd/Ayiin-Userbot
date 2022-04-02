@@ -284,16 +284,16 @@ async def delsql(event):
 CMD_HELP.update(
     {
         "heroku": f"**Plugin : **`heroku`\
-        \n\n  •  **Syntax :** `{cmd}set var <nama var> <value>`\
-        \n  •  **Function : **Tambahkan Variabel Baru Atau Memperbarui Variabel Setelah Menyetel Variabel Ayiin-Userbot Akan Di Restart.\
-        \n\n  •  **Syntax :** `{cmd}get var or {cmd}get var <nama var>`\
-        \n  •  **Function : **Dapatkan Variabel Yang Ada,Harap Gunakan Di Grup Private Anda!\
-        \n\n  •  **Syntax :** `{cmd}del var <nama var>`\
-        \n  •  **Function : **Untuk Menghapus var heroku\
-        \n\n  •  **Syntax :** `{cmd}usage` atau `{cmd}kuota`\
-        \n  •  **Function : **Check Kouta Dyno Heroku\
-        \n\n  •  **Syntax :** `{cmd}usange`\
-        \n  •  **Function : **Fake Check Kouta Dyno Heroku jadi 9999jam Untuk menipu temanmu wkwk\
+        \n\n  »  **Perintah :** `{cmd}set var <nama var> <value>`\
+        \n  »  **Kegunaan : **Tambahkan Variabel Baru Atau Memperbarui Variabel Setelah Menyetel Variabel Ayiin-Userbot Akan Di Restart.\
+        \n\n  »  **Perintah :** `{cmd}get var or {cmd}get var <nama var>`\
+        \n  »  **Kegunaan : **Dapatkan Variabel Yang Ada,Harap Gunakan Di Grup Private Anda!\
+        \n\n  »  **Perintah :** `{cmd}del var <nama var>`\
+        \n  »  **Kegunaan : **Untuk Menghapus var heroku\
+        \n\n  »  **Perintah :** `{cmd}usage` atau `{cmd}kuota`\
+        \n  »  **Kegunaan : **Check Kouta Dyno Heroku\
+        \n\n  »  **Perintah :** `{cmd}usange`\
+        \n  »  **Kegunaan : **Fake Check Kouta Dyno Heroku jadi 9999jam Untuk menipu temanmu wkwk\
     "
     }
 )
@@ -302,12 +302,12 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "database": f"**Plugin : **`database`\
-        \n\n  •  **Syntax :** `{cmd}setdb <nama var> <value>`\
-        \n  •  **Function : **Tambahkan Variabel SQL Tanpa Merestart userbot.\
-        \n\n  •  **Syntax :** `{cmd}getdb <nama var>`\
-        \n  •  **Function : **Dapatkan Variabel SQL Yang Ada Harap Gunakan Di Grup Private Anda!\
-        \n\n  •  **Syntax :** `{cmd}deldb <nama var>`\
-        \n  •  **Function : **Untuk Menghapus Variabel SQL\
+        \n\n  »  **Perintah :** `{cmd}setdb <nama var> <value>`\
+        \n  »  **Kegunaan : **Tambahkan Variabel SQL Tanpa Merestart userbot.\
+        \n\n  »  **Perintah :** `{cmd}getdb <nama var>`\
+        \n  »  **Kegunaan : **Dapatkan Variabel SQL Yang Ada Harap Gunakan Di Grup Private Anda!\
+        \n\n  »  **Perintah :** `{cmd}deldb <nama var>`\
+        \n  »  **Kegunaan : **Untuk Menghapus Variabel SQL\
     "
     }
 )

@@ -247,10 +247,10 @@ async def ayiin(ganteng):
 CMD_HELP.update(
     {
         "ping": f"**Plugin : **`ping`\
-        \n\n  •  **Syntax :** `{cmd}ping` ; `{cmd}lping` ; `{cmd}xping` ; `{cmd}kping`\
-        \n  •  **Function : **Untuk menunjukkan ping userbot.\
-        \n\n  •  **Syntax :** `{cmd}pong`\
-        \n  •  **Function : **Sama seperti perintah ping\
+        \n\n  »  **Perintah :** `{cmd}ping` ; `{cmd}lping` ; `{cmd}xping` ; `{cmd}kping`\
+        \n  »  **Kegunaan : **Untuk menunjukkan ping userbot.\
+        \n\n  »  **Perintah :** `{cmd}pong`\
+        \n  »  **Kegunaan : **Sama seperti perintah ping\
     "
     }
 )
@@ -259,8 +259,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "speedtest": f"**Plugin : **`speedtest`\
-        \n\n  •  **Syntax :** `{cmd}speedtest`\
-        \n  •  **Function : **Untuk Mengetes kecepatan server userbot.\
+        \n\n  »  **Perintah :** `{cmd}speedtest`\
+        \n  »  **Kegunaan : **Untuk Mengetes kecepatan server userbot.\
     "
     }
 )

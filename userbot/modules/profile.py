@@ -172,20 +172,20 @@ async def remove_profilepic(delpfp):
 CMD_HELP.update(
     {
         "profil": f"**Plugin : **`profil`\
-        \n\n  •  **Syntax :** `{cmd}username` <username baru>\
-        \n  •  **Function : **Menganti Username Telegram.\
-        \n\n  •  **Syntax :** `{cmd}name` <nama depan> atau `{cmd}name` <Nama Depan> <Nama Belakang>\
-        \n  •  **Function : **Menganti Nama Telegram Anda.\
-        \n\n  •  **Syntax :** `{cmd}setbio` <bio baru>\
-        \n  •  **Function : **Untuk Mengganti Bio Telegram.\
-        \n\n  •  **Syntax :** `{cmd}setpfp`\
-        \n  •  **Function : **Balas Ke Gambar Ketik {cmd}setpfp Untuk Mengganti Foto Profil Telegram.\
-        \n\n  •  **Syntax :** `{cmd}delpfp` atau `{cmd}delpfp` <berapa profil>/<all>\
-        \n  •  **Function : **Menghapus Foto Profil Telegram.\
-        \n\n  •  **Syntax :** `{cmd}reserved`\
-        \n  •  **Function : **Menunjukkan nama pengguna yang dipesan oleh Anda.\
-        \n\n  •  **Syntax :** `{cmd}count`\
-        \n  •  **Function : **Menghitung Grup, Chat, Bot dll.\
+        \n\n  »  **Perintah :** `{cmd}username` <username baru>\
+        \n  »  **Kegunaan : **Menganti Username Telegram.\
+        \n\n  »  **Perintah :** `{cmd}name` <nama depan> atau `{cmd}name` <Nama Depan> <Nama Belakang>\
+        \n  »  **Kegunaan : **Menganti Nama Telegram Anda.\
+        \n\n  »  **Perintah :** `{cmd}setbio` <bio baru>\
+        \n  »  **Kegunaan : **Untuk Mengganti Bio Telegram.\
+        \n\n  »  **Perintah :** `{cmd}setpfp`\
+        \n  »  **Kegunaan : **Balas Ke Gambar Ketik {cmd}setpfp Untuk Mengganti Foto Profil Telegram.\
+        \n\n  »  **Perintah :** `{cmd}delpfp` atau `{cmd}delpfp` <berapa profil>/<all>\
+        \n  »  **Kegunaan : **Menghapus Foto Profil Telegram.\
+        \n\n  »  **Perintah :** `{cmd}reserved`\
+        \n  »  **Kegunaan : **Menunjukkan nama pengguna yang dipesan oleh Anda.\
+        \n\n  »  **Perintah :** `{cmd}count`\
+        \n  »  **Kegunaan : **Menghitung Grup, Chat, Bot dll.\
     "
     }
 )

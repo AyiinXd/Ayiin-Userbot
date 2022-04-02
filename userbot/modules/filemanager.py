@@ -244,16 +244,16 @@ async def unzip_file(event):
 CMD_HELP.update(
     {
         "file": f"**Plugin : **`file`\
-        \n\n  •  **Syntax :** `{cmd}ls`\
-        \n  •  **Function : **Untuk Melihat Daftar file di dalam direktori server\
-        \n\n  •  **Syntax :** `{cmd}rm` <directory/file>\
-        \n  •  **Function : **Untuk Menghapus File atau folder yg tersimpan di server\
-        \n\n  •  **Syntax :** `{cmd}rn` <directory/file> | <nama baru>\
-        \n  •  **Function : **Untuk Mengubah nama file atau direktori\
-        \n\n  •  **Syntax :** `{cmd}zip` <file/folder path> | <nama zip> (optional)\
-        \n  •  **Function : **Untuk mengcompress file atau folder.\
-        \n\n  •  **Syntax :** `{cmd}unzip` <path ke zip file>\
-        \n  •  **Function : **Untuk mengekstrak file arsip.\
+        \n\n  »  **Perintah :** `{cmd}ls`\
+        \n  »  **Kegunaan : **Untuk Melihat Daftar file di dalam direktori server\
+        \n\n  »  **Perintah :** `{cmd}rm` <directory/file>\
+        \n  »  **Kegunaan : **Untuk Menghapus File atau folder yg tersimpan di server\
+        \n\n  »  **Perintah :** `{cmd}rn` <directory/file> | <nama baru>\
+        \n  »  **Kegunaan : **Untuk Mengubah nama file atau direktori\
+        \n\n  »  **Perintah :** `{cmd}zip` <file/folder path> | <nama zip> (optional)\
+        \n  »  **Kegunaan : **Untuk mengcompress file atau folder.\
+        \n\n  »  **Perintah :** `{cmd}unzip` <path ke zip file>\
+        \n  »  **Kegunaan : **Untuk mengekstrak file arsip.\
         \n  •  **NOTE : **Hanya bisa untuk file ZIP, RAR dan TAR!\
     "
     }

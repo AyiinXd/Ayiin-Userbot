@@ -511,27 +511,27 @@ async def phcomment(event):
 CMD_HELP.update(
     {
         "imgmeme": f"**Plugin : **`imgmeme`\
-        \n\n  •  **Syntax :** `{cmd}fgs`\
-        \n  •  **Function : **Meme dari search google yang di bisa custom user!\
+        \n\n  »  **Perintah :** `{cmd}fgs`\
+        \n  »  **Kegunaan : **Meme dari search google yang di bisa custom user!\
         \n  •  **Example  : **`{cmd}fgs [Teks Atas] ; [Teks Bawah]`\
-        \n\n  •  **Syntax :** `{cmd}trump`\
-        \n  •  **Function : **Membuat Tweet dari akun twitter Donald Trump\
-        \n\n  •  **Syntax :** `{cmd}modi` <text>\
-        \n  •  **Function : **Membuat Tweet dari akun twitter @narendramodi\
-        \n\n  •  **Syntax :** `{cmd}cmm` <text>\
-        \n  •  **Function : **Membuat meme change my mind\
-        \n\n  •  **Syntax :** `{cmd}kanna` <text>\
-        \n  •  **Function : **Membuat meme tulisan dari nana anime bawa kertas\
-        \n\n  •  **Syntax :** `{cmd}ph` <text>\
-        \n  •  **Function : **Membuat Tweet dari website pornhub\
-        \n\n  •  **Syntax :** `{cmd}threat` <text> (sambil reply media foto/sticker)\
-        \n  •  **Function : **Membuat meme 3 hoax terbesar\
-        \n\n  •  **Syntax :** `{cmd}trash` <text> (sambil reply media foto/sticker)\
-        \n  •  **Function : **Membuat meme list sampah\
-        \n\n  •  **Syntax :** `{cmd}trap` <text> (sambil reply media foto/sticker)\
-        \n  •  **Function : **Membuat meme trapcard\
-        \n\n  •  **Syntax :** `{cmd}tweet`\
-        \n  •  **Function : **Membuat Tweet dari akun twitter\
+        \n\n  »  **Perintah :** `{cmd}trump`\
+        \n  »  **Kegunaan : **Membuat Tweet dari akun twitter Donald Trump\
+        \n\n  »  **Perintah :** `{cmd}modi` <text>\
+        \n  »  **Kegunaan : **Membuat Tweet dari akun twitter @narendramodi\
+        \n\n  »  **Perintah :** `{cmd}cmm` <text>\
+        \n  »  **Kegunaan : **Membuat meme change my mind\
+        \n\n  »  **Perintah :** `{cmd}kanna` <text>\
+        \n  »  **Kegunaan : **Membuat meme tulisan dari nana anime bawa kertas\
+        \n\n  »  **Perintah :** `{cmd}ph` <text>\
+        \n  »  **Kegunaan : **Membuat Tweet dari website pornhub\
+        \n\n  »  **Perintah :** `{cmd}threat` <text> (sambil reply media foto/sticker)\
+        \n  »  **Kegunaan : **Membuat meme 3 hoax terbesar\
+        \n\n  »  **Perintah :** `{cmd}trash` <text> (sambil reply media foto/sticker)\
+        \n  »  **Kegunaan : **Membuat meme list sampah\
+        \n\n  »  **Perintah :** `{cmd}trap` <text> (sambil reply media foto/sticker)\
+        \n  »  **Kegunaan : **Membuat meme trapcard\
+        \n\n  »  **Perintah :** `{cmd}tweet`\
+        \n  »  **Kegunaan : **Membuat Tweet dari akun twitter\
         \n  •  **Example  : **{cmd}tweet @ayiin.ganteng (harus pake . [titik])\
     "
     }

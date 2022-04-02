@@ -74,24 +74,24 @@ async def _(event):
 CMD_HELP.update(
     {
         "salam": f"**Plugin : **`salam`\
-        \n\n  •  **Syntax :** `{cmd}p`\
-        \n  •  **Function : **Assalamualaikum Dulu Biar Sopan..\
-        \n\n  •  **Syntax :** `{cmd}pe`\
-        \n  •  **Function : **salam Kenal dan salam\
-        \n\n  •  **Syntax :** `{cmd}l`\
-        \n  •  **Function : **Untuk Menjawab salam\
-        \n\n  •  **Syntax :** `{cmd}ass`\
-        \n  •  **Function : **Salam Bahas arab\
-        \n\n  •  **Syntax :** `{cmd}semangat`\
-        \n  •  **Function : **Memberikan Semangat.\
-        \n\n  •  **Syntax :** `{cmd}ywc`\
-        \n  •  **Function : **nMenampilkan Sama sama\
-        \n\n  •  **Syntax :** `{cmd}sayang`\
-        \n  •  **Function : **Kata I Love You.\
-        \n\n  •  **Syntax :** `{cmd}k`\
-        \n  •  **Function : **LU SEMUA NGENTOT 🔥\
-        \n\n  •  **Syntax :** `{cmd}j`\
-        \n  •  **Function : **NIMBRUNG GOBLOKK!!!🔥\
+        \n\n  »  **Perintah :** `{cmd}p`\
+        \n  »  **Kegunaan : **Assalamualaikum Dulu Biar Sopan..\
+        \n\n  »  **Perintah :** `{cmd}pe`\
+        \n  »  **Kegunaan : **salam Kenal dan salam\
+        \n\n  »  **Perintah :** `{cmd}l`\
+        \n  »  **Kegunaan : **Untuk Menjawab salam\
+        \n\n  »  **Perintah :** `{cmd}ass`\
+        \n  »  **Kegunaan : **Salam Bahas arab\
+        \n\n  »  **Perintah :** `{cmd}semangat`\
+        \n  »  **Kegunaan : **Memberikan Semangat.\
+        \n\n  »  **Perintah :** `{cmd}ywc`\
+        \n  »  **Kegunaan : **Menampilkan Sama sama\
+        \n\n  »  **Perintah :** `{cmd}sayang`\
+        \n  »  **Kegunaan : **Kata I Love You.\
+        \n\n  »  **Perintah :** `{cmd}k`\
+        \n  »  **Kegunaan : **LU SEMUA NGENTOT 🔥\
+        \n\n  »  **Perintah :** `{cmd}j`\
+        \n  »  **Kegunaan : **NIMBRUNG GOBLOKK!!!🔥\
     "
     }
 )

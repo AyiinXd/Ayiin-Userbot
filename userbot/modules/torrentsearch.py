@@ -154,10 +154,10 @@ async def tor_search(event):
 CMD_HELP.update(
     {
         "torrent": f"**Plugin : **`torrent`\
-        \n\n  •  **Syntax :** `{cmd}ts` <search query>\
-        \n  •  **Function : **Cari query torrent dan posting ke dogbin.\
-        \n\n  •  **Syntax :** `{cmd}tos` <search query>\
-        \n  •  **Function : **Cari magnet torrent dari query.\
+        \n\n  »  **Perintah :** `{cmd}ts` <search query>\
+        \n  »  **Kegunaan : **Cari query torrent dan posting ke dogbin.\
+        \n\n  »  **Perintah :** `{cmd}tos` <search query>\
+        \n  »  **Kegunaan : **Cari magnet torrent dari query.\
     "
     }
 )

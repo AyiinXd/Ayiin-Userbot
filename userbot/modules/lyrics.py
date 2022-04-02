@@ -29,8 +29,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "lyrics": f"**Plugin : **`lyrics`\
-        \n\n  •  **Syntax :** `{cmd}lyrics` <judul lagu>\
-        \n  •  **Function : **Dapatkan lirik lagu yang cocok dengan judul lagu.\
+        \n\n  »  **Perintah :** `{cmd}lyrics` <judul lagu>\
+        \n  »  **Kegunaan : **Dapatkan lirik lagu yang cocok dengan judul lagu.\
     "
     }
 )

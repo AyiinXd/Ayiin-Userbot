@@ -59,8 +59,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "shortlink": f"**Plugin : **`shortlink`\
-        \n\n  •  **Syntax :** `{cmd}short` <url/reply link>\
-        \n  •  **Function : **Untuk menyimpelkan link url menjadi pendek menggunakan @ShortUrlBot\
+        \n\n  »  **Perintah :** `{cmd}short` <url/reply link>\
+        \n  »  **Kegunaan : **Untuk menyimpelkan link url menjadi pendek menggunakan @ShortUrlBot\
     "
     }
 )

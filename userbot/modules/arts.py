@@ -196,24 +196,24 @@ async def _(event):
 CMD_HELP.update(
     {
         "arts": f"**Plugin : **`arts`\
-        \n\n  •  **Syntax :** `{cmd}frog`\
-        \n  •  **Function : **arts Forg.\
-        \n\n  •  **Syntax :** `{cmd}dfrog`\
-        \n  •  **Function : **arts forg bundir.\
-        \n\n  •  **Syntax :** `{cmd}strump`\
-        \n  •  **Function : **arts donald Trump.\
-        \n\n  •  **Syntax :** `{cmd}scina`\
-        \n  •  **Function : **arts presiden cina.\
-        \n\n  •  **Syntax :** `{cmd}wlcm`\
-        \n  •  **Function : **arts beruang welcome.\
-        \n\n  •  **Syntax :** `{cmd}gta`\
-        \n  •  **Function : **arts si jhonson.\
-        \n\n  •  **Syntax :** `{cmd}sthink`\
-        \n  •  **Function : **arts berfikir\
-        \n\n  •  **Syntax :** `{cmd}punten` ; `{cmd}pantau`\
-        \n  •  **Function : **Arts Beruang kek lagi mantau.\
-        \n\n  •  **Syntax :** `{cmd}sadboy`\
-        \n  •  **Function : **ya sadboy coba aja.\
+        \n\n  »  **Perintah :** `{cmd}frog`\
+        \n  »  **Kegunaan : **arts Forg.\
+        \n\n  »  **Perintah :** `{cmd}dfrog`\
+        \n  »  **Kegunaan : **arts forg bundir.\
+        \n\n  »  **Perintah :** `{cmd}strump`\
+        \n  »  **Kegunaan : **arts donald Trump.\
+        \n\n  »  **Perintah :** `{cmd}scina`\
+        \n  »  **Kegunaan : **arts presiden cina.\
+        \n\n  »  **Perintah :** `{cmd}wlcm`\
+        \n  »  **Kegunaan : **arts beruang welcome.\
+        \n\n  »  **Perintah :** `{cmd}gta`\
+        \n  »  **Kegunaan : **arts si jhonson.\
+        \n\n  »  **Perintah :** `{cmd}sthink`\
+        \n  »  **Kegunaan : **arts berfikir\
+        \n\n  »  **Perintah :** `{cmd}punten` ; `{cmd}pantau`\
+        \n  »  **Kegunaan : **Arts Beruang kek lagi mantau.\
+        \n\n  »  **Perintah :** `{cmd}sadboy`\
+        \n  »  **Kegunaan : **ya sadboy coba aja.\
     "
     }
 )

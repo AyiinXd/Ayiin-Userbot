@@ -2011,8 +2011,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "scam": f"**Plugin : **`scam`\
-        \n\n  •  **Syntax :** `{cmd}scam` <action> <detik>\
-        \n  •  **Function : **Untuk menunjukkan tindakan palsu dengan jangka waktu (sama seperti fakeaction)\
+        \n\n  »  **Perintah :** `{cmd}scam` <action> <detik>\
+        \n  »  **Kegunaan : **Untuk menunjukkan tindakan palsu dengan jangka waktu (sama seperti fakeaction)\
         \n  •  **List Action :** `typing`, `contact`, `game`, `location`, `voice`, `round`, `video`, `photo`, `document`\
 \
     "

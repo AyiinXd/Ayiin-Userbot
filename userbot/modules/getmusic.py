@@ -430,18 +430,18 @@ async def upload_track(track_location, message):
 CMD_HELP.update(
     {
         "getmusic": f"**Plugin : **`getmusic`\
-        \n\n  •  **Syntax :** `{cmd}smd` <nama lagu>\
-        \n  •  **Function : **Mendowload lagu dari bot @SpotifyMusicDownloaderBot\
-        \n\n  •  **Syntax :** `{cmd}smd now`\
-        \n  •  **Function : **Unduh penggunaan scrobble LastFM saat ini dari bot @SpotifyMusicDownloaderBot\
-        \n\n  •  **Syntax :** `{cmd}net` <nama lagu>\
-        \n  •  **Function : **Mendowload lagu dari bot @WooMaiBot\
-        \n\n  •  **Syntax :** `{cmd}net now`\
-        \n  •  **Function : **Unduh penggunaan scrobble LastFM saat ini dari bot @WooMaiBot\
-        \n\n  •  **Syntax :** `{cmd}mhb` <Link Spotify/Deezer>\
-        \n  •  **Function : **Mendowload lagu dari Spotify atau Deezer dari bot @MusicsHunterBot\
-        \n\n  •  **Syntax :** `{cmd}deez` <link spotify/deezer> FORMAT\
-        \n  •  **Function : **Mendowload lagu dari deezer atau spotify.\
+        \n\n  »  **Perintah :** `{cmd}smd` <nama lagu>\
+        \n  »  **Kegunaan : **Mendowload lagu dari bot @SpotifyMusicDownloaderBot\
+        \n\n  »  **Perintah :** `{cmd}smd now`\
+        \n  »  **Kegunaan : **Unduh penggunaan scrobble LastFM saat ini dari bot @SpotifyMusicDownloaderBot\
+        \n\n  »  **Perintah :** `{cmd}net` <nama lagu>\
+        \n  »  **Kegunaan : **Mendowload lagu dari bot @WooMaiBot\
+        \n\n  »  **Perintah :** `{cmd}net now`\
+        \n  »  **Kegunaan : **Unduh penggunaan scrobble LastFM saat ini dari bot @WooMaiBot\
+        \n\n  »  **Perintah :** `{cmd}mhb` <Link Spotify/Deezer>\
+        \n  »  **Kegunaan : **Mendowload lagu dari Spotify atau Deezer dari bot @MusicsHunterBot\
+        \n\n  »  **Perintah :** `{cmd}deez` <link spotify/deezer> FORMAT\
+        \n  »  **Kegunaan : **Mendowload lagu dari deezer atau spotify.\
         \n  •  **Format   : ** `FLAC`, `MP3_320`, `MP3_256`, `MP3_128`.\
     "
     }

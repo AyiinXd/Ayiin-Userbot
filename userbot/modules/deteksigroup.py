@@ -74,8 +74,8 @@ def user_full_name(user):
 CMD_HELP.update(
     {
         "deteksigrup": f"**Plugin : **`deteksigrup`\
-        \n\n  •  **Syntax :** `{cmd}dgrup <Id/Username Grup>`\
-        \n  •  **Function : **Untuk Melihat Riwayat Grup\
+        \n\n  »  **Perintah :** `{cmd}dgrup <Id/Username Grup>`\
+        \n  »  **Kegunaan : **Untuk Melihat Riwayat Grup\
     "
     }
 )

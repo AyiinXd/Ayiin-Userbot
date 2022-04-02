@@ -158,10 +158,10 @@ async def yinscollab(exor):
 CMD_HELP.update(
     {
         "yinscollab": f"**Plugin:** `yinscollab`\
-        \n\n  • **Perintah :** `{cmd}exo`\
-        \n  •  **Kegunaan :** Untuk Mendapatkan Link Bokp Dari Ch Exorcist.\
-        \n\n  • **Perintah :** `{cmd}as`\
-        \n  •  **Kegunaan :** Untuk Mendapatkan Link Bokp Dari Ch Asupan Sagapung.\
+        \n\n  »  **Perintah :** `{cmd}exo`\
+        \n  »  **Kegunaan :** Untuk Mendapatkan Link Bokp Dari Ch Exorcist.\
+        \n\n  »  **Perintah :** `{cmd}as`\
+        \n  »  **Kegunaan :** Untuk Mendapatkan Link Bokp Dari Ch Asupan Sagapung.\
     "
     }
 )
@@ -170,8 +170,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "yinsexo": f"**Plugin : **`yinsexo`\
-        \n\n  •  **Perintah:** `Ini Khusus Admin Exorcist Tod Bukan Publik.`\
-        \n  •  **Silahkan Ketik** `{cmd}help yinscollab` **Untuk Mendapatkan Konten.**\
+        \n\n  »  **Perintah:** `Ini Khusus Admin Exorcist Tod Bukan Publik.`\
+        \n  »  **Silahkan Ketik** `{cmd}help yinscollab` **Untuk Mendapatkan Konten.**\
     "
     }
 )

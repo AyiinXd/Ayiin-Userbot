@@ -138,12 +138,12 @@ async def lsnote(event):
 CMD_HELP.update(
     {
         "custom": f"**Plugin : **`custom`\
-        \n\n  •  **Syntax :** `{cmd}custom` <nama> <data> atau membalas pesan dengan `{cmd}custom <nama>`\
-        \n  •  **Function : **Menyimpan pesan custom (catatan global) dengan nama. (bisa dengan gambar, docs, dan stickers!)\
-        \n\n  •  **Syntax :** `{cmd}customs`\
-        \n  •  **Function : **Mendapat semua customs yang disimpan.\
-        \n\n  •  **Syntax :** `{cmd}delcustom` <nama_custom>\
-        \n  •  **Function : **Menghapus custom yang ditentukan.\
+        \n\n  »  **Perintah :** `{cmd}custom` <nama> <data> atau membalas pesan dengan `{cmd}custom <nama>`\
+        \n  »  **Kegunaan : **Menyimpan pesan custom (catatan global) dengan nama. (bisa dengan gambar, docs, dan stickers!)\
+        \n\n  »  **Perintah :** `{cmd}customs`\
+        \n  »  **Kegunaan : **Mendapat semua customs yang disimpan.\
+        \n\n  »  **Perintah :** `{cmd}delcustom` <nama_custom>\
+        \n  »  **Kegunaan : **Menghapus custom yang ditentukan.\
     "
     }
 )

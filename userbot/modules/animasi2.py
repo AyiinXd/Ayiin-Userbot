@@ -175,16 +175,16 @@ async def _(event):
 CMD_HELP.update(
     {
         "animasi2": f"**Plugin :** `animasi2`\
-        \n\n • **Syntax :** `{cmd}nah`\
-        \n • **Function :** Animasi Prank Memberikan Bunga.\
-        \n\n • **Syntax :** `{cmd}huh`\
-        \n • **Function :** Animasi Memberikan Bunga.\
-        \n\n • **Syntax :** `{cmd}hua`\
-        \n • **Function :** Animasi Cengeng.\
-        \n\n • **Syntax :** `{cmd}owner`\
-        \n • **Function :** Cobain Sendiri Tod.\
-        \n\n • **Syntax :** `{cmd}ceritacinta` | `{cmd}canda`\
-        \n • **Function :** Cobain Sendiri Tod.\
-  "
+        \n\n  »  **Perintah : **`{cmd}nah`\
+        \n  »  **Kegunaan :** Animasi Prank Memberikan Bunga.\
+        \n\n  »  **Perintah : **`{cmd}huh`\
+        \n  »  **Kegunaan :** Animasi Memberikan Bunga.\
+        \n\n  »  **Perintah : **`{cmd}hua`\
+        \n  »  **Kegunaan :** Animasi Cengeng.\
+        \n\n  »  **Perintah : **`{cmd}owner`\
+        \n  »  **Kegunaan :** Cobain Sendiri Tod.\
+        \n\n  »  **Perintah : **`{cmd}ceritacinta` | `{cmd}canda`\
+        \n  »  **Kegunaan :** Cobain Sendiri Tod.\
+    "
     }
 )

@@ -130,16 +130,16 @@ async def _(kontol):
 CMD_HELP.update(
     {
         "yinstoxic2": f"**Plugin : **`yinstoxic2`\
-        \n\n  •  **Syntax :** `{cmd}ngentot`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}goblok`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}ngatain`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}kont`\
-        \n  •  **Function : **Cobain sendiri tod\
-        \n\n  •  **Syntax :** `{cmd}yatim`\
-        \n  •  **Function : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}ngentot`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}goblok`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}ngatain`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}kont`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
+        \n\n  »  **Perintah :** `{cmd}yatim`\
+        \n  »  **Kegunaan : **Cobain sendiri tod\
         \n\n**Klo mau Req, kosa kata dari lu Bisa pake Module costum. Ketik** `{cmd}help costum`\
     "
     }

@@ -87,14 +87,14 @@ async def quotly(event):
 CMD_HELP.update(
     {
         "quotly": f"**Plugin : **`quotly`\
-        \n\n  •  **Syntax :** `{cmd}q`\
-        \n  •  **Function : **Membuat pesan menjadi sticker dengan random background.\
-        \n\n  •  **Syntax :** `{cmd}q` <angka>\
-        \n  •  **Function : **Membuat pesan menjadi sticker dengan custom jumlah pesan yang diberikan.\
-        \n\n  •  **Syntax :** `{cmd}q` <warna>\
-        \n  •  **Function : **Membuat pesan menjadi sticker dengan custom warna background yang diberikan.\
-        \n\n  •  **Syntax :** `{cmd}q` <username>\
-        \n  •  **Function : **Membuat pesan menjadi sticker dengan custom username user tele yang diberikan.\
+        \n\n  »  **Perintah :** `{cmd}q`\
+        \n  »  **Kegunaan : **Membuat pesan menjadi sticker dengan random background.\
+        \n\n  »  **Perintah :** `{cmd}q` <angka>\
+        \n  »  **Kegunaan : **Membuat pesan menjadi sticker dengan custom jumlah pesan yang diberikan.\
+        \n\n  »  **Perintah :** `{cmd}q` <warna>\
+        \n  »  **Kegunaan : **Membuat pesan menjadi sticker dengan custom warna background yang diberikan.\
+        \n\n  »  **Perintah :** `{cmd}q` <username>\
+        \n  »  **Kegunaan : **Membuat pesan menjadi sticker dengan custom username user tele yang diberikan.\
     "
     }
 )

@@ -149,8 +149,8 @@ async def fetch_info(replied_user, event):
 CMD_HELP.update(
     {
         "whois": f"**Plugin : **`whois`\
-        \n\n  •  **Syntax :** `{cmd}whois` <username> Atau Balas Ke Pesan Pengguna Ketik `.whois`\
-        \n  •  **Function : **Mendapatkan Informasi Pengguna.\
+        \n\n  »  **Perintah :** `{cmd}whois` <username> Atau Balas Ke Pesan Pengguna Ketik `.whois`\
+        \n  »  **Kegunaan : **Mendapatkan Informasi Pengguna.\
     "
     }
 )

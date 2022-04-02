@@ -205,8 +205,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "view": f"**Plugin : **`view`\
-        \n\n  •  **Syntax :** `{cmd}view` <reply ke link>\
-        \n  •  **Function : **Untuk Melihat isi web dengan instan view telegraph.\
+        \n\n  »  **Perintah :** `{cmd}view` <reply ke link>\
+        \n  »  **Kegunaan : **Untuk Melihat isi web dengan instan view telegraph.\
     "
     }
 )
@@ -215,8 +215,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "open": f"**Plugin : **`open`\
-        \n\n  •  **Syntax :** `{cmd}open` <reply ke file>\
-        \n  •  **Function : **Untuk Melihat isi File Menjadi Text yang dikirim menjadi pesan telegram.\
+        \n\n  »  **Perintah :** `{cmd}open` <reply ke file>\
+        \n  »  **Kegunaan : **Untuk Melihat isi File Menjadi Text yang dikirim menjadi pesan telegram.\
     "
     }
 )
@@ -225,10 +225,10 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "dm": f"**Plugin : **`dm`\
-        \n\n  •  **Syntax :** `{cmd}dm` <username> <text>\
-        \n  •  **Function : **Untuk mengirim chat dengan menggunakan userbot.\
-        \n\n  •  **Syntax :** `{cmd}fwdreply` <username> <text>\
-        \n  •  **Function : **Untuk meneruskan chat yang di reply dengan membalasnya ke pc.\
+        \n\n  »  **Perintah :** `{cmd}dm` <username> <text>\
+        \n  »  **Kegunaan : **Untuk mengirim chat dengan menggunakan userbot.\
+        \n\n  »  **Perintah :** `{cmd}fwdreply` <username> <text>\
+        \n  »  **Kegunaan : **Untuk meneruskan chat yang di reply dengan membalasnya ke pc.\
     "
     }
 )
@@ -237,8 +237,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "sendbot": f"**Plugin : **`sendbot`\
-        \n\n  •  **Syntax :** `{cmd}sendbot` <username bot> <text>\
-        \n  •  **Function : **Untuk mengirim ke bot dan mendapatkan respond chat dengan menggunakan userbot.\
+        \n\n  »  **Perintah :** `{cmd}sendbot` <username bot> <text>\
+        \n  »  **Kegunaan : **Untuk mengirim ke bot dan mendapatkan respond chat dengan menggunakan userbot.\
     "
     }
 )
@@ -247,8 +247,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "tmsg": f"**Plugin : **`tmsg`\
-        \n\n  •  **Syntax :** `{cmd}tmsg` <username/me>\
-        \n  •  **Function : **Untuk Menghitung total jumlah chat yang sudah dikirim.\
+        \n\n  »  **Perintah :** `{cmd}tmsg` <username/me>\
+        \n  »  **Kegunaan : **Untuk Menghitung total jumlah chat yang sudah dikirim.\
     "
     }
 )
@@ -257,8 +257,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "getlink": f"**Plugin : **`getlink`\
-        \n\n  •  **Syntax :** `{cmd}getlink`\
-        \n  •  **Function : **Untuk Mendapatkan link invite grup chat.\
+        \n\n  »  **Perintah :** `{cmd}getlink`\
+        \n  »  **Kegunaan : **Untuk Mendapatkan link invite grup chat.\
     "
     }
 )
@@ -267,8 +267,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "unbanall": f"**Plugin : **`unbanall`\
-        \n\n  •  **Syntax :** `{cmd}unbanall`\
-        \n  •  **Function : **Untuk Menghapus Semua Pengguna yang dibanned di Daftar Banned GC.\
+        \n\n  »  **Perintah :** `{cmd}unbanall`\
+        \n  »  **Kegunaan : **Untuk Menghapus Semua Pengguna yang dibanned di Daftar Banned GC.\
     "
     }
 )
@@ -276,8 +276,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "limit": f"**Plugin : **`limit`\
-        \n\n  •  **Syntax :** `{cmd}limit`\
-        \n  •  **Function : **Untuk Mengecek akun anda sedang terkena limit atau tidak dengan menggunakan @spambot.\
+        \n\n  »  **Perintah :** `{cmd}limit`\
+        \n  »  **Kegunaan : **Untuk Mengecek akun anda sedang terkena limit atau tidak dengan menggunakan @spambot.\
     "
     }
 )

@@ -58,10 +58,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "id": f"**Plugin : **`id`\
-        \n\n  •  **Syntax :** `{cmd}id` <username/reply>\
-        \n  •  **Function : **Untuk Mengambil Chat ID obrolan saat ini\
-        \n\n  •  **Syntax :** `{cmd}userid` <username/reply>\
-        \n  •  **Function : **Untuk Mengambil ID & Username obrolan saat ini\
+        \n\n  »  **Perintah :** `{cmd}id` <username/reply>\
+        \n  »  **Kegunaan : **Untuk Mengambil Chat ID obrolan saat ini\
+        \n\n  »  **Perintah :** `{cmd}userid` <username/reply>\
+        \n  »  **Kegunaan : **Untuk Mengambil ID & Username obrolan saat ini\
     "
     }
 )

@@ -41,8 +41,8 @@ async def waifu(animu):
 CMD_HELP.update(
     {
         "waifu": f"**Plugin : **`waifu`\
-        \n\n  •  **Syntax :** `{cmd}waifu <text>`\
-        \n  •  **Function : **Untuk Mengcuston sticer anime dengan text yg di tentukan.\
+        \n\n  »  **Perintah :** `{cmd}waifu <text>`\
+        \n  »  **Kegunaan : **Untuk Mengcuston sticer anime dengan text yg di tentukan.\
     "
     }
 )

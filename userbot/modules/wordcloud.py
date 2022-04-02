@@ -95,8 +95,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "wordcloud": f"**Plugin : **`wordcloud`\
-        \n\n  •  **Syntax :** `{cmd}wc`\
-        \n  •  **Function : **membuat seni wordcloud dari media.\
+        \n\n  »  **Perintah :** `{cmd}wc`\
+        \n  »  **Kegunaan : **membuat seni wordcloud dari media.\
     "
     }
 )

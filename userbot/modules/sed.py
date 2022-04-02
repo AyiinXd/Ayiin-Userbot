@@ -101,8 +101,8 @@ async def sed(command):
 CMD_HELP.update(
     {
         "sed": f"**Plugin : **`sed`\
-        \n\n  •  **Syntax :** `{cmd}s<delimiter><old word(s)><delimiter><new word(s)>`\
-        \n  •  **Function : **Mengganti satu kata atau kata menggunakan sed. \
+        \n\n  »  **Perintah :** `{cmd}s<delimiter><old word(s)><delimiter><new word(s)>`\
+        \n  »  **Kegunaan : **Mengganti satu kata atau kata menggunakan sed. \
         \n  •  **Delimiters :** `/, :, |, _` \
     "
     }

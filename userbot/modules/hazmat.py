@@ -83,8 +83,8 @@ async def _(hazmat):
 CMD_HELP.update(
     {
         "hazmat": f"**Plugin : **`hazmat`\
-        \n\n  •  **Syntax :** `{cmd}hz` atau `{cmd}hz [flip, x2, rotate (level), background (nomer), black]`\
-        \n  •  **Function : **Balas ke gambar/sticker untuk menyesuaikan!\
+        \n\n  »  **Perintah :** `{cmd}hz` atau `{cmd}hz [flip, x2, rotate (level), background (nomer), black]`\
+        \n  »  **Kegunaan : **Balas ke gambar/sticker untuk menyesuaikan!\
     "
     }
 )

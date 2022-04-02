@@ -50,12 +50,12 @@ async def tod(event):
 CMD_HELP.update(
     {
         "games": f"**Plugin : **`games`\
-        \n\n  •  **Syntax :** `{cmd}truth`\
-        \n  •  **Function : **Memberikan anda tantangan kejujuran secara random.\
-        \n\n  •  **Syntax :** `{cmd}dare`\
-        \n  •  **Function : **Memberikan anda tantangan Keberanian secara random.\
-        \n\n  •  **Syntax :** `{cmd}task`\
-        \n  •  **Function : **Untuk Memberikan anda tantangan secara random.\
+        \n\n  »  **Perintah :** `{cmd}truth`\
+        \n  »  **Kegunaan : **Memberikan anda tantangan kejujuran secara random.\
+        \n\n  »  **Perintah :** `{cmd}dare`\
+        \n  »  **Kegunaan : **Memberikan anda tantangan Keberanian secara random.\
+        \n\n  »  **Perintah :** `{cmd}task`\
+        \n  »  **Kegunaan : **Untuk Memberikan anda tantangan secara random.\
     "
     }
 )

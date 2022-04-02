@@ -65,8 +65,8 @@ async def paste(pstl):
 CMD_HELP.update(
     {
         "paste": f"**Plugin : **`paste`\
-        \n\n  •  **Syntax :** `{cmd}paste` <text/reply>\
-        \n  •  **Function : **Untuk Menyimpan text ke ke layanan pastebin gunakan flags [`-d`, `-n`, `-h`, `-s`, `-k`]\
+        \n\n  »  **Perintah :** `{cmd}paste` <text/reply>\
+        \n  »  **Kegunaan : **Untuk Menyimpan text ke ke layanan pastebin gunakan flags [`-d`, `-n`, `-h`, `-s`, `-k`]\
         \n\n  •  **NOTE :** `-d` = **Dogbin** atau `-n` = **Nekobin** atau `-h` = **Hastebin** atau `-k` = **katbin** atau `-s` = **spacebin**\
     "
     }

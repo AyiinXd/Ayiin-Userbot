@@ -99,10 +99,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "nhentai": f"**Plugin : **`nhentai`\
-        \n\n  •  **Syntax :** `{cmd}nhentai` <code atau link>\
-        \n  •  **Function : **Melihat nhentai di telegra.ph XD\
-        \n\n  •  **Syntax :** `{cmd}nhentai random`>\
-        \n  •  **Function : **Melihat nhentai di telegra.ph XD secara random\
+        \n\n  »  **Perintah :** `{cmd}nhentai` <code atau link>\
+        \n  »  **Kegunaan : **Melihat nhentai di telegra.ph XD\
+        \n\n  »  **Perintah :** `{cmd}nhentai random`>\
+        \n  »  **Kegunaan : **Melihat nhentai di telegra.ph XD secara random\
     "
     }
 )

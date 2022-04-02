@@ -207,10 +207,10 @@ async def upstream(event):
 CMD_HELP.update(
     {
         "update": f"**Plugin : **`update`\
-        \n\n  •  **Syntax :** `{cmd}update`\
-        \n  •  **Function : **Untuk Melihat Pembaruan Terbaru Ayiin-Userbot.\
-        \n\n  •  **Syntax :** `{cmd}update deploy`\
-        \n  •  **Function : **Untuk MengUpdate Fitur Terbaru Dari Ayiin-Userbot.\
+        \n\n  »  **Perintah :** `{cmd}update`\
+        \n  »  **Kegunaan : **Untuk Melihat Pembaruan Terbaru Ayiin-Userbot.\
+        \n\n  »  **Perintah :** `{cmd}update deploy`\
+        \n  »  **Kegunaan : **Untuk MengUpdate Fitur Terbaru Dari Ayiin-Userbot.\
     "
     }
 )

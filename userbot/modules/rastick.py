@@ -102,8 +102,8 @@ async def rastick(animu):
 CMD_HELP.update(
     {
         "rastick": f"**Plugin : **`rastick`\
-        \n\n  •  **Syntax :** `{cmd}rst`\
-        \n  •  **Function : **Untuk membuat stiker teks Anda dengan templat stiker acak daro @StickerizerBot\
+        \n\n  »  **Perintah :** `{cmd}rst`\
+        \n  »  **Kegunaan : **Untuk membuat stiker teks Anda dengan templat stiker acak daro @StickerizerBot\
     "
     }
 )

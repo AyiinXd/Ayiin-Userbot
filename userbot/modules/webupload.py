@@ -49,8 +49,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "webupload": f"**Plugin : **`webupload`\
-        \n\n  •  **Syntax :** `{cmd}webupload --`(`anonfiles`|`transfer`|`filebin`|`anonymousfiles`|`megaupload`|`bayfiles`)\
-        \n  •  **Function : **Reply `{cmd}webupload --anonfiles` or `.webupload --filebin` dan file akan diunggah ke situs web itu. \
+        \n\n  »  **Perintah :** `{cmd}webupload --`(`anonfiles`|`transfer`|`filebin`|`anonymousfiles`|`megaupload`|`bayfiles`)\
+        \n  »  **Kegunaan : **Reply `{cmd}webupload --anonfiles` or `.webupload --filebin` dan file akan diunggah ke situs web itu. \
     "
     }
 )

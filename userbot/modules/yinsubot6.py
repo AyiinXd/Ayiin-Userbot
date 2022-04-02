@@ -44,8 +44,8 @@ async def _(ayiin):
 CMD_HELP.update(
     {
         "yinsubot6": f"**Plugin : **yinsubot6\
-        \n\n  •  **Syntax :** {cmd}bokp\
-        \n  •  **Function : **Untuk Mengirim bokp tiktok secara random.\
+        \n\n  »  **Perintah :** {cmd}bokp\
+        \n  »  **Kegunaan : **Untuk Mengirim bokp tiktok secara random.\
     "
     }
 )

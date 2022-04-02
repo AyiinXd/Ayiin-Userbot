@@ -60,8 +60,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "shazam": f"**Plugin : **`shazam`\
-        \n\n  •  **Syntax :** `{cmd}shazam` <reply ke voice/audio>\
-        \n  •  **Function : **Untuk mencari Judul lagu dengan menggunakan file audio via @auddbot \
+        \n\n  »  **Perintah :** `{cmd}shazam` <reply ke voice/audio>\
+        \n  »  **Kegunaan : **Untuk mencari Judul lagu dengan menggunakan file audio via @auddbot \
     "
     }
 )

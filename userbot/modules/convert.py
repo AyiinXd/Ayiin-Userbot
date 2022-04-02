@@ -150,14 +150,14 @@ async def makevoice(event):
 CMD_HELP.update(
     {
         "convert": f"**Plugin : **`core`\
-        \n\n  •  **Syntax :** `{cmd}convert foto`\
-        \n  •  **Function : **Untuk Mengconvert sticker ke foto\
-        \n\n  •  **Syntax :** `{cmd}convert mp3`\
-        \n  •  **Function : **Untuk Mengconvert dari video ke file mp3\
-        \n\n  •  **Syntax :** `{cmd}makevoice`\
-        \n  •  **Function : **Untuk Mengconvert audio ke voice note\
-        \n\n  •  **Syntax :** `{cmd}convert audio` <efek>\
-        \n  •  **Function : **Untuk Menambahkan efek suara jadi berskin\
+        \n\n  »  **Perintah :** `{cmd}convert foto`\
+        \n  »  **Kegunaan : **Untuk Mengconvert sticker ke foto\
+        \n\n  »  **Perintah :** `{cmd}convert mp3`\
+        \n  »  **Kegunaan : **Untuk Mengconvert dari video ke file mp3\
+        \n\n  »  **Perintah :** `{cmd}makevoice`\
+        \n  »  **Kegunaan : **Untuk Mengconvert audio ke voice note\
+        \n\n  »  **Perintah :** `{cmd}convert audio` <efek>\
+        \n  »  **Kegunaan : **Untuk Menambahkan efek suara jadi berskin\
         \n  •  **List Efek :** `bengek`, `jedug`, `echo`, `robot`\
     "
     }

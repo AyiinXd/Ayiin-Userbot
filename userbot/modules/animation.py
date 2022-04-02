@@ -1041,32 +1041,32 @@ async def _(event):
 CMD_HELP.update(
     {
         "animasi": f"**Plugin :** `animasi`\
-        \n\n • **Syntax :** `{cmd}gabut` | `{cmd}dino`\
-        \n • **Function :** ntahlah gabut doang.\
-        \n\n • **Syntax :** `{cmd}gombal`\
-        \n • **Function :** buat bercanda.\
-        \n\n • **Syntax :** `{cmd}cinta`\
-        \n • **Function :** mengirim cintamu ke seseorang.\
-        \n\n • **Syntax :** `{cmd}sayang`\
-        \n • **Function :** untuk jadi buaya.\
-        \n\n • **Syntax :** `{cmd}terkadang`\
-        \n • **Function :** Auk dah iseng doang.\
-        \n\n • **Syntax :** `{cmd}helikopter` | `{cmd}tank` | `{cmd}tembak` | `{cmd}bundir`\
-        \n • **Function :** liat sendiri.\
-        \n\n • **Syntax :** `{cmd}y`\
-        \n • **Function :** jempol\
-        \n\n • **Syntax :** `{cmd}bulan` | `{cmd}hati` | `{cmd}bernyanyi`\
-        \n • **Function :** liat aja.\
-        \n\n • **Syntax :** `{cmd}awk`\
-        \n • **Function :** ketawa lari.\
-        \n\n • **Syntax :** `{cmd}lar` | `{cmd}abi` | `{cmd}ajg`\
-        \n • **Function :** liat sendiri.\
-        \n\n • **Syntax :** `{cmd}bunga` | `{cmd}buah`\
-        \n • **Function :** animasi.\
-        \n\n • **Syntax :** `{cmd}waktu`\
-        \n • **Function :** animasi.\
-        \n\n • **Syntax :** `{cmd}santet`\
-        \n • **Function :** Santet Online Buat Bercanda.\
+        \n\n  »  **Perintah : **`{cmd}gabut` | `{cmd}dino`\
+        \n  »  **Kegunaan :** ntahlah gabut doang.\
+        \n\n  »  **Perintah : **`{cmd}gombal`\
+        \n  »  **Kegunaan :** buat bercanda.\
+        \n\n  »  **Perintah : ** `{cmd}cinta`\
+        \n  »  **Kegunaan :** mengirim cintamu ke seseorang.\
+        \n\n  »  **Perintah : **`{cmd}sayang`\
+        \n  »  **Kegunaan :** untuk jadi buaya.\
+        \n\n  »  **Perintah : **`{cmd}terkadang`\
+        \n  »  **Kegunaan :** Auk dah iseng doang.\
+        \n\n  »  **Perintah : **`{cmd}helikopter` | `{cmd}tank` | `{cmd}tembak` | `{cmd}bundir`\
+        \n  »  **Kegunaan :** liat sendiri.\
+        \n\n  »  **Perintah : **`{cmd}y`\
+        \n  »  **Kegunaan :** jempol\
+        \n\n  »  **Perintah : **`{cmd}bulan` | `{cmd}hati` | `{cmd}bernyanyi`\
+        \n  »  **Kegunaan :** liat aja.\
+        \n\n  »  **Perintah : **`{cmd}awk`\
+        \n  »  **Kegunaan :** ketawa lari.\
+        \n\n  »  **Perintah : **`{cmd}lar` | `{cmd}abi` | `{cmd}ajg`\
+        \n  »  **Kegunaan :** liat sendiri.\
+        \n\n  »  **Perintah : **`{cmd}bunga` | `{cmd}buah`\
+        \n  »  **Kegunaan :** animasi.\
+        \n\n  »  **Perintah : **`{cmd}waktu`\
+        \n  »  **Kegunaan :** animasi.\
+        \n\n  »  **Perintah : **`{cmd}santet`\
+        \n  »  **Kegunaan :** Santet Online Buat Bercanda.\
     "
     }
 )

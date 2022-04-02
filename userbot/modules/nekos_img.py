@@ -96,8 +96,8 @@ async def nekos_img(event):
 CMD_HELP.update(
     {
         "nekos": f"**Plugin : **`nekos`\
-        \n\n  •  **Syntax :** `{cmd}nekos` <arguments>\
-        \n  •  **Function : **Untuk mencari gif hentai anime untuk bahan para wibu bau bawang.\
+        \n\n  »  **Perintah :** `{cmd}nekos` <arguments>\
+        \n  »  **Kegunaan : **Untuk mencari gif hentai anime untuk bahan para wibu bau bawang.\
         \n\n  •  **Arguments :** `8ball`, `anal`, `avatar`, `baka`, `bj`, `blowjob`, `boobs`, `classic`, `cuddle`, `cum`, `cum_jpg`, `ero`, `erofeet`, `erok`, `erokemo`, `eron`, `eroyuri`, `feed`, `feet`, `feetg`, `femdom`, `fox_girl`, `futanari`, `gasm`, `gecg`,`goose`, `hentai`, `holo`, `holoero`, `hololewd`, `hug`, `kemonomimi`, `keta`, `kiss`, `kuni`,`les`, `lewd`, `lewdk`, `lewdkemo`, `lizard`, `neko`, `ngif`, `nsfw_avatar`, `nsfw_neko_gif`, `pat`, `poke`, `pussy`, `pussy_jpg`, `pwankg`, `random_hentai_gif`, `slap`, `smallboobs`, `smug`, `solo`, `solog`, `spank`, `tickle`, `tits`, `trap`, `waifu`, `wallpaper`, `woof`, `yuri`\
     "
     }

@@ -58,10 +58,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "justfun": f"**Plugin : **`justfun`\
-        \n\n  •  **Syntax :** `{cmd}xogame`\
-        \n  •  **Function : **Game xogame bot\
-        \n\n  •  **Syntax :** `{cmd}mod <nama app>`\
-        \n  •  **Function : **Dapatkan applikasi mod\
+        \n\n  »  **Perintah :** `{cmd}xogame`\
+        \n  »  **Kegunaan : **Game xogame bot\
+        \n\n  »  **Perintah :** `{cmd}mod <nama app>`\
+        \n  »  **Kegunaan : **Dapatkan applikasi mod\
     "
     }
 )
@@ -70,9 +70,9 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "secretchat": f"**Plugin : **`secretchat`\
-        \n\n  •  **Syntax :** `{cmd}wp <teks> <username/ID>`\
-        \n  •  **Function : **Memberikan pesan rahasia haya orang yang di tag yang bisa melihat\
-        \n  •  **Example  : **{cmd}wp aku sayang kamu @AyiinXd\
+        \n\n  »  **Perintah :** `{cmd}wp <teks> <username/ID>`\
+        \n  »  **Kegunaan : **Memberikan pesan rahasia haya orang yang di tag yang bisa melihat\
+        \n  •  **Example : **{cmd}wp aku sayang kamu @AyiinXd\
     "
     }
 )

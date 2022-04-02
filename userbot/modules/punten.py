@@ -51,10 +51,10 @@ async def _(event):
 CMD_HELP.update(
     {
         "punten": f"**Plugin : **`Animasi Punten`\
-        \n\n  •  **Syntax :** `{cmd}punten` ; `{cmd}pantau`\
-        \n  •  **Function : **Arts Beruang kek lagi mantau.\
-        \n\n  •  **Syntax :** `{cmd}sadboy`\
-        \n  •  **Function : **ya sadboy coba aja.\
+        \n\n  »  **Perintah :** `{cmd}punten` ; `{cmd}pantau`\
+        \n  »  **Kegunaan : **Arts Beruang kek lagi mantau.\
+        \n\n  »  **Perintah :** `{cmd}sadboy`\
+        \n  »  **Kegunaan : **ya sadboy coba aja.\
     "
     }
 )

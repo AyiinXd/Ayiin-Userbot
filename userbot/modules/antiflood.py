@@ -81,8 +81,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "antiflood": f"**Plugin : **`antiflood`\
-        \n\n  •  **Syntax :** `{cmd}setflood` [jumlah pesan]\
-        \n  •  **Function : **memperingatkan pengguna jika dia melakukan spam pada obrolan dan jika Anda adalah admin maka itu akan membisukan dia dalam grup itu.\
+        \n\n  »  **Perintah :** `{cmd}setflood` [jumlah pesan]\
+        \n  »  **Kegunaan : **memperingatkan pengguna jika dia melakukan spam pada obrolan dan jika Anda adalah admin maka itu akan membisukan dia dalam grup itu.\
         \n\n  •  **NOTE :** Untuk mematikan setflood, atur jumlah pesan menjadi 0 » `.setflood 0`\
     "
     }

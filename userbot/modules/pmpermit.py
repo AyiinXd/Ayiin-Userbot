@@ -409,24 +409,24 @@ async def add_pmsg(cust_msg):
 CMD_HELP.update(
     {
         "pmpermit": f"**Plugin : **`pmpermit`\
-        \n\n  •  **Syntax :** `{cmd}setuju` atau `{cmd}ok`\
-        \n  •  **Function : **Menerima pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm.\
-        \n\n  •  **Syntax :** `{cmd}tolak` atau `{cmd}nopm`\
-        \n  •  **Function : **Menolak pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm.\
-        \n\n  •  **Syntax :** `{cmd}block`\
-        \n  •  **Function : **Memblokir Orang Di PM.\
-        \n\n  •  **Syntax :** `{cmd}unblock`\
-        \n  •  **Function : **Membuka Blokir.\
-        \n\n  •  **Syntax :** `{cmd}notifoff`\
-        \n  •  **Function : **Menghidupkan notifikasi pesan yang belum diterima.\
-        \n\n  •  **Syntax :** `{cmd}notifon`\
-        \n  •  **Function : **Menghidupkan notifikasi pesan yang belum diterima.\
-        \n\n  •  **Syntax :** `{cmd}set pmpermit` <balas ke pesan>\
-        \n  •  **Function : **Menyetel Pesan Pribadimu untuk orang yang pesannya belum diterima.\
-        \n\n  •  **Syntax :** `{cmd}get pmpermit`\
-        \n  •  **Function : **Mendapatkan Custom pesan PM mu.\
-        \n\n  •  **Syntax :** `{cmd}reset pmpermit`\
-        \n  •  **Function : **Menghapus pesan PM ke default.\
+        \n\n  »  **Perintah :** `{cmd}setuju` atau `{cmd}ok`\
+        \n  »  **Kegunaan : **Menerima pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm.\
+        \n\n  »  **Perintah :** `{cmd}tolak` atau `{cmd}nopm`\
+        \n  »  **Kegunaan : **Menolak pesan seseorang dengan cara balas pesannya atau tag dan juga untuk dilakukan di pm.\
+        \n\n  »  **Perintah :** `{cmd}block`\
+        \n  »  **Kegunaan : **Memblokir Orang Di PM.\
+        \n\n  »  **Perintah :** `{cmd}unblock`\
+        \n  »  **Kegunaan : **Membuka Blokir.\
+        \n\n  »  **Perintah :** `{cmd}notifoff`\
+        \n  »  **Kegunaan : **Menghidupkan notifikasi pesan yang belum diterima.\
+        \n\n  »  **Perintah :** `{cmd}notifon`\
+        \n  »  **Kegunaan : **Menghidupkan notifikasi pesan yang belum diterima.\
+        \n\n  »  **Perintah :** `{cmd}set pmpermit` <balas ke pesan>\
+        \n  »  **Kegunaan : **Menyetel Pesan Pribadimu untuk orang yang pesannya belum diterima.\
+        \n\n  »  **Perintah :** `{cmd}get pmpermit`\
+        \n  »  **Kegunaan : **Mendapatkan Custom pesan PM mu.\
+        \n\n  »  **Perintah :** `{cmd}reset pmpermit`\
+        \n  »  **Kegunaan : **Menghapus pesan PM ke default.\
         \n\n  •  **Pesan Pribadi yang belum diterima saat ini tidak dapat disetel ke teks format kaya bold, underline, link, dll. Pesan akan terkirim normal saja**\
         \n\n**NOTE: Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}set var PM_AUTO_BAN True`\
     "

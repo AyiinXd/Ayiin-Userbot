@@ -213,8 +213,8 @@ async def _(event):
 CMD_HELP.update(
     {
         "json": f"**Plugin : **`json`\
-        \n\n  •  **Syntax :** `{cmd}json` <reply ke pesan>\
-        \n  •  **Function : **Untuk mendapatkan detail pesan dalam format json.\
+        \n\n  »  **Perintah :** `{cmd}json` <reply ke pesan>\
+        \n  »  **Kegunaan : **Untuk mendapatkan detail pesan dalam format json.\
     "
     }
 )
@@ -223,8 +223,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "eval": f"**Plugin : **`eval`\
-        \n\n  •  **Syntax :** `{cmd}eval` <cmd>\
-        \n  •  **Function : **Evaluasi ekspresi Python dalam argumen skrip yang sedang berjalan\
+        \n\n  »  **Perintah :** `{cmd}eval` <cmd>\
+        \n  »  **Kegunaan : **Evaluasi ekspresi Python dalam argumen skrip yang sedang berjalan\
     "
     }
 )
@@ -233,8 +233,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "exec": f"**Plugin : **`exec`\
-        \n\n  •  **Syntax :** `{cmd}exec print('hello')`\
-        \n  •  **Function : **Jalankan skrip python kecil di subproses.\
+        \n\n  »  **Perintah :** `{cmd}exec print('hello')`\
+        \n  »  **Kegunaan : **Jalankan skrip python kecil di subproses.\
     "
     }
 )
@@ -243,8 +243,8 @@ CMD_HELP.update(
 CMD_HELP.update(
     {
         "term": f"**Plugin : **`term`\
-        \n\n  •  **Syntax :** `{cmd}term` <cmd>\
-        \n  •  **Function : **Jalankan perintah dan skrip bash di server Anda.\
+        \n\n  »  **Perintah :** `{cmd}term` <cmd>\
+        \n  »  **Kegunaan : **Jalankan perintah dan skrip bash di server Anda.\
     "
     }
 )
