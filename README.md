@@ -1,4 +1,4 @@
- <h1 align="center"><img src="./userbot/resources/Kenpurple.gif" width="35px"> 𝘼𝙮𝙞𝙞𝙣 𝙐𝙨𝙚𝙧𝙗𝙤𝙩 <img src="./userbot/resources/Kenpurple.gif" width="35px"></h1>
+ <h1 align="center"><img src="./AyiinXd/resources/Kenpurple.gif" width="35px"> 𝘼𝙮𝙞𝙞𝙣 𝙐𝙨𝙚𝙧𝙗𝙤𝙩 <img src="./AyiinXd/resources/Kenpurple.gif" width="35px"></h1>
 
 <a href="https://github.com/AyiinXd/Ayiin-Userbot/commits"> <img src="https://img.shields.io/github/last-commit/AyiinXd/Ayiin-Userbot?color=red&logo=github&logoColor=blue&style=for-the-badge" /></a>
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/AyiinXd/Ayiin-Userbot)
@@ -12,7 +12,7 @@
   <img src="https://telegra.ph/file/940f21be8d8863b6c70ae.jpg">
 </p>
 
-<img src="./userbot/resources/Kenpurple.gif" width="20px">Ayiin-Userbot adalah userbot Telegram modular yang berjalan di Python3 dengan database sqlalchemy.
+<img src="./AyiinXd/resources/Kenpurple.gif" width="20px">Ayiin-Userbot adalah userbot Telegram modular yang berjalan di Python3 dengan database sqlalchemy.
 
 Berbasis [Paperplane](https://github.com/RaphielGang/Telegram-UserBot) dan [ProjectBish](https://github.com/adekmaulana/ProjectBish) userbot.
 Saya membuat repository ini untuk memilih dan menambahkan beberapa modul yang saya butuhkan dengan banyak perubahan, fitur dan modul.
@@ -62,7 +62,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan userbot ini dengan bijak
 -  `mv sample_config.env config.env`
 -  edit config.env Anda dan isi VARS menggunakan `nano config.env` `CTRL + S ` untuk menyimpan VARS Anda, gunakan `CTRL + X` untuk keluar dan kembali ke direktori Ayiin-Userbot
 -  Buka SCRREN di VPS Anda `screen -S Ayiin-Userbot`
--  Kemudian gunakan perintah ini untuk menyebarkan Ayiin-Userbot `python3 -m userbot`
+-  Kemudian gunakan perintah ini untuk menyebarkan Ayiin-Userbot `python3 -m AyiinXd`
 
 </details>
 

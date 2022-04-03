@@ -1,0 +1,37 @@
+# Copyright (C) 2019 The Raphielscape Company LLC.
+#
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
+# you may not use this file except in compliance with the License.
+#
+""" Userbot help command """
+
+from AyiinXd import CMD_HANDLER as cmd
+from AyiinXd import CMD_HELP, ICON_HELP, ch
+from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from time import sleep
+
+
+@ayiin_cmd(pattern="help(?: |$)(.*)")
+async def help(event):
+    args = event.pattern_match.group(1).lower()
+    if args:
+        if args in CMD_HELP:
+            await edit_or_reply(event, f"{CMD_HELP[args]}\n\n© {ch}")
+        else:
+            await edit_delete(event, f"**Modules {args} Gak Ada Tod**, **Ketik Yang Bener Anj.**")
+    else:
+        user = await event.client.get_me()
+        string = ""
+        for i in CMD_HELP:
+            string += "`" + str(i)
+            string += f"`\t\t\t{ICON_HELP}\t\t\t"
+        await event.edit("🗿")
+        sleep(3)
+        await edit_or_reply(
+            event,
+            f"**[✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧](https://github.com/AyiinXd/Ayiin-Userbot)**\n"
+            f"**߷ 𝙹𝚄𝙼𝙻𝙰𝙷** `{len(CMD_HELP)}` **Modules**\n"
+            f"**♕︎ 𝙾𝚆𝙽𝙴𝚁:** [{user.first_name}](tg://user?id={user.id})\n\n"
+            f"{ICON_HELP}   {string}"
+            f"\n\n☞  **𝚂𝚄𝙿𝙿𝙾𝚁𝚃** : @AyiinXdSupport\n☞  **𝙽𝙾𝚃𝙴𝚂** :  `{cmd}help yinsubot` **Untuk Melihat Modules Lainnya**"
+        )
