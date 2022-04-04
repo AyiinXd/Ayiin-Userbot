@@ -73,20 +73,13 @@ except Exception as e:
 for module_name in ALL_MODULES:
     imported_module = import_module("AyiinXd.modules." + module_name)
 
-if not BOTLOG_CHATID:
-    LOGS.info(
-        "BOTLOG_CHATID Vars tidak terisi, Memulai Membuat Grup Otomatis..."
-    )
-    bot.loop.run_until_complete(autopilot())
 
 git()
 LOGS.info(f"Python Version - {python_version()}")
 LOGS.info(f"Telethon Version - {version.__version__}")
 LOGS.info(f"PyTgCalls Version - {pytgcalls.__version__}")
-LOGS.info(
-    f"STRING_SESSION detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
-LOGS.info(
-    f"Jika {name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AyiinXdSupport")
+LOGS.info(f"STRING_SESSION detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
+LOGS.info(f"Jika {name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AyiinXdSupport")
 LOGS.info(f"✨ Ayiin-Userbot Version - {ubotversion} [✨ BERHASIL DIAKTIFKAN ✨]")
 
 

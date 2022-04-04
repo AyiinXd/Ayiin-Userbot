@@ -300,7 +300,7 @@ while 0 < 6:
 del _BLACKLIST
 
 
-ch = str(b64decode("QEF5aWluU3VwcG9ydA=="))[2:17]
+ch = str(b64decode("QEF5aWluU3VwcG9ydA=="))[2:15]
 gc = str(b64decode("QEF5aWluWGRTdXBwb3J0"))[2:17]
 
 
@@ -710,6 +710,4 @@ with bot:
 
     except BaseException:
         LOGS.info(
-            "Help Mode Inline Bot Mu Tidak aktif. Tidak di aktifkan juga tidak apa-apa. "
-            "Untuk Mengaktifkannya Buat bot di @BotFather Lalu Tambahkan var BOT_TOKEN dan BOT_USERNAME. "
-            "Pergi Ke @BotFather lalu settings bot » Pilih mode inline » Turn On. ")
+            f"KALO BOT LU NGECRASH, KLIK SAVE YANG DI POJOK KANAN BAWAH DAN KIRIM KE @AyiinXdSupport » TAG @AyiinXd ATAU ADMIN LAINNYA » Info By: Ayiin-Userbot {BOT_VER}")

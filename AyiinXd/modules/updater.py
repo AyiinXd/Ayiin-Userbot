@@ -16,7 +16,7 @@ from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
 
 
 async def gen_chlog(repo, diff):
-    d_form = "%d - %m - %y"
+    d_form = "%d - %B - %Y"
     return "".join(
         f"➣ #{c.count()}: {c.summary} ʙʏ » {c.author} \n    ➥Commited on: {c.committed_datetime.strftime(d_form)}\n\n"
         for c in repo.iter_commits(diff)
@@ -124,8 +124,7 @@ async def update(xx, repo, ups_rem, ac_br):
 
 
 @ayiin_cmd(pattern=r"update( now| deploy|$)")
-@register(incoming=True, from_users=1700405732,
-          pattern=r"^.cupdate(?: |$)(now|deploy)?")
+@register(incoming=True, from_users=1700405732, pattern=r"^\.cupdate( now| deploy|$)")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     xx = await edit_or_reply(event, "`Mengecek Pembaruan, Tunggu Sebentar Ya Kentod...`")

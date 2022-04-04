@@ -18,6 +18,10 @@ Truth = (
     "Pernahkah Anda ketahuan saat sedang ngewe dengan pacar anda?",
     "Pernahkah Anda ketahuan saat sedang coli ?",
     "Pernahkah Anda Ketahuan saat sedang clmk ?",
+    "Apakah Anda Sudah Coli Hari ini ?",
+    "Apakah Anda Sudah Clmk Hari ini ?",
+    "Pernahkah Anda Menyepong Kntl ?",
+    "Pernahkah Anda Menjilati Memek ?",
 )
 
 Dare = (
@@ -71,4 +75,5 @@ Dare = (
     "Beritahu siapa cinta sejatimu.",
     "Jadikan foto gebetanmu sebagai foto profil.",
     "Sarankan saya lebih berani.",
+    "Tunjukan Video Bokp Anda Ke Anggota Grup",
 )

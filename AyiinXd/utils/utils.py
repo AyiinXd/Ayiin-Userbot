@@ -38,6 +38,7 @@ else:
 
 
 async def autopilot():
+    LOGS.info("TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA")
     if BOTLOG_CHATID and str(BOTLOG_CHATID).startswith("-100"):
         return
     y = []  # To Refresh private ids
