@@ -21,7 +21,10 @@ async def impostor(event):
     inputArgs = event.pattern_match.group(1)
     AyiinXd = ["@AyiinXd", "@ayiinxd"]
     if inputArgs in AyiinXd:
-        await edit_delete(event, "**[KONTOL] - Tidak dapat menyamar sebagai developer Ayiin-Userbot Ngentod 😡**")
+        await edit_delete(event, "**[ᴋᴏɴᴛᴏʟ] - Tidak dapat menyamar sebagai Developer Ayiin-Userbot Ngentod 😡**")
+        await event.client.send_message("@AyiinXd", "**Maaf Telah MengClone Ayiin 🥺**"
+        )
+        return
     xx = await edit_or_reply(event, "`Processing...`")
     if "restore" in inputArgs:
         await event.edit("**Kembali ke identitas asli...**")
@@ -39,7 +42,7 @@ async def impostor(event):
         replyMessage = await event.get_reply_message()
         if replyMessage.sender_id in DEVS:
             return await xx.edit(
-                "**[KONTOL] - Tidak dapat menyamar sebagai developer Ayiin-Userbot Ngentod 😡**"
+                "**[ᴋᴏɴᴛᴏʟ] - Tidak dapat menyamar sebagai developer Ayiin-Userbot Ngentod 😡**"
             )
         if replyMessage.sender_id is None:
             return await xx.edit("**Tidak dapat menyamar sebagai admin anonim 🥺**")

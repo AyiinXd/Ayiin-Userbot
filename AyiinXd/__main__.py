@@ -88,12 +88,12 @@ async def ayiin_userbot_on():
         if BOTLOG_CHATID != 0:
             await bot.send_message(
                 BOTLOG_CHATID,
-                f"✨ **Ayiin-Userbot Berhasil Di Aktifkan**\n━━\n➠ **Userbot Version -** `{ubotversion}`\n➠ `@{branch}`\n➠ **Ketik** `{cmd}alive` **Untuk Mengecek Bot**\n━━\n✨ **Managed by** : {name}",
+                f"❏  Ayiin-Userbot Berhasil Di Aktifkan\n╭╼┅━━━━━╍━━━━━┅╾\n├▹ Userbot Version - `{ubotversion}`\n├▹ `@{branch}`\n├▹ Ketik `{cmd}alive` Untuk Cek Bot\n├▹ Managed by : {name}\n╰╼┅━━━━━╍━━━━━┅╾",
             )
-
     except Exception as e:
         LOGS.info(str(e))
     try:
+        await bot(JoinChannelRequest("@AyiinSupport"))
         await bot(JoinChannelRequest("@AyiinXdSupport"))
     except BaseException:
         pass

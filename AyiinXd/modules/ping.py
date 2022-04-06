@@ -70,26 +70,21 @@ async def get_readable_time(seconds: int) -> str:
 
 
 @ayiin_cmd(pattern="ping$")
+@register(incoming=True, from_users=KONTOL, pattern=r"^Cping$")
 async def _(ping):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    ayiin = await edit_or_reply(ping, "**▱▱▱▱▱▱▱▱▱▱**")
-    await ayiin.edit("**▰▱▱▱▱▱▱▱▱▱**")
-    await ayiin.edit("**▰▰▱▱▱▱▱▱▱▱**")
-    await ayiin.edit("**▰▰▰▱▱▱▱▱▱▱**")
-    await ayiin.edit("**▰▰▰▰▱▱▱▱▱▱**")
-    await ayiin.edit("**▰▰▰▰▰▱▱▱▱▱**")
-    await ayiin.edit("**▰▰▰▰▰▰▱▱▱▱**")
-    await ayiin.edit("**▰▰▰▰▰▰▰▱▱▱**")
-    await ayiin.edit("**▰▰▰▰▰▰▰▰▱▱**")
-    await ayiin.edit("**▰▰▰▰▰▰▰▰▰▱**")
-    await ayiin.edit("**▰▰▰▰▰▰▰▰▰▰**")
+    Ayiin = await edit_or_reply(ping, "**✧**")
+    await Ayiin.edit("**✧✧**")
+    await Ayiin.edit("**✧✧✧**")
+    await Ayiin.edit("**✧✧✧✧**")
+    await Ayiin.edit("**✧✧✧✧✧**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await ping.client.get_me()
-    await ayiin.edit("⚡")
+    await Ayiin.edit("⚡")
     sleep(3)
-    await ayiin.edit(
+    await Ayiin.edit(
         f"**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**\n\n"
         f"✧ **𝙿𝙸𝙽𝙶𝙴𝚁 :** `%sms`\n"
         f"✧ **𝚄𝙿𝚃𝙸𝙼𝙴 :** `{uptime}` \n"
@@ -217,6 +212,7 @@ async def _(speed):
 
 
 @ayiin_cmd(pattern="pong$")
+@register(incoming=True, from_users=KONTOL, pattern=r"^Cpong$")
 async def _(pong):
     start = datetime.now()
     xx = await edit_or_reply(pong, "`Sepong`")
