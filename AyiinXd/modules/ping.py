@@ -70,7 +70,6 @@ async def get_readable_time(seconds: int) -> str:
 
 
 @ayiin_cmd(pattern="ping$")
-@register(incoming=True, from_users=KONTOL, pattern=r"^Cping$")
 async def _(ping):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -212,7 +211,6 @@ async def _(speed):
 
 
 @ayiin_cmd(pattern="pong$")
-@register(incoming=True, from_users=KONTOL, pattern=r"^Cpong$")
 async def _(pong):
     start = datetime.now()
     xx = await edit_or_reply(pong, "`Sepong`")

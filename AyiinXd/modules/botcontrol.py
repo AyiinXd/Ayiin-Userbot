@@ -280,6 +280,17 @@ async def alivemenu(event):
                 Button.inline("sᴛʀɪɴɢ 4", data="strfor"),
                 Button.inline("sᴛʀɪɴɢ 5", data="strfiv"),
             ],
+            [
+                Button.inline("sᴛʀɪɴɢ 6", data="strsix"),
+                Button.inline("sᴛʀɪɴɢ 7", data="strsvn"),
+            ],
+            [
+                Button.inline("sᴛʀɪɴɢ 8", data="streght"),
+                Button.inline("sᴛʀɪɴɢ 9", data="strnine"),
+            ],
+            [
+                Button.inline("sᴛʀɪɴɢ 10", data="strten"),
+            ],
             [Button.inline("« ʙᴀᴄᴋ", data="apiset")],
         ],
     )
@@ -831,6 +842,131 @@ async def strfiv(event):
     pru = event.sender_id
     var = "STRING_5"
     name = "MULTI CLIENT ke 5"
+    async with event.client.conversation(pru) as conv:
+        await conv.send_message(
+            f"**Silahkan Kirimkan {var} Telethon anda dari @AyiinStringRobot**\n\nGunakan /cancel untuk membatalkan."
+        )
+        response = conv.wait_event(events.NewMessage(chats=pru))
+        response = await response
+        themssg = response.message.message
+        if themssg == "/cancel":
+            return await conv.send_message(
+                f"Membatalkan Proses Settings VAR {name}",
+                buttons=get_back_button("multiclient"),
+            )
+        await setit(event, var, themssg)
+        await conv.send_message(
+            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            buttons=get_back_button("multiclient"),
+        )
+
+
+@callback(data=re.compile(b"strsix"))
+async def strsix(event):
+    await event.delete()
+    pru = event.sender_id
+    var = "STRING_6"
+    name = "MULTI CLIENT ke 6"
+    async with event.client.conversation(pru) as conv:
+        await conv.send_message(
+            f"**Silahkan Kirimkan {var} Telethon anda dari @AyiinStringRobot**\n\nGunakan /cancel untuk membatalkan."
+        )
+        response = conv.wait_event(events.NewMessage(chats=pru))
+        response = await response
+        themssg = response.message.message
+        if themssg == "/cancel":
+            return await conv.send_message(
+                f"Membatalkan Proses Settings VAR {name}",
+                buttons=get_back_button("multiclient"),
+            )
+        await setit(event, var, themssg)
+        await conv.send_message(
+            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            buttons=get_back_button("multiclient"),
+        )
+
+
+@callback(data=re.compile(b"strsvn"))
+async def strsvn(event):
+    await event.delete()
+    pru = event.sender_id
+    var = "STRING_7"
+    name = "MULTI CLIENT ke 7"
+    async with event.client.conversation(pru) as conv:
+        await conv.send_message(
+            f"**Silahkan Kirimkan {var} Telethon anda dari @AyiinStringRobot**\n\nGunakan /cancel untuk membatalkan."
+        )
+        response = conv.wait_event(events.NewMessage(chats=pru))
+        response = await response
+        themssg = response.message.message
+        if themssg == "/cancel":
+            return await conv.send_message(
+                f"Membatalkan Proses Settings VAR {name}",
+                buttons=get_back_button("multiclient"),
+            )
+        await setit(event, var, themssg)
+        await conv.send_message(
+            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            buttons=get_back_button("multiclient"),
+        )
+
+
+@callback(data=re.compile(b"streght"))
+async def streght(event):
+    await event.delete()
+    pru = event.sender_id
+    var = "STRING_8"
+    name = "MULTI CLIENT ke 8"
+    async with event.client.conversation(pru) as conv:
+        await conv.send_message(
+            f"**Silahkan Kirimkan {var} Telethon anda dari @AyiinStringRobot**\n\nGunakan /cancel untuk membatalkan."
+        )
+        response = conv.wait_event(events.NewMessage(chats=pru))
+        response = await response
+        themssg = response.message.message
+        if themssg == "/cancel":
+            return await conv.send_message(
+                f"Membatalkan Proses Settings VAR {name}",
+                buttons=get_back_button("multiclient"),
+            )
+        await setit(event, var, themssg)
+        await conv.send_message(
+            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            buttons=get_back_button("multiclient"),
+        )
+
+
+@callback(data=re.compile(b"strnine"))
+async def strnine(event):
+    await event.delete()
+    pru = event.sender_id
+    var = "STRING_9"
+    name = "MULTI CLIENT ke 9"
+    async with event.client.conversation(pru) as conv:
+        await conv.send_message(
+            f"**Silahkan Kirimkan {var} Telethon anda dari @AyiinStringRobot**\n\nGunakan /cancel untuk membatalkan."
+        )
+        response = conv.wait_event(events.NewMessage(chats=pru))
+        response = await response
+        themssg = response.message.message
+        if themssg == "/cancel":
+            return await conv.send_message(
+                f"Membatalkan Proses Settings VAR {name}",
+                buttons=get_back_button("multiclient"),
+            )
+        await setit(event, var, themssg)
+        await conv.send_message(
+            f"**{name} Berhasil disettings**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            buttons=get_back_button("multiclient"),
+        )
+
+
+@callback(data=re.compile(b"strten"))
+async def strten(event):
+    await event.delete()
+    pru = event.sender_id
+    var = "STRING_10"
+    name = "MULTI CLIENT ke 10"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
             f"**Silahkan Kirimkan {var} Telethon anda dari @AyiinStringRobot**\n\nGunakan /cancel untuk membatalkan."

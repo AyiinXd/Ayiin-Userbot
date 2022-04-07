@@ -16,7 +16,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from AyiinXd import CMD_HANDLER, CMD_LIST, DEFAULT, DEVS, bot
+from AyiinXd import CMD_HANDLER, CMD_LIST, DEFAULT, DEVS, AYIIN2, AYIIN3, AYIIN4, AYIIN5, AYIIN6, AYIIN7, AYIIN8, AYIIN9, AYIIN10, bot
 
 
 def ayiin_cmd(pattern=None, command=None, **args):
@@ -48,14 +48,8 @@ def ayiin_cmd(pattern=None, command=None, **args):
                 cmd = reg + command
             else:
                 cmd = (
-                    (reg +
-                     pattern).replace(
-                        "$",
-                        "").replace(
-                        "\\",
-                        "").replace(
-                        "^",
-                        ""))
+                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
+                )
             try:
                 CMD_LIST[file_test].append(cmd)
             except BaseException:
@@ -93,13 +87,7 @@ def command(**args):
         try:
             cmd = re.search(reg, pattern)
             try:
-                cmd = cmd.group(1).replace(
-                    "$",
-                    "").replace(
-                    "\\",
-                    "").replace(
-                    "^",
-                    "")
+                cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
             except BaseException:
                 pass
             try:
@@ -238,17 +226,53 @@ def register(**args):
                         command, stdout=asyncsub.PIPE, stderr=asyncsub.PIPE
                     )
                     stdout, stderr = await process.communicate()
-                    result = str(stdout.decode().strip()) + \
-                        str(stderr.decode().strip())
+                    result = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
                     ftext += result
 
                     with open("error.log", "w+") as file:
                         file.write(ftext)
 
-        if not disable_edited:
-            bot.add_event_handler(wrapper, events.MessageEdited(**args))
-        bot.add_event_handler(wrapper, events.NewMessage(**args))
+        if bot:
+            if not disable_edited:
+                bot.add_event_handler(wrapper, events.MessageEdited(**args))
+            bot.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN2:
+            if not disable_edited:
+                AYIIN2.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN2.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN3:
+            if not disable_edited:
+                AYIIN3.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN3.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN4:
+            if not disable_edited:
+                AYIIN4.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN4.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN5:
+            if not disable_edited:
+                AYIIN5.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN5.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN6:
+            if not disable_edited:
+                AYIIN6.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN6.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN7:
+            if not disable_edited:
+                AYIIN7.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN7.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN8:
+            if not disable_edited:
+                AYIIN8.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN8.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN9:
+            if not disable_edited:
+                AYIIN9.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN9.add_event_handler(wrapper, events.NewMessage(**args))
+        if AYIIN10:
+            if not disable_edited:
+                AYIIN10.add_event_handler(wrapper, events.MessageEdited(**args))
+            AYIIN10.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
 
     return decorator

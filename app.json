@@ -11,7 +11,7 @@
       "required": true
     },
     "API_HASH": {
-      "description": "Dapatkan API Hash di Grup » https://t.me/AyiinXdSupport » Lalu ketik #api atau di web my.telegram.org",
+      "description": "Dapatkan API Hash di Grup » https://t.me/AyiinXdSupport » Lalu ketik /get api atau di web my.telegram.org",
       "required": true
     },
     "CMD_HANDLER": {
@@ -19,7 +19,7 @@
       "value": "+"
     },
      "STRING_SESSION": {
-      "description": "Dapatkan String Session di Grup » https://t.me/AyiinXdSupport » Lalu ketik #string",
+      "description": "Dapatkan String Session di Grup » https://t.me/AyiinXdSupport » Lalu ketik /get string",
       "required": true
     },
     "HEROKU_APP_NAME": {

@@ -14,6 +14,7 @@ import os
 import re
 import sys
 import time
+from asyncio import get_event_loop
 from base64 import b64decode
 from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getLogger
@@ -44,6 +45,7 @@ def STORAGE(n):
 
 load_dotenv("config.env")
 
+LOOP = get_event_loop()
 StartTime = time.time()
 repo = Repo()
 branch = repo.active_branch.name
@@ -71,24 +73,19 @@ logging.basicConfig(
 logging.getLogger("asyncio").setLevel(logging.ERROR)
 logging.getLogger("pytgcalls").setLevel(logging.ERROR)
 logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
-logging.getLogger(
-    "telethon.network.connection.connection").setLevel(logging.ERROR)
+logging.getLogger("telethon.network.connection.connection").setLevel(logging.ERROR)
 LOGS = getLogger(__name__)
 
-if version_info[0] < 3 or version_info[1] < 9:
+if version_info[0] < 3 or version_info[1] < 8:
     LOGS.info(
-        "Anda HARUS memiliki python setidaknya versi 3.9."
+        "Anda HARUS memiliki python setidaknya versi 3.8."
         "Beberapa fitur tergantung versi python ini. Bot berhenti."
     )
     sys.exit(1)
 
-# Check if the config was edited by using the already used variable.
-# Basically, its the 'virginity check' for the config file ;)
-CONFIG_CHECK = os.environ.get(
+if CONFIG_CHECK := os.environ.get(
     "___________PLOX_______REMOVE_____THIS_____LINE__________", None
-)
-
-if CONFIG_CHECK:
+):
     LOGS.info(
         "Harap hapus baris yang disebutkan dalam tagar pertama dari file config.env"
     )
@@ -118,15 +115,11 @@ while 0 < 6:
     DEVS = _DEVS.json()
     break
 
-
 del _DEVS
 
 SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
-BLACKLIST_GCAST = {
-    int(x) for x in os.environ.get(
-        "BLACKLIST_GCAST",
-        "").split()}
+BLACKLIST_GCAST = {int(x) for x in os.environ.get("BLACKLIST_GCAST", "").split()}
 
 # For Blacklist Group Support
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
@@ -139,9 +132,18 @@ API_HASH = str(os.environ.get("API_HASH") or None)
 
 # Userbot Session String
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
+STRING_2 = os.environ.get("STRING_2", None)
+STRING_3 = os.environ.get("STRING_3", None)
+STRING_4 = os.environ.get("STRING_4", None)
+STRING_5 = os.environ.get("STRING_5", None)
+STRING_6 = os.environ.get("STRING_6", None)
+STRING_7 = os.environ.get("STRING_7", None)
+STRING_8 = os.environ.get("STRING_8", None)
+STRING_9 = os.environ.get("STRING_9", None)
+STRING_10 = os.environ.get("STRING_10", None)
 
 # Logging channel/group ID configuration.
-BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", "0"))
+BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID") or 0)
 
 # Load or No Load modules
 LOAD = os.environ.get("LOAD", "").split()
@@ -153,7 +155,6 @@ PM_LIMIT = int(os.environ.get("PM_LIMIT", 6))
 
 # Custom Handler command
 CMD_HANDLER = os.environ.get("CMD_HANDLER") or "+"
-
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
 
 # Support
@@ -190,8 +191,7 @@ REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
 
 # Chrome Driver and Headless Google Chrome Binaries
 CHROME_DRIVER = os.environ.get("CHROME_DRIVER") or "/usr/bin/chromedriver"
-GOOGLE_CHROME_BIN = os.environ.get(
-    "GOOGLE_CHROME_BIN") or "/usr/bin/google-chrome"
+GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN") or "/usr/bin/google-chrome"
 
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
@@ -202,9 +202,7 @@ ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
 ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 
 # untuk perintah teks costum .alive
-ALIVE_TEKS_CUSTOM = os.environ.get(
-    "ALIVE_TEKS_CUSTOM",
-    "𝙷𝙴𝚈, 𝚂𝙰𝚈𝙰 𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃")
+ALIVE_TEKS_CUSTOM = os.environ.get("ALIVE_TEKS_CUSTOM", "𝙷𝙴𝚈, 𝚂𝙰𝚈𝙰 𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃")
 
 # Default .alive name
 ALIVE_NAME = os.environ.get("ALIVE_NAME", "AyiinXd")
@@ -235,18 +233,22 @@ BITLY_TOKEN = os.environ.get("BITLY_TOKEN", None)
 BOT_VER = os.environ.get("BOT_VER", "3.2.1")
 
 # Default .alive logo
-ALIVE_LOGO = (os.environ.get("ALIVE_LOGO")
-              or "https://telegra.ph/file/940f21be8d8863b6c70ae.jpg")
+ALIVE_LOGO = (
+    os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/940f21be8d8863b6c70ae.jpg"
+)
 
-INLINE_PIC = (os.environ.get("INLINE_PIC")
-              or "https://telegra.ph/file/940f21be8d8863b6c70ae.jpg")
+INLINE_PIC = (
+    os.environ.get("INLINE_PIC") or "https://telegra.ph/file/940f21be8d8863b6c70ae.jpg"
+)
 
 # Picture For VCPLUGIN
-PLAY_PIC = (os.environ.get("PLAY_PIC")
-            or "https://telegra.ph/file/6213d2673486beca02967.png")
+PLAY_PIC = (
+    os.environ.get("PLAY_PIC") or "https://telegra.ph/file/6213d2673486beca02967.png"
+)
 
-QUEUE_PIC = (os.environ.get("QUEUE_PIC")
-             or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
+QUEUE_PIC = (
+    os.environ.get("QUEUE_PIC") or "https://telegra.ph/file/d6f92c979ad96b2031cba.png"
+)
 
 DEFAULT = list(map(int, b64decode("MTcwMDQwNTczMg==").split()))
 
@@ -270,8 +272,7 @@ if LASTFM_API and LASTFM_SECRET and LASTFM_USERNAME and LASTFM_PASS:
     except BaseException:
         pass
 
-TEMP_DOWNLOAD_DIRECTORY = os.environ.get(
-    "TMP_DOWNLOAD_DIRECTORY", "./downloads/")
+TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./downloads/")
 
 # Deezloader
 DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN", None)
@@ -282,7 +283,6 @@ DEEP_AI = os.environ.get("DEEP_AI", None)
 # Inline bot helper
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
-
 
 # Jangan di hapus Nanti ERROR
 while 0 < 6:
@@ -299,10 +299,8 @@ while 0 < 6:
 
 del _BLACKLIST
 
-
 ch = str(b64decode("QEF5aWluU3VwcG9ydA=="))[2:15]
 gc = str(b64decode("QEF5aWluWGRTdXBwb3J0"))[2:17]
-
 
 while 0 < 6:
     _WHITELIST = get(
@@ -337,14 +335,155 @@ except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
+if STRING_2:
+    session2 = StringSession(str(STRING_2))
+    AYIIN2 = TelegramClient(
+        session=session2,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py2 = PyTgCalls(AYIIN2)
+else:
+    call_py2 = None
+    AYIIN2 = None
+
+
+if STRING_3:
+    session3 = StringSession(str(STRING_3))
+    AYIIN3 = TelegramClient(
+        session=session3,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py3 = PyTgCalls(AYIIN3)
+else:
+    call_py3 = None
+    AYIIN3 = None
+
+
+if STRING_4:
+    session4 = StringSession(str(STRING_4))
+    AYIIN4 = TelegramClient(
+        session=session4,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py4 = PyTgCalls(AYIIN4)
+else:
+    call_py4 = None
+    AYIIN4 = None
+
+
+if STRING_5:
+    session5 = StringSession(str(STRING_5))
+    AYIIN5 = TelegramClient(
+        session=session5,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py5 = PyTgCalls(AYIIN5)
+else:
+    call_py5 = None
+    AYIIN5 = None
+
+
+if STRING_6:
+    session6 = StringSession(str(STRING_6))
+    AYIIN6 = TelegramClient(
+        session=session6,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py6 = PyTgCalls(AYIIN6)
+else:
+    call_py6 = None
+    AYIIN6 = None
+
+
+if STRING_7:
+    session7 = StringSession(str(STRING_7))
+    AYIIN7 = TelegramClient(
+        session=session7,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py7 = PyTgCalls(AYIIN7)
+else:
+    call_py7 = None
+    AYIIN7 = None
+
+
+if STRING_8:
+    session8 = StringSession(str(STRING_8))
+    AYIIN8 = TelegramClient(
+        session=session8,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py8 = PyTgCalls(AYIIN8)
+else:
+    call_py8 = None
+    AYIIN8 = None
+
+
+if STRING_9:
+    session9 = StringSession(str(STRING_9))
+    AYIIN9 = TelegramClient(
+        session=session9,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py9 = PyTgCalls(AYIIN9)
+else:
+    call_py9 = None
+    AYIIN9 = None
+
+
+if STRING_10:
+    session10 = StringSession(str(STRING_10))
+    AYIIN10 = TelegramClient(
+        session=session10,
+        api_id=API_KEY,
+        api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
+        auto_reconnect=True,
+        connection_retries=None,
+    )
+    call_py10 = PyTgCalls(AYIIN10)
+else:
+    call_py10 = None
+    AYIIN10 = None
+
 
 async def update_restart_msg(chat_id, msg_id):
-    DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
     message = (
-        f"**⍟ Ayiin-Userbot v{BOT_VER} is back up and running!**\n\n"
-        f"**⍟ Telethon:** {version.__version__}\n"
-        f"**⍟ Python:** {python_version()}\n"
-        f"**⍟ User:** {DEFAULTUSER}"
+        f"**Ayiin-UserBot v{BOT_VER} is back up and running!**\n\n"
+        f"**Telethon:** {version.__version__}\n"
+        f"**Python:** {python_version()}\n"
     )
     await bot.edit_message(chat_id, msg_id, message)
     return True
@@ -356,9 +495,7 @@ try:
     chat_id, msg_id = gvarstatus("restartstatus").split("\n")
     with bot:
         try:
-            bot.loop.run_until_complete(
-                update_restart_msg(
-                    int(chat_id), int(msg_id)))
+            LOOP.run_until_complete(update_restart_msg(int(chat_id), int(msg_id)))
         except BaseException:
             pass
     delgvar("restartstatus")
@@ -387,12 +524,10 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
     helpable_modules = sorted(helpable_modules)
     modules = [
-        custom.Button.inline(
-            "{} {} {}".format(f"{INLINE_EMOJI}", x, f"{INLINE_EMOJI}"),
-            data="ub_modul_{}".format(x),
-        )
+        custom.Button.inline(f"{INLINE_EMOJI} {x} {INLINE_EMOJI}", data=f"ub_modul_{x}")
         for x in helpable_modules
     ]
+
     pairs = list(
         zip(
             modules[::number_of_cols],
@@ -405,33 +540,21 @@ def paginate_help(page_number, loaded_modules, prefix):
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
         pairs = pairs[
-            modulo_page * number_of_rows: number_of_rows * (modulo_page + 1)
+            modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
         ] + [
             (
-                custom.Button.inline(
-                    "««", data="{}_prev({})".format(prefix, modulo_page)
-                ),
-                custom.Button.inline("✧ 𝚃𝚄𝚃𝚄𝙿 ✧", b"close"),
-                custom.Button.inline(
-                    "»»", data="{}_next({})".format(prefix, modulo_page)
-                ),
+                custom.Button.inline("««", data=f"{prefix}_prev({modulo_page})"),
+                custom.Button.inline("ᴛᴜᴛᴜᴘ", b"close"),
+                custom.Button.inline("»»", data=f"{prefix}_next({modulo_page})"),
             )
         ]
+
     return pairs
-
-
-def ibuild_keyboard(buttons):
-    keyb = []
-    for btn in buttons:
-        if btn[2] and keyb:
-            keyb[-1].append(Button.url(btn[0], btn[1]))
-        else:
-            keyb.append([Button.url(btn[0], btn[1])])
-    return keyb
 
 
 with bot:
     try:
+        from AyiinXd.modules.button import BTN_URL_REGEX, build_keyboard
         from AyiinXd.modules.sql_helper.bot_blacklists import check_is_black_list
         from AyiinXd.modules.sql_helper.bot_pms_sql import add_user_to_db, get_user_id
         from AyiinXd.utils import reply_id
@@ -443,12 +566,8 @@ with bot:
         logo = ALIVE_LOGO
         logoyins = INLINE_PIC
         tgbotusername = BOT_USERNAME
-        BTN_URL_REGEX = re.compile(
-            r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
-        )
 
-        @tgbot.on(events.NewMessage(incoming=True,
-                  func=lambda e: e.is_private))
+        @tgbot.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
         async def bot_pms(event):
             chat = await event.get_chat()
             if check_is_black_list(chat.id):
@@ -504,12 +623,8 @@ with bot:
                         return await event.reply(f"**ERROR:** `{e}`")
                     try:
                         add_user_to_db(
-                            reply_to,
-                            user_name,
-                            user_id,
-                            reply_msg,
-                            event.id,
-                            msg.id)
+                            reply_to, user_name, user_id, reply_msg, event.id, msg.id
+                        )
                     except Exception as e:
                         LOGS.error(str(e))
                         if BOTLOG:
@@ -523,13 +638,12 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith(
-                    "@AyiinXdSupport"):
+            if event.query.user_id == uid and query.startswith("@AyiinXdSupport"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=logoyins,
                     link_preview=False,
-                    text=f"**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙸𝙽𝙻𝙸𝙽𝙴 𝙼𝙴𝙽𝚄 ✧**\n\n✓ **𝙾𝚆𝙽𝙴𝚁 :** [{user.first_name}](tg://user?id={user.id})\n**𝙹𝚄𝙼𝙻𝙰𝙷 :** `{len(dugmeler)}` 𝙼𝙾𝙳𝚄𝙻𝙴𝚂",
+                    text=f"**✧ ᴀʏɪɪɴ-ᴜsᴇʀʙᴏᴛ ɪɴʟɪɴᴇ ᴍᴇɴᴜ ✧**\n\n✧ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✧ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` ᴍᴏᴅᴜʟᴇs",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -537,20 +651,14 @@ with bot:
                     title="Repository",
                     description="Repository Ayiin - Userbot",
                     url="https://t.me/AyiinXdSupport",
-                    thumb=InputWebDocument(
-                        INLINE_PIC,
-                        0,
-                        "image/jpeg",
-                        []),
-                    text="**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n✧ **𝙾𝚆𝙽𝙴𝚁 :** [𝙰𝚢𝚒𝚒𝚗𝚇𝚍](https://t.me/AyiinXd)\n✧ **𝚂𝚄𝙿𝙿𝙾𝚁𝚃 :** @AyiinXdSupport\n✧ **𝚁𝙴𝙿𝙾𝚂𝙸𝚃𝙾𝚁𝚈 :** [✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧](https://github.com/AyiinXd/Ayiin-Userbot)\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
+                    text="**✧ ᴀʏɪɪɴ-ᴜsᴇʀʙᴏᴛ ✧**\n➖➖➖➖➖➖➖➖➖➖\n✧ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [ᴀʏɪɪɴ](https://t.me/AyiinXd)\n✧ **sᴜᴘᴘᴏʀᴛ :** @AyiinSupport\n✧ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [ᴀʏɪɪɴ-ᴜsᴇʀʙᴏᴛ](https://github.com/AyiinXd/Ayiin-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
                             custom.Button.url(
-                                "ɢʀᴏᴜᴘ",
-                                "https://t.me/AyiinXdSupport"),
-                            custom.Button.url(
-                                "ʀᴇᴘᴏ",
-                                "https://github.com/AyiinXd/Ayiin-Userbot"),
+                                "ʀᴇᴘᴏ", "https://github.com/AyiinXd/Ayiin-Userbot"
+                            ),
                         ],
                     ],
                     link_preview=False,
@@ -568,9 +676,9 @@ with bot:
                         to_check -= 1
                     if n_escapes % 2 == 0:
                         buttons.append(
-                            (match.group(2), match.group(3), bool(
-                                match.group(4))))
-                        note_data += markdown_note[prev: match.start(1)]
+                            (match.group(2), match.group(3), bool(match.group(4)))
+                        )
+                        note_data += markdown_note[prev : match.start(1)]
                         prev = match.end(1)
                     elif n_escapes % 2 == 1:
                         note_data += markdown_note[prev:to_check]
@@ -580,7 +688,7 @@ with bot:
                 else:
                     note_data += markdown_note[prev:]
                 message_text = note_data.strip()
-                tl_ib_buttons = ibuild_keyboard(buttons)
+                tl_ib_buttons = build_keyboard(buttons)
                 result = builder.article(
                     title="Inline creator",
                     text=message_text,
@@ -589,23 +697,17 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="᯽ Ayiin-Userbot ᯽",
-                    description="Ayiin - UserBot | Telethon",
+                    title="✧ Ayiin-Userbot ✧",
+                    description="Ayiin - Userbot | Telethon",
                     url="https://t.me/AyiinXdSupport",
-                    thumb=InputWebDocument(
-                        INLINE_PIC,
-                        0,
-                        "image/jpeg",
-                        []),
-                    text=f"**𝙰𝚈𝙸𝙸𝙽 - 𝚄𝚂𝙴𝚁𝙱𝙾𝚃**\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n~ **𝚄𝚂𝙴𝚁𝙼𝙾𝙳𝙴 :** [{user.first_name}](tg://user?id={user.id})\n~ **𝙰𝚂𝚂𝙸𝚂𝚃𝙰𝙽𝚃 :** {tgbotusername}\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸\n**𝚂𝚄𝙿𝙿𝙾𝚁𝚃:** @AyiinXdSupport\n🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸",
+                    thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
+                    text=f"**✧ ᴀʏɪɪɴ - ᴜsᴇʀʙᴏᴛ ✧**\n➖➖➖➖➖➖➖➖➖➖\n✧ **ᴜsᴇʀᴍᴏᴅᴇ :** [{user.first_name}](tg://user?id={user.id})\n✧ **ᴀssɪsᴛᴀɴᴛ :** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**sᴜᴘᴘᴏʀᴛ :** @AyiinSupport\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/AyiinXdSupport"),
                             custom.Button.url(
-                                "ɢʀᴏᴜᴘ",
-                                "https://t.me/AyiinXdSupport"),
-                            custom.Button.url(
-                                "ʀᴇᴘᴏ",
-                                "https://github.com/AyiinXd/Ayiin-Userbot"),
+                                "ʀᴇᴘᴏ", "https://github.com/AyiinXd/Ayiin-Userbot"
+                            ),
                         ],
                     ],
                     link_preview=False,
@@ -618,9 +720,8 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 current_page_number = int(looters)
-                buttons = paginate_help(
-                    current_page_number, dugmeler, "helpme")
-                text = f"**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𝙸𝙽𝙻𝙸𝙽𝙴 𝙼𝙴𝙽𝚄 ✧**\n\n✧ **𝙾𝚆𝙽𝙴𝚁** [{user.first_name}](tg://user?id={user.id})\n✧ **𝙹𝚄𝙼𝙻𝙰𝙷** `{len(dugmeler)}` 𝙼𝙾𝙳𝚄𝙻𝙴𝚂"
+                buttons = paginate_help(current_page_number, dugmeler, "helpme")
+                text = f"**✧ ᴀʏɪɪɴ-ᴜsᴇʀʙᴏᴛ ɪɴʟɪɴᴇ ᴍᴇɴᴜ ✧**\n\n✧ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✧ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` ᴍᴏᴅᴜʟᴇs"
                 await event.edit(
                     text,
                     file=logoyins,
@@ -638,10 +739,8 @@ with bot:
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                current_page_number = int(
-                    event.data_match.group(1).decode("UTF-8"))
-                buttons = paginate_help(
-                    current_page_number + 1, dugmeler, "helpme")
+                current_page_number = int(event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(current_page_number + 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = (
@@ -652,10 +751,9 @@ with bot:
         @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
-                openlagi = custom.Button.inline(
-                    "• 𝚁𝙴-𝙾𝙿𝙴𝙽 𝙼𝙴𝙽𝚄 •", data="reopen")
+                openlagi = custom.Button.inline("• ʀᴇ-ᴏᴘᴇɴ ᴍᴇɴᴜ •", data="reopen")
                 await event.edit(
-                    "😴 **𝙷𝙴𝙻𝙿 𝙼𝙾𝙳𝙴 𝙱𝚄𝚃𝚃𝙾𝙽 𝙳𝙸𝚃𝚄𝚃𝚄𝙿!** 😴", buttons=openlagi
+                    "✨ **ʜᴇʟᴘ ᴍᴏᴅᴇ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ** ✨", buttons=openlagi
                 )
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
@@ -668,10 +766,8 @@ with bot:
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                current_page_number = int(
-                    event.data_match.group(1).decode("UTF-8"))
-                buttons = paginate_help(
-                    current_page_number - 1, dugmeler, "helpme")
+                current_page_number = int(event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(current_page_number - 1, dugmeler, "helpme")
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
@@ -694,16 +790,16 @@ with bot:
                         + " "
                     )
                 else:
-                    help_string = (str(CMD_HELP[modul_name]).replace(
-                        "`", "").replace("**", ""))
+                    help_string = (
+                        str(CMD_HELP[modul_name]).replace("`", "").replace("**", "")
+                    )
 
                 reply_pop_up_alert = (
                     help_string
                     if help_string is not None
-                    else "{} Tidak ada dokumen yang telah ditulis untuk modul.".format(
-                        modul_name
-                    )
+                    else f"{modul_name} Tidak ada dokumen yang telah ditulis untuk modul."
                 )
+
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)

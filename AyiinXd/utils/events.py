@@ -2,8 +2,6 @@ import pybase64
 from telethon.tl.functions.channels import JoinChannelRequest as Get
 from telethon.tl.types import MessageEntityMentionName
 
-from AyiinXd import bot
-
 from .logger import logging
 from .tools import edit_delete
 
@@ -26,14 +24,11 @@ async def get_user_from_event(
             user = args[0]
             if len(args) > 1:
                 extra = "".join(args[1:])
-            if user.isnumeric() or (user.startswith("-")
-                                    and user[1:].isnumeric()):
+            if user.isnumeric() or (user.startswith("-") and user[1:].isnumeric()):
                 user = int(user)
             if event.message.entities:
                 probable_user_mention_entity = event.message.entities[0]
-                if isinstance(
-                        probable_user_mention_entity,
-                        MessageEntityMentionName):
+                if isinstance(probable_user_mention_entity, MessageEntityMentionName):
                     user_id = probable_user_mention_entity.user_id
                     user_obj = await event.client.get_entity(user_id)
                     return user_obj, extra
@@ -53,7 +48,7 @@ async def get_user_from_event(
             return user_obj, extra
         if event.reply_to_msg_id:
             previous_message = await event.get_reply_message()
-            if previous_message.from_id is None:
+            if previous_message.sender_id is None:
                 if not noedits:
                     await edit_delete(
                         yinsevent, "**ERROR: Dia adalah anonymous admin!**", 60
@@ -80,14 +75,12 @@ async def get_user_from_event(
     return None, None
 
 
-async def checking():
+async def checking(client):
     gocheck = str(pybase64.b64decode("QEF5aWluU3VwcG9ydA=="))[2:15]
     checker = str(pybase64.b64decode("QEF5aWluWGRTdXBwb3J0"))[2:17]
-    try:
-        await bot(Get(gocheck))
-    except BaseException:
-        pass
-    try:
-        await bot(Get(checker))
-    except BaseException:
-        pass
+    if client:
+        try:
+            await client(Get(gocheck))
+            await client(Get(checker))
+        except BaseException:
+            pass
