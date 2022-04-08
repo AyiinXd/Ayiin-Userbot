@@ -11,7 +11,7 @@ from telethon.utils import get_display_name
 
 from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, LOGS
+from AyiinXd import CMD_HELP, BLACKLIST_CHAT, LOGS
 from AyiinXd.modules.sql_helper.globals import addgvar, gvarstatus
 from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
 from AyiinXd.utils.tools import media_type
@@ -128,6 +128,8 @@ async def spam_function(event, spammer, xnxx, sleeptimem, sleeptimet, DelaySpam=
 
 @ayiin_cmd(pattern="spam ([\\s\\S]*)")
 async def nyespam(event):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
     spammer = await event.get_reply_message()
     xnxx = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
     try:
@@ -150,6 +152,8 @@ async def nyespam(event):
 
 @ayiin_cmd(pattern="sspam$")
 async def stickerpack_spam(event):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
     reply = await event.get_reply_message()
     if not reply or media_type(
             reply) is None or media_type(reply) != "Sticker":
@@ -208,6 +212,8 @@ async def stickerpack_spam(event):
 
 @ayiin_cmd(pattern="cspam ([\\s\\S]*)")
 async def tmeme(event):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
     cspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = cspam.replace(" ", "")
     await event.delete()
@@ -233,6 +239,8 @@ async def tmeme(event):
 
 @ayiin_cmd(pattern="wspam ([\\s\\S]*)")
 async def tmeme(event):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
     wspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = wspam.split()
     await event.delete()
@@ -258,6 +266,8 @@ async def tmeme(event):
 
 @ayiin_cmd(pattern="(delayspam|dspam) ([\\s\\S]*)")
 async def dlyspam(event):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
     try:

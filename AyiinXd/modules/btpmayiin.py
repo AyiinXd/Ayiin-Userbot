@@ -17,25 +17,22 @@ from datetime import datetime as dt
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, BOTLOG_CHATID
 from AyiinXd.events import register
-from AyiinXd.utils import ayiin_cmd, edit_or_reply
+from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply, reply_id
 
 
 @ayiin_cmd(pattern="btpm(?: |$)(.*)")
 async def listbtpm(list):
     ayiin = await edit_or_reply(list, "`Processing...`")
-    if list.pattern_match.group(1):
-        text, link = list.pattern_match.group(1).split()
-    else:
-        await list.edit("**Yang Benerlah Kentod, Biar Bisa Buat List!!!**")
-        return
-
-    n_ch = text.replace(".", " ")
+    input = list.pattern_match.group(1)
+    if not input:
+        return await edit_delete(list, "**[ᴇʀʀᴏʀ] - Isi Username Channelnya Tod...**")
+    Brazzers = await list.client.get_entity(input)
     d_form = "%d - %B - %Y"
     user = await list.client.get_me()
-    await ayiin.edit(f"**𝙱𝚃𝙿𝙼 𝙲𝙷:** {n_ch}\n"
+    await ayiin.edit(f"**𝙱𝚃𝙿𝙼 𝙲𝙷:** {Brazzers.title}\n"
                      f"**𝚃𝙰𝙽𝙶𝙶𝙰𝙻 : {dt.now().strftime(d_form)}**\n\n"
                      f"**𝙰𝙳𝙼𝙸𝙽 : @{user.username}**\n"
-                     f"**𝙲𝙷: {link}**\n"
+                     f"**𝙲𝙷: @{Brazzers.username}**\n"
                      f"**----------------------------------**\n"
                      f"**• 𝟶𝟶.𝟶𝟶 - 𝟶𝟸.𝟶𝟶 : **\n"
                      f"**-𝙰𝙳𝙼𝙸𝙽 : **\n"
@@ -182,7 +179,7 @@ async def on_btpm_delete(event):
 CMD_HELP.update(
     {
         "btpmayiin": f"**Plugin:** `btpmayiin`\
-        \n\n  »  **Perintah : **`{cmd}btpm` <nama_ch (TanpaSpasi)> <username ch>\
+        \n\n  »  **Perintah : **`{cmd}btpm <username ch>`\
         \n  »  **Kegunaan :** __Untuk Mendapatkan List Btpm Kosong.__\
         \n\n  »  **Perintah : **`{cmd}savebt` <nama_list>\
         \n  »  **Kegunaan :** __Untuk Menyimpan List Btpm, Gunakan Nama Yang Berbeda.__\

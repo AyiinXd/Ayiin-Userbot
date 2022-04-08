@@ -19,14 +19,14 @@ async def _(event):
         try:
             if p.first_name:
                 return await edit_or_reply(
-                    event, f"**User : {input_str}\n"
-                           f"ID** » `{p.id}`"
+                    event, f"**User :** {input_str}\n"
+                           f"**ID** » `{p.id}`"
                 )
         except Exception:
             try:
                 if p.title:
                     return await edit_or_reply(
-                        event, f"**Name : {p.title}\n"
+                        event, f"**Name :** {p.title}\n"
                                f"**ID** » `{p.id}`"
                     )
             except Exception as e:

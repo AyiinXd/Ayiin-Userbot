@@ -15,10 +15,22 @@
 asupan_sagapung = [
     f"https://t.me/AsupanSagapungRobot?start={asu}"
     for asu in [
-        "Z2V0LTMyMDU2NDMzNzc2ODY0",
-        "Z2V0LTk2MTYwOTU5NzQ3NTUy",
-        "Z2V0LTM0MDU5OTYwODg3OTE4",
-        "Z2V0LTM1MDYxNzI0NDQzNDQ1",
+        "Z2V0LTUwMDg1MDA5NjYyMDU",
+        "Z2V0LTYwMTAyMDExNTk0NDY",
+        "Z2V0LTcwMTE5MDEzNTI2ODc",
+        "Z2V0LTkwMTUzMDE3MzkxNjk",
+        "Z2V0LTgwMTM2MDE1NDU5Mjg",
+        "Z2V0LTEwMDE3MDAxOTMyNDEw",
+        "Z2V0LTExMDE4NzAyMTI1NjUx",
+        "Z2V0LTEyMDIwNDAyMzE4ODky",
+        "Z2V0LTEzMDIyMTAyNTEyMTMz",
+        "Z2V0LTE1MDI1NTAyODk4NjE1",
+        "Z2V0LTE0MDIzODAyNzA1Mzc0",
+        "Z2V0LTE2MDI3MjAzMDkxODU2",
+        "Z2V0LTE3MDI4OTAzMjg1MDk3",
+        "Z2V0LTE4MDMwNjAzNDc4MzM4",
+        "Z2V0LTIwMDM0MDAzODY0ODIw",
+        "Z2V0LTE5MDMyMzAzNjcxNTc5",
     ]
 ]
 
@@ -26,7 +38,8 @@ asupan_sagapung = [
 # ========================Exolink========================
 
 
-exolink = ["https://t.me/asupanexorBot?start=Z2V0LTI1MDQ0MDg4ODg4MTc1",
+exolink = [
+           "https://t.me/asupanexorBot?start=Z2V0LTI1MDQ0MDg4ODg4MTc1",
            "https://t.me/asupanexorBot?start=Z2V0LTI2MDQ1ODUyNDQzNzAy",
            "https://t.me/asupanexorBot?start=Z2V0LTI4MDQ5Mzc5NTU0NzU2",
            "https://t.me/asupanexorBot?start=Z2V0LTMwMDUyOTA2NjY1ODEw",
@@ -172,4 +185,9 @@ exolink = ["https://t.me/asupanexorBot?start=Z2V0LTI1MDQ0MDg4ODg4MTc1",
            "https://t.me/asupanexorBot?start=Z2V0LTI2NzQ3MDg2OTMyNTcwOQ",
            "https://t.me/asupanexorBot?start=Z2V0LTI2NTQ2NzM0MjIxNDY1NQ",
            "https://t.me/asupanexorBot?start=Z2V0LTI3NDQ4MzIxNDIxNDM5OA"
-           ]
+    ]
+
+
+# ========================×========================
+#                Link For Collaborator
+# ========================×========================
