@@ -20,9 +20,8 @@ from telethon.errors.rpcerrorlist import BotInlineDisabledError as noinline
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
-from AyiinXd import BOT_USERNAME
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import bot
+from AyiinXd import bot, tgbot
 from AyiinXd.utils import edit_or_reply, ayiin_cmd
 
 
@@ -30,6 +29,8 @@ from AyiinXd.utils import edit_or_reply, ayiin_cmd
 async def _(event):
     if event.fwd_from:
         return
+    AyiinUBOT = await tgbot.get_me()
+    BOT_USERNAME = AyiinUBOT.username
     if BOT_USERNAME is not None:
         chat = "@Botfather"
         try:

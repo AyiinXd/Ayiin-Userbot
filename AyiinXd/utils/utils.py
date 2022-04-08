@@ -73,16 +73,6 @@ async def autopilot():
         heroku_var["BOTLOG_CHATID"] = "-100" + str(chat_id)
     else:
         heroku_var["BOTLOG_CHATID"] = str(chat_id)
-    rights = ChatAdminRights(
-        add_admins=True,
-        invite_users=True,
-        change_info=True,
-        ban_users=True,
-        delete_messages=True,
-        pin_messages=True,
-        anonymous=False,
-        manage_call=True,
-    )
 
 
 async def autobot():

@@ -18,7 +18,6 @@ from telethon.tl.types import MessageMediaWebPage
 from telethon.utils import get_display_name, pack_bot_file_id
 
 from AyiinXd import (
-    BOT_USERNAME,
     BOTLOG_CHATID,
     CHANNEL,
     CMD_HANDLER,
@@ -41,7 +40,6 @@ from AyiinXd.utils import _format, asst_cmd, callback, reply_id
 
 from .ping import get_readable_time
 
-botusername = BOT_USERNAME
 OWNER = user.first_name
 OWNER_ID = user.id
 telegraph = Telegraph()
@@ -114,20 +112,22 @@ async def pmclose(event):
 @callback(data=re.compile(b"pmbot"))
 async def pmbot(event):
     await event.delete()
+    AyiinUBOT = await tgbot.get_me()
+    botusername = AyiinUBOT.username
     if event.query.user_id == OWNER_ID:
         await tgbot.send_message(
             event.chat_id,
             message=f"""**Perintah di Bot ini adalah:**\n
-**NOTE: Perintah ini hanya berfungsi di {botusername}**\n
+**NOTE: Perintah ini hanya berfungsi di @{botusername}**\n
  • **Command : **/uinfo <reply ke pesan>
  • **Function : **Untuk Mencari Info Pengirim Pesan.\n
  • **Command : **/ban <alasan> atau /ban <username/userid> <alasan>
  • **Function : **Untuk Membanned Pengguna dari BOT.(Gunakan alasan saat ban)\n
  • **Command : **/unban <alasan> atau /unban <username/userid>
  • **Function : **Membuka Banned pengguna dari bot, agar bisa mengirim pesan lagi dibot.
- • **NOTE : **Untuk memeriksa daftar pengguna yang dibanned Ketik `{cmd}bblist`\n
+ • **NOTE : **Untuk memeriksa daftar pengguna yang dibanned Ketik `+bblist`\n
  • **Command : **/broadcast
- • **Function : **Balas ke pesan untuk diBroadcast ke setiap pengguna yang memulai bot Anda. Untuk mendapatkan daftar pengguna Ketik `{cmd}botuser`\n
+ • **Function : **Balas ke pesan untuk diBroadcast ke setiap pengguna yang memulai bot Anda. Untuk mendapatkan daftar pengguna Ketik `+botuser`\n
  • **NOTE : ** Jika pengguna menghentikan/memblokir bot maka dia akan dihapus dari database Anda yaitu dia akan dihapus dari daftar bot_starters
 """,
             buttons=[
@@ -209,13 +209,14 @@ async def apiset(event):
 
 
 @callback(data=re.compile(b"apikeys"))
-async def alivemenu(event):
+async def apikeys(event):
     await event.edit(
         "**Silahkan Pilih VAR yang ingin anda Setting**",
         buttons=[
-            [Button.inline("ʙɪᴛʟʏ ᴛᴏᴋᴇɴ", data="btly"),
+            [
+                Button.inline("ʙɪᴛʟʏ ᴛᴏᴋᴇɴ", data="btly"),
                 Button.inline("ᴅᴇᴇᴢᴇʀ ᴀʀʟ ᴛᴏᴋᴇɴ", data="dzrl"),
-             ],
+            ],
             [
                 Button.inline("ᴅᴇᴇᴘ ᴀᴘɪ", data="dapi"),
                 Button.inline("ᴏᴄʀ ᴀᴘɪ", data="ocrapi"),
@@ -238,7 +239,7 @@ async def alivemenu(event):
                 Button.inline("ᴀʟɪᴠᴇ ʟᴏɢᴏ", data="alvlogo"),
             ],
             [
-                Button.inline("ᴀʟɪᴠᴇ  ᴇᴍᴏᴊɪ", data="alvmoji"),
+                Button.inline("ᴀʟɪᴠᴇ ᴇᴍᴏᴊɪ", data="alvmoji"),
                 Button.inline("ᴀʟɪᴠᴇ ᴛᴇᴋs", data="alvteks"),
             ],
             [
@@ -265,7 +266,7 @@ async def hndlrmenu(event):
 
 
 @callback(data=re.compile(b"multiclient"))
-async def alivemenu(event):
+async def menuclient(event):
     await event.edit(
         "**Silahkan Pilih VAR yang ingin anda Setting**",
         buttons=[
@@ -317,7 +318,7 @@ async def alvlogo(event):
     var = "ALIVE_LOGO"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan Foto Untuk var {var} anda**\n\nGunakan /cancel untuk membatalkan."
+            f"**Silahkan Kirimkan Foto Untuk var {var} anda**\n\nGunakan /cancel untuk membatalkan."
         )
         response = await conv.get_response()
         try:
@@ -369,7 +370,7 @@ async def alvmoji(event):
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("alivemenu"),
             )
         await setit(event, var, themssg)
@@ -393,7 +394,7 @@ async def alvteks(event):
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("alivemenu"),
             )
         await setit(event, var, themssg)
@@ -417,7 +418,7 @@ async def alvch(event):
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("alivemenu"),
             )
         await setit(event, var, themssg)
@@ -441,7 +442,7 @@ async def alvgc(event):
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("alivemenu"),
             )
         await setit(event, var, themssg)
@@ -465,7 +466,7 @@ async def inmoji(event):
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("inlinemenu"),
             )
         await setit(event, var, themssg)
@@ -482,7 +483,7 @@ async def inpics(event):
     var = "INLINE_PIC"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "**Silahkan Kirimkan Foto Untuk var {var} anda**\n\nGunakan /cancel untuk membatalkan."
+            f"**Silahkan Kirimkan Foto Untuk var {var} anda**\n\nGunakan /cancel untuk membatalkan."
         )
         response = await conv.get_response()
         try:
@@ -516,7 +517,7 @@ async def inpics(event):
         await setit(event, var, url)
         await conv.send_message(
             f"**{var} Berhasil di Ganti Tod**\n\nSabar Ya Babi Ini Sedang MeRestart Heroku untuk Menerapkan Perubahan.",
-            buttons=get_back_button("alivemenu"),
+            buttons=get_back_button("inlinemenu"),
         )
 
 
@@ -535,7 +536,7 @@ async def cmdhndlr(event):
         themssg = response.message.message
         if themssg == "/cancel":
             await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("hndlrmenu"),
             )
         elif len(themssg) > 1:
@@ -571,7 +572,7 @@ async def sdhndlr(event):
         themssg = response.message.message
         if themssg == "/cancel":
             await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("hndlrmenu"),
             )
         elif len(themssg) > 1:
@@ -607,7 +608,7 @@ async def rmbgapi(event):
         themssg = response.message.message
         if themssg == "/cancel":
             return await conv.send_message(
-                "Membatalkan Proses Settings VAR {var}",
+                f"Membatalkan Proses Settings VAR {var}",
                 buttons=get_back_button("apikeys"),
             )
         await setit(event, var, themssg)
@@ -636,7 +637,7 @@ async def deepai(event):
             )
         await setit(event, var, themssg)
         await conv.send_message(
-            f"***{var} Berhasil di Ganti Tod**\n\nSabar Ya Babi Ini Sedang MeRestart Heroku untuk Menerapkan Perubahan.",
+            f"`{var}` **Berhasil di Ganti Menjadi** `{themssg}` **Tod**\n\n**Sabar Ya Babi Ini Sedang MeRestart Heroku untuk Menerapkan Perubahan.**",
             buttons=get_back_button("apikeys"),
         )
 
@@ -1105,7 +1106,7 @@ async def _(event):
             )
     else:
         await tgbot.send_message(
-            event.chat_id, "**👥 Chat ID:** `{}`".format(str(event.chat_id))
+            event.chat_id, f"**👥 Chat ID:** `{str(event.chat_id)}`"
         )
 
 

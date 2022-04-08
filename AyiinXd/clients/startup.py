@@ -191,20 +191,6 @@ def multiayiin():
         except Exception as e:
             LOGS.info(str(e))
 
-    if STRING_9:
-        try:
-            AYIIN9.start()
-            LOOP.run_until_complete(ayiin_client(AYIIN9))
-            user = AYIIN9.get_me()
-            name = user.first_name
-            uid = user.id
-            LOGS.info(f"STRING_9 detected!\n┌ First Name: {name}\n└ User ID: {uid}\n——")
-            if user.id in blacklistayiin:
-                LOGS.warning(MSG_BLACKLIST.format(name, version))
-                sys.exit(1)
-        except Exception as e:
-            LOGS.info(str(e))
-
     if STRING_10:
         try:
             AYIIN10.start()
