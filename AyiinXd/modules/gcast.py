@@ -38,7 +38,7 @@ GCAST_BLACKLIST = [
     -1001788983303,  # KayzuSupport
     -1001380293847,  # NastySupport
     -1001267233272,  # PocongUserbot
-    -1001500063792,  # Triden
+    -1001500063792,  # Trident
 ]
 
 Heroku = heroku3.from_key(HEROKU_API_KEY)
