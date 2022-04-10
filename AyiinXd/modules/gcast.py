@@ -29,7 +29,7 @@ GCAST_BLACKLIST = [
     -1001327032795,  # UltroidSupport
     -1001294181499,  # UserBotIndo
     -1001419516987,  # VeezSupportGroup
-    -1001209432070,  # GeezSupportGroup
+    -1001459812644,  # GeezSupportGroup
     -1001296934585,  # X-PROJECT BOT
     -1001481357570,  # UsergeOnTopic
     -1001459701099,  # CatUserbotSupport
