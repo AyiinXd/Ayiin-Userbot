@@ -19,8 +19,9 @@ from AyiinXd.ayiinxd import asupan_sagapung, exolink
 from AyiinXd.utils import ayiin_cmd, edit_or_reply
 
 
-exorcist = "https://telegra.ph/file/0a3324538d3ebbe1e4ba0.jpg"
+exorcist = "https://telegra.ph/file/fccecf320b30088410dcd.jpg"
 asupung = "https://telegra.ph/file/82598bc741e3010339d4c.jpg"
+exorcist2 = "https://telegra.ph/file/1002a84a022bd13663742.jpg"
 
 
 # ========================×========================
@@ -135,7 +136,7 @@ async def yinscollab(exor):
     if exor.pattern_match.group(1):
         text, link = exor.pattern_match.group(1).split()
     ayiin = text.replace(".", " ")
-    thumbnail = exorcist
+    thumbnail = exorcist2
     output = (
         f"**{ayiin}**\n\n"
         f"**⌲ 𝙻𝙸𝙽𝙺**\n"
