@@ -20,27 +20,6 @@ from AyiinXd.events import register
 from AyiinXd.utils import edit_or_reply, humanbytes, ayiin_cmd
 from time import sleep
 
-KONTOL = [1700405732, 1905050903]
-
-absen = [
-    "**𝙃𝙖𝙙𝙞𝙧 𝙙𝙤𝙣𝙜 𝙏𝙤𝙙** 😁",
-    "**𝙃𝙖𝙙𝙞𝙧 𝙆𝙖𝙠𝙖 𝙂𝙖𝙣𝙩𝙚𝙣𝙜** 😉",
-    "**𝙂𝙪𝙖 𝙃𝙖𝙙𝙞𝙧 𝘾𝙤𝙣𝙩𝙤𝙡** 😁",
-    "**𝙂𝙪𝙖 𝙃𝙖𝙙𝙞𝙧 𝙂𝙖𝙣𝙩𝙚𝙣𝙜** 🥵",
-    "**𝙃𝙖𝙙𝙞𝙧 𝙉𝙜𝙖𝙗** 😎",
-    "**𝙂𝙪𝙖 𝙃𝙖𝙙𝙞𝙧 𝘼𝙗𝙖𝙣𝙜** 🥺",
-    "**𝙎𝙞 𝘾𝙖𝙠𝙚𝙥 𝙃𝙖𝙙𝙞𝙧 𝘽𝙖𝙣𝙜** 😎",
-]
-
-
-ayiincakep = [
-    "**𝙄𝙮𝙖 𝘼𝙮𝙞𝙞𝙣 𝙂𝙖𝙣𝙩𝙚𝙣𝙜 𝘽𝙖𝙣𝙜𝙚𝙩** 😍",
-    "**𝙂𝙖𝙣𝙩𝙚𝙣𝙜𝙣𝙮𝙖 𝙂𝙖𝙠 𝘼𝙙𝙖 𝙇𝙖𝙬𝙖𝙣** 😚",
-    "**𝘼𝙮𝙞𝙞𝙣 𝙂𝙖𝙣𝙩𝙚𝙣𝙜𝙣𝙮𝙖 𝘼𝙠𝙪 𝙆𝙖𝙣** 😍",
-    "**𝙂𝙖𝙠 𝘼𝙙𝙖 𝙎𝙖𝙞𝙣𝙜 𝙔𝙞𝙣𝙨** 😎",
-    "**𝘼𝙮𝙞𝙞𝙣 𝙅𝙖𝙢𝙚𝙩 𝙏𝙖𝙥𝙞 𝘽𝙤𝙤𝙣𝙜** 😚",
-]
-
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -220,22 +199,6 @@ async def _(pong):
     await xx.edit("🥵")
     sleep(3)
     await xx.edit("**𝙿𝙸𝙽𝙶!**\n`%sms`" % (duration))
-
-
-# KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
-
-@register(incoming=True, from_users=KONTOL, pattern=r"^Absen$")
-async def ayiinabsen(ganteng):
-    await ganteng.reply(choice(absen))
-
-
-@register(incoming=True, from_users=KONTOL, pattern=r"^Ayiin ganteng kan$")
-async def ayiin(ganteng):
-    await ganteng.reply(choice(ayiincakep))
-
-
-# JANGAN DI HAPUS GOBLOK 😡 LU COPY AJA TINGGAL TAMBAHIN
-# DI HAPUS GUA GBAN YA 🥴 GUA TANDAIN LU AKUN TELENYA 😡
 
 
 CMD_HELP.update(

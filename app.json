@@ -14,10 +14,6 @@
       "description": "Dapatkan API Hash di Grup » https://t.me/AyiinXdSupport » Lalu ketik /get api atau di web my.telegram.org",
       "required": true
     },
-    "CMD_HANDLER": {
-      "description": "Isi dengan cmd bisa pake . atau apa aja",
-      "value": "+"
-    },
      "STRING_SESSION": {
       "description": "Dapatkan String Session di Grup » https://t.me/AyiinXdSupport » Lalu ketik /get string",
       "required": true
