@@ -41,7 +41,7 @@ from telethon.utils import get_input_location
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.events import register
-from AyiinXd.modules.ping import absen
+from AyiinXd.modules.yinsping import absen
 from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply, get_user_from_event
 
 
