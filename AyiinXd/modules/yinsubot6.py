@@ -7,13 +7,13 @@
 #            Jangan Hapus Credit Ngentod
 # ========================×========================
 
+import random
+
+from telethon.tl.types import InputMessagesFilterVideo
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP
+from AyiinXd import CMD_HELP, owner
 from AyiinXd.utils import ayiin_cmd
-import random
-from AyiinXd import owner
-from telethon.tl.types import InputMessagesFilterVideo
 
 
 @ayiin_cmd(pattern="bokp$")
@@ -22,7 +22,7 @@ async def _(ayiin):
         asuyins = [
             asupan
             async for asupan in ayiin.client.iter_messages(
-                "@YinsAsuCache", filter=InputMessagesFilterVideo
+                "@bokep_yins_xd", filter=InputMessagesFilterVideo
             )
         ]
         awake = await ayiin.client.get_me()
