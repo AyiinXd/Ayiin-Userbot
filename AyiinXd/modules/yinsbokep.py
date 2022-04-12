@@ -12,12 +12,14 @@ import random
 from telethon.tl.types import InputMessagesFilterVideo
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, owner
+from AyiinXd import CMD_HELP, BLACKLIST_CHAT, owner
 from AyiinXd.utils import ayiin_cmd
 
 
 @ayiin_cmd(pattern="bokp$")
 async def _(ayiin):
+    if ayiin.chat_id in BLACKLIST_CHAT:
+        return await ayiin.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
     try:
         asuyins = [
             asupan
@@ -43,9 +45,9 @@ async def _(ayiin):
 
 CMD_HELP.update(
     {
-        "yinsubot6": f"**Plugin : **yinsubot6\
+        "yinsbokep": f"**Plugin :** `yinsbokep`\
         \n\n  »  **Perintah :** {cmd}bokp\
-        \n  »  **Kegunaan : **Untuk Mengirim bokp tiktok secara random.\
+        \n  »  **Kegunaan : **Untuk Mengirim bokp secara random.\
     "
     }
 )
