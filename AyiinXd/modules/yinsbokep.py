@@ -31,7 +31,7 @@ async def _(ayiin):
         await ayiin.client.send_file(
             ayiin.chat_id,
             file=random.choice(asuyins),
-            caption=f"Kena Tipu Ya Tod [{owner}](tg://user?id={awake.id})",
+            caption=f"Crott terus sampe lemas [{owner}](tg://user?id={awake.id})",
         )
         await ayiin.delete()
     except Exception:
