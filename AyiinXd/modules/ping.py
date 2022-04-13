@@ -10,13 +10,11 @@
 
 import time
 from datetime import datetime
-from secrets import choice
 
 from speedtest import Speedtest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, StartTime
-from AyiinXd.events import register
 from AyiinXd.utils import edit_or_reply, humanbytes, ayiin_cmd
 from time import sleep
 

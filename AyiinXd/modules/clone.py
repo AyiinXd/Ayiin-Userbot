@@ -23,7 +23,7 @@ async def impostor(event):
     if inputArgs in AyiinXd:
         await edit_delete(event, "**[ᴋᴏɴᴛᴏʟ] - Tidak dapat menyamar sebagai Developer Ayiin-Userbot Ngentod 😡**")
         await event.client.send_message("@AyiinXd", "**Maaf Telah MengClone Ayiin 🥺**"
-        )
+                                        )
         return
     xx = await edit_or_reply(event, "`Processing...`")
     if "restore" in inputArgs:

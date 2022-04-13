@@ -14,7 +14,7 @@ from secrets import choice
 from time import sleep
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, BLACKLIST_CHAT, bot
+from AyiinXd import BLACKLIST_CHAT, CMD_HELP
 from AyiinXd.ayiinxd import asupan_sagapung, exolink
 from AyiinXd.utils import ayiin_cmd, edit_or_reply
 

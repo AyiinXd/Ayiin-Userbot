@@ -20,7 +20,7 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.ayiinxd.truthdare import Dare as d
 from AyiinXd.ayiinxd.truthdare import Truth as t
-from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply
+from AyiinXd.utils import ayiin_cmd, edit_or_reply
 
 
 Tod = ["Truth", "Dare"]
@@ -34,7 +34,7 @@ async def truth_or_dare(tord):
         await tord.edit(f"    __Truth Or Dare ???__\n\n"
                         f"__Didapatkan Secara Acak__\n"
                         f"**      »» {troll} ««**"
-              )
+                        )
 
     if trod == "truth":
         Ayiin = await edit_or_reply(tord, "__Truth Or Dare__")
@@ -50,9 +50,9 @@ async def truth_or_dare(tord):
         sleep(1)
         dr = choice(d)
         await Xd.edit(f"__Mendapatkan Hasil Dare Tod__\n\n"
-                         f"**»** __Dare__ :\n"
-                         f"**»** __{dr}__"
-              )
+                      f"**»** __Dare__ :\n"
+                      f"**»** __{dr}__"
+                      )
 
         return
 

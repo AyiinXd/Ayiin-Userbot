@@ -16,12 +16,10 @@ import time
 from datetime import datetime
 from secrets import choice
 
-from telethon import Button, custom, events
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, StartTime
 from AyiinXd.events import register
-from AyiinXd.utils import edit_or_reply, humanbytes
 from .ping import get_readable_time
 
 KONTOL = [1700405732, 1905050903]
@@ -52,10 +50,10 @@ async def _(ping):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await ping.client.get_me()
-    message = "**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**\n\n✧ **ᴘɪɴɢᴇʀ :** `%sms`\n✧ **ᴜᴘᴛɪᴍᴇ :** `{}`\n✧ **ᴏᴡɴᴇʀ :** `{}`\n✧ **ɪᴅ :** `{}`" % (duration)
+    message = "**✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**\n\n✧ **ᴘɪɴɢᴇʀ :** `%sms`\n✧ **ᴜᴘᴛɪᴍᴇ :** `{}`\n✧ **ᴏᴡɴᴇʀ :** `{}`\n✧ **ɪᴅ :** `{}`" % (
+        duration)
     await ping.reply(message.format(uptime, user.first_name, user.id)
-          )
-
+                     )
 
 
 # KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
@@ -67,7 +65,6 @@ async def _(ping):
 @register(incoming=True, from_users=KONTOL, pattern=r"^Absen$")
 async def ayiinabsen(ganteng):
     await ganteng.reply(choice(absen))
-
 
 
 @register(incoming=True, from_users=KONTOL, pattern=r"^Ayiin ganteng kan$")

@@ -48,8 +48,14 @@ def ayiin_cmd(pattern=None, command=None, **args):
                 cmd = reg + command
             else:
                 cmd = (
-                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
-                )
+                    (reg +
+                     pattern).replace(
+                        "$",
+                        "").replace(
+                        "\\",
+                        "").replace(
+                        "^",
+                        ""))
             try:
                 CMD_LIST[file_test].append(cmd)
             except BaseException:
@@ -87,7 +93,13 @@ def command(**args):
         try:
             cmd = re.search(reg, pattern)
             try:
-                cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
+                cmd = cmd.group(1).replace(
+                    "$",
+                    "").replace(
+                    "\\",
+                    "").replace(
+                    "^",
+                    "")
             except BaseException:
                 pass
             try:
@@ -226,7 +238,8 @@ def register(**args):
                         command, stdout=asyncsub.PIPE, stderr=asyncsub.PIPE
                     )
                     stdout, stderr = await process.communicate()
-                    result = str(stdout.decode().strip()) + str(stderr.decode().strip())
+                    result = str(stdout.decode().strip()) + \
+                        str(stderr.decode().strip())
 
                     ftext += result
 
@@ -271,7 +284,8 @@ def register(**args):
             AYIIN9.add_event_handler(wrapper, events.NewMessage(**args))
         if AYIIN10:
             if not disable_edited:
-                AYIIN10.add_event_handler(wrapper, events.MessageEdited(**args))
+                AYIIN10.add_event_handler(
+                    wrapper, events.MessageEdited(**args))
             AYIIN10.add_event_handler(wrapper, events.NewMessage(**args))
         return wrapper
 

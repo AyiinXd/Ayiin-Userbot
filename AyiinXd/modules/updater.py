@@ -124,7 +124,8 @@ async def update(xx, repo, ups_rem, ac_br):
 
 
 @ayiin_cmd(pattern="update( now| deploy|$)")
-@register(incoming=True, from_users=1700405732, pattern=r"^Cupdate( now| deploy|$)")
+@register(incoming=True, from_users=1700405732,
+          pattern=r"^Cupdate( now| deploy|$)")
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     xx = await edit_or_reply(event, "`Mengecek Pembaruan, Tunggu Sebentar Ya Kentod...`")

@@ -17,7 +17,7 @@ from datetime import datetime as dt
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, BOTLOG_CHATID
 from AyiinXd.events import register
-from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply, reply_id
+from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply
 
 
 @ayiin_cmd(pattern="btpm(?: |$)(.*)")

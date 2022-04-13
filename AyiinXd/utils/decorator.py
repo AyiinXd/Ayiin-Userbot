@@ -71,8 +71,14 @@ def ayiin_cmd(
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (ayiin_ + pattern).replace("$", "").replace("\\", "").replace("^", "")
-                )
+                    (ayiin_ +
+                     pattern).replace(
+                        "$",
+                        "").replace(
+                        "\\",
+                        "").replace(
+                        "^",
+                        ""))
                 cmd2 = (
                     (sudo_ + pattern)
                     .replace("$", "")
@@ -88,19 +94,19 @@ def ayiin_cmd(
         if bot:
             if not disable_edited:
                 bot.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
-            bot.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
+            bot.add_event_handler(func, events.NewMessage(
+                **args, outgoing=True, pattern=ayiin_reg))
         if bot:
             if allow_sudo:
                 if not disable_edited:
                     bot.add_event_handler(
                         func,
                         events.MessageEdited(
-                            **args, from_users=list(SUDO_USERS), pattern=sudo_reg
-                        ),
+                            **args,
+                            from_users=list(SUDO_USERS),
+                            pattern=sudo_reg),
                     )
                 bot.add_event_handler(
                     func,
@@ -111,75 +117,75 @@ def ayiin_cmd(
         if AYIIN2:
             if not disable_edited:
                 AYIIN2.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN2.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN3:
             if not disable_edited:
                 AYIIN3.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN3.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN4:
             if not disable_edited:
                 AYIIN4.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN4.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN5:
             if not disable_edited:
                 AYIIN5.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN5.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN6:
             if not disable_edited:
                 AYIIN6.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN6.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN7:
             if not disable_edited:
                 AYIIN7.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN7.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN8:
             if not disable_edited:
                 AYIIN8.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN8.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN9:
             if not disable_edited:
                 AYIIN9.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN9.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN10:
             if not disable_edited:
                 AYIIN10.add_event_handler(
-                    func, events.MessageEdited(**args, outgoing=True, pattern=ayiin_reg)
-                )
+                    func, events.MessageEdited(
+                        **args, outgoing=True, pattern=ayiin_reg))
             AYIIN10.add_event_handler(
-                func, events.NewMessage(**args, outgoing=True, pattern=ayiin_reg)
-            )
+                func, events.NewMessage(
+                    **args, outgoing=True, pattern=ayiin_reg))
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
@@ -204,7 +210,7 @@ def ayiin_handler(
         if AYIIN5:
             AYIIN5.add_event_handler(func, events.NewMessage(**args))
         if AYIIN6:
-            AYIIN6.add_event_handler(func, events.NewMessage(**args))     
+            AYIIN6.add_event_handler(func, events.NewMessage(**args))
         if AYIIN7:
             AYIIN7.add_event_handler(func, events.NewMessage(**args))
         if AYIIN8:

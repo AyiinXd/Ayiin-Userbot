@@ -16,7 +16,6 @@ import heroku3
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.errors import ChannelsTooMuchError
 from telethon.tl.functions.channels import CreateChannelRequest
-from telethon.tl.types import ChatAdminRights
 
 from AyiinXd import (
     BOT_TOKEN,
