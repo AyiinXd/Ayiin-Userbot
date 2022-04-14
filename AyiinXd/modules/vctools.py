@@ -125,8 +125,8 @@ async def _(event):
             return await Ayiin.edit(f"**ERROR:** `{e}`")
     else:
         chat_id = event.chat_id
-    file = "./AyiinXd/resources/ayiin.mp3"
     if chat_id:
+        file = "./AyiinXd/resources/ayiin.mp3"
         try:
             await call_py.join_group_call(
                 chat_id,
@@ -141,14 +141,11 @@ async def _(event):
                 f"⍟ `{owner}`\n\n❏ **Berhasil Bergabung Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`"
             )
         except AlreadyJoinedError:
-            await call_py.leave_group_call(chat_id)
-            await edit_delete(
-                Ayiin,
-                f"**[ERROR]** `Karena akun sedang berada di obrolan suara`\n\n• Silahkan coba `{cmd}joinvc` lagi",
-                45,
+            return await edit_delete(
+                Ayiin, "**[ᴛᴏʟᴏʟ]** - `Akun lu udah di obrolan suara bego`", 45
             )
         except Exception as e:
-            await Ayiin.edit(f"**INFO:** `{e}`")
+            return await Ayiin.edit(f"**INFO:** `{e}`")
 
 
 @ayiin_cmd(pattern="leavevc(?: |$)(.*)")
@@ -171,7 +168,7 @@ async def vc_end(event):
                 f"⍟ `{owner}`\n\n❏ **Berhasil Turun dari Obrolan Suara**\n└ **Chat ID:** `{chat_id}`",
             )
         except Exception as e:
-            await Ayiin.edit(f"**INFO:** `{e}`")
+            return await Ayiin.edit(f"**INFO:** `{e}`")
 
 
 CMD_HELP.update(
