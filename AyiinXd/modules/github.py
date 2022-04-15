@@ -11,12 +11,12 @@ from pySmartDL import SmartDL
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd, reply_id
+from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply, reply_id
 
 ppath = os.path.join(os.getcwd(), "temp", "githubuser.jpg")
 
 
-@ayiin_cmd(pattern="github( -l(\\d+))? ([\\s\\S]*)")
+@ayiin_cmd(pattern="github( -l(\d+))? ([\s\S]*)")
 async def _(event):
     reply_to = await reply_id(event)
     username = event.pattern_match.group(3)
