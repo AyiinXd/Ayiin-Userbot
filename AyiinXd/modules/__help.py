@@ -19,7 +19,7 @@ async def help(event):
             await edit_delete(event, f"**Modules {args} Gak Ada Tod**, **Ketik Yang Bener Anj.**")
     else:
         try:
-            results = await bot.inline_query(  # pylint:disable=E0602
+            results = await event.client.inline_query(  # pylint:disable=E0602
                 BOT_USERNAME, "@AyiinXdSupport"
             )
             await results[0].click(
