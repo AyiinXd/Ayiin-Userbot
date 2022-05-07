@@ -108,7 +108,7 @@ async def get_weather(weather):
     def sun(unix):
         return datetime.fromtimestamp(unix, tz=ctimezone).strftime("%I:%M %p")
 
-    results = (get_string("weather_4").format(celsius(curtemp), fahrenheit(curtemp), celsius(min_temp), fahrenheit(min_temp), celsius(max_temp), fahrenheit(max_temp), humidity, kmph[0], mph[0], findir, sun(sunrise), sun(sunset), desc, time)
+    results = get_string("weather_4").format(celsius(curtemp), fahrenheit(curtemp), celsius(min_temp), fahrenheit(min_temp), celsius(max_temp), fahrenheit(max_temp), humidity, kmph[0], mph[0], findir, sun(sunrise), sun(sunset), desc, time)
     if not anonymous:
         results += f"`{cityname}, {fullc_n}`"
 
