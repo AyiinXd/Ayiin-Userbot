@@ -15,7 +15,7 @@ from time import sleep
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import BLACKLIST_CHAT, CMD_HELP
-from AyiinXd.ayiinxd import asupan_sagapung, exolink
+from AyiinXd.ayiin import asupan_sagapung, exolink
 from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
 
 

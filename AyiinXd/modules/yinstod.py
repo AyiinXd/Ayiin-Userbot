@@ -18,8 +18,8 @@ from secrets import choice
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiinxd.truthdare import Dare as d
-from AyiinXd.ayiinxd.truthdare import Truth as t
+from AyiinXd.ayiin.truthdare import Dare as d
+from AyiinXd.ayiin.truthdare import Truth as t
 from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
 
 
