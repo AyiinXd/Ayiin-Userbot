@@ -71,7 +71,7 @@ async def time_func(tdata):
         return
 
     if not timezones:
-        await tdata.edit(get_string("timdat_2")
+        await tdata.edit(get_string("timdat_2"))
         return
 
     if len(timezones) == 1:
