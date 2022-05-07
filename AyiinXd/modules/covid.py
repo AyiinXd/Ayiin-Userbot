@@ -6,12 +6,12 @@
 from covid import Covid
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP
+from AyiinXd import CMD_HELP, bot
 from AyiinXd.events import ayiin_cmd
 from Stringyins import get_string
 
 
-@ayiin_cmd(pattern=r"covid (.*)")
+@bot.on(ayiin_cmd(outgoing=True, pattern=r"covid (.*)"))
 async def corona(event):
     await event.edit(get_string("com_1"))
     country = event.pattern_match.group(1)
