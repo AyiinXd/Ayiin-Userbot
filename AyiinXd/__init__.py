@@ -1143,10 +1143,15 @@ with bot:
             ]
             await event.edit("**ᴍᴇɴᴜ ᴅɪᴛᴜᴛᴜᴘ**", file=logoyins, buttons=buttons)
 
-        @tgbot.on(event.CallbackQuery(data=b"yins_close"))
-        async def yins_close(event):
-            await event.edit("Menu Bahasa Telah Ditutup", file=logoyins)
-            await event.delete()
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"yins_close")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                await event.edit("Bahasa Telah Ditutup", file=logoyins)
+                await event.delete()
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(
