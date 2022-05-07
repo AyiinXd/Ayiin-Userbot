@@ -35,7 +35,7 @@ async def add(event):
     suu = event.text[9:]
     if f"{cmd}add " in event.text:
         return
-    xxnx = await eor(event, get_string("com_1")
+    xxnx = await eor(event, get_string("com_1"))
     var = "SUDO_USERS"
     reply = await event.get_reply_message()
     if not suu and not reply:
