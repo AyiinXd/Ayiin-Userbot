@@ -24,14 +24,15 @@ from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import edit_or_reply, humanbytes, ayiin_cmd, progress, run_cmd
-from AyiinXd.utils.FastTelethon import download_file, upload_file
+from AyiinXd.ayiin import ayiin_cmd, eor, humanbytes, progress, run_cmd
+from AyiinXd.ayiin.FastTelethon import download_file, upload_file
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="download(?: |$)(.*)")
 async def download(target_file):
     """For .download command, download files to the userbot's server."""
-    xx = await edit_or_reply(target_file, "`Processing...`")
+    xx = await eor(target_file, get_string("com_1"))
     input_str = target_file.pattern_match.group(1)
     replied = await target_file.get_reply_message()
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
@@ -89,14 +90,13 @@ async def download(target_file):
             except Exception as e:
                 LOGS.info(str(e))
         if downloader.isSuccessful():
-            await xx.edit(
-                "Downloaded to `{}` successfully !!".format(downloaded_file_name)
+            await xx.edit(get_string("updo_1").format(downloaded_file_name)
             )
         else:
-            await xx.edit("Incorrect URL\n{}".format(url))
+            await xx.edit(get_string("updo_2").format(url))
     elif replied:
         if not replied.media:
-            return await xx.edit("`Reply to file or media `")
+            return await xx.edit(get_string("updo_3"))
         try:
             media = replied.media
             if hasattr(media, "document"):
@@ -140,15 +140,13 @@ async def download(target_file):
             await target_file.edit(str(e))
         else:
             try:
-                await target_file.edit(
-                    "Downloaded to `{}` in `{}` seconds.".format(result.name, dl_time)
+                await target_file.edit(get_string("updo_4").format(result.name, dl_time)
                 )
             except AttributeError:
-                await target_file.edit(
-                    "Downloaded to `{}` in `{}` seconds.".format(result, dl_time)
+                await target_file.edit(get_string("updo_4").format(result, dl_time)
                 )
     else:
-        await xx.edit("Ketik `.help download` untuk bantuan menggunakan module.")
+        await xx.edit(get_string("updo_5").format(cmd))
 
 
 async def get_video_thumb(file, output):
@@ -174,7 +172,7 @@ async def get_video_thumb(file, output):
 async def upload(event):
     if event.fwd_from:
         return
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     input_str = event.pattern_match.group(1)
     if os.path.exists(input_str):
         if os.path.isfile(input_str):
@@ -236,7 +234,7 @@ async def upload(event):
             )
             if thumb is not None:
                 os.remove(thumb)
-            await xx.edit(f"Uploaded successfully in `{up_time}` seconds.")
+            await xx.edit(get_string("updo_6").format(up_time))
         elif os.path.isdir(input_str):
             start_time = datetime.now()
             lst_files = []
@@ -244,13 +242,13 @@ async def upload(event):
                 for file in files:
                     lst_files.append(os.path.join(root, file))
             if not lst_files:
-                return await event.edit(f"`{input_str}` is empty.")
-            await xx.edit(f"Found `{len(lst_files)}` files. Now uploading...")
+                return await event.edit(get_string("updo_7").format(input_str))
+            await xx.edit(get_string("updo_8").format(len(lst_files)))
             for files in os_sorted(lst_files):
                 file_name = os.path.basename(files)
                 thumb = None
                 attributes = []
-                msg = await xx.edit(f"Uploading `{files}`")
+                msg = await xx.edit(get_string("updo_9").format(files))
                 with open(files, "rb") as f:
                     result = await upload_file(
                         client=event.client,
@@ -311,12 +309,11 @@ async def upload(event):
 
             await xx.delete()
             up_time = (datetime.now() - start_time).seconds
-            await xx.respond(
-                f"Uploaded `{len(lst_files)}` files in `{input_str}` folder "
-                f"in `{up_time}` seconds."
+            await xx.respond(get_string("updo_10")
+                .format(len(lst_files), input_str, up_time)
             )
     else:
-        await xx.edit("`404: File/Folder Not Found`")
+        await xx.edit(get_string("updo_11"))
 
 
 CMD_HELP.update(

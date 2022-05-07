@@ -14,7 +14,8 @@ import time
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_delete, extract_time, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, extract_time
+from Stringyins import get_string
 
 
 @ayiin_cmd(
@@ -31,7 +32,7 @@ async def _(e):
         t = math.ceil((await extract_time(e, t)) - time.time())
     else:
         t = 60
-    await edit_delete(e, f"**Memulai fake {act} selama** `{t}` **detik**", 3)
+    await e.eod(get_string("fake_1").format(act, t), time=3)
     async with e.client.action(e.chat_id, act):
         await asyncio.sleep(t)
 

@@ -12,7 +12,7 @@ from wget import download
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import ayiin_cmd, bash, deEmojify
+from AyiinXd.ayiin import ayiin_cmd, bash, deEmojify
 
 
 def convert_toimage(image):

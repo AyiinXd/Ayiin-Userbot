@@ -7,26 +7,27 @@ import os
 
 import requests
 
+from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, DEEP_AI
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="detect$")
 async def detect(event):
     if DEEP_AI is None:
-        return await edit_delete(
-            event,
-            "**Tambahkan VAR** `DEEP_AI` **dan ambil Api Key di web https://deepai.org/**",
-            120,
+        return await eod(
+            event, get_string("nsfw_1"),
+            time=120,
         )
     reply = await event.get_reply_message()
     if not reply:
-        return await edit_delete(event, "**Mohon Reply ke gambar atau stiker!**", 90)
-    yinsevent = await edit_or_reply(event, "**MenDownload file untuk diperiksa...**")
+        return await eod(event, get_string("failed9"), time=90)
+    yinsevent = await eor(event, get_string("nsfw_2"))
     media = await event.client.download_media(reply)
     if not media.endswith(("png", "jpg", "webp")):
-        return await edit_delete(event, "**Mohon Reply ke gambar atau stiker!**", 90)
-    yinsevent = await edit_or_reply(event, "**Detecting NSFW limit...**")
+        return await eod(event, get_string("failed9"), time=90)
+    yinsevent = await eor(event, get_string("nsfw_3"))
     r = requests.post(
         "https://api.deepai.org/api/nsfw-detector",
         files={
@@ -58,8 +59,8 @@ async def detect(event):
 
 CMD_HELP.update(
     {
-        "nsfw": "**Plugin : **`nsfw`\
-        \n\n  »  **Perintah :** `.detect` <reply media>\
+        "nsfw": f"**Plugin : **`nsfw`\
+        \n\n  »  **Perintah :** `{cmd}detect` <reply media>\
         \n  »  **Kegunaan : **Untuk mendeteksi konten 18+ dengan gambar balasan.\
     "
     }

@@ -6,13 +6,14 @@
 from covid import Covid
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, bot
+from AyiinXd import CMD_HELP
 from AyiinXd.events import ayiin_cmd
+from Stringyins import get_string
 
 
-@bot.on(ayiin_cmd(outgoing=True, pattern=r"covid (.*)"))
+@ayiin_cmd(pattern=r"covid (.*)")
 async def corona(event):
-    await event.edit("`Processing...`")
+    await event.edit(get_string("com_1"))
     country = event.pattern_match.group(1)
     covid = Covid(source="worldometers")
     country_data = covid.get_status_by_country_name(country)
@@ -27,14 +28,14 @@ async def corona(event):
         output_text += f"`🧪Total tests : {country_data['total_tests']}`\n\n"
         output_text += f"**Data provided by [Worldometer]**(https://www.worldometers.info/coronavirus/country/{country})"
     else:
-        output_text = "No information yet about this country!"
+        output_text = get_string("covid_2")
 
-    await event.edit(f"**Corona Virus Info in {country}:**\n\n{output_text}")
+    await event.edit(get_string("covid_1").format(country, output_text))
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern="covid$"))
 async def corona(event):
-    await event.edit("`Processing...`")
+    await event.edit(get_string("com_1"))
     country = "World"
     covid = Covid(source="worldometers")
     country_data = covid.get_status_by_country_name(country)
@@ -49,9 +50,9 @@ async def corona(event):
         output_text += "`🧪Total tests : N/A`\n\n"
         output_text += f"**Data provided by **[Worldometer](https://www.worldometers.info/coronavirus/country/{country})"
     else:
-        output_text = "No information yet about this country!"
+        output_text = get_string("covid_2")
 
-    await event.edit(f"**Corona Virus Info in {country}:**\n\n{output_text}")
+    await event.edit(get_string("covid_1").format(country, output_text))
 
 
 CMD_HELP.update(

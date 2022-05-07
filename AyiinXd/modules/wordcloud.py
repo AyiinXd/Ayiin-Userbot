@@ -15,19 +15,20 @@ from wordcloud import ImageColorGenerator, WordCloud
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import bash, edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, bash, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="(wc)$")
 async def _(event):
     if not event.reply_to_msg_id:
-        await edit_delete(event, "`Mohon Balas Ke Media Apapun`")
+        await eod(event, get_string("failed3"))
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await edit_delete(event, "`Mohon Balas Ke Gambar/Sticker/Video`")
+        await eod(event, get_string("failed_4"))
         return
-    xx = await edit_or_reply(event, "`Mendownload Media.....`")
+    xx = await eor(event, get_string("com_5"))
     if reply_message.photo:
         await event.client.download_media(
             reply_message,
@@ -55,7 +56,7 @@ async def _(event):
             "wc.png",
         )
     try:
-        await xx.edit("`Sedang Memproses....`")
+        await xx.edit(get_string("com_1"))
         text = open("AyiinXd/utils/styles/alice.txt", encoding="utf-8").read()
         image_color = np.array(Image.open("wc.png"))
         image_color = image_color[::1, ::1]

@@ -16,16 +16,18 @@ from datetime import datetime as dt
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, BOTLOG_CHATID
+from AyiinXd.ayiin import eor
 from AyiinXd.events import register
-from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="btpm(?: |$)(.*)")
 async def listbtpm(list):
-    ayiin = await edit_or_reply(list, "`Processing...`")
+    ayiin = await eor(list, get_string("com_1"))
     input = list.pattern_match.group(1)
     if not input:
-        return await edit_delete(list, "**[ᴇʀʀᴏʀ] - Isi Username Channelnya Tod...**")
+        return await eor(list, "**[ᴇʀʀᴏʀ] - Isi Username Channelnya Tod...**", time=50)
     Brazzers = await list.client.get_entity(input)
     d_form = "%d - %B - %Y"
     user = await list.client.get_me()
@@ -72,7 +74,7 @@ async def listbtpm(list):
 async def on_btpm(event):
     """ Fbtpm logic. """
     try:
-        from AyiinXd.ayiinxd.btpm_ayiin import get_btpm
+        from AyiinXd.ayiin.btpm_ayiin import get_btpm
     except AttributeError:
         return
     name = event.text[1:]
@@ -99,9 +101,9 @@ async def on_btpm(event):
 async def on_btpm_save(event):
     """ For .savebt command, saves btpm for future use. """
     try:
-        from AyiinXd.ayiinxd.btpm_ayiin import add_btpm
+        from AyiinXd.ayiin.btpm_ayiin import add_btpm
     except AtrributeError:
-        await event.edit("`Running on Non-SQL mode!`")
+        await event.edit(get_string("not_sql"))
         return
     keyword = event.pattern_match.group(1)
     string = event.text.partition(keyword)[2]
@@ -110,9 +112,7 @@ async def on_btpm_save(event):
     if msg and msg.media and not string:
         if BOTLOG_CHATID:
             await event.client.send_message(
-                BOTLOG_CHATID, f"#BTPM\
-            \nKEYWORD: {keyword}\
-            \n\n**Pesan berikut disimpan sebagai data untuk btpm, JANGAN dihapus!!!**"
+                BOTLOG_CHATID, get_string("btpm_1").format(keyword)
             )
             msg_o = await event.client.forward_messages(
                 entity=BOTLOG_CHATID,
@@ -121,34 +121,32 @@ async def on_btpm_save(event):
                 silent=True)
             msg_id = msg_o.id
         else:
-            await event.edit(
-                "**Menyimpan list btpm dengan media memerlukan BOTLOG_CHATID untuk disetel.**"
-            )
+            await event.edit(get_string("btpm_2")
+                             )
             return
     elif event.reply_to_msg_id and not string:
         rep_msg = await event.get_reply_message()
         string = rep_msg.text
-    success = "**Daftar Btpm {} Disimpan. Gunakan** `${}` **di mana saja untuk menggunakannya**"
     if add_btpm(keyword, string, msg_id) is False:
-        await event.edit(success.format("Diperbarui", keyword))
+        await event.edit(get_string("btpm_3").format("Diperbarui", keyword))
     else:
-        await event.edit(success.format("Berhasil", keyword))
+        await event.edit(get_string("btpm_3").format("Berhasil", keyword))
 
 
 @ayiin_cmd(pattern="listbt$")
 async def on_btpm_list(event):
     """ For .listbt command, list btpm saved by you. """
     try:
-        from AyiinXd.ayiinxd.btpm_ayiin import get_fbtpm
+        from AyiinXd.ayiin.btpm_ayiin import get_fbtpm
     except AttributeError:
-        await event.edit("`Running on Non-SQL mode!`")
+        await event.edit(get_string("not_sql"))
         return
 
-    message = "Daftar Btpm yang tersedia :\n\n"
+    message = get_string("btpm_5")
     all_fbtpm = get_fbtpm()
     for lbtpm in all_fbtpm:
-        if message == "**Tidak ada daftar btpm yang tersedia saat ini.**":
-            message = "Daftar Btpm yang tersedia :\n\n"
+        if message == get_string("btpm_4"):
+            message = get_string("btpm_5")
             message += f"**»** `${lbtpm.btpm}`\n"
         else:
             message += f"**»** `${lbtpm.btpm}`\n"
@@ -160,15 +158,15 @@ async def on_btpm_list(event):
 async def on_btpm_delete(event):
     """ For .delbt command, deletes a list btpm. """
     try:
-        from AyiinXd.ayiinxd.btpm_ayiin import remove_btpm
+        from AyiinXd.ayiin.btpm_ayiin import remove_btpm
     except AttributeError:
-        await event.edit("`Running on Non-SQL mode!`")
+        await event.edit(get_string("not_sql"))
         return
     name = event.pattern_match.group(1)
     if remove_btpm(name) is True:
-        await event.edit(f"**Berhasil menghapus daftar btpm:** `{name}`")
+        await event.edit(get_string("btpm_6").format(name))
     else:
-        await event.edit(f"**Tidak dapat menemukan daftar btpm:** `{name}`")
+        await event.edit(get_string("btpm_7").format(name))
 
 
 # ========================×========================

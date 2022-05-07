@@ -18,7 +18,7 @@ from cowpy import cow
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
 from AyiinXd.events import ayiin_cmd
-from AyiinXd.utils import edit_delete, get_user_from_event
+from AyiinXd.ayiin import edit_delete, get_user_from_event
 
 # ================= CONSTANT =================
 METOOSTR = [

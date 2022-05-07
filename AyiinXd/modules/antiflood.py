@@ -7,9 +7,10 @@ from telethon.tl.types import ChatBannedRights
 import AyiinXd.modules.sql_helper.antiflood_sql as sql
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
+from AyiinXd.ayiin import eod, eor
 from AyiinXd.events import ayiin_cmd
-from AyiinXd.utils import edit_or_reply
-from AyiinXd.utils.tools import is_admin
+from AyiinXd.ayiin.tools import is_admin
+from Stringyins import get_string
 
 CHAT_FLOOD = sql.__load_flood_settings()
 # warn mode for anti flood
@@ -40,24 +41,15 @@ async def _(event):
     except Exception as e:
         no_admin_privilege_message = await event.client.send_message(
             entity=event.chat_id,
-            message="""**Automatic AntiFlooder**
-[User](tg://user?id={}) Membanjiri obrolan.
-
-`{}`""".format(
-                event.message.sender_id, str(e)
-            ),
+            message=get_string("antiflood_1").format(event.message.sender_id, str(e)),
             reply_to=event.message.id,
         )
         await asyncio.sleep(10)
-        await no_admin_privilege_message.edit("Sadly u don't have admin privilege")
+        await no_admin_privilege_message.edit(get_string("antiflood_3"))
     else:
         await event.client.send_message(
             entity=event.chat_id,
-            message="""**Automatic AntiFlooder**
-[User](tg://user?id={}) Membanjiri obrolan.
-**Aksi:** Saya membisukan dia 🔇""".format(
-                event.message.sender_id
-            ),
+            message=get_string("antiflood_2").format(event.message.sender_id),
             reply_to=event.message.id,
         )
 
@@ -70,12 +62,10 @@ async def _(event):
     try:
         sql.set_flood(event.chat_id, input_str)
         sql.__load_flood_settings()
-        await edit_or_reply(
-            event,
-            f"**Antiflood diperbarui menjadi** `{input_str}` **dalam obrolan saat ini**",
-        )
+        await eor(event, get_string("antiflood_4").format(input_str)
+                  )
     except Exception as e:
-        await edit_or_reply(event, f"{e}")
+        await eod(event, get_string("error_1").format(e), time=30)
 
 
 CMD_HELP.update(

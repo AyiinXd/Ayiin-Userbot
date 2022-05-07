@@ -11,7 +11,8 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="hentai(?: |$)(.*)")
@@ -20,7 +21,7 @@ async def _(event):
         return
     link = event.pattern_match.group(1)
     chat = "@nHentaiBot"
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -33,7 +34,7 @@ async def _(event):
             await event.client.send_message(chat, link)
             response = await response
         if response.text.startswith("**Sorry I couldn't get manga from**"):
-            await xx.edit("**Saya pikir ini bukan link yang benar**")
+            await xx.edit(get_string("hentai_2"))
         else:
             await xx.delete()
             await event.client.send_message(event.chat_id, response.message)

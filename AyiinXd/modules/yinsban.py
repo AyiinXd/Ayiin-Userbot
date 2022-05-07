@@ -3,12 +3,15 @@
 # Recode By : @AyiinXd
 
 from asyncio import sleep
+
 from telethon.tl.types import ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChannelParticipantsKicked
+
 from AyiinXd import CMD_HELP
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="banall(?: |$)(.*)")
@@ -18,9 +21,9 @@ async def testing(ayiinxd):
     admin = ayiin.admin_rights
     creator = ayiin.creator
     if not admin and not creator:
-        await edit_delete(ayiinxd, "Lu Gak Punya Hak Untuk Melakukan Ini Bego!!!")
+        await eod(ayiinxd, get_string("stvc_1").format(yins.first_name))
         return
-    await edit_or_reply(ayiinxd, "Tidak Melakukan Apa-apa")
+    xnxx = await ayiinxd.eor(get_string("yiban_1"))
 # Thank for Dark_Cobra
     ayiinkontol = await ayiinxd.client.get_participants(ayiinxd.chat_id)
     for user in ayiinkontol:
@@ -29,14 +32,14 @@ async def testing(ayiinxd):
         try:
             xx = await ayiinxd.client(EditBannedRequest(ayiinxd.chat_id, int(user.id), ChatBannedRights(until_date=None, view_messages=True)))
         except Exception as e:
-            await ayiinxd.edit(str(e))
+            await eod(xnxx, get_string("error_1").format(str(e)))
         await sleep(.5)
-    await edit_or_reply(ayiinxd, "Tidak Ada yang Terjadi di sini🙃🙂")
+    await xnxx.edit(get_string("yiban_2"))
 
 
 @ayiin_cmd(pattern="unbanall(?: |$)(.*)")
 async def _(ayiin):
-    yins = await edit_or_reply(ayiin, "`Sabar Tod Sedang Mencari Daftar Blokir.`")
+    yins = await ayiin.eor(get_string("yiban_3"))
     p = 0
     (await ayiin.get_chat()).title
     async for i in ayiin.client.iter_participants(
@@ -49,7 +52,7 @@ async def _(ayiin):
             p += 1
         except BaseException:
             pass
-    await yins.edit(f"`Sukses Membebaskan {p} Tahanan...`")
+    await yins.edit(get_string("yiban_4").format(p))
 
 
 CMD_HELP.update(

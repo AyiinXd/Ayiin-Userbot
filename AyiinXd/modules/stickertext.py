@@ -13,7 +13,8 @@ import textwrap
 from PIL import Image, ImageDraw, ImageFont
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd, edit_or_reply, edit_delete
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="stick(.*)")
@@ -21,8 +22,8 @@ async def stext(event):
     sticktext = event.pattern_match.group(1)
 
     if not sticktext:
-        return await edit_delete(event, "`Mohon Maaf, Saya Membutuhkan Text Anda.`")
-    await edit_or_reply(event, "**Sabar Ya Babi**")
+        return await eod(event, get_string("stxt_1"))
+    await eor(event, get_string("com_1"))
 
     sticktext = textwrap.wrap(sticktext, width=10)
     sticktext = '\n'.join(sticktext)

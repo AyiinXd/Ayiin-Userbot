@@ -12,7 +12,8 @@ import pyfiglet
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import deEmojify, edit_delete, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, deEmojify, eod
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="figlet (\\w+) (.+)")
@@ -39,10 +40,8 @@ async def figlet(event):
     try:
         font = style_list[style]
     except KeyError:
-        return await edit_delete(
-            event,
-            "**Style yang dipilih tidak valid, ketik** `.help figlet` **bila butuh bantuan**",
-        )
+        return await eod(event, get_string("fglet").format(cmd)
+                         )
     result = pyfiglet.figlet_format(deEmojify(text), font=font)
     await event.respond(f"‌‌‎`{result}`")
     await event.delete()

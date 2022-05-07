@@ -13,7 +13,7 @@ from datetime import date
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, ZIP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import ayiin_cmd, progress
+from AyiinXd.ayiin import ayiin_cmd, progress
 
 # ====================
 today = date.today()

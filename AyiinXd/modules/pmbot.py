@@ -24,7 +24,7 @@ from AyiinXd.modules.sql_helper.bot_starters import (
     del_starter_from_db,
     get_all_starters,
 )
-from AyiinXd.utils import (
+from AyiinXd.ayiin import (
     _format,
     asst_cmd,
     edit_delete,
@@ -33,7 +33,7 @@ from AyiinXd.utils import (
     reply_id,
     time_formatter,
 )
-from AyiinXd.utils.logger import logging
+from AyiinXd.ayiin.logger import logging
 
 LOGS = logging.getLogger(__name__)
 

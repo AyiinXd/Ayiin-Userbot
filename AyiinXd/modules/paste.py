@@ -9,8 +9,9 @@ import os
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
-from AyiinXd.utils.pastebin import PasteBin
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from AyiinXd.ayiin.pastebin import PasteBin
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="paste(?: (-d|-n|-h|-k|-s)|$)?(?: ([\\s\\S]+)|$)")
@@ -21,7 +22,7 @@ async def paste(pstl):
     reply_id = pstl.reply_to_msg_id
 
     if not (match or reply_id):
-        return await edit_delete(pstl, "`Elon Musk said I cannot paste void.`")
+        return await eod(pstl, get_string("paste_1"))
 
     if match:
         message = match.strip()
@@ -40,7 +41,7 @@ async def paste(pstl):
         else:
             message = message.message
 
-    xxnx = await edit_or_reply(pstl, "`Pasting text . . .`")
+    xxnx = await eor(pstl, get_string("paste_2"))
     async with PasteBin(message) as client:
         if service:
             service = service.strip()
@@ -51,13 +52,9 @@ async def paste(pstl):
             await client.post()
 
         if client:
-            reply_text = (
-                "**Pasted successfully!**\n\n"
-                f"[URL]({client.link})\n"
-                f"[View RAW]({client.raw_link})"
-            )
+            reply_text = get_string("paste_3").format(client.link, client.raw_link)
         else:
-            reply_text = "**Failed to reach Pastebin Service**"
+            reply_text = get_string("paste_4")
 
     await xxnx.edit(reply_text, link_preview=False)
 

@@ -10,7 +10,9 @@ from telethon.tl.types import InputPhoto
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, DEVS, LOGS, STORAGE
-from AyiinXd.utils import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import eor
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
 
 if not hasattr(STORAGE, "userObj"):
     STORAGE.userObj = False
@@ -21,42 +23,41 @@ async def impostor(event):
     inputArgs = event.pattern_match.group(1)
     AyiinXd = ["@AyiinXd", "@ayiinxd"]
     if inputArgs in AyiinXd:
-        await edit_delete(event, "**[ᴋᴏɴᴛᴏʟ] - Tidak dapat menyamar sebagai Developer Ayiin-Userbot Ngentod 😡**")
-        await event.client.send_message("@AyiinXd", "**Maaf Telah MengClone Ayiin 🥺**"
+        await eor(event, get_string("ayiin_2"))
+        await event.client.send_message("@AyiinXd", get_string("ayiin_3")
                                         )
         return
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     if "restore" in inputArgs:
-        await event.edit("**Kembali ke identitas asli...**")
+        await event.eor(get_string("clon_1"))
         if not STORAGE.userObj:
-            return await xx.edit("**Anda Harus Mengclone Dajjal Dulu Sebelum Kembali!**")
+            return await xx.edit(get_string("clon_2"))
         await updateProfile(event, STORAGE.userObj, restore=True)
-        return await xx.edit("**Berhasil Mengembalikan Akun Anda Dari Dajjal**")
+        return await xx.edit(get_string("clon_3"))
     if inputArgs:
         try:
             user = await event.client.get_entity(inputArgs)
         except BaseException:
-            return await xx.edit("**Username/ID tidak valid.**")
+            return await xx.edit(get_string("clon_4"))
         userObj = await event.client(GetFullUserRequest(user))
     elif event.reply_to_msg_id:
         replyMessage = await event.get_reply_message()
         if replyMessage.sender_id in DEVS:
-            return await xx.edit(
-                "**[ᴋᴏɴᴛᴏʟ] - Tidak dapat menyamar sebagai developer Ayiin-Userbot Ngentod 😡**"
-            )
+            return await xx.edit(get_string("ayiin_2")
+                                 )
         if replyMessage.sender_id is None:
             return await xx.edit("**Tidak dapat menyamar sebagai admin anonim 🥺**")
         userObj = await event.client(GetFullUserRequest(replyMessage.sender_id))
     else:
-        return await xx.edit(f"**Ketik** `{cmd}help clone` **bila butuh bantuan.**")
+        return await xx.edit(get_string("clon_5").format(cmd))
 
     if not STORAGE.userObj:
         STORAGE.userObj = await event.client(GetFullUserRequest(event.sender_id))
 
     LOGS.info(STORAGE.userObj)
-    await xx.edit("**Mencuri Identitas Dajjal...**")
+    await xx.edit(get_string("clon_8"))
     await updateProfile(event, userObj)
-    await xx.edit("**Gua Adalah Dajjal dan Dajjal Adalah Gua. Asekk Dajjal 🥴**")
+    await xx.edit(get_string("clon_7"))
 
 
 async def updateProfile(event, userObj, restore=False):

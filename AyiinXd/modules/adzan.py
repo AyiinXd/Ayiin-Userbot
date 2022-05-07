@@ -8,7 +8,8 @@ import requests
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.modules.sql_helper.globals import gvarstatus
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="adzan(?:\\s|$)([\\s\\S]*)")
@@ -20,9 +21,8 @@ async def get_adzan(adzan):
     url = f"http://muslimsalat.com/{LOKASI}.json?key=bd099c5825cbedb9aa934e255a81a5fc"
     request = requests.get(url)
     if request.status_code != 200:
-        return await edit_delete(
-            adzan, f"**Tidak Dapat Menemukan Kota** `{LOCATION}`", 120
-        )
+        return await adzan.eor(get_string("adzan1").format(LOCATION), time=120
+                               )
     result = json.loads(request.text)
     catresult = f"<b>Jadwal Shalat Hari Ini:</b>\
             \n<b>📆 Tanggal </b><code>{result['items'][0]['date_for']}</code>\
@@ -34,7 +34,7 @@ async def get_adzan(adzan):
             \n<b>Maghrib : </b><code>{result['items'][0]['maghrib']}</code>\
             \n<b>Isya : </b><code>{result['items'][0]['isha']}</code>\
     "
-    await edit_or_reply(adzan, catresult, "html")
+    await eor(adzan, catresult, "html")
 
 
 CMD_HELP.update(

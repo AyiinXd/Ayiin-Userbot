@@ -16,7 +16,7 @@ from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, DEVS, WHITELIST, blacklistayiin
 from AyiinXd.events import register
-from AyiinXd.utils import chataction, edit_or_reply, get_user_from_event, ayiin_cmd
+from AyiinXd.ayiin import chataction, edit_or_reply, get_user_from_event, ayiin_cmd
 
 from .admin import BANNED_RIGHTS, UNBAN_RIGHTS
 

@@ -7,7 +7,8 @@ import time
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(
@@ -16,7 +17,7 @@ from AyiinXd.utils import edit_or_reply, ayiin_cmd
 async def _(event):
     if event.fwd_from:
         return
-    xx = await edit_or_reply(event, "`Processing ...`")
+    xx = await event.eor(get_string("com_1"))
     PROCESS_RUN_TIME = 100
     input_str = event.pattern_match.group(1)
     selected_transfer = event.pattern_match.group(2)
@@ -36,7 +37,7 @@ async def _(event):
     try:
         selected_one = CMD_WEB[selected_transfer].format(file_name)
     except KeyError:
-        await xx.edit("Invalid selected Transfer")
+        await xx.edit(get_string("webup_1"))
     cmd = selected_one
     time.time() + PROCESS_RUN_TIME
     process = await asyncio.create_subprocess_shell(

@@ -14,7 +14,8 @@ from pytz import timezone as tz
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, COUNTRY, TZ_NUMBER
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
 
 
 async def get_tz(con):
@@ -66,11 +67,11 @@ async def time_func(tdata):
         tz_num = TZ_NUMBER
         timezones = await get_tz(COUNTRY)
     else:
-        await tdata.edit(f"**Sekarang Jam**  `{dt.now().strftime(t_form)}`  **disini**")
+        await tdata.edit(get_string("timdat_1").format(dt.now().strftime(t_form)))
         return
 
     if not timezones:
-        await tdata.edit("`Invaild country.`")
+        await tdata.edit(get_string("timdat_2")
         return
 
     if len(timezones) == 1:
@@ -80,14 +81,14 @@ async def time_func(tdata):
             tz_num = int(tz_num)
             time_zone = timezones[tz_num - 1]
         else:
-            return_str = f"`{c_name} has multiple timezones:`\n\n"
+            return_str = get_string("timdat_3").format(c_name)
 
             for i, item in enumerate(timezones):
                 return_str += f"`{i+1}. {item}`\n"
 
-            return_str += "\n`Choose one by typing the number "
-            return_str += "in the command.`\n"
-            return_str += f"`Example: .time {c_name} 2`"
+            return_str += get_string("timdat_4")
+            return_str += get_string("timdat_5")
+            return_str += get_string("timdat_6").format(cmd, c_name)
 
             await tdata.edit(return_str)
             return
@@ -95,14 +96,12 @@ async def time_func(tdata):
     dtnow = dt.now(tz(time_zone)).strftime(t_form)
 
     if c_name != COUNTRY:
-        await tdata.edit(
-            f"**Sekarang Jam** `{dtnow}` **di {c_name}({time_zone} timezone).**"
+        await tdata.edit(get_string("timdat_7").format(dtnow, c_name, time_zone)
         )
         return
 
     if COUNTRY:
-        await tdata.edit(
-            f"**Sekarang Jam** `{dtnow}` **di {COUNTRY}" f"({time_zone} timezone).**"
+        await tdata.edit(get_string("timdat_9").format(dtnow, COUNTRY, time_zone)
         )
         return
 
@@ -131,13 +130,12 @@ async def date_func(dat):
         tz_num = TZ_NUMBER
         timezones = await get_tz(COUNTRY)
     else:
-        await dat.edit(
-            f"**Sekarang Tanggal** `{dt.now().strftime(d_form)}` **disini.**"
+        await dat.edit(get_string("timdat_8").format(dt.now().strftime(d_form))
         )
         return
 
     if not timezones:
-        await dat.edit("`Invaild country.`")
+        await dat.edit(get_string("timdat_2"))
         return
 
     if len(timezones) == 1:
@@ -147,14 +145,14 @@ async def date_func(dat):
             tz_num = int(tz_num)
             time_zone = timezones[tz_num - 1]
         else:
-            return_str = f"`{c_name} has multiple timezones:`\n"
+            return_str = get_string("timdat_3").format(c_name)
 
             for i, item in enumerate(timezones):
                 return_str += f"`{i+1}. {item}`\n"
 
-            return_str += "\n`Choose one by typing the number "
-            return_str += "in the command.`\n"
-            return_str += f"Example: .date {c_name} 2"
+            return_str += get_string("timdat_4")
+            return_str += get_string("timdat_5")
+            return_str += get_string("timdat_6").format(cmd, c_name)
 
             await dat.edit(return_str)
             return
@@ -162,15 +160,12 @@ async def date_func(dat):
     dtnow = dt.now(tz(time_zone)).strftime(d_form)
 
     if c_name != COUNTRY:
-        await dat.edit(
-            f"**Sekarang Tanggal** `{dtnow}` **di {c_name}({time_zone} timezone.**"
+        await dat.edit(get_string("timdat_9").format(dtnow, c_name, time_zone)
         )
         return
 
     if COUNTRY:
-        await dat.edit(
-            f"**Sekarang Tanggal** `{dtnow}` **di {COUNTRY}"
-            f"({time_zone} timezone).**"
+        await dat.edit(get_string("timdat_9").format(dtnow, COUNTRY, time_zone)
         )
         return
 

@@ -36,7 +36,7 @@ from AyiinXd.modules.sql_helper.bot_starters import (
     get_starter_details,
 )
 from AyiinXd.modules.sql_helper.globals import gvarstatus
-from AyiinXd.utils import _format, asst_cmd, callback, reply_id
+from AyiinXd.ayiin import _format, asst_cmd, callback, reply_id
 
 from .ping import get_readable_time
 

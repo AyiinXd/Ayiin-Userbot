@@ -12,7 +12,8 @@ from sre_constants import error as sre_err
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
 
 DELIMITERS = ("/", ":", "|", "_")
 
@@ -66,18 +67,16 @@ async def sed(command):
         if textx:
             to_fix = textx.text
         else:
-            return await command.edit(
-                "`Master, I don't have brains. Well you too don't I guess.`"
+            return await command.edit(get_string("sed_1")
             )
         repl, repl_with, flags = sed_result
         if not repl:
-            return await command.edit(
-                "`Master, I don't have brains. Well you too don't I guess.`"
+            return await command.edit(get_string("sed_1")
             )
         try:
             check = re.match(repl, to_fix, flags=re.IGNORECASE)
             if check and check.group(0).lower() == to_fix.lower():
-                return await command.edit("`Boi!, that's a reply. Don't use sed`")
+                return await command.edit(get_string("sed_2"))
 
             if "i" in flags and "g" in flags:
                 text = re.sub(repl, repl_with, to_fix, flags=re.I).strip()
@@ -93,9 +92,9 @@ async def sed(command):
             else:
                 text = re.sub(repl, repl_with, to_fix, count=1).strip()
         except sre_err:
-            return await command.edit("B O I! [Learn Regex](https://regexone.com)")
+            return await command.edit(get_string("sed_4"))
         if text:
-            await command.edit(f"Did you mean? \n\n{text}")
+            await command.edit(get_string("sed_3").format(text))
 
 
 CMD_HELP.update(

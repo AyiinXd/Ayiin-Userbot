@@ -14,7 +14,8 @@ from PIL import Image
 from telethon import functions, types
 
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import check_media, edit_delete, edit_or_reply, ayiin_cmd, progress
+from AyiinXd.ayiin import ayiin_cmd, check_media, eod, eor, progress
+from Stringyins import get_string
 
 Glitched = TEMP_DOWNLOAD_DIRECTORY + "glitch.gif"
 
@@ -22,26 +23,26 @@ Glitched = TEMP_DOWNLOAD_DIRECTORY + "glitch.gif"
 @ayiin_cmd(pattern="glitch(?: |$)(.*)")
 async def glitch(event):
     if not event.reply_to_msg_id:
-        return await edit_or_reply(event, "`Aku Mau Glitch Sebuah Hantu!`")
+        return await eor(event, get_string("gltch_1"))
     reply_message = await event.get_reply_message()
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     if not reply_message.media:
-        return await edit_delete(event, "`Bales Ke Gambar/Sticker`")
+        return await eod(event, get_string("failed9"))
     await event.client.download_file(reply_message.media)
-    await xx.edit("`Sedang Mendownload Media....`")
+    await xx.edit(get_string("com_5"))
     if event.is_reply:
         data = await check_media(reply_message)
         if isinstance(data, bool):
-            return await edit_delete(event, "`File Tidak Di Dukung...`")
+            return await eod(event, get_string("error_5"))
     else:
-        return await xx.edit("`Balas Ke Media....`")
+        return await xx.edit(get_string("failed3"))
     try:
         value = int(event.pattern_match.group(1))
         if value > 8:
             raise ValueError
     except ValueError:
         value = 2
-    await xx.edit("`Melakukan Glitch Pada Media Ini`")
+    await xx.edit(get_string("gltch_2"))
     await asyncio.sleep(2)
     file_name = "glitch.png"
     to_download_directory = TEMP_DOWNLOAD_DIRECTORY
@@ -64,7 +65,7 @@ async def glitch(event):
         duration=DURATION,
         loop=LOOP,
     )
-    await xx.edit("`Sedang Mengunggah Media Yang Telah Di Glitch`")
+    await xx.edit(get_string("gltch_3"))
     c_time = time.time()
     nosave = await event.client.send_file(
         event.chat_id,

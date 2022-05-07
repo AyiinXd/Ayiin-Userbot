@@ -11,15 +11,16 @@ import PIL
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import bash, edit_or_reply, ayiin_cmd, progress
+from AyiinXd.ayiin import ayiin_cmd, bash, eod, eor, progress
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="honka(?: |$)(.*)")
 async def frg(animu):
     text = animu.pattern_match.group(1)
-    xx = await edit_or_reply(animu, "`Processing...`")
+    xx = await eor(animu, get_string("com_1"))
     if not text:
-        await edit_delete(xx, "**Silahkan Masukan Kata!**")
+        await eod(xx, get_string("fun_1"))
     else:
         sticcers = await animu.client.inline_query("honka_says_bot", f"{text}.")
     try:
@@ -30,8 +31,7 @@ async def frg(animu):
             hide_via=True,
         )
     except Exception:
-        return await xx.edit(
-            "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
+        return await xx.edit(get_string("fun_2")
         )
     await xx.delete()
 
@@ -41,7 +41,7 @@ async def _(event):
     if event.fwd_from:
         return
     reply = await event.get_reply_message()
-    xx = await edit_or_reply(event, "`Checking...`")
+    xx = await eor(event, get_string("com_2"))
     download = await event.client.download_media(reply.media)
     img = cv2.VideoCapture(download)
     ret, frame = img.read()
@@ -49,12 +49,12 @@ async def _(event):
     danish = PIL.Image.open("danish.png")
     dark, python = danish.size
     cobra = f"""ffmpeg -f lavfi -i color=c=00ff00:s={dark}x{python}:d=10 -loop 1 -i danish.png -filter_complex "[1]rotate=angle=PI*t:fillcolor=none:ow='hypot(iw,ih)':oh=ow[fg];[0][fg]overlay=x=(W-w)/2:y=(H-h)/2:shortest=1:format=auto,format=yuv420p" -movflags +faststart danish.mp4 -y"""
-    await xx.edit("```Processing ...```")
+    await xx.edit(get_string("com_1"))
     process = await asyncio.create_subprocess_shell(
         cobra, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
-    await xx.edit("```Uploading...```")
+    await xx.edit(get_string("com_6"))
     c_time = time.time()
     await event.client.send_file(
         event.chat_id,

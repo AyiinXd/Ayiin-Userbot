@@ -9,7 +9,8 @@ from telethon.tl import functions
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="buat (gb|g|c)(?: |$)(.*)")
@@ -38,8 +39,8 @@ async def _(grop):
                     peer=created_chat_id,
                 )
             )
-            await grop.edit(
-                "Grup/Channel {} Berhasil Dibuat. Tekan [{}]({}) Untuk Melihatnya".format(
+            await grop.eor(
+                get_string("create_1").format(
                     group_name, group_name, result.link
                 )
             )
@@ -50,7 +51,7 @@ async def _(grop):
             r = await grop.client(
                 functions.channels.CreateChannelRequest(
                     title=group_name,
-                    about="**Selamat Datang Di Channel Ini!**",
+                    about=get_string("create_2"),
                     megagroup=type_of_group != "c",
                 )
             )
@@ -61,8 +62,8 @@ async def _(grop):
                     peer=created_chat_id,
                 )
             )
-            await grop.edit(
-                "Grup/Channel {} Berhasil Dibuat. Tekan [{}]({}) Untuk Melihatnya".format(
+            await grop.eor(
+                get_string("create_1").format(
                     group_name, group_name, result.link
                 )
             )

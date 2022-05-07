@@ -13,7 +13,7 @@ from telethon.tl.types import InputMessagesFilterVideo
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, BLACKLIST_CHAT, owner
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
 
 
 @ayiin_cmd(pattern="bokp$")

@@ -9,24 +9,25 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="hz(:? |$)(.*)?")
 async def _(hazmat):
-    xx = await edit_or_reply(hazmat, "`Processing Hazmat...`")
+    xx = await eor(hazmat, get_string("hzmt_1"))
     level = hazmat.pattern_match.group(2)
     if hazmat.fwd_from:
         return
     if not hazmat.reply_to_msg_id:
-        await xx.edit("**Mohon Balas Ke Sticker/Gambar**")
+        await xx.edit(get_string("failed9"))
         return
     reply_message = await hazmat.get_reply_message()
     if not reply_message.media:
-        await xx.edit("`Kata Bisa Menghancurkan Apapun`")
+        await xx.edit(get_string("hzmt_2"))
         return
     chat = "@hazmat_suit_bot"
-    await xx.edit("`Perintah Hazmat Diaktifkan, Sedang Memproses...`")
+    await xx.edit(get_string("hzmt_3"))
     message_id_to_reply = hazmat.message.reply_to_msg_id
     msg_reply = None
     async with hazmat.client.conversation(chat) as conv:
@@ -56,7 +57,7 @@ async def _(hazmat):
             response = await conv.get_response()
             await hazmat.client.send_read_acknowledge(conv.chat_id)
         if response.text.startswith("I can't"):
-            await xx.edit("`Mohon Maaf, GIF Tidak Bisa...`")
+            await xx.edit(get_string("hzmt_4"))
             await hazmat.client.delete_messages(
                 conv.chat_id, [msg.id, response.id, r.id, msg_reply.id]
             )

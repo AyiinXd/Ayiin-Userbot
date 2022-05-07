@@ -2,7 +2,7 @@ from time import sleep
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
 
 
 @ayiin_cmd(pattern="sadboy(?: |$)(.*)")

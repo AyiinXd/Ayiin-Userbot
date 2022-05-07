@@ -9,7 +9,8 @@ from telethon.tl import functions, types
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd, ayiin_handler, bash
+from AyiinXd.ayiin import ayiin_cmd, ayiin_handler, bash
+from Stringyins import get_string
 
 USER_AFK = {}
 afk_time = None
@@ -37,19 +38,16 @@ async def set_not_afk(event):
             if pic.endswith((".tgs", ".webp")):
                 shite = await event.client.send_message(event.chat_id, file=pic)
                 shites = await event.client.send_message(
-                    event.chat_id,
-                    f"❏ **{owner} Kembali Online Untuk Parming**\n└ **Dari AFK** `{total_afk_time}` **Yang Lalu**",
+                    event.chat_id, get_string("afk_1").format(owner, total_afk_time)
                 )
             else:
                 shite = await event.client.send_message(
-                    event.chat_id,
-                    f"❏ **{owner} Pengangguran sok Sibuk Balik Lagi!**\n└ **Dari AFK** `{total_afk_time}` **Yang Lalu**",
+                    event.chat_id, get_string("afk_2").format(owner, total_afk_time),
                     file=pic,
                 )
         except BaseException:
             shite = await event.client.send_message(
-                event.chat_id,
-                f"❏ **{owner} Kembali Online**\n└ **Dari AFK** `{total_afk_time}` **Yang Lalu**",
+                event.chat_id, get_string("afk_3").format(owner, total_afk_time)
             )
 
         await asyncio.sleep(6)
@@ -86,11 +84,12 @@ async def on_afk(event):
     if USER_AFK and not (await event.get_sender()).bot:
         msg = None
         if reason:
-            message_to_reply = f"❏ **{owner} Sedang AFK**\n├ **Dari** `{total_afk_time}` **Yang Lalu**\n└ **Karena:** `{reason}`"
+            message_to_reply = get_string("afk_4").format(
+                owner, total_afk_time, reason)
         else:
             message_to_reply = (
-                f"❏ **{owner} Sedang AFK**\n└ **Dari** `{total_afk_time}` **Yang Lalu**"
-            )
+                get_string("afk_5").format(
+                    owner, total_afk_time))
         try:
             if pic.endswith((".tgs", ".webp")):
                 msg = await event.reply(file=pic)
@@ -151,36 +150,32 @@ async def _(event):
                 if pic.endswith((".tgs", ".webp")):
                     await event.client.send_message(event.chat_id, file=pic)
                     await event.client.send_message(
-                        event.chat_id,
-                        f"\n❏ **{owner} Telah AFK**\n└ **Karena:** `{reason}`",
+                        event.chat_id, get_string("afk_6").format(owner, reason)
                     )
                 else:
                     await event.client.send_message(
-                        event.chat_id,
-                        f"\n❏ **{owner} Telah AFK**\n└ **Karena:** `{reason}`",
+                        event.chat_id, get_string("afk_6").format(owner, reason),
                         file=pic,
                     )
             except BaseException:
                 await event.client.send_message(
-                    event.chat_id,
-                    f"\n❏ **{owner} Telah AFK**\n└ **Karena:** `{reason}`",
+                    event.chat_id, get_string("afk_6").format(owner, reason)
                 )
         else:
             try:
                 if pic.endswith((".tgs", ".webp")):
                     await event.client.send_message(event.chat_id, file=pic)
                     await event.client.send_message(
-                        event.chat_id, f"**✘ {owner} Telah AFK ✘**"
+                        event.chat_id, get_string("afk_7").format(owner)
                     )
                 else:
                     await event.client.send_message(
-                        event.chat_id,
-                        f"**✘ {owner} Telah AFK ✘**",
+                        event.chat_id, get_string("afk_7").format(owner),
                         file=pic,
                     )
             except BaseException:
                 await event.client.send_message(
-                    event.chat_id, f"**✘ {owner} Telah AFK ✘**"
+                    event.chat_id, get_string("afk_7").format(owner)
                 )
         await event.delete()
 

@@ -14,8 +14,11 @@ from secrets import choice
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
-from AyiinXd.utils.misc import Carbon
+from AyiinXd.ayiin import eor
+from AyiinXd.ayiin import ayiin_cmd
+from AyiinXd.ayiin.misc import Carbon
+from Stringyins import get_string
+
 
 from .vcplugin import vcmention
 
@@ -174,7 +177,7 @@ all_col = [
 @ayiin_cmd(pattern="(rc|c)arbon")
 async def crbn(event):
     from_user = vcmention(event.sender)
-    xxxx = await edit_or_reply(event, "`Processing...`")
+    xxxx = await eor(event, get_string("com_1"))
     te = event.text
     col = choice(all_col) if te[1] == "r" else "Grey"
     if event.reply_to_msg_id:
@@ -190,15 +193,13 @@ async def crbn(event):
         try:
             code = event.text.split(" ", maxsplit=1)[1]
         except IndexError:
-            return await edit_delete(
-                xxxx, "**Balas ke pesan atau file yang dapat dibaca**", 30
-            )
+            return await eor(xxxx, get_string("carbon_2"), time=30
+                             )
     xx = await Carbon(code=code, file_name="carbon_ayiin", backgroundColor=col)
     await xxxx.delete()
-    await event.reply(
-        f"**Carbonised by** {from_user}",
-        file=xx,
-    )
+    await event.reply(get_string("carbon_1").format(from_user),
+                      file=xx,
+                      )
 
 
 @ayiin_cmd(pattern="ccarbon ?(.*)")
@@ -206,10 +207,9 @@ async def ccrbn(event):
     from_user = vcmention(event.sender)
     match = event.pattern_match.group(1).strip()
     if not match:
-        return await edit_or_reply(
-            event, "**Berikan Warna Custom untuk Membuat Carbon**"
-        )
-    msg = await edit_or_reply(event, "`Processing...`")
+        return await eor(event, get_string("carbon_3")
+                         )
+    msg = await eor(event, get_string("com_1"))
     if event.reply_to_msg_id:
         temp = await event.get_reply_message()
         if temp.media:
@@ -225,15 +225,13 @@ async def ccrbn(event):
             code = match[1]
             match = match[0]
         except IndexError:
-            return await edit_delete(
-                msg, "**Balas pesan atau file yang dapat dibaca**", 30
-            )
+            return await eor(msg, get_string("carbon_2"), time=30
+                             )
     xx = await Carbon(code=code, backgroundColor=match)
     await msg.delete()
-    await event.reply(
-        f"**Carbonised by** {from_user}",
-        file=xx,
-    )
+    await event.reply(get_string("carbon_1").format(from_user),
+                      file=xx,
+                      )
 
 
 CMD_HELP.update(

@@ -68,16 +68,17 @@ from AyiinXd import (
     bot,
 )
 from AyiinXd.modules.upload_download import get_video_thumb
-from AyiinXd.utils import (
-    chrome,
-    edit_delete,
-    edit_or_reply,
-    googleimagesdownload,
+from AyiinXd.ayiin import (
     ayiin_cmd,
+    chrome,
+    eod,
+    eor,
+    googleimagesdownload,
     options,
     progress,
 )
-from AyiinXd.utils.FastTelethon import upload_file
+from AyiinXd.ayiin.FastTelethon import upload_file
+from Stringyins import get_string
 
 TTS_LANG = "id"
 TRT_LANG = "id"
@@ -103,7 +104,7 @@ async def ocr_space_file(
 
 @ayiin_cmd(pattern="img (.*)")
 async def img_sampler(event):
-    xx = await edit_or_reply(event, "`Sedang Mencari Gambar Yang Anda Cari...`")
+    xx = await eor(event, get_string("com_2"))
     query = event.pattern_match.group(1)
     lim = findall(r"lim=\d+", query)
     try:
@@ -135,18 +136,17 @@ async def moni(event):
     c_from_val = float(event.pattern_match.group(1))
     c_from = (event.pattern_match.group(2)).upper()
     c_to = (event.pattern_match.group(3)).upper()
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     try:
         response = get(
             "https://api.frankfurter.app/latest",
             params={"from": c_from, "to": c_to},
         ).json()
     except Exception:
-        return await edit_delete(xx, "**Error: API is down.**")
+        return await eod(xx, get_string("currency_1"))
     if "error" in response:
-        await edit_delete(
-            xx,
-            "**sepertinya ini  mata uang asing, yang tidak dapat saya konversi sekarang.**",
+        await eod(
+            xx, get_string("currency_2")
         )
         return
     c_to_val = round(c_from_val * response["rates"][c_to], 2)
@@ -155,7 +155,7 @@ async def moni(event):
 
 @ayiin_cmd(pattern="google ([\\s\\S]*)")
 async def gsearch(q_event):
-    yins = await edit_or_reply(q_event, "`Processing...`")
+    yins = await eor(q_event, get_string("com_1"))
     match = q_event.pattern_match.group(1)
     page = re.findall(r"-p\d+", match)
     lim = re.findall(r"-l\d+", match)
@@ -200,26 +200,26 @@ async def gsearch(q_event):
             msg += f"👉 [{title}]({link})\n`{desc}`\n\n"
         except IndexError:
             break
-    await edit_or_reply(
-        yins,
-        "**Keyword Google Search:**\n`" + match + "`\n\n**Results:**\n" + msg,
+    await eor(
+        yins, 
+        get_string("google_1").format(match, msg),
         link_preview=False,
         aslink=True,
-        linktext=f"**Hasil Pencarian untuk Keyword** `{match}` **adalah** :",
+        linktext=get_string("google_2").format(match),
     )
 
 
 @ayiin_cmd(pattern="wiki (.*)")
 async def wiki(wiki_q):
     match = wiki_q.pattern_match.group(1)
-    xx = await edit_or_reply(wiki_q, "`Processing...`")
+    xx = await eor(wiki_q, get_string("com_1"))
     try:
         summary(match)
     except DisambiguationError as error:
-        await edit_delete(xx, f"Ditemukan halaman yang tidak ambigu.\n\n{error}")
+        await eod(xx, get_string("wiki_1").format(error))
         return
     except PageError as pageerror:
-        await edit_delete(xx, f"Halaman tidak ditemukan.\n\n{pageerror}")
+        await eod(xx, get_string("wiki_2").format(pageerror))
         return
     result = summary(match)
     if len(result) >= 4096:
@@ -235,52 +235,49 @@ async def wiki(wiki_q):
         if os.path.exists("output.txt"):
             os.remove("output.txt")
         return
-    await xx.edit("**Search:**\n`" + match + "`\n\n**Result:**\n" + result)
+    await xx.edit(get_string("wiki_3").format(match, result))
 
 
 @ayiin_cmd(pattern="ud (.*)")
 async def _(event):
     if event.fwd_from:
         return
-    xx = await edit_or_reply(event, "Processing...")
+    xx = await eor(event, get_string("com_1"))
     word = event.pattern_match.group(1)
     urban = asyncurban.UrbanDictionary()
     try:
         mean = await urban.get_word(word)
-        await xx.edit(
-            "Text: **{}**\n\nBerarti: **{}**\n\nContoh: __{}__".format(
+        await xx.edit(get_string("scrud_1").format(
                 mean.word, mean.definition, mean.example
             )
         )
     except asyncurban.WordNotFoundError:
-        await xx.edit("Tidak ada hasil untuk **" + word + "**")
+        await xx.edit(get_string("scrud_2").format(word))
 
 
 @ayiin_cmd(pattern="tts(?: |$)([\\s\\S]*)")
 async def text_to_speech(query):
     textx = await query.get_reply_message()
     message = query.pattern_match.group(1)
-    xx = await edit_or_reply(query, "`Processing...`")
+    xx = await eor(query, get_string("com_1"))
     if message:
         pass
     elif textx:
         message = textx.text
     else:
-        return await edit_delete(
-            xx, "**Berikan teks atau balas pesan untuk Text-to-Speech!**"
+        return await eod(
+            xx, get_string("scrtts_1")
         )
     try:
         gTTS(message, lang=TTS_LANG)
     except AssertionError:
-        return await edit_delete(
-            xx,
-            "**Teksnya kosong.**\n"
-            "Tidak ada yang tersisa untuk dibicarakan setelah pra-pemrosesan, pembuatan token, dan pembersihan.",
+        return await eod(
+            xx, get_string("scrtts_2")
         )
     except ValueError:
-        return await edit_delete(xx, "**Bahasa tidak didukung.**")
+        return await eod(xx, get_string("scrtts_3"))
     except RuntimeError:
-        return await edit_delete(xx, "**Error saat memuat kamus bahasa.**")
+        return await eod(xx, get_string("scrtts_4"))
     tts = gTTS(message, lang=TTS_LANG)
     tts.save("k.mp3")
     with open("k.mp3", "rb") as audio:
@@ -302,7 +299,7 @@ async def _(event):
     if "trim" in event.raw_text:
         return
     input_str = event.pattern_match.group(1)
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         text = previous_message.message
@@ -310,26 +307,23 @@ async def _(event):
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
-        return await edit_delete(xx, "**.tr <kode bahasa>** sambil reply ke pesan")
+        return await eod(xx, get_string("scrtr_1").format(cmd))
     text = emoji.demojize(text.strip())
     lan = lan.strip()
     translator = Translator()
     try:
         translated = translator.translate(text, dest=lan)
         after_tr_text = translated.text
-        output_str = """**DITERJEMAHKAN** dari `{}` ke `{}`
-`{}`""".format(
-            translated.src, lan, after_tr_text
-        )
+        output_str = get_string("scrtr_2").format(translated.src, lan, after_tr_text)
         await xx.edit(output_str)
     except Exception as exc:
-        await edit_delete(xx, str(exc))
+        await eod(xx, get_string("error_1").format(str(exc)))
 
 
 @ayiin_cmd(pattern=r"lang (tr|tts) (.*)")
 async def lang(value):
     util = value.pattern_match.group(1).lower()
-    xx = await edit_or_reply(value, "`Processing...`")
+    xx = await eor(value, get_string("com_1"))
     if util == "tr":
         scraper = "Translator"
         global TRT_LANG
@@ -338,9 +332,8 @@ async def lang(value):
             TRT_LANG = arg
             LANG = LANGUAGES[arg]
         else:
-            await edit_delete(
-                xx,
-                f"**Kode Bahasa tidak valid !!**\n**Kode bahasa yang tersedia**:\n\n`{LANGUAGES}`",
+            await eod(
+                xx, get_string("scrlang_1").format(LANGUAGES)
             )
             return
     elif util == "tts":
@@ -351,12 +344,11 @@ async def lang(value):
             TTS_LANG = arg
             LANG = tts_langs()[arg]
         else:
-            await edit_delete(
-                xx,
-                f"**Kode Bahasa tidak valid!!**\n**Kode bahasa yang tersedia**:\n\n`{tts_langs()}`",
+            await eod(
+                xx, get_string("scrlang_2").format(tts_langs())
             )
             return
-    await xx.edit(f"**Bahasa untuk** `{scraper}` **diganti menjadi** `{LANG.title()}`")
+    await xx.edit(get_string("scrlang_3").format(scraper, LANG.title()))
 
 
 @ayiin_cmd(pattern="yt (\\d*) *(.*)")
@@ -371,18 +363,18 @@ async def yt_search(video_q):
         counter = int(5)
     query = video_q.pattern_match.group(2)
     if not query:
-        await edit_delete(video_q, "`Masukkan keyword untuk dicari`")
-    xx = await edit_or_reply(video_q, "`Processing...`")
+        await eod(video_q, get_string("scryt_1"))
+    xx = await eor(video_q, get_string("com_1"))
     try:
         results = json.loads(
             YoutubeSearch(
                 query,
                 max_results=counter).to_json())
     except KeyError:
-        return await edit_delete(
-            xx, "`Pencarian Youtube menjadi lambat.\nTidak dapat mencari keyword ini!`"
+        return await eod(
+            xx, get_string("scryt_2")
         )
-    output = f"**Pencarian Keyword:**\n`{query}`\n\n**Hasil:**\n\n"
+    output = get_string("scryt_11").format(query)
     for i in results["videos"]:
         try:
             title = i["title"]
@@ -403,7 +395,7 @@ async def download_video(v_url):
     reso = v_url.pattern_match.group(2)
     reso = reso.strip() if reso else None
     url = v_url.pattern_match.group(3)
-    xx = await edit_or_reply(v_url, "`Preparing to download...`")
+    xx = await eor(v_url, get_string("com_5"))
     s_time = time.time()
     video = False
     audio = False
@@ -469,38 +461,35 @@ async def download_video(v_url):
         video = True
 
     try:
-        await xx.edit("`Fetching data, please wait..`")
+        await xx.edit(get_string("scryt_3"))
         with YoutubeDL(opts) as rip:
             rip_data = rip.extract_info(url)
     except DownloadError as DE:
-        return await edit_delete(xx, f"`{DE}`")
+        return await eod(xx, get_string("error_1").format(DE))
     except ContentTooShortError:
-        return await edit_delete(xx, "`The download content was too short.`")
+        return await eod(xx, get
+        ("scryt_4"))
     except GeoRestrictedError:
-        return await edit_delete(
-            xx,
-            "`Video is not available from your geographic location "
-            "due to geographic restrictions imposed by a website.`",
+        return await eod(
+            xx, get_string("scryt_5")
         )
     except MaxDownloadsReached:
-        return await edit_delete(xx, "`Max-downloads limit has been reached.`")
+        return await eod(xx, get_string("scryt_6"))
     except PostProcessingError:
-        return await edit_delete(xx, "`There was an error during post processing.`")
+        return await eod(xx, get_string("scryt_7"))
     except UnavailableVideoError:
-        return await edit_delete(
-            xx, "`Media is not available in the requested format.`"
+        return await eod(
+            xx, get_string("scryt_8")
         )
     except XAttrMetadataError as XAME:
         return await edit_delete(xx, f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
     except ExtractorError:
-        return await edit_delete(xx, "`There was an error during info extraction.`")
+        return await eod(xx, get_string("scryt_9"))
     except Exception as e:
-        return await edit_delete(xx, f"{str(type(e))}: {str(e)}")
+        return await eod(xx, f"{str(type(e))}: {str(e)}")
     c_time = time.time()
     if audio:
-        await xx.edit(
-            f"**Sedang Mengupload Lagu:**\n`{rip_data.get('title')}`"
-            f"\nby **{rip_data.get('uploader')}**"
+        await xx.edit(get_string("scryt_10").format(rip_data.get('title'), rip_data.get('uploader'))
         )
         f_name = glob(
             os.path.join(
@@ -543,9 +532,7 @@ async def download_video(v_url):
         )
         await xx.delete()
     elif video:
-        await xx.edit(
-            f"**Sedang Mengupload Video:**\n`{rip_data.get('title')}`"
-            f"\nby **{rip_data.get('uploader')}**"
+        await xx.edit(get_string("scryt_10").format(rip_data.get('title'), rip_data.get('uploader'))
         )
         f_path = glob(
             os.path.join(
@@ -604,9 +591,8 @@ async def download_video(v_url):
 @ayiin_cmd(pattern="rbg(?: |$)(.*)")
 async def kbg(remob):
     if REM_BG_API_KEY is None:
-        await edit_delete(
-            remob,
-            "`Error: Remove.BG API key missing! Add it to environment vars or config.env.`",
+        await eod(
+            remob, get_string("error_1").format("Remove.Bg Api Token hilang! Tambahkan ke vars Heroku atau config.env.")
         )
         return
     input_str = remob.pattern_match.group(1)
@@ -614,7 +600,7 @@ async def kbg(remob):
     if remob.reply_to_msg_id:
         message_id = remob.reply_to_msg_id
         reply_message = await remob.get_reply_message()
-        xx = await edit_or_reply(remob, "`Processing...`")
+        xx = await eor(remob, get_string("com_1"))
         try:
             if isinstance(
                 reply_message.media, MessageMediaPhoto
@@ -622,21 +608,21 @@ async def kbg(remob):
                 downloaded_file_name = await remob.client.download_media(
                     reply_message, TEMP_DOWNLOAD_DIRECTORY
                 )
-                await xx.edit("`Removing background from this image..`")
+                await xx.edit(get_string("scrbg_1"))
                 output_file_name = await ReTrieveFile(downloaded_file_name)
                 os.remove(downloaded_file_name)
             else:
-                await edit_delete(xx, "`Bagaimana cara menghapus latar belakang ini ?`")
+                await eod(xx, get_string("scrbg_2"))
         except Exception as e:
             await edit_delete(xx, str(e))
             return
     elif input_str:
-        await edit_delete(
-            xx, f"`Removing background from online image hosted at`\n{input_str}"
+        await eod(
+            xx, get_string("scrbg_3").format(input_str)
         )
         output_file_name = await ReTrieveURL(input_str)
     else:
-        await edit_delete(xx, "`Saya butuh sesuatu untuk menghapus latar belakang.`")
+        await eod(xx, get_string("scrbg_4"))
         return
     contentType = output_file_name.headers.get("content-type")
     if "image" in contentType:
@@ -650,10 +636,8 @@ async def kbg(remob):
             )
             await xx.delete()
     else:
-        await edit_delete(
-            xx,
-            "**Error (Invalid API key, I guess ?)**\n`{}`".format(
-                output_file_name.content.decode("UTF-8")
+        await eod(
+            xx, get_string("scrbg_5").format(output_file_name.content.decode("UTF-8")
             ),
         )
 
@@ -693,11 +677,10 @@ async def ReTrieveURL(input_url):
 @ayiin_cmd(pattern=r"ocr (.*)")
 async def ocr(event):
     if not OCR_SPACE_API_KEY:
-        return await edit_delete(
-            event,
-            "`Error: OCR.Space API key is missing! Add it to environment variables or config.env.`",
+        return await eod(
+            event, get_string("scrocr_1")
         )
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
     lang_code = event.pattern_match.group(1)
@@ -708,11 +691,11 @@ async def ocr(event):
     try:
         ParsedText = test_file["ParsedResults"][0]["ParsedText"]
     except BaseException:
-        await edit_delete(
-            xx, "`Tidak bisa membacanya.`\n`Saya rasa saya perlu kacamata baru.`"
+        await eod(
+            xx, get_string("scrocr_2")
         )
     else:
-        await xx.edit(f"**Inilah yang bisa saya baca:**\n\n{ParsedText}")
+        await xx.edit(get_string("scrocr_3").format(ParsedText))
     os.remove(downloaded_file_name)
 
 
@@ -744,7 +727,7 @@ async def parseqr(qr_e):
     if not t_response:
         LOGS.info(e_response)
         LOGS.info(t_response)
-        return await edit_delete(qr_e, "Gagal untuk decode.")
+        return await eod(qr_e, get_string("scrdec_1"))
     soup = BeautifulSoup(t_response, "html.parser")
     qr_contents = soup.find_all("pre")[0].text
     await qr_e.edit(qr_contents)
@@ -752,9 +735,9 @@ async def parseqr(qr_e):
 
 @ayiin_cmd(pattern="barcode(?: |$)([\\s\\S]*)")
 async def bq(event):
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     input_str = event.pattern_match.group(1)
-    message = "SYNTAX: `.barcode <long text to include>`"
+    message = get_string("scrbrcd_1").format(cmd)
     reply_msg_id = event.message.id
     if input_str:
         message = input_str
@@ -771,7 +754,7 @@ async def bq(event):
         else:
             message = previous_message.message
     else:
-        return edit_delete(xx, "SYNTAX: `.barcode <long text to include>`")
+        return eod(xx, get_string("scrbrcd_1").format(cmd))
 
     bar_code_type = "code128"
     try:
@@ -788,8 +771,8 @@ async def bq(event):
 @ayiin_cmd(pattern=r"makeqr(?: |$)([\s\S]*)")
 async def make_qr(makeqr):
     input_str = makeqr.pattern_match.group(1)
-    xx = await edit_or_reply(makeqr, "`Processing...`")
-    message = "SYNTAX: `.makeqr <long text to include>`"
+    xx = await eor(makeqr, get_string("com_1"))
+    message = get_string("scrmkqr_1").format(cmd)
     reply_msg_id = None
     if input_str:
         message = input_str
@@ -827,7 +810,7 @@ async def make_qr(makeqr):
 
 @ayiin_cmd(pattern="ss (.*)")
 async def capture(url):
-    xx = await edit_or_reply(url, "`Processing...`")
+    xx = await eor(url, get_string("com_1"))
     chrome_options = await options()
     chrome_options.add_argument("--test-type")
     chrome_options.add_argument("--ignore-certificate-errors")
@@ -838,7 +821,7 @@ async def capture(url):
     if link_match:
         link = link_match.group()
     else:
-        return await edit_delete(xx, "`I need a valid link to take screenshots from.`")
+        return await eod(xx, get_string("scrss_1"))
     driver.get(link)
     height = driver.execute_script(
         "return Math.max(document.body.scrollHeight, document.body.offsetHeight, "
@@ -850,11 +833,7 @@ async def capture(url):
         "document.documentElement.offsetWidth);")
     driver.set_window_size(width + 125, height + 125)
     wait_for = height / 1000
-    await xx.edit(
-        "`Generating screenshot of the page...`"
-        f"\n`Height of page = {height}px`"
-        f"\n`Width of page = {width}px`"
-        f"\n`Waiting ({int(wait_for)}s) for the page to load.`"
+    await xx.edit(get_string("scrss_2").format(height, width, int(wait_for))
     )
     await sleep(int(wait_for))
     im_png = driver.get_screenshot_as_png()
@@ -865,7 +844,7 @@ async def capture(url):
         message_id = url.reply_to_msg_id
     with io.BytesIO(im_png) as out_file:
         out_file.name = "screencapture.png"
-        await xx.edit("`Uploading screenshot as file..`")
+        await xx.edit(get_string("scrss_3"))
         await url.client.send_file(
             url.chat_id,
             out_file,

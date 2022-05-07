@@ -7,7 +7,8 @@ from secrets import choice
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd, deEmojify, edit_delete
+from AyiinXd.ayiin import ayiin_cmd, deEmojify, eod
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="waifu(?: |$)(.*)")
@@ -17,7 +18,7 @@ async def waifu(animu):
         if animu.is_reply:
             text = (await animu.get_reply_message()).message
         else:
-            await animu.answer("`No text given, hence the waifu ran away.`")
+            await animu.answer(get_string("waifu_1"))
             return
     animus = [15, 30, 32, 33, 40, 41, 42, 48, 55, 58]
     sticcers = await animu.client.inline_query(
@@ -32,9 +33,8 @@ async def waifu(animu):
         )
 
     except Exception:
-        return await edit_delete(
-            animu,
-            "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`",
+        return await eod(
+            animu, get_string("waifu_2")
         )
 
 

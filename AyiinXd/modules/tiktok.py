@@ -10,7 +10,8 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 # Alvin Gans
 
@@ -23,11 +24,10 @@ async def _(event):
     elif event.is_reply:
         d_link = await event.get_reply_message()
     else:
-        return await edit_delete(
-            event,
-            "**Berikan Link Tiktok Pesan atau Reply Link Tiktok Untuk di Download**",
+        return await eod(
+            event, get_string("tiktok_1")
         )
-    xx = await edit_or_reply(event, "`Video Sedang Diproses...`")
+    xx = await eor(event, get_string("com_1"))
     chat = "@thisvidbot"
     async with event.client.conversation(chat) as conv:
         try:

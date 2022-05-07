@@ -14,7 +14,7 @@ from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.modules.sql_helper import snips_sql as sql
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd, reply_id
+from AyiinXd.ayiin import edit_delete, edit_or_reply, ayiin_cmd, reply_id
 
 
 @ayiin_cmd(pattern=r"\#(\S+)")

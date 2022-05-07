@@ -7,7 +7,8 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="logo(?: |$)(.*)")
@@ -17,9 +18,9 @@ async def _(event):
     aing = await event.client.get_me()
     text = event.pattern_match.group(1)
     if not text:
-        await edit_delete(event, "**Silahkan Masukan Text Untuk Logo**")
+        await eod(event, get_string("logo_1"))
     else:
-        await edit_or_reply(event, "`Processing...`")
+        await eor(event, get_string("com_1"))
     chat = "@tdtapibot"
     async with event.client.conversation(chat) as conv:
         try:
@@ -37,7 +38,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             logo,
-            caption=f"Logo by [{aing.first_name}](tg://user?id={aing.id})",
+            caption=get_string("logo_2").format(aing.first_name, aing.id),
         )
         await event.client.delete_messages(conv.chat_id, [msg.id, response.id, logo.id])
         await event.delete()

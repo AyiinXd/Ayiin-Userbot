@@ -18,7 +18,8 @@ from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME
 from AyiinXd.modules.sql_helper.globals import addgvar, delgvar, gvarstatus
-from AyiinXd.utils import edit_or_reply, edit_delete, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 from time import sleep
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -40,12 +41,11 @@ else:
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
-        await edit_or_reply(
-            var, "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **di Heroku**"
+        await eor(var, get_string("heroku_1")
         )
         return False
     if exe == "get":
-        xx = await edit_or_reply(var, "`Mendapatkan Informasi...`")
+        xx = await eor(var, get_string("com_8"))
         variable = var.pattern_match.group(2)
         if variable == "":
             configvars = heroku_var.to_dict()
@@ -54,44 +54,38 @@ async def variable(var):
                     f"`{item}` = `{configvars[item]}`\n" for item in configvars
                 )
                 await var.client.send_message(
-                    BOTLOG_CHATID, "#CONFIGVARS\n\n" "**Config Vars**:\n" f"{msg}"
+                    BOTLOG_CHATID, get_string("heroku_2").format(msg)
                 )
-                await xx.edit("**Berhasil Mengirim Ke BOTLOG_CHATID**")
+                await xx.edit(get_string("heroku_3"))
                 return True
-            await xx.edit("**Mohon Ubah Var** `BOTLOG` **Ke** `True`")
+            await xx.edit(get_string("heroku_4"))
             return False
         if variable in heroku_var:
             if BOTLOG_CHATID:
                 await var.client.send_message(
-                    BOTLOG_CHATID,
-                    "**Logger : #SYSTEM**\n\n"
-                    "**#SET #VAR_HEROKU #ADDED**\n\n"
-                    f"`{variable}` **=** `{heroku_var[variable]}`\n",
+                    BOTLOG_CHATID, get_string("heroku_9").format(variable, heroku_var[variable])
                 )
-                await xx.edit("**Berhasil Mengirim Ke BOTLOG_CHATID**")
+                await xx.edit(get_string("heroku_6"))
                 return True
-            await xx.edit("**Mohon Ubah Var** `BOTLOG` **Ke** `True`")
+            await xx.edit(get_string("heroku_4"))
             return False
-        await var.edit("`Informasi Tidak Ditemukan...`")
+        await var.edit(get_string("com_8"))
         return True
     if exe == "del":
-        xx = await edit_or_reply(var, "`Menghapus Config Vars...`")
+        xx = await eor(var, get_string("heroku_7"))
         variable = var.pattern_match.group(2)
         if variable == "":
-            await xx.edit("**Mohon Tentukan Config Vars Yang Mau Anda Hapus**")
+            await xx.edit(get_string("heroku_8"))
             return False
         if variable in heroku_var:
             if BOTLOG_CHATID:
                 await var.client.send_message(
-                    BOTLOG_CHATID,
-                    "**Logger : #SYSTEM**\n\n"
-                    "**#SET #VAR_HEROKU #DELETED**\n\n"
-                    f"`{variable}`",
+                    BOTLOG_CHATID, get_string("heroku_9").format(variable)
                 )
-            await xx.edit("**Config Vars Telah Dihapus**")
+            await xx.edit(get_string("heroku_10"))
             del heroku_var[variable]
         else:
-            await xx.edit("**Tidak Dapat Menemukan Config Vars**")
+            await xx.edit(get_string("heroku_11"))
             return True
 
 
@@ -101,27 +95,21 @@ async def set_var(var):
         return await edit_or_reply(
             var, "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
         )
-    xx = await edit_or_reply(var, "`Processing...`")
+    xx = await eor(var, get_string("com_1"))
     variable = var.pattern_match.group(1)
     value = var.pattern_match.group(2)
     if variable in heroku_var:
         if BOTLOG_CHATID:
             await var.client.send_message(
-                BOTLOG_CHATID,
-                "**Logger : #SYSTEM**\n\n"
-                "**#SET #VAR_HEROKU #ADDED**\n\n"
-                f"`{variable}` = `{value}`",
+                BOTLOG_CHATID, get_string("heroku_5").format(variable, value)
             )
-        await edit_delete(var, "`Sedang Proses, Mohon Tunggu Di Group Logs Lu Kentod...`")
+        await eod(var, get_string("heroku_13"))
     else:
         if BOTLOG_CHATID:
             await var.client.send_message(
-                BOTLOG_CHATID,
-                "**Logger : #SYSTEM**\n\n"
-                "**#SET #VAR_HEROKU #ADDED**\n\n"
-                f"`{variable}` **=** `{value}`",
+                BOTLOG_CHATID, get_string("heroku_5").format(variable, value)
             )
-        await xx.edit("**Berhasil Menambahkan Config Var**")
+        await xx.edit(get_string("heroku_14"))
     heroku_var[variable] = value
 
 
@@ -133,10 +121,9 @@ async def set_var(var):
 @ayiin_cmd(pattern="(usage|kuota|dyno)(?: |$)")
 async def dyno_usage(dyno):
     if app is None:
-        return await dyno.edit(
-            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
+        return await dyno.edit(get_string("heroku_12")
         )
-    xx = await edit_or_reply(dyno, "🤖")
+    xx = await eor(dyno, "🤖")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -156,7 +143,7 @@ async def dyno_usage(dyno):
             await dyno.client.send_message(
                 dyno.chat_id, f"`{r.reason}`", reply_to=dyno.id
             )
-            await xx.edit("**Gagal Mendapatkan Informasi Dyno**")
+            await xx.edit(get_string("usage_1"))
             return False
         result = await r.json()
         quota = result["account_quota"]
@@ -186,65 +173,42 @@ async def dyno_usage(dyno):
         AppMinutes = math.floor(AppQuotaUsed % 60)
 
         sleep(3)
-        await xx.edit(
-            "⍟ **Informasi Dyno Herotod**"
-            "\n╔════════════════════╗\n"
-            f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
-            f"     •  `{AppHours}`**Jam**  `{AppMinutes}`**Menit**  "
-            f"**|**  [`{AppPercentage}`**%**]"
-            "\n◖════════════════════◗\n"
-            " ➠ **Sisa Kuota Dyno Bulan Ini** :\n"
-            f"     •  `{hours}`**Jam**  `{minutes}`**Menit**  "
-            f"**|**  [`{percentage}`**%**]"
-            "\n╚════════════════════╝\n"
-            f"⍟ **Sisa Dyno Herotod** `{day}` **Hari Lagi**"
+        await xx.edit(get_string("usage_2").format(app.name, AppHours, AppMinutes, AppPercentage, hours, minutes, percentage, day)
         )
         return True
 
 
 @ayiin_cmd(pattern="usange(?: |$)")
 async def fake_dyno(event):
-    xx = await edit_or_reply(event, "`Processing...`")
-    await xx.edit(
-        "⍟ **Informasi Dyno Herotod**"
-        "\n╔════════════════════╗\n"
-        f" ➠ **Penggunaan Dyno** `{app.name}` :\n"
-        f"     •  `0`**Jam**  `0`**Menit**  "
-        f"**|**  [`0`**%**]"
-        "\n◖════════════════════◗\n"
-        " ➠ **Sisa Kuota Dyno  Bulan Ini** :\n"
-        f"     •  `1000`**Jam**  `0`**Menit**  "
-        f"**|**  [`100`**%**]"
-        "\n╚════════════════════╝\n"
+    xx = await eor(event, get_string("com_1"))
+    await xx.edit(get_string("usange_1").format(app.name)
     )
 
 
 @ayiin_cmd(pattern="logs")
 async def _(dyno):
     if app is None:
-        return await edit_or_reply(
-            dyno, "**Wajib Mengisi Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
+        return await eor(
+            dyno, get_string("heroku_12")
         )
-    xx = await edit_or_reply(dyno, "**Sedang Mengambil Logs Heroku**")
+    xx = await eor(dyno, get_string("logs_2"))
     data = app.get_log()
-    await edit_or_reply(xx, data, deflink=True, linktext="**⍟ Ini Logs Heroku Anda :**")
+    await eor(xx, data, deflink=True, linktext=get_string("logs_1"))
 
 
 @ayiin_cmd(pattern="getdb ?(.*)", allow_sudo=False)
 async def getsql(event):
     var_ = event.pattern_match.group(1)
-    xxnx = await edit_or_reply(event, f"**Getting variable** `{var_}`")
+    xxnx = await eor(event, get_string("getdb_1").format(var_))
     if var_ == "":
-        return await xxnx.edit(
-            f"**Invalid Syntax !!** \n\nKetik `{cmd}getdb NAMA_VARIABLE`"
+        return await xxnx.edit(get_string("getdb_2").format(cmd)
         )
     try:
         sql_v = gvarstatus(var_)
         os_v = os.environ.get(var_) or "None"
     except Exception as e:
-        return await xxnx.edit(f"**ERROR !!**\n\n`{e}`")
-    await xxnx.edit(
-        f"**OS VARIABLE:** `{var_}`\n**OS VALUE :** `{os_v}`\n------------------\n**SQL VARIABLE:** `{var_}`\n**SQL VALUE :** `{sql_v}`\n"
+        return await xxnx.edit(get_string("error_1").format(e))
+    await xxnx.edit(get_string("getdb_3").format(var_, os_v, var_, sql_v)
     )
 
 
@@ -254,31 +218,29 @@ async def setsql(event):
     var_ = hel_.split(" ")[0]
     val_ = hel_.split(" ")[1:]
     valu = " ".join(val_)
-    xxnx = await edit_or_reply(event, f"**Setting variable** `{var_}` **as** `{valu}`")
+    xxnx = await eor(event, get_string("setdb_1").format(var_, valu))
     if "" in (var_, valu):
-        return await xxnx.edit(
-            f"**Invalid Syntax !!**\n\n**Ketik** `{cmd}setsql VARIABLE_NAME value`"
+        return await xxnx.edit(get_string("setdb_2").format(cmd)
         )
     try:
         addgvar(var_, valu)
     except Exception as e:
-        return await xxnx.edit(f"**ERROR !!** \n\n`{e}`")
-    await xxnx.edit(f"**Variable** `{var_}` **successfully added with value** `{valu}`")
+        return await xxnx.edit(get_string("error_1").format(e))
+    await xxnx.edit(get_string("setdb_3").format(var_, valu))
 
 
 @ayiin_cmd(pattern="deldb ?(.*)", allow_sudo=False)
 async def delsql(event):
     var_ = event.pattern_match.group(1)
-    xxnx = await edit_or_reply(event, f"**Deleting Variable** `{var_}`")
+    xxnx = await eor(event, get_string("deldb_1").format(var_))
     if var_ == "":
-        return await xxnx.edit(
-            f"**Invalid Syntax !!**\n\n**Ketik** `{cmd}delsql VARIABLE_NAME`"
+        return await xxnx.edit(get_string("deldb_2").format(cmd)
         )
     try:
         delgvar(var_)
     except Exception as e:
-        return await xxnx.edit(f"**ERROR !!**\n\n`{e}`")
-    await xxnx.edit(f"**Deleted Variable** `{var_}`")
+        return await xxnx.edit(get_string("error_1").format(e))
+    await xxnx.edit(get_string("deldb_3").format(var_))
 
 
 CMD_HELP.update(

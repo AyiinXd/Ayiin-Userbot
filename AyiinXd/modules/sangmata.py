@@ -10,13 +10,14 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import (
+from AyiinXd.ayiin import (
     _format,
-    edit_delete,
-    edit_or_reply,
-    get_user_from_event,
     ayiin_cmd,
+    eod,
+    eor,
+    get_user_from_event,
 )
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="sg(u)?(?:\\s|$)([\\s\\S]*)")
@@ -24,13 +25,13 @@ async def _(event):
     input_str = "".join(event.text.split(maxsplit=1)[1:])
     reply_message = await event.get_reply_message()
     if not input_str and not reply_message:
-        await edit_delete(event, "**Mohon Reply Ke Pesan Pengguna.**", 90)
+        await eod(event, get_string("gban_8"), time=90)
     user, rank = await get_user_from_event(event, secondgroup=True)
     if not user:
         return
     uid = user.id
     chat = "@SangMataInfo_bot"
-    yinsevent = await edit_or_reply(event, "`Processing...`")
+    yinsevent = await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             await conv.send_message(f"/search_id {uid}")
@@ -46,9 +47,9 @@ async def _(event):
             responses.append(response.text)
         await event.client.send_read_acknowledge(conv.chat_id)
     if not responses:
-        await edit_delete(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", 90)
+        await eod(yinsevent, get_string("sg_1"), time=90)
     if "No records found" in responses:
-        await edit_delete(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", 90)
+        await eod(yinsevent, get_string("sg_1"), time=90)
     names, usernames = await sangamata_seperator(responses)
     cmd = event.pattern_match.group(1)
     ayiin = None

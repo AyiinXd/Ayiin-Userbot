@@ -12,7 +12,8 @@ from telethon.tl.types import DocumentAttributeFilename
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd, bash, edit_delete, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, bash, eod, eor
+from Stringyins import get_string
 
 bground = "black"
 
@@ -20,11 +21,11 @@ bground = "black"
 @ayiin_cmd(pattern="(ascii|asciis)$")
 async def _(event):
     if not event.reply_to_msg_id:
-        return await edit_delete(event, "**Mohon Balas Ke Media..**")
+        return await eod(event, get_string("failed3"))
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        return await edit_delete(event, "`Balas Ke Gambar/Sticker/Video`")
-    xx = await edit_or_reply(event, "`Sedang Mendownload Media..`")
+        return await eod(event, get_string("failed4"))
+    xx = await eor(event, get_string("com_5"))
     if reply_message.photo:
         IMG = await event.client.download_media(
             reply_message,
@@ -54,7 +55,7 @@ async def _(event):
             "ascii.png",
         )
     try:
-        await xx.edit("`Sedang Dalam Proses..`")
+        await xx.edit(get_string("com_1"))
         list = await random_color()
         color1 = list[0]
         color2 = list[1]
@@ -76,7 +77,7 @@ async def _(event):
         await bash("rm *.png *.webp *.mp4 *.tgs")
     except BaseException as e:
         await bash("rm *.png *.webp *.mp4 *.png")
-        return await edit_or_reply(event, f"{e}")
+        return await eor(event, get_string("error_1").format(e))
 
 
 async def asciiart(IMG, color1, color2, bgcolor):
@@ -121,12 +122,12 @@ async def random_color():
 async def _(event):
     BG = event.pattern_match.group(1)
     if BG.isnumeric():
-        return await edit_or_reply(event, "`Mohon Masukkan Warna Bukan Angka`")
+        return await eor(event, get_string("ascii_1"))
     if not BG:
-        return await edit_or_reply(event, "`Mohon Masukkan Background Dari Ascii`")
+        return await eor(event, get_string("ascii_2"))
     global bground
     bground = BG
-    await edit_or_reply(event, f"`Berhasil Setel Background Dari Ascii Ke` **{BG}**")
+    await eor(event, get_string("ascii_3").format(BG))
 
 
 CMD_HELP.update(

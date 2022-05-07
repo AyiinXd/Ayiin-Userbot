@@ -17,7 +17,7 @@ from requests import get
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import (
+from AyiinXd.ayiin import (
     chrome,
     human_to_bytes,
     humanbytes,

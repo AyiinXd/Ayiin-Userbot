@@ -17,19 +17,10 @@ from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, COUNT_PM, LASTMSG, LOGS, PM_AUTO_BAN, PM_LIMIT, bot
 from AyiinXd.events import ayiin_cmd
-from AyiinXd.utils import edit_delete, edit_or_reply
+from AyiinXd.ayiin import eod, eor
+from Stringyins import get_string
 
-DEF_UNAPPROVED_MSG = (
-    f"╔═════════════════════╗\n"
-    f"│ ㅤ 𖣘𝚂𝙴𝙻𝙰𝙼𝙰𝚃 𝙳𝙰𝚃𝙰𝙽𝙶 𝚃𝙾𝙳𖣘ㅤ  ㅤ   \n"
-    f"╚═════════════════════╝\n"
-    f"⍟ 𝙹𝙰𝙽𝙶𝙰𝙽 𝚂𝙿𝙰𝙼 𝙲𝙷𝙰𝚃 𝙼𝙰𝙹𝙸𝙺𝙰𝙽 𝙶𝚄𝙰 𝙺𝙴𝙽𝚃𝙾𝙳\n"
-    f"⍟ 𝙶𝚄𝙰 𝙰𝙺𝙰𝙽 𝙾𝚃𝙾𝙼𝙰𝚃𝙸𝚂 𝙱𝙻𝙾𝙺𝙸𝚁 𝙺𝙰𝙻𝙾 𝙻𝚄 𝚂𝙿𝙰𝙼\n"
-    f"⍟ 𝙹𝙰𝙳𝙸 𝚃𝚄𝙽𝙶𝙶𝚄 𝚂𝙰𝙼𝙿𝙰𝙸 𝙼𝙰𝙹𝙸𝙺𝙰𝙽 𝙶𝚄𝙰 𝙽𝙴𝚁𝙸𝙼𝙰 𝙿𝙴𝚂𝙰𝙽 𝙻𝚄\n"
-    f"╔═════════════════════╗\n"
-    f"│ㅤㅤ𖣘 𝙿𝙴𝚂𝙰𝙽 𝙾𝚃𝙾𝙼𝙰𝚃𝙸𝚂 𖣘ㅤㅤ      \n"
-    f"│ㅤㅤ𖣘 𝙰𝚈𝙸𝙸𝙽 - 𝚄𝚂𝙴𝚁𝙱𝙾𝚃 𖣘ㅤㅤ   \n"
-    f"╚═════════════════════╝\n")
+DEF_UNAPPROVED_MSG = (get_string("prmt_1"))
 
 
 @bot.on(events.NewMessage(incoming=True))
@@ -83,8 +74,7 @@ async def permitpm(event):
                 COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
 
             if COUNT_PM[event.chat_id] > PM_LIMIT:
-                await event.respond(
-                    "**𝙎𝙤𝙧𝙧𝙮 𝙏𝙤𝙙 𝙇𝙪 𝘿𝙞𝙗𝙡𝙤𝙠𝙞𝙧 𝙆𝙖𝙧𝙣𝙖 𝙈𝙚𝙡𝙖𝙠𝙪𝙠𝙖𝙣 𝙎𝙥𝙖𝙢 𝘾𝙝𝙖𝙩**"
+                await event.respond(get_string("prmt_2")
                 )
 
                 try:
@@ -93,10 +83,9 @@ async def permitpm(event):
                 except KeyError:
                     if BOTLOG_CHATID:
                         await event.client.send_message(
-                            BOTLOG_CHATID,
-                            "**Terjadi Error Saat Menghitung Private Message, Mohon Restart Bot!**",
+                            BOTLOG_CHATID, get_string("prmt_3")
                         )
-                    return LOGS.info("Gagal menghitung PM yang diterima")
+                    return LOGS.info(get_string("prmt_4"))
 
                 await event.client(BlockRequest(event.chat_id))
                 await event.client(ReportSpamRequest(peer=event.chat_id))
@@ -105,13 +94,7 @@ async def permitpm(event):
                     name = await event.client.get_entity(event.chat_id)
                     name0 = str(name.first_name)
                     await event.client.send_message(
-                        BOTLOG_CHATID,
-                        "["
-                        + name0
-                        + "](tg://user?id="
-                        + str(event.chat_id)
-                        + ")"
-                        + " **𝙐𝙙𝙖𝙝 𝙂𝙪𝙖 𝘽𝙡𝙤𝙠𝙞𝙧 𝙉𝙞 𝘿𝙖𝙠𝙟𝙖𝙡 𝙆𝙖𝙧𝙣𝙖 𝙈𝙚𝙡𝙖𝙠𝙪𝙠𝙖𝙣 𝙎𝙥𝙖𝙢 𝙆𝙚 𝘽𝙤𝙨𝙨 𝙂𝙪𝙖**",
+                        BOTLOG_CHATID, get_string("prmt_5").format(name0, str(event.chat_id))
                     )
 
 
@@ -169,10 +152,9 @@ async def notifoff(noff_event):
     try:
         from AyiinXd.modules.sql_helper.globals import addgvar
     except AttributeError:
-        return await noff_event.edit("`Running on Non-SQL mode!`")
+        return await noff_event.edit(get_string("not_sql"))
     addgvar("NOTIF_OFF", True)
-    await noff_event.edit(
-        "**Notifikasi Pesan Pribadi Tidak Disetujui, Telah Dibisukan!**"
+    await noff_event.edit(get_string("prmt_6")
     )
 
 
@@ -182,10 +164,9 @@ async def notifon(non_event):
     try:
         from AyiinXd.modules.sql_helper.globals import delgvar
     except AttributeError:
-        return await non_event.edit("`Running on Non-SQL mode!`")
+        return await non_event.edit(get_string("not_sql"))
     delgvar("NOTIF_OFF")
-    await non_event.edit(
-        "**Notifikasi Pesan Pribadi Disetujui, Tidak Lagi Dibisukan!**"
+    await non_event.edit(get_string("prmt_7")
     )
 
 
@@ -196,7 +177,7 @@ async def approvepm(apprvpm):
         from AyiinXd.modules.sql_helper.globals import gvarstatus
         from AyiinXd.modules.sql_helper.pm_permit_sql import approve
     except AttributeError:
-        return await edit_delete(apprvpm, "`Running on Non-SQL mode!`")
+        return await eod(apprvpm, get_string("not_sql"))
 
     if apprvpm.reply_to_msg_id:
         reply = await apprvpm.get_reply_message()
@@ -218,8 +199,7 @@ async def approvepm(apprvpm):
             return await edit_delete(apprvpm, "**Invalid username/ID.**")
 
         if not isinstance(user, User):
-            return await edit_delete(
-                apprvpm, "**Mohon Reply Pesan User Yang ingin diterima.**"
+            return await eod(apprvpm, get_string("prmt_8")
             )
 
         uid = user.id
@@ -228,8 +208,7 @@ async def approvepm(apprvpm):
     else:
         aname = await apprvpm.client.get_entity(apprvpm.chat_id)
         if not isinstance(aname, User):
-            return await edit_delete(
-                apprvpm, "**Mohon Reply Pesan User Yang ingin diterima.**"
+            return await eod(apprvpm, get_string("prmt_8")
             )
         name0 = str(aname.first_name)
         uid = apprvpm.chat_id
@@ -245,10 +224,10 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        return await edit_delete(apprvpm, "**Pesan Lu Sudah Diterima Ya Tod, Silahkan Ngegibah anj**")
+        return await eod(apprvpm, get_string("prmt_9"))
 
-    await edit_delete(
-        apprvpm, f"**Menerima Pesan Cucu Dajjal** [{name0}](tg://user?id={uid})", 5
+    await eod(
+        apprvpm, get_string("prmt_10").format(name0, uid), time=5
     )
 
 
@@ -257,7 +236,7 @@ async def disapprovepm(disapprvpm):
     try:
         from AyiinXd.modules.sql_helper.pm_permit_sql import dissprove
     except BaseException:
-        return await edit_delete(disapprvpm, "`Running on Non-SQL mode!`")
+        return await eod(disapprvpm, get_string("not_sql"))
 
     if disapprvpm.reply_to_msg_id:
         reply = await disapprvpm.get_reply_message()
@@ -277,13 +256,13 @@ async def disapprovepm(disapprvpm):
         try:
             user = await disapprvpm.client.get_entity(inputArgs)
         except BaseException:
-            return await edit_delete(
-                disapprvpm, "**Mohon Reply Pesan User Yang ingin ditolak.**"
+            return await eod(
+                disapprvpm, get_string("prmt_11")
             )
 
         if not isinstance(user, User):
-            return await edit_delete(
-                disapprvpm, "**Mohon Reply Pesan User Yang ingin ditolak.**"
+            return await eod(
+                disapprvpm, get_string("prmt_11")
             )
 
         aname = user.id
@@ -294,15 +273,14 @@ async def disapprovepm(disapprvpm):
         dissprove(disapprvpm.chat_id)
         aname = await disapprvpm.client.get_entity(disapprvpm.chat_id)
         if not isinstance(aname, User):
-            return await edit_delete(
-                disapprvpm, "**This can be done only with users.**"
+            return await eod(
+                disapprvpm, get_string("prmt_12")
             )
         name0 = str(aname.first_name)
         aname = aname.id
 
-    await edit_or_reply(
-        disapprvpm,
-        f" **Maaf Ya Anj** [{name0}](tg://user?id={aname}) **Pesan Lu Telah Ditolak Karna Sagapung, Mohon Jangan Melakukan Spam Ke Room Boss Gua Kentod!**",
+    await eor(
+        disapprvpm, get_string("prmt_13").format(name0, aname)
     )
 
 
@@ -314,14 +292,14 @@ async def blockpm(block):
         replied_user = await block.client.get_entity(reply.sender_id)
         aname = replied_user.id
         await block.client(BlockRequest(aname))
-        await block.edit("**Mampus Lu Gua Blokir!**")
+        await block.edit(get_string("prmt_14"))
         uid = replied_user.id
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
         if not isinstance(aname, User):
-            return await block.edit("**This can be done only with users.**")
-        await block.edit("**Mampus Lu Gua Blokir!**")
+            return await block.edit(get_string("prmt_12"))
+        await block.edit(get_string("prmt_14"))
         uid = block.chat_id
 
     try:
@@ -339,23 +317,22 @@ async def unblockpm(unblock):
         reply = await unblock.get_reply_message()
         replied_user = await unblock.client.get_entity(reply.sender_id)
         await unblock.client(UnblockRequest(replied_user.id))
-        await unblock.edit("**Lu Bebas Dari Blokir Tod Karna Boss Gua Lagi Baik.**")
+        await unblock.edit(get_string("prmt_15"))
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"(set|get|reset) pmpermit(?: |$)(\w*)"))
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
-        return await cust_msg.edit(
-            f"**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}set var PM_AUTO_BAN True`"
+        return await cust_msg.edit(get_string("prmt_16").format(cmd)
         )
     try:
         import AyiinXd.modules.sql_helper.globals as sql
     except AttributeError:
-        await cust_msg.edit("**Running on Non-SQL mode!**")
+        await cust_msg.edit(get_string("not_sql"))
         return
 
-    await cust_msg.edit("`Sabar Anj Lagi Gua Ubah...`")
+    await cust_msg.edit(get_string("com_1"))
     conf = cust_msg.pattern_match.group(1)
 
     custom_message = sql.gvarstatus("unapproved_msg")
@@ -370,39 +347,34 @@ async def add_pmsg(cust_msg):
             status = "Pesan"
 
         if not message:
-            return await cust_msg.edit("**Mohon Reply Ke Pesan**")
+            return await cust_msg.edit(get_string("prmt_23"))
 
         # TODO: allow user to have a custom text formatting
         # eg: bold, underline, striketrough, link
         # for now all text are in monoscape
         msg = message.message  # get the plain text
         sql.addgvar("unapproved_msg", msg)
-        await cust_msg.edit("**Pesan Berhasil Disimpan Ke Room Chat**")
+        await cust_msg.edit(get_string("prmt_17"))
 
         if BOTLOG_CHATID:
             await cust_msg.client.send_message(
-                BOTLOG_CHATID,
-                f"**{status} PMPERMIT Yang Tersimpan:** \n\n{msg}",
+                BOTLOG_CHATID, get_string("prmt_18").format(status, msg)
             )
 
     if conf.lower() == "reset":
         if custom_message is None:
-            await cust_msg.edit(
-                "`Anda Telah Menghapus Pesan Custom PMPERMIT menjadi Default`"
+            await cust_msg.edit(get_string("prmt_19")
             )
 
         else:
             sql.delgvar("unapproved_msg")
-            await cust_msg.edit("`Pesan PMPERMIT Anda Sudah Default Sejak Awal`")
+            await cust_msg.edit(get_string("prmt_20"))
     if conf.lower() == "get":
         if custom_message is not None:
-            await cust_msg.edit(
-                "**Pesan PMPERMIT Yang Sekarang:**" f"\n\n{custom_message}"
+            await cust_msg.edit(get_string("prmt_21").format(custom_message)
             )
         else:
-            await cust_msg.edit(
-                "**Anda Belum Menyetel Pesan Costum PMPERMIT,**\n"
-                f"**Masih Menggunakan Pesan PM Default:**\n\n{DEF_UNAPPROVED_MSG}"
+            await cust_msg.edit(get_string("prmt_22").format(DEF_UNAPPROVED_MSG)
             )
 
 

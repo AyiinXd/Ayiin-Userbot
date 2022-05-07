@@ -11,24 +11,25 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="kamuii(:? |$)([1-8])?")
 async def _(fry):
-    xx = await edit_or_reply(fry, "`Mengaktifkan Kekuatan Supersaya...`")
+    xx = await eor(fry, get_string("kamui_1"))
     level = fry.pattern_match.group(2)
     if fry.fwd_from:
         return
     if not fry.reply_to_msg_id:
-        await edit_delete(xx, "**Silahkan Balas Ke Media Foto**")
+        await eod(xx, get_string("failed3"))
         return
     reply_message = await fry.get_reply_message()
     if not reply_message.media:
-        await edit_delete(xx, "**Gambar tidak di dukung**")
+        await eod(xx, get_string("com_4"))
         return
     if reply_message.sender.bot:
-        await edit_delete(xx, "**Mohon Balas Ke Media**")
+        await eod(xx, get_string("failed3"))
         return
     chat = "@image_deepfrybot"
     message_id_to_reply = fry.message.reply_to_msg_id
@@ -51,7 +52,7 @@ async def _(fry):
             response = await conv.get_response()
             await fry.client.send_read_acknowledge(conv.chat_id)
         if response.text.startswith("Forward"):
-            await xx.edit("**Silahkan Matikan Setelan Privasi Forward**")
+            await xx.edit(get_string("kamui_2"))
         else:
             downloaded_file_name = await fry.client.download_media(
                 response.media, TEMP_DOWNLOAD_DIRECTORY

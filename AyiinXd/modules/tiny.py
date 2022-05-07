@@ -16,16 +16,17 @@ from PIL import Image
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import bash, ayiin_cmd
+from AyiinXd.ayiin import bash, ayiin_cmd
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="tiny(?: |$)(.*)")
 async def ultiny(event):
     reply = await event.get_reply_message()
     if not (reply and (reply.media)):
-        await event.edit("`Balas Ke Pesan Sticker !`")
+        await event.edit(get_string("stkr_13"))
         return
-    xx = await event.edit("`Processing tiny...`")
+    xx = await event.edit(get_string("com_1"))
     ik = await event.client.download_media(reply)
     im1 = Image.open("AyiinXd/resources/man_blank.png")
     if ik.endswith(".tgs"):

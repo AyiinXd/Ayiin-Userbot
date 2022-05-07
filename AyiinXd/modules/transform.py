@@ -11,19 +11,20 @@ from telethon.tl.types import DocumentAttributeFilename
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
 from AyiinXd.events import ayiin_cmd, register
-from AyiinXd.utils import bash
+from AyiinXd.ayiin import bash
+from Stringyins import get_string
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"(mirror|flip|ghost|bw|poster)$"))
 async def transform(event):
     if not event.reply_to_msg_id:
-        await event.edit("**Mohon Reply ke Media atau Sticker**")
+        await event.edit(get_string("failed4"))
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.edit("**Mohon Reply ke Media atau Sticker**")
+        await event.edit(get_string("failed4"))
         return
-    await event.edit("`Downloading Media...`")
+    await event.edit(get_string("com_5"))
     if reply_message.photo:
         transform = await bot.download_media(
             reply_message,
@@ -90,13 +91,13 @@ async def _(event):
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"rotate(?: |$)(.*)"))
 async def rotate(event):
     if not event.reply_to_msg_id:
-        await event.edit("**Mohon Reply ke Media atau Sticker**")
+        await event.edit(get_string("failed4"))
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await event.edit("**Mohon Reply ke Media atau Sticker**")
+        await event.edit(get_string("failed4"))
         return
-    await event.edit("`Downloading Media...`")
+    await event.edit(get_string("com_5"))
     if reply_message.photo:
         rotate = await bot.download_media(
             reply_message,
@@ -133,7 +134,7 @@ async def rotate(event):
             raise ValueError
     except ValueError:
         value = 90
-    await event.edit("`Rotating your media...`")
+    await event.edit(get_string("tform_1"))
     im = Image.open(rotate).convert("RGB")
     IMG = im.rotate(value, expand=1)
     IMG.save(Converted, quality=95)

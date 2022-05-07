@@ -7,23 +7,24 @@ import requests
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="lyrics(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     query = event.pattern_match.group(1)
     if not query:
-        return await edit_or_reply(event, "**Silahkan Masukan Judul Lagu**")
+        return await eor(event, get_string("lyric_1"))
     try:
-        xxnx = await edit_or_reply(event, "`Searching Lyrics...`")
+        xxnx = await eor(event, get_string("com_2"))
         respond = requests.get(
             f"https://api-tede.herokuapp.com/api/lirik?l={query}"
         ).json()
         result = f"{respond['data']}"
         await xxnx.edit(result)
     except Exception:
-        await xxnx.edit("**Lirik lagu tidak ditemukan.**")
+        await xxnx.edit(get_string("lyric_2"))
 
 
 CMD_HELP.update(

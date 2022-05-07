@@ -10,7 +10,7 @@ from re import match
 from bitlyshortener import Shortener
 
 from AyiinXd import BITLY_TOKEN, BOTLOG_CHATID
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
 
 
 @ayiin_cmd(pattern="bitly(?: |$)(.*)")

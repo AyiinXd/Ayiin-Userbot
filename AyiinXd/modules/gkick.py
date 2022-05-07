@@ -6,7 +6,8 @@ from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, DEVS
 from AyiinXd.events import register
-from AyiinXd.utils import get_user_from_event, ayiin_cmd
+from AyiinXd.ayiin import get_user_from_event, ayiin_cmd
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="gkick(?: |$)(.*)")
@@ -16,11 +17,11 @@ async def gspide(rk):
     sender = await lazy.get_sender()
     me = await lazy.client.get_me()
     if sender.id != me.id:
-        rkp = await lazy.reply("`Processing...`")
+        rkp = await lazy.reply(get_string("com_1"))
     else:
-        rkp = await lazy.edit("`Processing...`")
+        rkp = await lazy.edit(get_string("com_1"))
     me = await rk.client.get_me()
-    await rkp.edit("`Memproses Global Kick Jamet Goblok!`")
+    await rkp.edit(get_string("gkick_1"))
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     await rk.get_chat()
     a = b = 0
@@ -35,10 +36,10 @@ async def gspide(rk):
         if not reason:
             reason = "Private"
     except BaseException:
-        return await rkp.edit("**Gagal Global Kick! Pengguna tidak dikenal.**")
+        return await rkp.edit(get_string("gkick_2"))
     if user:
         if user.id == DEVS:
-            return await rkp.edit("**Jangan Ngadi Ngadi itu CODER aing`")
+            return await rkp.edit(get_string("gkick_5"))
         try:
             await rk.client(BlockRequest(user))
             await rk.client(UnblockRequest(user))
@@ -54,17 +55,15 @@ async def gspide(rk):
                 await rk.client.edit_permissions(i, user, view_messages=False)
                 await rk.client.edit_permissions(i, user, send_messages=True)
                 a += 1
-                await rkp.edit(
-                    f"`Memproses Global Kick Jamet Goblok! Gkicked di {a} Group Chats..`"
+                await rkp.edit(get_string("gkick_3").format(a)
                 )
 
             except BaseException:
                 b += 1
     else:
-        await rkp.edit("`Reply ke Chat Penggunanya Goblok!!`")
+        await rkp.edit(get_string("gban_8"))
 
-    return await rkp.edit(
-        f"**Berhasil GKicked** [{user.first_name}](tg://user?id={user.id}) **di {a} Group Chats**"
+    return await rkp.edit(get_string("gkick_4").format(user.first_name, user.id, a)
     )
 
 

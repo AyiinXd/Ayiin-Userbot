@@ -1,7 +1,7 @@
 import asyncio
 from os import path
 
-from AyiinXd.utils.exceptions import FFmpegReturnCodeError
+from AyiinXd.ayiin.exceptions import FFmpegReturnCodeError
 
 
 async def convert(file_path: str) -> str:

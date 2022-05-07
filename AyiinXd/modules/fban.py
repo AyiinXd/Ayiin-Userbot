@@ -4,7 +4,8 @@ from sqlalchemy.exc import IntegrityError
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
 
 fban_replies = [
     "New FedBan",
@@ -24,7 +25,7 @@ async def fban(event):
     try:
         from AyiinXd.modules.sql_helper.fban_sql import get_flist
     except IntegrityError:
-        return await event.edit("**Running on Non-SQL mode!**")
+        return await event.edit(get_string("not_sql"))
 
     match = event.pattern_match.group(2)
 
@@ -47,13 +48,12 @@ async def fban(event):
         pass
 
     if event.sender_id == fban_id:
-        return await event.edit(
-            "**Error: Tindakan ini telah dicegah oleh protokol keamanan diri Ayiin-Userbot.**"
-        )
+        return await event.edit(get_string("fban_1")
+                                )
 
     fed_list = get_flist()
     if len(fed_list) == 0:
-        return await event.edit("**Anda belum terhubung ke federasi mana pun!**")
+        return await event.edit(get_string("fban_2"))
 
     user_link = f"[{fban_id}](tg://user?id={fban_id})"
 
@@ -80,15 +80,14 @@ async def fban(event):
     reason = reason or "Not specified."
 
     if failed:
-        status = f"Failed to fban in {len(failed)}/{total} feds.\n"
+        status = get_string("fban_3").format(len(failed), total)
         for i in failed:
             status += f"• {i}\n"
     else:
-        status = f"Success! Fbanned in {total} feds."
+        status = get_string("fban_4").format(total)
 
-    await event.edit(
-        f"**Fbanned **{user_link}!\n**Reason:** {reason}\n**Status:** {status}"
-    )
+    await event.edit(get_string("fban_5").format(user_link, reason, status)
+                     )
 
 
 @ayiin_cmd(pattern="unfban(?: |$)(.*)")
@@ -97,7 +96,7 @@ async def unfban(event):
     try:
         from AyiinXd.modules.sql_helper.fban_sql import get_flist
     except IntegrityError:
-        return await event.edit("**Running on Non-SQL mode!**")
+        return await event.edit(get_string("not_sql"))
 
     match = event.pattern_match.group(1)
     if event.is_reply:
@@ -114,11 +113,11 @@ async def unfban(event):
         pass
 
     if event.sender_id == unfban_id:
-        return await event.edit("**Tunggu, itu illegal**")
+        return await event.edit(get_string("ufbn_1"))
 
     fed_list = get_flist()
     if len(fed_list) == 0:
-        return await event.edit("**Anda belum terhubung ke federasi mana pun!**")
+        return await event.edit(get_string("fban_2"))
 
     user_link = f"[{unfban_id}](tg://user?id={unfban_id})"
 
@@ -145,16 +144,15 @@ async def unfban(event):
     reason = reason or "Not specified."
 
     if failed:
-        status = f"Failed to un-fban in {len(failed)}/{total} feds.\n"
+        status = get_string("ufbn_4").format(len(failed), total)
         for i in failed:
             status += f"• {i}\n"
     else:
-        status = f"Success! Un-fbanned in {total} feds."
+        status = get_string("ufbn_2").format(total)
 
     reason = reason or "Not specified."
-    await event.edit(
-        f"**Un-fbanned** {user_link}!\n**Reason:** {reason}\n**Status:** {status}"
-    )
+    await event.edit(get_string("ufbn_3").format(user_link, reason, status)
+                     )
 
 
 @ayiin_cmd(pattern="addf(?: |$)(.*)")
@@ -163,18 +161,18 @@ async def addf(event):
     try:
         from AyiinXd.modules.sql_helper.fban_sql import add_flist
     except IntegrityError:
-        return await event.edit("**Running on Non-SQL mode!**")
+        return await event.edit(get_string("not_sql"))
 
     fed_name = event.pattern_match.group(1)
     if not fed_name:
-        return await event.edit("**Berikan nama untuk terhubung ke grup ini!**")
+        return await event.edit(get_string("afbn_1"))
 
     try:
         add_flist(event.chat_id, fed_name)
     except IntegrityError:
-        return await event.edit("**Grup ini sudah terhubung ke daftar federasi.**")
+        return await event.edit(get_string("afbn_2"))
 
-    await event.edit("**Menambahkan grup ini ke daftar federasi!**")
+    await event.edit(get_string("afbn_3"))
 
 
 @ayiin_cmd(pattern="delf$")
@@ -183,10 +181,10 @@ async def delf(event):
     try:
         from AyiinXd.modules.sql_helper.fban_sql import del_flist
     except IntegrityError:
-        return await event.edit("**Running on Non-SQL mode!**")
+        return await event.edit(get_string("not_sql"))
 
     del_flist(event.chat_id)
-    await event.edit("**Menghapus grup ini dari daftar federasi!**")
+    await event.edit(get_string("dfbn_1"))
 
 
 @ayiin_cmd(pattern="listf$")
@@ -195,13 +193,13 @@ async def listf(event):
     try:
         from AyiinXd.modules.sql_helper.fban_sql import get_flist
     except IntegrityError:
-        return await event.edit("**Running on Non-SQL mode!**")
+        return await event.edit(get_string("not_sql"))
 
     fed_list = get_flist()
     if len(fed_list) == 0:
-        return await event.edit("**Anda belum terhubung ke federasi mana pun!**")
+        return await event.edit(get_string("fban_2"))
 
-    msg = "**Connected federations:**\n\n"
+    msg = get_string("lfbn_1")
 
     for i in fed_list:
         msg += f"• {i.fed_name}\n"
@@ -215,10 +213,10 @@ async def clearf(event):
     try:
         from AyiinXd.modules.sql_helper.fban_sql import del_flist_all
     except IntegrityError:
-        return await event.edit("**Running on Non-SQL mode!**")
+        return await event.edit(get_string("not_sql"))
 
     del_flist_all()
-    await event.edit("**Disconnected dari semua federasi yang terhubung!**")
+    await event.edit(get_string("dfbn_2"))
 
 
 CMD_HELP.update(

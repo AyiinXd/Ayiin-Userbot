@@ -12,7 +12,8 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
-from AyiinXd.utils import ayiin_cmd, edit_or_reply, edit_delete
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 # ========================×========================
@@ -27,7 +28,7 @@ async def _(event):
     input_str = "".join(event.text.split(maxsplit=1)[1:])
     reply_message = await event.get_reply_message()
     if not event.reply_to_msg_id:
-        await edit_delete(event, f"```[ᴛᴏʟᴏʟ]• Balas Ke Pesan Pengguna atau ketik {cmd}dgrup ID/Username Grup Yang Mau Lu Deteksi Bego```")
+        await eod(event, get_string("dgrp_1").format(cmd))
         return
     if input_str:
         try:
@@ -36,20 +37,18 @@ async def _(event):
             try:
                 a = await event.client.get_entity(input_str)
             except ValueError:
-                await edit_delete(event, f"`[ᴛᴏʟᴏʟ]• Mohon Berikan ID/Username untuk menemukan Riwayat`"
-                                  )
+                await eod(event, get_string("dgrp_3"))
             ayiinid = a.id
     else:
         ayiinid = reply_message.sender_id
     chat = "@tgscanrobot"
-    yins = await edit_or_reply(event, "`Sabar Mbah Dukun Sedang Mendeteksi...`")
+    yins = await eor(event, get_string("com_7"))
     async with bot.conversation(chat) as conv:
         try:
             await conv.send_message(f"{ayiinid}")
         except YouBlockedUserError:
-            await steal.reply(
-                "```Buka Blok @tgscanrobot Bego Dan Coba Lagi```"
-            )
+            await steal.reply(get_string("dgrp_2")
+                              )
         response = await conv.get_response()
         await event.client.send_read_acknowledge(conv.chat_id)
         await yins.edit(response.text)

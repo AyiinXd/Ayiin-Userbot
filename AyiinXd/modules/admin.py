@@ -37,25 +37,19 @@ from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, DEVS, WHITELIST
 from AyiinXd.events import register
-from AyiinXd.utils import (
+from AyiinXd.ayiin import (
     _format,
-    edit_delete,
-    edit_or_reply,
+    eod,
+    eor,
     get_user_from_event,
     ayiin_cmd,
     ayiin_handler,
     media_type,
 )
-from AyiinXd.utils.logger import logging
+from AyiinXd.ayiin.logger import logging
 
-# =================== CONSTANT ===================
-PP_TOO_SMOL = "**Gambar Terlalu Kecil**"
-PP_ERROR = "**Gagal Memproses Gambar**"
-NO_ADMIN = "**Gagal dikarenakan Bukan Admin :)**"
-NO_PERM = "**Tidak Mempunyai Izin!**"
-NO_SQL = "**Berjalan Pada Mode Non-SQL**"
-CHAT_PP_CHANGED = "**Berhasil Mengubah Profil Grup**"
-INVALID_MEDIA = "**Media Tidak Valid**"
+from Stringyins import get_string
+
 
 BANNED_RIGHTS = ChatBannedRights(
     until_date=None,
@@ -101,7 +95,7 @@ async def set_group_photo(event):
             elif "image" in replymsg.media.document.mime_type.split("/"):
                 photo = await event.client.download_file(replymsg.media.document)
             else:
-                return await edit_delete(event, INVALID_MEDIA)
+                return await event.eor(get_string("inv_med"), time=10)
         if photo:
             try:
                 await event.client(
@@ -109,19 +103,19 @@ async def set_group_photo(event):
                         event.chat_id, await event.client.upload_file(photo)
                     )
                 )
-                await edit_delete(event, CHAT_PP_CHANGED)
+                await event.eor(get_string("ch_ppch"), time=10)
             except PhotoCropSizeSmallError:
-                return await edit_delete(event, PP_TOO_SMOL)
+                return await event.eor(get_string("pto_sml"), time=10)
             except ImageProcessFailedError:
-                return await edit_delete(event, PP_ERROR)
+                return await event.eor(get_string("pp_eror"), time=10)
             except Exception as e:
-                return await edit_delete(event, f"**ERROR : **`{str(e)}`")
+                return await event.eor(get_string("error_1").format(e))
     else:
         try:
             await event.client(EditPhotoRequest(event.chat_id, InputChatPhotoEmpty()))
         except Exception as e:
-            return await edit_delete(event, f"**ERROR : **`{e}`")
-        await edit_delete(event, "**Foto Profil Grup Berhasil dihapus.**", 30)
+            return await event.eor(get_string("error_1").format(e))
+        await event.eor(get_string("sgp_1", time=30))
 
 
 @ayiin_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)")
@@ -141,12 +135,12 @@ async def promote(event):
         rank = "admin"
     if not user:
         return
-    eventyins = await edit_or_reply(event, "`Promoting...`")
+    await event.eor(get_string("prom_1"))
     try:
         await event.client(EditAdminRequest(event.chat_id, user.id, new_rights, rank))
     except BadRequestError:
-        return await eventyins.edit(NO_PERM)
-    await edit_delete(eventyins, "`Promoted Successfully!`", 30)
+        return await eod(event, get_string("no_perm"))
+    await eor(event, get_string("prom_2"), time=30)
 
 
 @ayiin_cmd(pattern="demote(?:\\s|$)([\\s\\S]*)")
@@ -156,7 +150,7 @@ async def demote(event):
     user, _ = await get_user_from_event(event)
     if not user:
         return
-    eventyins = await edit_or_reply(event, "`Demoting...`")
+    await event.eor(get_string("`deot_1"))
     newrights = ChatAdminRights(
         add_admins=None,
         invite_users=None,
@@ -170,8 +164,8 @@ async def demote(event):
     try:
         await event.client(EditAdminRequest(event.chat_id, user.id, newrights, rank))
     except BadRequestError:
-        return await eventyins.edit(NO_PERM)
-    await edit_delete(eventyins, "`Demoted Successfully!`", 30)
+        return await event.eor(get_string("no_perm"))
+    await event.eor(get_string("deot_2"), time=30)
 
 
 @ayiin_cmd(pattern="ban(?:\\s|$)([\\s\\S]*)")
@@ -182,37 +176,21 @@ async def ban(bon):
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await edit_or_reply(bon, NO_ADMIN)
+        return await event.eor(get_string("no_admn"))
 
     user, reason = await get_user_from_event(bon)
     if not user:
         return
-    ayiin = await edit_or_reply(bon, "`Processing Banned...`")
+    ayiin = await bon.eor(get_string("band_1"))
     try:
         await bon.client(EditBannedRequest(bon.chat_id, user.id, BANNED_RIGHTS))
     except BadRequestError:
-        return await edit_or_reply(bon, NO_PERM)
+        return await event.eor(get_string("no_perm"))
     if reason:
-        await ayiin.edit(
-            bon,
-            r"\\**#𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-            f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-            f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{str(user.id)}`\n"
-            f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝘽𝙖𝙣𝙣𝙚𝙙 𝙐𝙨𝙚𝙧`\n"
-            f"**𝙍𝙚𝙖𝙨𝙤𝙣 :** `{reason}`\n"
-            f"**𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 :** `{me.first_name}`\n"
-            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
-        )
+        await ayiin.edit(get_string("band_2").format(user.first_name, user.id, str(user.id), reason, me.first_name))
     else:
-        await ayiin.edit(
-            bon,
-            f"\\\\**#𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-            f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-            f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
-            f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝘽𝙖𝙣𝙣𝙚𝙙 𝙐𝙨𝙚𝙧`\n"
-            f"**𝘽𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 :** `{me.first_name}`\n"
-            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
-        )
+        await ayiin.edit(get_string("band_2").format(user.first_name, user.id, str(user.id), reason, me.first_name)
+                         )
 
 
 @ayiin_cmd(pattern="unban(?:\\s|$)([\\s\\S]*)")
@@ -222,17 +200,17 @@ async def nothanos(unbon):
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await edit_delete(unbon, NO_ADMIN)
-    ayiin = await edit_or_reply(unbon, "`Processing...`")
+        return await event.eor(get_string("no_admn"))
+    await unbon.eor(get_string("com_1"))
     user = await get_user_from_event(unbon)
     user = user[0]
     if not user:
         return
     try:
         await unbon.client(EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
-        await edit_delete(ayiin, "`Unban Berhasil Dilakukan!`")
+        await unbon.eor(get_string("band_4"), time=10)
     except UserIdInvalidError:
-        await edit_delete(ayiin, "`Sepertinya Terjadi ERROR!`")
+        await unbon.eor(get_string("band_5"), time=10)
 
 
 @ayiin_cmd(pattern="mute(?: |$)(.*)")
@@ -241,54 +219,36 @@ async def spider(spdr):
     try:
         from AyiinXd.modules.sql_helper.spam_mute_sql import mute
     except AttributeError:
-        return await edit_or_reply(spdr, NO_SQL)
+        return await spdr.eor(get_string("not_sql"))
     chat = await spdr.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await edit_or_reply(spdr, NO_ADMIN)
+        return await spdr.eor(get_string("no_admn"))
     user, reason = await get_user_from_event(spdr)
     if not user:
         return
     self_user = await spdr.client.get_me()
     if user.id == self_user.id:
-        return await edit_or_reply(ayiin, "**Tidak Bisa Membisukan Diri Sendiri..（>﹏<）**")
+        return await spdr.eor(get_string("mute_1"))
     if user.id in DEVS:
-        return await ayiin.edit("**Gagal Mute, dia adalah Pembuat Saya 🤪**")
+        return await spdr.edit(get_string("mute_2"))
     if user.id in WHITELIST:
-        return await ayiin.edit("**Gagal Mute, dia adalah admin suhu udara 🤪**")
-    await ayiin.edit(
-        r"\\**#𝙈𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-        f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-        f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙈𝙪𝙩𝙚𝙙 𝙐𝙨𝙚𝙧`\n"
-        f"**𝙈𝙪𝙩𝙚𝙙 𝘽𝙮 :** `{self_user.first_name}`\n"
-        f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
-    )
+        return await spdr.edit(get_string("mute_3"))
+    await spdr.edit(get_string("mute_4").format(user.first_name, user.id, user.id, self_user.first_name)
+                     )
     if mute(spdr.chat_id, user.id) is False:
-        return await edit_delete(ayiin, "**ERROR:** `Pengguna Sudah Dibisukan.`")
+        return await spdr.eor(get_string("mute_7"))
     try:
         await spdr.client(EditBannedRequest(spdr.chat_id, user.id, MUTE_RIGHTS))
         if reason:
-            await ayiin.edit(
-                r"\\**#𝙈𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-                f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-                f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
-                f"**𝙍𝙚𝙖𝙨𝙤𝙣 :** `{reason}`\n"
-                f"**𝙈𝙪𝙩𝙚𝙙 𝘽𝙮 :** `{self_user.first_name}`\n"
-                f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
-            )
+            await spdr.edit(get_string("mute_5").format(user.first_name, user.id, user.id, reason, self_user.first_name)
+                             )
         else:
-            await ayiin.edit(
-                r"\\**#𝙈𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-                f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-                f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
-                f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙈𝙪𝙩𝙚𝙙 𝙐𝙨𝙚𝙧`\n"
-                f"**𝙈𝙪𝙩𝙚𝙙 𝘽𝙮 :** `{self_user.first_name}`\n"
-                f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
-            )
+            await spdr.edit(get_string("mute_6").format(user.first_name, user.id, user.id, self_user.first_name)
+                             )
     except UserIdInvalidError:
-        return await edit_delete(ayiin, "**Terjadi ERROR!**")
+        return await spdr.eor(get_string("error_2"), time=10)
 
 
 @ayiin_cmd(pattern="unmute(?: |$)(.*)")
@@ -298,24 +258,24 @@ async def unmoot(unmot):
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await edit_delete(unmot, NO_ADMIN)
+        return await unmot.eor(get_string("no_admn"), time=10)
     try:
         from AyiinXd.modules.sql_helper.spam_mute_sql import unmute
     except AttributeError:
-        return await unmot.edit(NO_SQL)
-    ayiin = await edit_or_reply(unmot, "`Processing...`")
+        return await unmot.eor(get_string("not_sql"))
+    await unmot.eor(get_string("com_1"))
     user = await get_user_from_event(unmot)
     user = user[0]
     if not user:
         return
 
     if unmute(unmot.chat_id, user.id) is False:
-        return await edit_delete(unmot, "**ERROR! Pengguna Sudah Tidak Dibisukan.**")
+        return await unmot.eor(get_string("unmt_1"))
     try:
         await unmot.client(EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
-        await edit_delete(ayiin, "**Berhasil Melakukan Unmute!**")
+        await unmot.eor(get_string("unmt_2"))
     except UserIdInvalidError:
-        return await edit_delete(ayiin, "**Terjadi ERROR!**")
+        return await unmot.eor(get_string("error_2"))
 
 
 @ayiin_handler()
@@ -356,21 +316,21 @@ async def ungmoot(un_gmute):
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await edit_delete(un_gmute, NO_ADMIN)
+        return await un_gmute.eor(get_string("no_admn"), time=10)
     try:
         from AyiinXd.modules.sql_helper.gmute_sql import ungmute
     except AttributeError:
-        return await edit_delete(un_gmute, NO_SQL)
-    ayiin = await edit_or_reply(un_gmute, "`Processing...`")
+        return await un_gmute.eor(get_string("not_sql"), time=10)
+    ayiin = await un_gmute.eor(get_string("com_1"))
     user = await get_user_from_event(un_gmute)
     user = user[0]
     if not user:
         return
-    await ayiin.edit("`Membuka Global Mute Pengguna...`")
+    await ayiin.edit(get_string("ungm_1"))
     if ungmute(user.id) is False:
-        await ayiin.edit("**ERROR!** Pengguna Sedang Tidak Di Gmute.")
+        await ayiin.edit(get_string("ungm_2"))
     else:
-        await edit_delete(un_gmute, "**Berhasil! Pengguna Sudah Tidak Dibisukan**")
+        await un_gmute.eor(get_string("ungm_3"), time=10)
 
 
 @ayiin_cmd(pattern="gmute(?: |$)(.*)")
@@ -380,66 +340,53 @@ async def gspider(gspdr):
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await edit_delete(gspdr, NO_ADMIN)
+        return await gspdr.eor(get_string("no_admn"), time=10)
     try:
         from AyiinXd.modules.sql_helper.gmute_sql import gmute
     except AttributeError:
-        return await gspdr.edit(NO_SQL)
-    ayiin = await edit_or_reply(gspdr, "`Processing...`")
+        return await gspdr.edit(get_string("not_sql"), time=10)
+    ayiin = await gspdr.eor(get_string("com_1"))
     user, reason = await get_user_from_event(gspdr)
     if not user:
         return
     self_user = await gspdr.client.get_me()
     if user.id == self_user.id:
-        return await ayiin.edit("**Tidak Bisa Membisukan Diri Sendiri..（>﹏<）**")
+        return await ayiin.edit(get_string("mute_1"))
     if user.id in DEVS:
-        return await ayiin.edit("**Gagal Global Mute, Dia Adalah Pembuat Saya 🤪**")
+        return await ayiin.edit(get_string("gmut_1"))
     if user.id in WHITELIST:
-        return await ayiin.edit("**Gagal Mute, dia adalah suhu cuaca 🤪**")
-    await ayiin.edit("**Berhasil Membisukan Pengguna!**")
+        return await ayiin.edit(get_string("gmut_2"))
+    await ayiin.edit(get_string("gmut_3"))
     if gmute(user.id) is False:
-        await edit_delete(gspdr, "**ERROR! Pengguna Sudah Dibisukan.**")
+        await gspdr.eor(get_string("gmut_4"))
     elif reason:
-        await ayiin.edit(
-            r"\\**#𝙂𝙈𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-            f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-            f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
-            f"**𝙍𝙚𝙖𝙨𝙤𝙣 :** `{reason}`\n"
-            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
-        )
+        await ayiin.edit(get_string("gmut_5").format(user.first_name, user.id, user.id, reason, self_user.first_name)
+                         )
     else:
-        await ayiin.edit(
-            r"\\**#𝙂𝙢𝙪𝙩𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-            f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-            f"**𝙐𝙨𝙚𝙧 𝙄𝘿:** `{user.id}`\n"
-            f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙂𝙡𝙤𝙗𝙖𝙡 𝙈𝙪𝙩𝙚𝙙`\n"
-            f"**𝙂𝙢𝙪𝙩𝙚𝙙 𝘽𝙮 :** `{self_user.first_name}`\n"
-            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
-        )
+        await ayiin.edit(get_string("gmut_6").format(user.first_name, user.id, user.id, self_user.first_name)
+                         )
 
 
 @ayiin_cmd(pattern="zombies(?: |$)(.*)")
 async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "**Grup Bersih, Tidak Menemukan Akun Terhapus.**"
+    del_status = get_string("zomb_1")
     if con != "clean":
-        await show.edit("`Mencari Akun Depresi...`")
+        await eor(show, get_string("zomb_2"))
         async for user in show.client.iter_participants(show.chat_id):
             if user.deleted:
                 del_u += 1
                 await sleep(1)
         if del_u > 0:
-            del_status = (
-                f"**Menemukan** `{del_u}` **Akun Depresi/Terhapus/Zombie Dalam Grup Ini,**"
-                f"\n**Bersihkan Itu Menggunakan Perintah** `{cmd}zombies clean`")
+            del_status = get_string("zomb_3").format(del_u, cmd)
         return await show.edit(del_status)
     chat = await show.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await show.edit("**Maaf Kamu Bukan Admin!**")
-    await show.edit("`Menghapus Akun Depresi...`")
+        return await show.eor(get_string("zomb_4"))
+    await show.eor(get_string("zomb_5"))
     del_u = 0
     del_a = 0
     async for user in show.client.iter_participants(show.chat_id):
@@ -449,28 +396,22 @@ async def rm_deletedacc(show):
                     EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS)
                 )
             except ChatAdminRequiredError:
-                return await show.edit("`Tidak Memiliki Izin Banned Dalam Grup Ini`")
+                return await show.eor(get_string("zomb_6"))
             except UserAdminInvalidError:
                 del_u -= 1
                 del_a += 1
             await show.client(EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
             del_u += 1
     if del_u > 0:
-        del_status = f"**Membersihkan** `{del_u}` **Akun Terhapus**"
+        del_status = get_string("zomb_7").format(del_u)
     if del_a > 0:
-        del_status = (
-            f"**Membersihkan** `{del_u}` **Akun Terhapus** "
-            f"\n`{del_a}` **Akun Admin Yang Terhapus Tidak Dihapus.**"
-        )
+        del_status = get_string("zomb_8").format(del_u, del_a)
     await show.edit(del_status)
     await sleep(2)
     await show.delete()
     if BOTLOG_CHATID:
         await show.client.send_message(
-            BOTLOG_CHATID,
-            "**#ZOMBIES**\n"
-            f"**Membersihkan** `{del_u}` **Akun Terhapus!**"
-            f"\n**GRUP:** {show.chat.title}(`{show.chat_id}`)",
+            BOTLOG_CHATID, get_string("zomb_9").format(del_u, show.chat.title, show.chat_id)
         )
 
 
@@ -498,16 +439,16 @@ async def get_admin(show):
 async def pin(event):
     to_pin = event.reply_to_msg_id
     if not to_pin:
-        return await edit_delete(event, "`Reply Pesan untuk Melakukan Pin.`", 30)
+        return await eor(event, get_string("pinn_1"), time=30)
     options = event.pattern_match.group(1)
     is_silent = bool(options)
     try:
         await event.client.pin_message(event.chat_id, to_pin, notify=is_silent)
     except BadRequestError:
-        return await edit_delete(event, NO_PERM, 5)
+        return await eod(event, get_string("no_perm"), time=5)
     except Exception as e:
-        return await edit_delete(event, f"`{e}`", 5)
-    await edit_delete(event, "`Pinned Successfully!`")
+        return await eod(event, get_string("error_1").format(e), time=5)
+    await eor(event, get_string("pinn_2"))
 
 
 @ayiin_cmd(pattern="unpin( all|$)")
@@ -516,27 +457,21 @@ async def pin(event):
     to_unpin = event.reply_to_msg_id
     options = (event.pattern_match.group(1)).strip()
     if not to_unpin and options != "all":
-        return await edit_delete(
-            event,
-            f"**Reply ke Pesan untuk melepas Pin atau Gunakan** `{cmd}unpin all` **untuk melepas pin semua**",
-            45,
-        )
+        return await event.eor(get_string("upin_1").format(cmd), time=20,
+                               )
     try:
         if to_unpin and not options:
             await event.client.unpin_message(event.chat_id, to_unpin)
         elif options == "all":
             await event.client.unpin_message(event.chat_id)
         else:
-            return await edit_delete(
-                event,
-                f"**Reply ke Pesan untuk melepas pin atau gunakan** `{cmd}unpin all`",
-                45,
-            )
+            return await eor(event, get_string("upin_2").format(cmd), time=20,
+                             )
     except BadRequestError:
-        return await edit_delete(event, NO_PERM, 5)
+        return await event.eor(get_string("no_perm"), time=10)
     except Exception as e:
-        return await edit_delete(event, f"`{e}`", 5)
-    await edit_delete(event, "`Unpinned Successfully!`")
+        return await event.eor(get_string("error_1").format(e), time=10)
+    await event.eor(get_string("upin_3"))
 
 
 @ayiin_cmd(pattern="kick(?: |$)(.*)")
@@ -546,29 +481,27 @@ async def kick(usr):
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await edit_delete(usr, NO_ADMIN)
+        return await event.eor(get_string("no_admn"))
     user, reason = await get_user_from_event(usr)
     if not user:
-        return await edit_delete(usr, "**Tidak Dapat Menemukan Pengguna.**")
-    xxnx = await edit_or_reply(usr, "`Processing...`")
+        return await event.eor(get_string("kick_1"))
+    xxnx = await event.eor(get_string("com_1"))
     try:
         await usr.client.kick_participant(usr.chat_id, user.id)
         await sleep(0.5)
     except Exception as e:
-        return await edit_delete(usr, f"{NO_PERM}\n{e}")
+        return await eod(usr, f"{NO_PERM}\n{e}")
     if reason:
-        await xxnx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**\n**Alasan:** `{reason}`"
-        )
+        await xxnx.edit(get_string("kick_2").format(user.first_name, user.id, reason)
+                        )
     else:
-        await xxnx.edit(
-            f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**",
-        )
+        await xxnx.edit(get_string("kick_3").format(user.first_name, user.id)
+                        )
 
 
 @ayiin_cmd(pattern=r"undlt( -u)?(?: |$)(\d*)?")
 async def _iundlt(event):
-    catevent = await edit_or_reply(event, "`Searching recent actions...`")
+    catevent = await event.eor(get_string("undl_1"))
     flag = event.pattern_match.group(1)
     if event.pattern_match.group(2) != "":
         lim = int(event.pattern_match.group(2))
@@ -581,7 +514,7 @@ async def _iundlt(event):
     adminlog = await event.client.get_admin_log(
         event.chat_id, limit=lim, edit=False, delete=True
     )
-    deleted_msg = f"**{lim} Pesan yang dihapus di grup ini:**"
+    deleted_msg = get_string("undl_2").format(lim)
     if not flag:
         for msg in adminlog:
             ruser = (
@@ -589,26 +522,26 @@ async def _iundlt(event):
             ).user
             _media_type = media_type(msg.old)
             if _media_type is None:
-                deleted_msg += f"\n☞ __{msg.old.message}__ **Dikirim oleh** {_format.mentionuser(ruser.first_name ,ruser.id)}"
+                deleted_msg += get_string("undl_3").format(
+                    msg.old.message, _format.mentionuser(
+                        ruser.first_name, ruser.id))
             else:
-                deleted_msg += f"\n☞ __{_media_type}__ **Dikirim oleh** {_format.mentionuser(ruser.first_name ,ruser.id)}"
-        await edit_or_reply(catevent, deleted_msg)
+                deleted_msg += get_string("undl_3").format(_media_type, _format.mentionuser(ruser.first_name, ruser.id))
+        await eor(catevent, deleted_msg)
     else:
-        main_msg = await edit_or_reply(catevent, deleted_msg)
+        main_msg = await eor(catevent, deleted_msg)
         for msg in adminlog:
             ruser = (
                 await event.client(GetFullUserRequest(msg.old.from_id.user_id))
             ).user
             _media_type = media_type(msg.old)
             if _media_type is None:
-                await main_msg.reply(
-                    f"{msg.old.message}\n**Dikirim oleh** {_format.mentionuser(ruser.first_name ,ruser.id)}"
-                )
+                await main_msg.reply(get_string("undl_4").format(msg.old.message, _format.mentionuser(ruser.first_name, ruser.id))
+                                     )
             else:
-                await main_msg.reply(
-                    f"{msg.old.message}\n**Dikirim oleh** {_format.mentionuser(ruser.first_name ,ruser.id)}",
-                    file=msg.old.media,
-                )
+                await main_msg.reply(get_string("undl_4").format(msg.old.message, _format.mentionuser(ruser.first_name, ruser.id)),
+                                     file=msg.old.media,
+                                     )
 
 
 CMD_HELP.update(

@@ -13,7 +13,7 @@ from telethon.events import StopPropagation
 from telethon.tl.functions.account import UpdateProfileRequest
 
 from AyiinXd import AFKREASON, BOTLOG_CHATID, PM_AUTO_BAN
-from AyiinXd.utils import ayiin_cmd, ayiin_handler
+from AyiinXd.ayiin import ayiin_cmd, ayiin_handler
 
 # ========================= CONSTANTS ============================
 AFKSTR = [

@@ -17,7 +17,8 @@ from rarfile import BadRarFile, RarFile, is_rarfile
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import humanbytes, ayiin_cmd
+from AyiinXd.ayiin import humanbytes, ayiin_cmd
+from Stringyins import get_string
 
 MAX_MESSAGE_SIZE_LIMIT = 4095
 
@@ -29,15 +30,14 @@ async def lst(event):
     cat = event.pattern_match.group(1)
     path = cat or os.getcwd()
     if not exists(path):
-        await event.edit(
-            f"Tidak ada direktori atau file dengan nama `{cat}` coba check lagi!"
+        await event.edit(get_string("file_1").format(cat)
         )
         return
     if isdir(path):
         if cat:
-            msg = "**Folder dan File di `{}`** :\n\n".format(path)
+            msg = get_string("file_2").format(path)
         else:
-            msg = "**Folder dan File di Direktori Saat Ini** :\n\n"
+            msg = get_string("file_3")
         lists = os.listdir(path)
         files = ""
         folders = ""
@@ -101,11 +101,11 @@ async def lst(event):
         time.ctime(os.path.getctime(path))
         time2 = time.ctime(os.path.getmtime(path))
         time3 = time.ctime(os.path.getatime(path))
-        msg += f"**Location :** `{path}`\n"
-        msg += f"**Icon :** `{mode}`\n"
-        msg += f"**Size :** `{humanbytes(size)}`\n"
-        msg += f"**Last Modified Time:** `{time2}`\n"
-        msg += f"**Last Accessed Time:** `{time3}`"
+        msg += get_string("file_4").format(path)
+        msg += get_string("file_5").format(mode)
+        msg += get_string("file_6").format(humanbytes(size))
+        msg += get_string("file_7").format(time2)
+        msg += get_string("file_8").format(time3)
 
     if len(msg) > MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(msg)) as out_file:
@@ -127,16 +127,16 @@ async def rmove(event):
     """Removing Directory/File"""
     cat = event.pattern_match.group(1)
     if not cat:
-        await event.edit("`Lokasi file tidak ada!`")
+        await event.edit(get_string("rmfl_1"))
         return
     if not exists(cat):
-        await event.edit("`Lokasi file tidak ada!`")
+        await event.edit(get_string("rmfl_1"))
         return
     if isfile(cat):
         os.remove(cat)
     else:
         rmtree(cat)
-    await event.edit(f"Dihapus `{cat}`")
+    await event.edit(get_string("rmfl_2").format(cat))
 
 
 @ayiin_cmd(pattern=r"rn ([^|]+)\|([^|]+)")
@@ -145,11 +145,11 @@ async def rname(event):
     cat = str(event.pattern_match.group(1)).strip()
     new_name = str(event.pattern_match.group(2)).strip()
     if not exists(cat):
-        await event.edit(f"file path : {cat} tidak ada!")
+        await event.edit(get_string("rnfl_1").format(cat))
         return
     new_path = join(dirname(cat), new_name)
     shutil.move(cat, new_path)
-    await event.edit(f"Diganti nama dari `{cat}` ke `{new_path}`")
+    await event.edit(get_string("rnfl_2").format(cat, new_path))
 
 
 @ayiin_cmd(pattern="zip (.*)")
@@ -184,8 +184,7 @@ async def zip_file(event):
                         arc_path = join(dir_path, relpath(files_path, path))
                         zip_obj.write(files_path, arc_path)
             end_time = (datetime.now() - start_time).seconds
-            await event.edit(
-                f"Zipped `{path}` ke `{zip_path}` dalam `{end_time}` detik."
+            await event.edit(get_string("zip_1").format(path, zip_path, end_time)
             )
         elif isfile(path):
             file_name = basename(path)
@@ -196,9 +195,9 @@ async def zip_file(event):
                     zip_path += ".zip"
             with ZipFile(zip_path, "w", ZIP_DEFLATED) as zip_obj:
                 zip_obj.write(path, file_name)
-            await event.edit(f"Zipped `{path}` ke `{zip_path}`")
+            await event.edit(get_string("zip_2").format(path, zip_path))
     else:
-        await event.edit("`404: Not Found`")
+        await event.edit(get_string("failed8"))
 
 
 @ayiin_cmd(pattern="unzip (.*)")
@@ -221,24 +220,22 @@ async def unzip_file(event):
         elif is_tarfile(input_str):
             zip_type = TarFile
         else:
-            return await event.edit(
-                "`Jenis file tidak didukung!`\n`Hanya Bisa ZIP, RAR dan TAR`"
+            return await event.edit(get_string("uzip_1")
             )
         try:
             with zip_type(input_str, "r") as zip_obj:
                 zip_obj.extractall(output_path)
         except BadRarFile:
-            return await event.edit("**Error:** `File RAR Rusak`")
+            return await event.edit(get_string("uzip_2").format("RAR"))
         except BadZipFile:
-            return await event.edit("**Error:** `File ZIP Rusak`")
+            return await event.edit(get_string("uzip_2").format("ZIP"))
         except BaseException as err:
-            return await event.edit(f"**Error:** `{err}`")
+            return await event.edit(get_string("error_1").format(err))
         end_time = (datetime.now() - start_time).seconds
-        await event.edit(
-            f"Unzipped `{input_str}` ke `{output_path}` dalam `{end_time}` detik."
+        await event.edit(get_string("uzip_2").format(input_str, output_path, end_time)
         )
     else:
-        await event.edit("`404: Not Found`")
+        await event.edit(get_string("failed8"))
 
 
 CMD_HELP.update(

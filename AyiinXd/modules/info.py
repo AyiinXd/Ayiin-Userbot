@@ -15,14 +15,14 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="info(?: |$)(.*)")
 async def who(event):
 
-    await event.edit(
-        "`Sabar Tod Sedang Mengambil Informasi Pengguna Ini...`")
+    await event.edit(get_string("com_7"))
 
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
@@ -32,8 +32,8 @@ async def who(event):
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        return event.edit(
-            "`Maaf Komandan Saya Tidak Mendapatkan Informasi Apapun...`")
+        return event.edit(get_string("info_1")
+        )
 
     message_id_to_reply = event.message.reply_to_msg_id
 
@@ -98,7 +98,7 @@ async def fetch_info(replied_user, event):
                              offset=42,
                              max_id=0,
                              limit=80))
-    replied_user_profile_photos_count = "Orang tersebut membutuhkan bantuan untuk mengupload gambar profil."
+    replied_user_profile_photos_count = get_string("info_2")
     try:
         replied_user_profile_photos_count = replied_user_profile_photos.count
     except AttributeError:
@@ -109,7 +109,7 @@ async def fetch_info(replied_user, event):
     try:
         dc_id, location = get_input_location(replied_user.profile_photo)
     except Exception as e:
-        dc_id = "Tidak Dapat Mengambil DC ID!"
+        dc_id = get_string("info_3")
         str(e)
     common_chat = replied_user.common_chats_count
     username = replied_user.user.username
@@ -122,12 +122,12 @@ async def fetch_info(replied_user, event):
                                                       str(user_id) + ".jpg",
                                                       download_big=True)
     first_name = first_name.replace(
-        "\u2060", "") if first_name else ("Tidak Ada Nama Depan")
+        "\u2060", "") if first_name else (get_string("info_4"))
     last_name = last_name.replace(
-        "\u2060", "") if last_name else ("Tidak Ada Nama Belakang")
+        "\u2060", "") if last_name else (get_string("info_5"))
     username = "@{}".format(username) if username else (
-        "Tidak Menggunakan Username")
-    user_bio = "Tidak Punya Bio" if not user_bio else user_bio
+        get_string("info_6"))
+    user_bio = get_string("info_7") if not user_bio else user_bio
 
     caption = "<b>𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝚂𝙸 𝙿𝙴𝙽𝙶𝙶𝚄𝙽𝙰</b>\n\n"
     caption += f"𝙽𝙰𝙼𝙰 𝙳𝙴𝙿𝙰𝙽 : {first_name}\n"

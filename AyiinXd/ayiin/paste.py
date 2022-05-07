@@ -3,7 +3,7 @@ import json
 import requests
 
 from AyiinXd import BOTLOG_CHATID
-from AyiinXd.utils.logger import logging
+from AyiinXd.ayiin.logger import logging
 
 LOGS = logging.getLogger("AyiinUserBot")
 

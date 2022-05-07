@@ -24,7 +24,7 @@ from telethon import __version__, version
 from AyiinXd import ALIVE_EMOJI, ALIVE_LOGO, ALIVE_TEKS_CUSTOM, BOT_VER, CHANNEL
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, GROUP, StartTime
-from AyiinXd.utils import bash, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import bash, edit_or_reply, ayiin_cmd
 
 from .ping import get_readable_time
 

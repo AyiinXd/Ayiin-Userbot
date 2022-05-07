@@ -23,8 +23,9 @@ from AyiinXd import (
     TEMP_DOWNLOAD_DIRECTORY,
     lastfm,
 )
-from AyiinXd.utils import bash, chrome, edit_or_reply, ayiin_cmd, progress
-from AyiinXd.utils.FastTelethon import upload_file
+from AyiinXd.ayiin import ayiin_cmd, bash, chrome, eor, progress
+from AyiinXd.ayiin.FastTelethon import upload_file
+from Stringyins import get_string
 
 
 async def getmusic(cat):
@@ -62,17 +63,17 @@ async def _(event):
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
         query = event.pattern_match.group(1)
-        xx = await edit_or_reply(event, "`Processing..`")
+        xx = await eor(event, get_string("com_1"))
     elif reply.message:
         query = reply.message
-        await xx.edit("`Tunggu..! Saya menemukan lagu Anda..`")
+        await xx.edit(get_string("getm_1").format("lagu"))
     else:
-        await xx.edit("`Apa yang seharusnya saya temukan?`")
+        await xx.edit(get_string("getm_2"))
         return
 
     await getmusic(str(query))
     loa = glob.glob("*.mp3")[0]
-    await xx.edit("`Yeah.. Mengupload lagu Anda..`")
+    await xx.edit(get_string("getm_3"))
     c_time = time.time()
     with open(loa, "rb") as f:
         result = await upload_file(
@@ -97,21 +98,20 @@ async def _(event):
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
         query = event.pattern_match.group(1)
-        xx = await edit_or_reply(event, "`Processing..`")
+        xx = await eor(event, get_string("com_1"))
     elif reply:
         query = str(reply.message)
-        await xx.edit("**Tunggu..! Saya menemukan lagu video Anda..**")
+        await xx.edit(get_string("getm_1").format("lagu video"))
     else:
-        await xx.edit("**Apa yang seharusnya saya temukan?**")
+        await xx.edit(get_string("getm_2"))
         return
     await getmusicvideo(query)
     l = glob.glob(("*.mp4")) + glob.glob(("*.mkv")) + glob.glob(("*.webm"))
     if l:
-        await xx.edit("**Ya..! aku menemukan sesuatu..**")
+        await xx.edit(get_string("vsng_1"))
     else:
-        await xx.edit(
-            f"**Maaf..! saya tidak dapat menemukan apa pun dengan** `{query}`"
-        )
+        await xx.edit(get_string("vsng_2").format(query)
+                      )
         return
     try:
         loa = l[0]
@@ -151,7 +151,7 @@ async def _(event):
                 )
             ],
         )
-        await xx.edit(f"**{query} Berhasil Diupload..!**")
+        await xx.edit(get_string("vsng_3").format(query))
         os.remove(thumb_image)
         await bash("rm *.mkv *.mp4 *.webm")
     except BaseException:
@@ -168,7 +168,7 @@ async def _(event):
         playing = User(LASTFM_USERNAME, lastfm).get_now_playing()
         if playing is None:
             return await event.edit(
-                "`Error: Tidak ada data scrobbling yang ditemukan.`"
+                get_string("smdn_1").format("data scrobbling")
             )
         artist = playing.get_artist()
         song = playing.get_title()
@@ -178,10 +178,10 @@ async def _(event):
     track = str(artist) + " - " + str(song)
     chat = "@SpotifyMusicDownloaderBot"
     try:
-        await event.edit("`Getting Your Music...`")
+        await event.edit(get_string("smdn_2").format("Mendapatkan"))
         async with event.client.conversation(chat) as conv:
             await asyncio.sleep(2)
-            await event.edit("`Downloading...`")
+            await event.edit(get_string("com_5"))
             try:
                 response = conv.wait_event(
                     events.NewMessage(incoming=True, from_users=752979930)
@@ -195,7 +195,7 @@ async def _(event):
                 await event.client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
                 await event.reply(
-                    "`Unblock `@SpotifyMusicDownloaderBot` dan coba lagi`"
+                    get_string("smdn_3").format("@SpotifyMusicDownloaderBot")
                 )
                 return
             await event.client.forward_messages(event.chat_id, respond.message)
@@ -203,7 +203,7 @@ async def _(event):
         await event.delete()
     except TimeoutError:
         return await event.edit(
-            "`Error: `@SpotifyMusicDownloaderBot` tidak merespons atau Lagu tidak ditemukan!.`"
+            get_string("smdn_4").format("@SpotifyMusicDownloaderBot")
         )
 
 
@@ -214,9 +214,8 @@ async def _(event):
     if event.pattern_match.group(1) == "now":
         playing = User(LASTFM_USERNAME, lastfm).get_now_playing()
         if playing is None:
-            return await event.edit(
-                "`Error: Tidak ada scrobble saat ini yang ditemukan.`"
-            )
+            return await event.edit(get_string("smdn_1").format("scrobble saat ini")
+                                    )
         artist = playing.get_artist()
         song = playing.get_title()
     else:
@@ -225,20 +224,20 @@ async def _(event):
     track = str(artist) + " - " + str(song)
     chat = "@WooMaiBot"
     link = f"/netease {track}"
-    await event.edit("`Searching...`")
+    await event.edit(get_string("com_2"))
     try:
         async with event.client.conversation(chat) as conv:
             await asyncio.sleep(2)
-            await event.edit("`Processing...`")
+            await event.edit(get_string("com_1"))
             try:
                 msg = await conv.send_message(link)
                 response = await conv.get_response()
                 respond = await conv.get_response()
                 await event.client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
-                await event.reply("`Please unblock @WooMaiBot and try again`")
+                await event.reply(get_string("smdn_3").format("@WooMaiBot"))
                 return
-            await event.edit("`Sending Your Music...`")
+            await event.edit(get_string("smdn_2").format("Mengirim"))
             await asyncio.sleep(3)
             await event.client.send_file(event.chat_id, respond)
         await event.client.delete_messages(
@@ -246,9 +245,8 @@ async def _(event):
         )
         await event.delete()
     except TimeoutError:
-        return await event.edit(
-            "`Error: `@WooMaiBot` tidak merespons atau Lagu tidak ditemukan!.`"
-        )
+        return await event.edit(get_string("smdn_4").format("@WooMaiBot")
+                                )
 
 
 @ayiin_cmd(pattern="mhb(?: |$)(.*)")
@@ -257,9 +255,9 @@ async def _(event):
         return
     d_link = event.pattern_match.group(1)
     if ".com" not in d_link:
-        await event.edit("`Masukkan link yang valid untuk mendownload`")
+        await event.edit(get_string("mhbb_1"))
     else:
-        await event.edit("`Processing...`")
+        await event.edit(get_string("com_1"))
     chat = "@MusicsHunterBot"
     try:
         async with event.client.conversation(chat) as conv:
@@ -271,7 +269,7 @@ async def _(event):
                 song = await conv.get_response()
                 await event.client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
-                await event.edit("`Unblock `@MusicsHunterBot` and retry`")
+                await event.edit(get_string("smdn_3").format("@MusicsHunterBot"))
                 return
             await event.client.send_file(event.chat_id, song, caption=details.text)
             await event.client.delete_messages(
@@ -279,9 +277,8 @@ async def _(event):
             )
             await event.delete()
     except TimeoutError:
-        return await event.edit(
-            "`Error: `@MusicsHunterBot` tidak merespons atau Lagu tidak ditemukan!.`"
-        )
+        return await event.edit(get_string("smdn_4").format("@MusicsHunterBot")
+                                )
 
 
 @ayiin_cmd(pattern="deez (.+?|) (FLAC|MP3\\_320|MP3\\_256|MP3\\_128)")
@@ -290,20 +287,10 @@ async def _(event):
     if event.fwd_from:
         return
 
-    strings = {
-        "name": "DeezLoad",
-        "arl_token_cfg_doc": "Token ARL untuk Deezer",
-        "invalid_arl_token": "Harap setel variabel yang diperlukan untuk modul ini",
-        "wrong_cmd_syntax": "Bruh, sekarang saya pikir seberapa jauh kita harus melangkah. tolong hentikan Sesi saya ð¥º",
-        "server_error": "Mengalami kesalahan teknis.",
-        "processing": "`Sedang Mendownload....`",
-        "uploading": "`Mengunggah.....`",
-    }
-
     ARL_TOKEN = DEEZER_ARL_TOKEN
 
     if ARL_TOKEN is None:
-        await event.edit(strings["invalid_arl_token"])
+        await event.edit(get_string("inar_1"))
         return
 
     try:
@@ -319,7 +306,7 @@ async def _(event):
     required_link = event.pattern_match.group(1)
     required_qty = event.pattern_match.group(2)
 
-    await event.edit(strings["processing"])
+    await event.edit(get_string("com_1"))
 
     if "spotify" in required_link:
         if "track" in required_link:
@@ -331,7 +318,7 @@ async def _(event):
                 recursive_download=True,
                 not_interface=True,
             )
-            await event.edit(strings["uploading"])
+            await event.edit(get_string("com_6"))
             await upload_track(required_track, event)
             shutil.rmtree(temp_dl_path)
             await event.delete()
@@ -346,7 +333,7 @@ async def _(event):
                 not_interface=True,
                 zips=False,
             )
-            await event.edit(strings["uploading"])
+            await event.edit(get_string("com_6"))
             for required_track in reqd_albums:
                 await upload_track(required_track, event)
             shutil.rmtree(temp_dl_path)
@@ -362,7 +349,7 @@ async def _(event):
                 recursive_download=True,
                 not_interface=True,
             )
-            await event.edit(strings["uploading"])
+            await event.edit(get_string("com_6"))
             await upload_track(required_track, event)
             shutil.rmtree(temp_dl_path)
             await event.delete()
@@ -377,14 +364,14 @@ async def _(event):
                 not_interface=True,
                 zips=False,
             )
-            await event.edit(strings["uploading"])
+            await event.edit(get_string("com_6"))
             for required_track in reqd_albums:
                 await upload_track(required_track, event)
             shutil.rmtree(temp_dl_path)
             await event.delete()
 
     else:
-        await event.edit(strings["wrong_cmd_syntax"])
+        await event.edit(get_string("wrong1"))
 
 
 async def upload_track(track_location, message):

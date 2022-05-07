@@ -17,7 +17,8 @@ from telethon.errors import rpcbaseerrors
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, DEVS
 from AyiinXd.events import register
-from AyiinXd.utils import ayiin_cmd, edit_delete
+from AyiinXd.ayiin import ayiin_cmd, eod
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="purge$")
@@ -28,7 +29,7 @@ async def fastpurger(purg):
     itermsg = purg.client.iter_messages(chat, min_id=purg.reply_to_msg_id)
     count = 0
     if purg.reply_to_msg_id is None:
-        return await edit_delete(purg, "**Mohon Balas Ke Pesan**")
+        return await eod(purg, get_string("prmt_23"))
     async for msg in itermsg:
         msgs.append(msg)
         count += 1
@@ -39,10 +40,7 @@ async def fastpurger(purg):
     if msgs:
         await purg.client.delete_messages(chat, msgs)
     done = await purg.client.send_message(
-        purg.chat_id,
-        "**Fast Purge Completed!**\n**Berhasil Menghapus** `"
-        + str(count)
-        + "` **Pesan**",
+        purg.chat_id, get_string("purge_1").format(str(count))
     )
     await sleep(2)
     await done.delete()
@@ -60,8 +58,7 @@ async def purgeme(delme):
         i += 1
         await message.delete()
     smsg = await delme.client.send_message(
-        delme.chat_id,
-        "**Berhasil Menghapus** " + str(count) + " **Kenangan**",
+        delme.chat_id, get_string("purge_2").format(str(count))
     )
     await sleep(2)
     i = 1
@@ -77,7 +74,7 @@ async def delete_it(delme):
             await msg_src.delete()
             await delme.delete()
         except rpcbaseerrors.BadRequestError:
-            await delme.edit("**Tidak Bisa Menghapus Pesan**")
+            await delme.edit(get_string("purge_3"))
 
 
 @ayiin_cmd(pattern="edit")
@@ -119,15 +116,14 @@ async def purgfromto(prgnew):
         elif prgnew.pattern_match.group(2) == "to":
             await purgto(prgnew)
     else:
-        await edit_delete(prgnew, "**Mohon Balas Ke Pesan untuk mulai menghapus**")
+        await eod(prgnew, get_string("purge_4"))
 
 
 async def purgfrm(purgdari):
     prgstrtmsg = purgdari.reply_to_msg_id
     purgechat[purgdari.chat_id] = prgstrtmsg
-    yinsubot = await edit_delete(
-        purgdari,
-        f"**Pesan ini telah dipilih sebagai awal menghapus, balas pesan lain dengan** `{cmd}purgeto` **untuk menghapusnya**",
+    yinsubot = await eod(
+        purgdari, get_string("purge_5").format(cmd)
     )
     await sleep(2)
     await yinsubot.delete()
@@ -137,10 +133,9 @@ async def purgto(purgke):
     try:
         prgstrtmsg = purgechat[purgke.chat_id]
     except KeyError:
-        return await edit_delete(
-            purgke,
-            f"**Balas pesan dengan** `{cmd}purgefrom` **terlebih dahulu lalu gunakan** `{cmd}purgeto`",
-            5,
+        return await eod(
+            purgke, get_string("purge_6").format(cmd, cmd),
+            time=5,
         )
     try:
         chat = await purgke.get_input_chat()
@@ -158,13 +153,12 @@ async def purgto(purgke):
         if pmsgs:
             await purgke.client.delete_messages(chat, pmsgs)
             await purgke.delete()
-            await edit_delete(
-                purgke,
-                f"**Fast purge complete!**\n**Berhasil Menghapus** `{message}` **Pesan**",
-                5,
+            await eod(
+                purgke, get_string("purge_7").format(message),
+                time=5,
             )
     except Exception as er:
-        await purgke.edit(f"**ERROR:** `{er}`")
+        await purgke.edit(get_string("error_1").format(er))
 
 
 CMD_HELP.update(

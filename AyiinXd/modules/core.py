@@ -7,7 +7,9 @@ from pathlib import Path
 
 from AyiinXd import CMD_HELP
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd.utils import edit_or_reply, load_module, ayiin_cmd, remove_plugin, reply_id
+from AyiinXd.ayiin import eor
+from AyiinXd.ayiin import ayiin_cmd, load_module, remove_plugin, reply_id
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="install$")
@@ -16,7 +18,7 @@ async def _(event):
         return
     if event.reply_to_msg_id:
         try:
-            xx = await edit_or_reply(event, "`Installing Modules...`")
+            xx = await eor(event, get_string("core_1"))
             downloaded_file_name = await event.client.download_media(
                 await event.get_reply_message(),
                 "AyiinXd/modules/",
@@ -26,15 +28,15 @@ async def _(event):
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
                 await xx.edit(
-                    "**Plugin** `{}` **Berhasil di install**".format(
+                    get_string("core_3").format(
                         os.path.basename(downloaded_file_name)
                     )
                 )
             else:
                 os.remove(downloaded_file_name)
-                await xx.edit("**Error!** Plugin ini sudah terinstall di userbot.")
+                await xx.edit(get_string("core_2"))
         except Exception as e:
-            await xx.edit(str(e))
+            await xx.edit(get_string("error_1").format(str(e)))
             os.remove(downloaded_file_name)
 
 
@@ -51,11 +53,11 @@ async def send(event):
             thumb="AyiinXd/resources/logo.jpg",
             allow_cache=False,
             reply_to=reply_to_id,
-            caption=f"➠ **Nama Plugin:** `{input_str}`",
+            caption=get_string("core_4").format(input_str)
         )
         await event.delete()
     else:
-        await edit_or_reply(event, "**ERROR: Modules Tidak ditemukan**")
+        await eor(event, get_string("core_6"))
 
 
 @ayiin_cmd(pattern="uninstall (?P<shortname>\\w+)")
@@ -64,11 +66,11 @@ async def uninstall(event):
         return
     shortname = event.pattern_match["shortname"]
     dir_path = f"./AyiinXd/modules/{shortname}.py"
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     try:
         remove_plugin(shortname)
         os.remove(dir_path)
-        await xx.edit(f"**Berhasil Menghapus Modules** `{shortname}`")
+        await xx.edit(get_string("core_5").format(shortname))
     except OSError as e:
         await xx.edit("**ERROR:** `%s` : %s" % (dir_path, e.strerror))
 

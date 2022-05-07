@@ -26,20 +26,8 @@ from telethon.tl.types import (
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
-
-# ====================== CONSTANT ===============================
-INVALID_MEDIA = "```Maaf Media Tidak Valid.```"
-PP_CHANGED = "```Foto Profil Anda Telah Berhasil Diubah.```"
-PP_TOO_SMOL = "```Gambar Terlalu Kecil, Mohon Gunakan Yang Lebih Besar.```"
-PP_ERROR = "```Kegagalan Terjadi Saat Proses Gambar, Foto Profil Gagal Diubah.```"
-
-BIO_SUCCESS = "```Bio Anda Telah Berhasil Diubah.```"
-
-NAME_OK = "```Nama Anda Telah Berhasil Diubah.```"
-USERNAME_SUCCESS = "```Username Anda Sudah Diubah.```"
-USERNAME_TAKEN = "```Mohon Maaf, Username Itu Sudah Ada Yang Menggunakannya.```"
-# ===============================================================
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="reserved$")
@@ -49,7 +37,7 @@ async def mine(event):
         f"{channel_obj.title}\n@{channel_obj.username}\n\n"
         for channel_obj in result.chats
     )
-    await edit_or_reply(event, output_str)
+    await eor(event, output_str)
 
 
 @ayiin_cmd(pattern="name", allow_sudo=False)
@@ -64,7 +52,7 @@ async def update_name(name):
         lastname = namesplit[1]
 
     await name.client(UpdateProfileRequest(first_name=firstname, last_name=lastname))
-    await edit_or_reply(name, NAME_OK)
+    await eor(name, get_string("name_ok"))
 
 
 @ayiin_cmd(pattern="setpfp$", allow_sudo=False)
@@ -77,7 +65,7 @@ async def set_profilepic(propic):
         elif "image" in replymsg.media.document.mime_type.split("/"):
             photo = await propic.client.download_file(replymsg.media.document)
         else:
-            await edit_delete(propic, INVALID_MEDIA)
+            await eod(propic, get_string("inv_med"))
 
     if photo:
         try:
@@ -85,20 +73,20 @@ async def set_profilepic(propic):
                 UploadProfilePhotoRequest(await propic.client.upload_file(photo))
             )
             os.remove(photo)
-            await propic.edit(PP_CHANGED)
+            await propic.edit(get_string("pp_changed"))
         except PhotoCropSizeSmallError:
-            await propic.edit(PP_TOO_SMOL)
+            await propic.edit(get_string("pto_sml"))
         except ImageProcessFailedError:
-            await propic.edit(PP_ERROR)
+            await propic.edit(get_string("pp_error"))
         except PhotoExtInvalidError:
-            await propic.edit(INVALID_MEDIA)
+            await propic.edit(get_string("inv_med"))
 
 
 @ayiin_cmd(pattern="setbio (.*)", allow_sudo=False)
 async def set_biograph(setbio):
     newbio = setbio.pattern_match.group(1)
     await setbio.client(UpdateProfileRequest(about=newbio))
-    await edit_or_reply(setbio, BIO_SUCCESS)
+    await eor(setbio, get_string("bio_succes"))
 
 
 @ayiin_cmd(pattern="username (.*)", allow_sudo=False)
@@ -106,9 +94,9 @@ async def update_username(username):
     newusername = username.pattern_match.group(1)
     try:
         await username.client(UpdateUsernameRequest(newusername))
-        await edit_or_reply(username, USERNAME_SUCCESS)
+        await eor(username, get_string("username_succes"))
     except UsernameOccupiedError:
-        await edit_delete(username, USERNAME_TAKEN)
+        await eod(username, get_string("username_taken"))
 
 
 @ayiin_cmd(pattern="count$")
@@ -119,7 +107,7 @@ async def count(event):
     bc = 0
     b = 0
     result = ""
-    xx = await edit_or_reply(event, "`Sedang Dalam Proses....`")
+    xx = await eor(event, get_string("com_1"))
     dialogs = await bot.get_dialogs(limit=None, ignore_migrated=True)
     for d in dialogs:
         currrent_entity = d.entity
@@ -137,11 +125,11 @@ async def count(event):
                 c += 1
         else:
             print(d)
-    result += f"**Pengguna:**\t`{u}`\n"
-    result += f"**Grup:**\t`{g}`\n"
-    result += f"**Super Grup:**\t`{c}`\n"
-    result += f"**Channel:**\t`{bc}`\n"
-    result += f"**Bot:**\t`{b}`"
+    result += get_string("profil_1").format(u)
+    result += get_string("profil_2").format(g)
+    result += get_string("profil_3").format(c)
+    result += get_string("profil_4").format(bc)
+    result += get_string("profil_5").format(b)
     await xx.edit(result)
 
 
@@ -166,7 +154,7 @@ async def remove_profilepic(delpfp):
         for sep in pfplist.photos
     ]
     await delpfp.client(DeletePhotosRequest(id=input_photos))
-    await delpfp.edit(f"`Berhasil Menghapus {len(input_photos)} Foto Profil.`")
+    await delpfp.edit(get_string("profil_3").format(len(input_photos)))
 
 
 CMD_HELP.update(

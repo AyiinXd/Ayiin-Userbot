@@ -11,7 +11,7 @@ import re
 import requests
 
 from AyiinXd import bot
-from AyiinXd.utils import ayiin_cmd, time_formatter
+from AyiinXd.ayiin import ayiin_cmd, time_formatter
 
 
 def shorten(description, info="anilist.co"):

@@ -2,18 +2,19 @@ from secrets import choice
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd, deEmojify, edit_delete, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, deEmojify, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="rst(?: |$)(.*)")
 async def rastick(animu):
     text = animu.pattern_match.group(1)
-    xx = await edit_or_reply(animu, "`Processing...`")
+    xx = await eor(animu, get_string("com_1"))
     if not text:
         if animu.is_reply:
             text = (await animu.get_reply_message()).message
         else:
-            return await xx.answer("**Tidak ada teks yang diberikan.**")
+            return await xx.answer(get_string("rstick_1"))
     animus = [
         1,
         2,
@@ -91,9 +92,8 @@ async def rastick(animu):
         )
 
     except Exception:
-        return await edit_delete(
-            xx,
-            "**You cannot send inline results in this chat**",
+        return await eod(
+            xx, get_string("rstick_2")
         )
     await sleep(5)
     await animu.delete()

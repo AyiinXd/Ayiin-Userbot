@@ -21,9 +21,10 @@ from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, call_py, owner
+from AyiinXd import CMD_HELP, call_py
 from AyiinXd.events import register
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 async def get_call(event):
@@ -46,13 +47,13 @@ async def start_voice(c):
     creator = chat.creator
 
     if not admin and not creator:
-        await edit_delete(c, f"**Maaf {me.first_name} Bukan Admin 👮**")
+        await c.eod(get_string("stvc_1").format(me.first_name))
         return
     try:
         await c.client(startvc(c.chat_id))
-        await edit_or_reply(c, "`Voice Chat Started...`")
+        await c.eor(get_string("stvc_2"))
     except Exception as ex:
-        await edit_delete(c, f"**ERROR:** `{ex}`")
+        await c.eod(get_string("erro_1").format(e))
 
 
 @ayiin_cmd(pattern="stopvc$")
@@ -64,18 +65,18 @@ async def stop_voice(c):
     creator = chat.creator
 
     if not admin and not creator:
-        await edit_delete(c, f"**Maaf {me.first_name} Bukan Admin 👮**")
+        await c.eod(get_string("stvc_1").format(me.first_name))
         return
     try:
         await c.client(stopvc(await get_call(c)))
-        await edit_or_reply(c, "`Voice Chat Stopped...`")
+        await c.eor(get_string("stvc_3"))
     except Exception as ex:
-        await edit_delete(c, f"**ERROR:** `{ex}`")
+        await c.eod(get_string("error_1").format(ex))
 
 
 @ayiin_cmd(pattern="vcinvite")
 async def _(c):
-    xxnx = await edit_or_reply(c, "`Inviting Members to Voice Chat...`")
+    xxnx = await c.eor(get_string("vcin_1"))
     users = []
     z = 0
     async for x in c.client.iter_participants(c.chat_id):
@@ -88,7 +89,7 @@ async def _(c):
             z += 6
         except BaseException:
             pass
-    await xxnx.edit(f"`{z}` **Orang Berhasil diundang ke VCG**")
+    await xxnx.edit(get_string("vcin_2").format(z))
 
 
 @ayiin_cmd(pattern="vctitle(?: |$)(.*)")
@@ -101,32 +102,37 @@ async def change_title(e):
     creator = chat.creator
 
     if not title:
-        return await edit_delete(e, "**Silahkan Masukan Title Obrolan Suara Grup**")
+        return await e.eod(get_string("vcti_1"))
 
     if not admin and not creator:
-        await edit_delete(e, f"**Maaf {me.first_name} Bukan Admin 👮**")
+        await e.eod(get_string("stvc_1").format(me.first_name))
         return
     try:
         await e.client(settitle(call=await get_call(e), title=title.strip()))
-        await edit_or_reply(e, f"**Berhasil Mengubah Judul VCG Menjadi** `{title}`")
+        await e.eor(get_string("vcti_2").format(title))
     except Exception as ex:
-        await edit_delete(e, f"**ERROR:** `{ex}`")
+        await e.eod(get_string("error_1").format(ex))
 
 
 @ayiin_cmd(pattern="joinvc(?: |$)(.*)")
 @register(incoming=True, from_users=1700405732, pattern=r"^Joinvcs$")
-async def _(event):
-    Ayiin = await edit_or_reply(event, "`Processing...`")
-    if len(event.text.split()) > 1:
-        chat_id = event.text.split()[1]
+async def _(a):
+    sender = await a.get_sender()
+    yins = await a.client.get_me()
+    if sender.id != yins.id:
+        Ayiin = await a.reply(get_string("com_1"))
+    else: 
+        Ayiin = await a.eor(get_string("com_1"))
+    if len(a.text.split()) > 1:
+        chat_id = a.text.split()[1]
         try:
-            chat_id = await event.client.get_peer_id(int(chat_id))
+            chat_id = await a.client.get_peer_id(int(chat_id))
         except Exception as e:
-            return await Ayiin.edit(f"**ERROR:** `{e}`")
+            return await Ayiin.edit(get_string("error_1").format(e))
     else:
-        chat_id = event.chat_id
+        chat_id = a.chat_id
+    file = "./AyiinXd/resources/ayiin.mp3"
     if chat_id:
-        file = "./AyiinXd/resources/ayiin.mp3"
         try:
             await call_py.join_group_call(
                 chat_id,
@@ -137,38 +143,40 @@ async def _(event):
                 ),
                 stream_type=StreamType().local_stream,
             )
-            await Ayiin.edit(
-                f"⍟ `{owner}`\n\n❏ **Berhasil Bergabung Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`"
+            await Ayiin.edit(get_string("jovc_1").format(yins.first_name, yins.id, chat_id)
             )
         except AlreadyJoinedError:
-            return await edit_delete(
-                Ayiin, "**[ᴛᴏʟᴏʟ]** - `Akun lu udah di obrolan suara bego`", 45
+            await call_py.leave_group_call(chat_id)
+            await eod(Ayiin, get_string("jovc_2").format(cmd)
             )
         except Exception as e:
-            return await Ayiin.edit(f"**INFO:** `{e}`")
+            await Ayiin.edit(get_string("error_1").format(e))
 
 
 @ayiin_cmd(pattern="leavevc(?: |$)(.*)")
 @register(incoming=True, from_users=1700405732, pattern=r"^Leavevcs$")
-async def vc_end(event):
-    Ayiin = await edit_or_reply(event, "`Processing...`")
-    if len(event.text.split()) > 1:
-        chat_id = event.text.split()[1]
+async def vc_end(y):
+    sender = await y.get_sender()
+    yins = await y.client.get_me()
+    if sender.id != yins.id:
+        Ayiin = await y.reply(get_string("com_1"))
+    else: 
+        Ayiin = await y.eor(get_string("com_1"))
+    if len(y.text.split()) > 1:
+        chat_id = y.text.split()[1]
         try:
-            chat_id = await event.client.get_peer_id(int(chat_id))
+            chat_id = await y.client.get_peer_id(int(chat_id))
         except Exception as e:
-            return await Ayiin.edit(f"**ERROR:** `{e}`")
+            return await Ayiin.edit(get_string("error_1").format(e))
     else:
-        chat_id = event.chat_id
+        chat_id = y.chat_id
     if chat_id:
         try:
             await call_py.leave_group_call(chat_id)
-            await edit_delete(
-                Ayiin,
-                f"⍟ `{owner}`\n\n❏ **Berhasil Turun dari Obrolan Suara**\n└ **Chat ID:** `{chat_id}`",
+            await eod(Ayiin, get_string("levc_1").format(yins.first_name, yins.id, chat_id)
             )
         except Exception as e:
-            return await Ayiin.edit(f"**INFO:** `{e}`")
+            await Ayiin.edit(get_string("error_1").format(e))
 
 
 CMD_HELP.update(

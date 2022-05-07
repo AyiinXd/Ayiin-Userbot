@@ -4,7 +4,8 @@ from telethon.tl import types
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="gps(?: |$)(.*)")
@@ -16,8 +17,8 @@ async def gps(event):
         reply_to_id = await event.get_reply_message()
     input_str = event.pattern_match.group(1)
     if not input_str:
-        return await event.edit("**Berikan Tempat Yang ingin Dicari**")
-    xx = await edit_or_reply(event, "`Processing...`")
+        return await event.edit(get_string("gps_1"))
+    xx = await eor(event, get_string("com_1"))
     geolocator = Nominatim(user_agent="Yins")
     geoloc = geolocator.geocode(input_str)
     if geoloc:
@@ -28,7 +29,7 @@ async def gps(event):
         )
         await xx.delete()
     else:
-        await xx.edit("`Maaf Saya Tidak Dapat Menemukannya`")
+        await xx.edit(get_string("gps_2"))
 
 
 CMD_HELP.update(

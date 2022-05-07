@@ -5,7 +5,7 @@ from typing import Any, Callable
 
 from motor.frameworks.asyncio import _EXECUTOR
 
-from AyiinXd.utils.logger import logging
+from AyiinXd.ayiin.logger import logging
 
 _LOG = logging.getLogger(__name__)
 _LOG_STR = "<<<[  %s  ]>>>"

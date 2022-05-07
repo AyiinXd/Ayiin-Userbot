@@ -6,7 +6,8 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="firmware(?: |$)(.*)")
@@ -16,7 +17,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     firmware = "firmware"
     chat = "@XiaomiGeeksBot"
-    await edit_or_reply(event, "`Processing...`")
+    await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -40,7 +41,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     fboot = "fastboot"
     chat = "@XiaomiGeeksBot"
-    await edit_or_reply(event, "`Processing...`")
+    await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -64,7 +65,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     recovery = "recovery"
     chat = "@XiaomiGeeksBot"
-    await edit_or_reply(event, "`Processing...`")
+    await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -88,7 +89,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     pitch = "pb"
     chat = "@XiaomiGeeksBot"
-    await edit_or_reply(event, "`Processing...`")
+    await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -112,7 +113,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     ofox = "of"
     chat = "@XiaomiGeeksBot"
-    await edit_or_reply(event, "`Processing...`")
+    await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -136,7 +137,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     eu = "eu"
     chat = "@XiaomiGeeksBot"
-    await edit_or_reply(event, "`Processing...`")
+    await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -160,7 +161,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     vendor = "vendor"
     chat = "@XiaomiGeeksBot"
-    await edit_or_reply(event, "`Processing...`")
+    await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -184,7 +185,7 @@ async def _(event):
     link = event.pattern_match.group(1)
     specs = "specs"
     chat = "@XiaomiGeeksBot"
-    await edit_or_reply(event, "`Processing...`")
+    await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(

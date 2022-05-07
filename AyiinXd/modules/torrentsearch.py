@@ -16,16 +16,17 @@ from bs4 import BeautifulSoup as bs
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
 from AyiinXd.events import ayiin_cmd
+from Stringyins import get_string
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"ts (.*)"))
 async def gengkapak(e):
-    await e.edit("`Please wait, fetching results...`")
+    await e.edit(get_string("tose_1"))
     query = e.pattern_match.group(1)
     response = requests.get(f"https://api.sumanjay.cf/torrent/?query={query}")
     ts = json.loads(response.text)
     if ts != response.json():
-        await e.edit("**Some error occured**\n`Try Again Later`")
+        await e.edit(get_string("tose_2"))
         return
     listdata = ""
     run = 0
@@ -33,14 +34,14 @@ async def gengkapak(e):
         try:
             run += 1
             r1 = ts[run]
-            list1 = "<-----{}----->\nName: {}\nSeeders: {}\nSize: {}\nAge: {}\n<--Magnet Below-->\n{}\n\n\n".format(
+            list1 = get_string("tose_3").format(
                 run, r1["name"], r1["seeder"], r1["size"], r1["age"], r1["magnet"])
             listdata += list1
         except BaseException:
             break
 
     if not listdata:
-        return await e.edit("**Error:** `No results found`")
+        return await e.edit(get_string("tose_4"))
 
     tsfileloc = f"{TEMP_DOWNLOAD_DIRECTORY}/{query}.txt"
     with open(tsfileloc, "w+", encoding="utf8") as out_file:
@@ -50,8 +51,7 @@ async def gengkapak(e):
     key = (requests.post("https://nekobin.com/api/documents",
                          json={"content": data}) .json() .get("result") .get("key"))
     url = f"https://nekobin.com/raw/{key}"
-    caption = (
-        f"**Here the results for the query:** `{query}`\n\nPasted to: [Nekobin]({url})"
+    caption = (get_string("tose_5").format(query, url)
     )
     os.remove(tsfileloc)
     await e.edit(caption, link_preview=False)
@@ -81,7 +81,7 @@ async def tor_search(event):
     search_str = event.pattern_match.group(1)
 
     print(search_str)
-    await event.edit("Searching for " + search_str + ".....")
+    await event.edit(get_string("tose_6").format(search_str))
     if " " in search_str:
         search_str = search_str.replace(" ", "+")
         print(search_str)
@@ -115,7 +115,7 @@ async def tor_search(event):
             break
         counter += 1
     if not urls:
-        await event.edit("Either the Keyword was restricted or not found..")
+        await event.edit(get_string("tose_7"))
         return
 
     print("Found URLS...")
@@ -137,8 +137,8 @@ async def tor_search(event):
         search_str = search_str.replace("+", " ")
     except BaseException:
         pass
-    msg = "**Torrent Search Query**\n`{}`".format(
-        search_str) + "\n**Results**\n"
+    msg = get_string("tose_8").format(
+        search_str)
     counter = 0
     while counter != len(titles):
         msg = (

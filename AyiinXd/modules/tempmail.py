@@ -1,16 +1,21 @@
+#
+#
+
+import asyncio
 
 from telethon import events
+from telethon.errors.rpcerrorlist import YouBlockedUserError
+
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-import asyncio
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern=r"tm(?: |$)(.*)")
 async def _(event):
     chat = "@TempMailBot"
-    yins = await edit_or_reply(event, "Sabar Tod Sedang Memprosess...")
+    yins = await eor(event, get_string("com_1"))
     async with bot.conversation(chat) as conv:
         try:
             response = conv.wait_event(events.NewMessage(
@@ -25,9 +30,10 @@ async def _(event):
             ayiinuserbot = ((response).reply_markup.rows[2].buttons[0].url)
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await yins.edit("`Mohon Maaf, Silahkan Buka` @TempMailBot `Lalu Tekan Start dan Coba Lagi.`")
+            await yins.edit(get_string("tempmail_2"))
             return
-        await event.edit(f"**YINS TEMPMAIL** ~ `{response.message.message}`\n\n[KLIK DISINI UNTUK VERIFIKASI]({ayiinuserbot})")
+        await event.edit(get_string("tempmail_1").format(response.message.message, ayiinuserbot))
+
 
 CMD_HELP.update(
     {

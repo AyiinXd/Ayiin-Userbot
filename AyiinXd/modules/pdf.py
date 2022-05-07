@@ -10,16 +10,17 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="pdf(?: |$)(.*)")
 async def _(event):
     if not event.reply_to_msg_id:
-        return await edit_or_reply(event, "**Mohon Reply ke teks apa pun**")
+        return await eor(event, get_string("pdf_4"))
     reply_message = await event.get_reply_message()
     chat = "@office2pdf_bot"
-    xx = await edit_or_reply(event, "`Mengubah menjadi PDF...`")
+    xx = await eor(event, get_string("pdf_1"))
     try:
         async with event.client.conversation(chat) as conv:
             try:
@@ -36,8 +37,7 @@ async def _(event):
                 await event.client.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
                 await event.client(UnblockRequest(chat))
-                return await xx.edit(
-                    "**Silahkan Unblock @office2pdf_bot dan coba lagi**"
+                return await xx.edit(get_string("pdf_2")
                 )
             await event.client.send_message(event.chat_id, pdf)
             await event.client.delete_messages(
@@ -57,8 +57,7 @@ async def _(event):
             )
             await xx.delete()
     except TimeoutError:
-        return await xx.edit(
-            "**ERROR: @office2pdf_bot tidak merespon, coba lagi nanti**"
+        return await xx.edit(get_string("pdf_3")
         )
 
 

@@ -10,7 +10,8 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="short(?: |$)(.*)")
@@ -21,14 +22,13 @@ async def _(event):
     d_link = event.pattern_match.group(1)
     if msg_link:
         d_link = msg_link.text
-        xx = await edit_or_reply(event, "`Shortening replied link...`")
+        xx = await eor(event, get_string("shortlink_1"))
     elif "https" not in d_link:
-        await edit_or_reply(
-            event,
-            "**Masukkan link, pastikan dimulai dengan** `http://` **atau** `https://`",
+        await eor(
+            event, get_string("shortlink_2")
         )
     else:
-        xx = await edit_or_reply(event, "`Shortening link...`")
+        xx = await eor(event, get_string("shortlink_1"))
     chat = "@ShortUrlBot"
     try:
         async with event.client.conversation(chat) as conv:
@@ -43,7 +43,7 @@ async def _(event):
                 await event.edit(response.text)
             except YouBlockedUserError:
                 await event.client(UnblockRequest(chat))
-                return await xx.edit("**Silahkan Unblock @ShortUrlBot dan coba lagi**")
+                return await xx.edit(get_string("shortlink_3"))
             await event.client.send_message(event.chat_id, url)
             await event.client.delete_messages(
                 conv.chat_id,
@@ -51,8 +51,7 @@ async def _(event):
             )
             await event.delete()
     except TimeoutError:
-        return await xx.edit(
-            "**ERROR: @ShortUrlBot tidak merespon silahkan coba lagi nanti**"
+        return await xx.edit(get_string("error_8").format("@ShortUrlBot")
         )
 
 

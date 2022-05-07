@@ -10,33 +10,33 @@ from telethon.tl.functions.channels import LeaveChannelRequest
 from AyiinXd import BLACKLIST_CHAT
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="kickme$", allow_sudo=False)
 async def kickme(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
-        )
+        return await eor(
+            event, get_string("ayiin_1"))
     user = await event.client.get_me()
-    await edit_or_reply(event, f"`{user.first_name} has left this group, bye!!`")
+    await eor(event, get_string("kikme_1").format(user.first_name))
     await event.client.kick_participant(event.chat_id, "me")
 
 
 @ayiin_cmd(pattern="kikme$", allow_sudo=False)
 async def kikme(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_or_reply(
-            event, "**Perintah ini Dilarang digunakan di Group ini**"
+        return await eor(
+            event, get_string("ayiin_1")
         )
-    await edit_or_reply(event, "**GC NYA JELEK GOBLOK KELUAR DULU AH CROTT** 🥴")
+    await eor(event, get_string("kikme_2"))
     await event.client.kick_participant(event.chat_id, "me")
 
 
 @ayiin_cmd(pattern="leaveall$", allow_sudo=False)
 async def kickmeall(event):
-    Yins = await edit_or_reply(event, "`Global Leave from group chats...`")
+    Yins = await eor(event, get_string("kikme_3"))
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -47,8 +47,7 @@ async def kickmeall(event):
                 await event.client(LeaveChannelRequest(chat))
             except BaseException:
                 er += 1
-    await Yins.edit(
-        f"**Berhasil Keluar dari {done} Group, Gagal Keluar dari {er} Group**"
+    await Yins.edit(get_string("kikme_4").format(done, er)
     )
 
 

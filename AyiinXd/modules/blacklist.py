@@ -12,7 +12,8 @@ import re
 import AyiinXd.modules.sql_helper.blacklist_sql as sql
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_or_reply, ayiin_cmd, ayiin_handler
+from AyiinXd.ayiin import ayiin_cmd, ayiin_handler, eor
+from Stringyins import get_string
 
 
 @ayiin_handler(incoming=True)
@@ -26,9 +27,8 @@ async def on_new_message(event):
             try:
                 await event.delete()
             except Exception:
-                await event.reply(
-                    "`Anda Tidak Punya Izin Untuk Menghapus Pesan Disini`"
-                )
+                await event.reply(get_string("hk_admn")
+                                  )
                 await sleep(1)
                 await reply.delete()
                 sql.rm_from_blacklist(event.chat_id, snip.lower())
@@ -43,20 +43,20 @@ async def on_add_black_list(addbl):
     )
     for trigger in to_blacklist:
         sql.add_to_blacklist(addbl.chat_id, trigger.lower())
-    await edit_or_reply(
-        addbl, "`Menambahkan Kata` **{}** `Ke Blacklist Untuk Obrolan Ini`".format(text)
+    await eor(
+        addbl, get_string("blk_2").format(text)
     )
 
 
 @ayiin_cmd(pattern="listbl(?: |$)(.*)")
 async def on_view_blacklist(listbl):
     all_blacklisted = sql.get_chat_blacklist(listbl.chat_id)
-    OUT_STR = "Blacklists in the Current Chat:\n"
+    OUT_STR = get_string("blk_5")
     if len(all_blacklisted) > 0:
         for trigger in all_blacklisted:
             OUT_STR += f"`{trigger}`\n"
     else:
-        OUT_STR = "**Tidak Ada Blacklist Dalam Obrolan Ini.**"
+        OUT_STR = get_string("blk_6")
     if len(OUT_STR) > 4096:
         with io.BytesIO(str.encode(OUT_STR)) as out_file:
             out_file.name = "blacklist.text"
@@ -70,7 +70,7 @@ async def on_view_blacklist(listbl):
             )
             await listbl.delete()
     else:
-        await edit_or_reply(listbl, OUT_STR)
+        await eor(listbl, OUT_STR)
 
 
 @ayiin_cmd(pattern="rmbl(?: |$)(.*)")
@@ -84,9 +84,9 @@ async def on_delete_blacklist(rmbl):
         for trigger in to_unblacklist
     )
     if not successful:
-        await rmbl.edit("**{}** `Tidak Ada Di Blacklist`".format(text))
+        await rmbl.edit(get_string("blk_1").format(text))
     else:
-        await rmbl.edit("`Berhasil Menghapus` **{}** `Di Blacklist`".format(text))
+        await rmbl.edit(get_string("blk_4").format(text))
 
 
 CMD_HELP.update(

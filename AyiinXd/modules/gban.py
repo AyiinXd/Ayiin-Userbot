@@ -4,7 +4,8 @@
 
 from AyiinXd import DEVS, WHITELIST, blacklistayiin
 from AyiinXd.events import register
-from AyiinXd.utils import ayiin_cmd, chataction, get_user_from_event
+from AyiinXd.ayiin import ayiin_cmd, chataction, get_user_from_event
+from Stringyins import get_string
 
 # Ported For Lord-Userbot by liualvinas/Alvin
 
@@ -31,11 +32,7 @@ async def handler(tele):
                         await client.edit_permissions(
                             tele.chat_id, guser.id, view_messages=False
                         )
-                        await tele.reply(
-                            f"**𝘽𝙖𝙣𝙣𝙚𝙙 𝙎𝙥𝙤𝙩𝙚𝙙**\n"
-                            f"**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{guser.id}](tg://user?id={guser.id})\n"
-                            f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝘽𝙖𝙣𝙣𝙚𝙙 𝙄𝙣 𝙂𝙧𝙤𝙪𝙥`\n"
-                            f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 :** ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧"
+                        await tele.reply(get_string("gban_1").format(guser.id, guser.id)
                         )
                     except BaseException:
                         return
@@ -48,10 +45,10 @@ async def gben(userbot):
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if sender.id != me.id:
-        dark = await dc.reply("`𝙂𝙪𝙖 𝙋𝙧𝙤𝙨𝙚𝙨 𝙂𝙗𝙖𝙣𝙣𝙞𝙣𝙜 𝙎𝙚𝙠𝙖𝙧𝙖𝙣𝙜 𝙏𝙤𝙙...`")
+        dark = await dc.reply(get_string("gban_2"))
     else:
-        dark = await dc.edit("`𝙈𝙚𝙢𝙥𝙧𝙤𝙨𝙚𝙨 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝙏𝙞𝙩𝙞𝙨𝙖𝙣 𝘿𝙖𝙟𝙟𝙖𝙡..`")
-    await dark.edit("`𖣘 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝘼𝙠𝙖𝙣 𝘼𝙠𝙩𝙞𝙛 𝙏𝙤𝙙..`")
+        dark = await dc.edit(get_string("gban_2"))
+    await dark.edit(get_string("gban_3"))
     a = b = 0
     if userbot.is_private:
         user = userbot.chat
@@ -64,13 +61,12 @@ async def gben(userbot):
         if not reason:
             reason = "Private"
     except BaseException:
-        return await dark.edit("**𝘼𝙣𝙟𝙞𝙣𝙜 𝙂𝙖𝙜𝙖𝙡 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 :(**")
+        return await dark.edit(get_string("gban_4"))
     if user:
         if user.id in DEVS:
-            return await dark.edit("**𝙂𝙖𝙜𝙖𝙡 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙 𝙏𝙤𝙙, 𝙆𝙖𝙧𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖𝙡𝙖𝙝 𝘽𝙤𝙨𝙨 𝙂𝙪𝙖 🤪**")
+            return await dark.edit(get_string("gban_5"))
         if user.id in WHITELIST:
-            return await dark.edit(
-                "**Gagal Global Banned, Karna dia adalah suhu cuaca 🤪**"
+            return await dark.edit(get_string("gban_6")
             )
         try:
             from AyiinXd.modules.sql_helper.gmute_sql import gmute
@@ -85,31 +81,20 @@ async def gben(userbot):
             try:
                 await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
-                await dark.edit(
-                    r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-                    f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-                    f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
-                    f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙`"
+                await dark.edit(get_string("gban_7").format(user.first_name, user.id, user.id)
                 )
             except BaseException:
                 b += 1
     else:
-        await dark.edit("**𝘽𝙖𝙡𝙖𝙨 𝙆𝙚 𝙋𝙚𝙨𝙖𝙣 𝙋𝙚𝙣𝙜𝙜𝙪𝙣𝙖𝙣𝙮𝙖 𝙂𝙤𝙗𝙡𝙤𝙠**")
+        await dark.edit(get_string("gban_8"))
     try:
         if gmute(user.id) is False:
-            return await dark.edit(
-                "**#𝘼𝙡𝙧𝙚𝙖𝙙𝙮_𝙂𝘽𝙖𝙣𝙣𝙚𝙙**\n\n𝙐𝙨𝙚𝙧 𝘼𝙡𝙧𝙚𝙖𝙙𝙮 𝙀𝙭𝙞𝙨𝙩𝙨 𝙄𝙣 𝙈𝙮 𝙂𝙗𝙖𝙣 𝙇𝙞𝙨𝙩.**"
+            return await dark.edit(get_string("gban_9")
             )
 
     except BaseException:
         pass
-    return await dark.edit(
-        r"\\**#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-        f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-        f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙`\n"
-        f"**𝙂𝙗𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 :** `{me.first_name}`\n"
-        f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
+    return await dark.edit(get_string("gban_10").format(user.first_name, user.id, user.id, me.first_name)
     )
 
 
@@ -120,10 +105,10 @@ async def gunben(userbot):
     sender = await dc.get_sender()
     me = await dc.client.get_me()
     if sender.id != me.id:
-        dark = await dc.reply("`𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙞𝙣𝙜...`")
+        dark = await dc.reply(get_string("ungban_1"))
     else:
-        dark = await dc.edit("`𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙞𝙣𝙜....`")
-    await dark.edit("`𝙈𝙚𝙢𝙗𝙖𝙩𝙖𝙡𝙠𝙖𝙣 𝙋𝙚𝙧𝙞𝙣𝙩𝙖𝙝 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙`")
+        dark = await dc.edit(get_string("ungban_1"))
+    await dark.edit(get_string("ungban_1"))
     a = b = 0
     if userbot.is_private:
         user = userbot.chat
@@ -136,11 +121,10 @@ async def gunben(userbot):
         if not reason:
             reason = "Private"
     except BaseException:
-        return await dark.edit("**`𝙂𝙖𝙜𝙖𝙡 𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 :(`**")
+        return await dark.edit(get_string("ungban_2"))
     if user:
         if user.id in blacklistayiin:
-            return await dark.edit(
-                "**𝙂𝙖𝙜𝙖𝙡 𝙐𝙣𝙜𝙗𝙖𝙣𝙣𝙚𝙙, 𝙆𝙖𝙧𝙚𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖 𝘿𝙞 𝘽𝙡𝙖𝙘𝙠𝙡𝙞𝙨𝙩 𝘼𝙮𝙞𝙞𝙣**"
+            return await dark.edit(get_string("ungban_3")
             )
         try:
             from AyiinXd.modules.sql_helper.gmute_sql import ungmute
@@ -155,21 +139,15 @@ async def gunben(userbot):
             try:
                 await userbot.client.edit_permissions(i, user, send_messages=True)
                 a += 1
-                await dark.edit("`𝙈𝙚𝙢𝙗𝙖𝙩𝙖𝙡𝙠𝙖𝙣 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙...`")
+                await dark.edit(get_string("ungban_1"))
             except BaseException:
                 b += 1
     else:
-        await dark.edit("`𝘽𝙖𝙡𝙖𝙨 𝙆𝙚 𝙋𝙚𝙨𝙖𝙣 𝙋𝙚𝙣𝙜𝙜𝙪𝙣𝙖𝙣𝙮𝙖 𝙂𝙤𝙗𝙡𝙤𝙠`")
+        await dark.edit(get_string("gban_8"))
     try:
         if ungmute(user.id) is False:
-            return await dark.edit("**𝙀𝙧𝙧𝙤𝙧! 𝙋𝙚𝙣𝙜𝙜𝙪𝙣𝙖 𝙎𝙚𝙙𝙖𝙣𝙜 𝙏𝙞𝙙𝙖𝙠 𝘿𝙞 𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙.**")
+            return await dark.edit(get_string("ungban_5"))
     except BaseException:
         pass
-    return await dark.edit(
-        r"\\**#𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧**//"
-        f"\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n"
-        f"**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n"
-        f"**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙐𝙣𝙂𝙡𝙤𝙗𝙖𝙡 𝘽𝙖𝙣𝙣𝙚𝙙`\n"
-        f"**𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙚𝙙 𝘽𝙮 :** `{me.first_name}`\n"
-        f"**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
+    return await dark.edit(get_string("ungban_4").format(user.first_name, user.id, user.id, me.first_name)
     )

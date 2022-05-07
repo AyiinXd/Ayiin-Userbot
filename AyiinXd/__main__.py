@@ -25,7 +25,7 @@ from AyiinXd import BOTLOG_CHATID, LOGS, LOOP, bot
 from AyiinXd.clients import ayiin_userbot_on, multiayiin
 from AyiinXd.core.git import git
 from AyiinXd.modules import ALL_MODULES
-from AyiinXd.utils import autobot, autopilot
+from AyiinXd.ayiin import autobot, autopilot
 
 try:
     for module_name in ALL_MODULES:

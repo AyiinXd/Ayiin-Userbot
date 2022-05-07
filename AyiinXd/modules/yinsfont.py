@@ -16,7 +16,7 @@
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, edit_delete, edit_or_reply
 
 
 def monospace(text):

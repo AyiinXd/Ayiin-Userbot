@@ -18,7 +18,8 @@ from PIL import Image
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
-from AyiinXd.utils import edit_delete, edit_or_reply, googleimagesdownload, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor googleimagesdownload
+from Stringyins import get_string
 
 opener = urllib.request.build_opener()
 useragent = (
@@ -35,16 +36,16 @@ async def okgoogle(img):
         os.remove("okgoogle.png")
     message = await img.get_reply_message()
     if not message or not message.media:
-        return await edit_delete(img, "**Reply ke foto atau stiker.**")
+        return await eod(img, get_string("failed9"))
     photo = io.BytesIO()
     await bot.download_media(message, photo)
     if not photo:
-        return await edit_delete(img, "**Gagal mendownload gambar.**")
-    xx = await edit_or_reply(img, "`Processing...`")
+        return await eod(img, get_string("error_7"))
+    xx = await eor(img, get_string("com_1"))
     try:
         image = Image.open(photo)
     except OSError:
-        return await xx.edit("`sexuality tidak didukung, kemungkinan besar.`")
+        return await xx.edit(get_string("rvrse_1"))
     name = "okgoogle.png"
     image.save(name, "PNG")
     image.close()
@@ -60,17 +61,15 @@ async def okgoogle(img):
     response = requests.post(searchUrl, files=multipart, allow_redirects=False)
     fetchUrl = response.headers["Location"]
     if response == 400:
-        return await xx.edit("`Google menyuruhku pergi.`")
-    await xx.edit(
-        "**Image successfully uploaded to Google. Maybe.**"
-        "\n**Parsing source now. Maybe.**"
+        return await xx.edit(get_string("rvrse_2"))
+    await xx.edit(get_string("rvrse_3")
     )
     os.remove(name)
     match = await ParseSauce(fetchUrl + "&preferences?hl=en&fg=1#languages")
     guess = str(match["best_guess"])
     imgspage = match["similar_images"]
     if not guess and not imgspage:
-        return await xx.edit("`Tidak dapat menemukan apa pun untuk si jelek.`")
+        return await xx.edit(get_string("rvrse_4"))
     try:
         counter = int(img.pattern_match.group(1))
     except BaseException:
@@ -78,16 +77,9 @@ async def okgoogle(img):
     counter = int(10) if counter > 10 else counter
     counter = int(3) if counter < 0 else counter
     if counter == 0:
-        return await xx.edit(
-            f"**Best match:** `{guess}`\
-                              \n\n[Visually similar images]({fetchUrl})\
-                              \n\n[Results for {guess}]({imgspage})"
+        return await xx.edit(get_string("rvrse_5").format(guess, fetchUrl, guess, imgspage)
         )
-    await xx.edit(
-        f"**Best match:** `{guess}`\
-                   \n\n[Visually similar images]({fetchUrl})\
-                   \n\n[Results for {guess}]({imgspage})\
-                   \n\n**Fetching images...**"
+    await xx.edit(get_string("rvrse_6").format(guess, fetchUrl, guess, imgspage)
     )
     response = googleimagesdownload()
     # creating list of arguments
@@ -100,11 +92,7 @@ async def okgoogle(img):
     try:
         paths = response.download(arguments)
     except Exception as e:
-        return await xx.edit(
-            f"**Best match:** `{guess}`\
-                              \n\n[Visually similar images]({fetchUrl})\
-                              \n\n[Results for {guess}]({imgspage})\
-                              \n\n**Error:** `{e}`**.**"
+        return await xx.edit(get_string("rvrse_7").format(guess, fetchUrl, guess, imgspage, e)
         )
     lst = paths[0][guess]
     await img.client.send_file(
@@ -112,10 +100,7 @@ async def okgoogle(img):
         file=lst,
         reply_to=img,
     )
-    await xx.edit(
-        f"**Best match:** `{guess}`\
-                   \n\n[Visually similar images]({fetchUrl})\
-                   \n\n[Results for {guess}]({imgspage})"
+    await xx.edit(get_string("rvrse_5").format(guess, fetchUrl, guess, imgspage)
     )
     shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
 

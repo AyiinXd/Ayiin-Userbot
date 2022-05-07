@@ -12,14 +12,15 @@ from natsort import natsorted
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
 from AyiinXd.events import ayiin_cmd
-from AyiinXd.utils import post_to_telegraph
+from AyiinXd.ayiin import post_to_telegraph
+from Stringyins import get_string
 
 
 @bot.on(ayiin_cmd(outgoing=True, pattern=r"nhentai(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit("`Searching for doujin...`")
+    await event.edit(get_string("nentai_1"))
     input_str = event.pattern_match.group(1)
     code = input_str
     if "nhentai" in input_str:
@@ -32,8 +33,8 @@ async def _(event):
         doujin = Hentai(code)
     except BaseException as n_e:
         if "404" in str(n_e):
-            return await event.edit(f"No doujin found for `{code}`")
-        return await event.edit(f"**ERROR :** `{n_e}`")
+            return await event.edit(get_string("nentai_2").format(code))
+        return await event.edit(get_string("error_1").format(n_e))
     msg = ""
     imgs = "".join(f"<img src='{url}'/>" for url in doujin.image_urls)
     imgs = f"&#8205; {imgs}"

@@ -10,7 +10,7 @@ from telethon import Button
 from AyiinXd import BOT_USERNAME
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, tgbot
-from AyiinXd.utils import edit_delete, ayiin_cmd, reply_id
+from AyiinXd.ayiin import edit_delete, ayiin_cmd, reply_id
 
 # regex obtained from:
 # https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23

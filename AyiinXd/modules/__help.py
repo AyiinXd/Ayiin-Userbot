@@ -5,8 +5,10 @@
 #
 """ Userbot help command """
 
+from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import BOT_USERNAME, CMD_HELP, ch
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="help(?: |$)(.*)")
@@ -14,12 +16,12 @@ async def help(event):
     args = event.pattern_match.group(1).lower()
     if args:
         if args in CMD_HELP:
-            await edit_or_reply(event, f"{CMD_HELP[args]}\n\n© {ch}")
+            await eor(event, get_string("help_5").format(CMD_HELP[args], ch))
         else:
-            await edit_delete(event, f"**Modules {args} Gak Ada Tod**, **Ketik Yang Bener Anj.**")
+            await eod(event, get_string("help_10").format(args, cmd))
     else:
         try:
-            results = await event.client.inline_query(  # pylint:disable=E0602
+            results = await bot.inline_query(  # pylint:disable=E0602
                 BOT_USERNAME, "@AyiinXdSupport"
             )
             await results[0].click(
@@ -27,5 +29,5 @@ async def help(event):
             )
             await event.delete()
         except Exception as e:
-            await edit_or_reply(event, f"**INFO :** `{e}`"
-                                )
+            await eor(event, get_string("error_1").format(e)
+                      )

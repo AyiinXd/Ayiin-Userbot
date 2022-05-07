@@ -9,7 +9,7 @@ from telethon.tl.types import User
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, LOGS, bot
 from AyiinXd.modules.sql_helper.tede_chatbot_sql import is_tede, rem_tede, set_tede
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import edit_or_reply, ayiin_cmd
 
 translator = Translator()
 LANGUAGE = "id"

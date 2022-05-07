@@ -20,7 +20,7 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.ayiinxd.truthdare import Dare as d
 from AyiinXd.ayiinxd.truthdare import Truth as t
-from AyiinXd.utils import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
 
 
 Tod = ["Truth", "Dare"]

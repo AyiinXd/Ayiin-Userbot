@@ -16,8 +16,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
-from AyiinXd.utils.misc import create_quotly
+from AyiinXd.ayiin import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin.misc import create_quotly
 
 from .carbon import all_col
 
@@ -26,8 +26,8 @@ from .carbon import all_col
 async def quotly(event):
     match = event.pattern_match.group(1).strip()
     if not event.is_reply:
-        return await edit_delete(event, "**Balas ke Pesannya Bego!!!**")
-    msg = await edit_or_reply(event, "`Sabar Ya Babi...`")
+        return await eod(event, get_string("gban_8"))
+    msg = await eor(event, get_string("com_1"))
     reply = await event.get_reply_message()
     replied_to, reply_ = None, None
     if match:
@@ -76,7 +76,7 @@ async def quotly(event):
     try:
         file = await create_quotly(reply_, bg=match, reply=replied_to, sender=user)
     except Exception as er:
-        return await msg.edit(f"**ERROR:** `{er}`")
+        return await msg.edit(get_string("error_1").format(er))
     message = await reply.reply(file=file)
     await event.reply(f"**Quotly by Ayiin-Userbot**")
     remove(file)

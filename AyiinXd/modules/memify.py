@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd, runcmd, take_screen_shot
+from AyiinXd.ayiin import edit_delete, edit_or_reply, ayiin_cmd, runcmd, take_screen_shot
 
 
 @ayiin_cmd(pattern="mmf (.*)")

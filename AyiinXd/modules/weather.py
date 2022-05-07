@@ -17,7 +17,8 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd import OPEN_WEATHER_MAP_APPID as OWM_API
 from AyiinXd import WEATHER_DEFCITY
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 DEFCITY = WEATHER_DEFCITY or None
 
@@ -38,10 +39,9 @@ async def get_tz(con):
 @ayiin_cmd(pattern="weather(?: |$)(.*)")
 async def get_weather(weather):
     if not OWM_API:
-        return await weather.edit(
-            "**Get an API key from** https://openweathermap.org **first.**"
+        return await weather.edit(get_string("weather_1")
         )
-    xx = await edit_or_reply(weather, "Processing...")
+    xx = await eor(weather, get_string("com_1"))
     APPID = OWM_API
     anonymous = False
     if not weather.pattern_match.group(1):
@@ -52,8 +52,7 @@ async def get_weather(weather):
     else:
         CITY = weather.pattern_match.group(1)
     if not CITY:
-        return await xx.edit(
-            "**Please specify a city or set one as default using the WEATHER_DEFCITY config variable.**"
+        return await xx.edit(get_string("weather_2")
         )
     timezone_countries = {
         timezone: country
@@ -75,7 +74,7 @@ async def get_weather(weather):
     request = get(url)
     result = json.loads(request.text)
     if request.status_code != 200:
-        return await weather.edit("`Invalid country.`")
+        return await weather.edit(get_string("weather_3"))
     cityname = result["name"]
     curtemp = result["main"]["temp"]
     humidity = result["main"]["humidity"]
@@ -109,20 +108,11 @@ async def get_weather(weather):
     def sun(unix):
         return datetime.fromtimestamp(unix, tz=ctimezone).strftime("%I:%M %p")
 
-    results = (
-        f"**Temperature:** `{celsius(curtemp)}°C | {fahrenheit(curtemp)}°F`\n" +
-        f"**Min. Temp.:** `{celsius(min_temp)}°C | {fahrenheit(min_temp)}°F`\n" +
-        f"**Max. Temp.:** `{celsius(max_temp)}°C | {fahrenheit(max_temp)}°F`\n" +
-        f"**Humidity:** `{humidity}%`\n" +
-        f"**Wind:** `{kmph[0]} kmh | {mph[0]} mph, {findir}`\n" +
-        f"**Sunrise:** `{sun(sunrise)}`\n" +
-        f"**Sunset:** `{sun(sunset)}`\n\n" +
-        f"**{desc}**\n" +
-        f"`{time}`\n")
+    results = (get_string("weather_4").format(celsius(curtemp), fahrenheit(curtemp), celsius(min_temp), fahrenheit(min_temp), celsius(max_temp), fahrenheit(max_temp), humidity, kmph[0], mph[0], findir, sun(sunrise), sun(sunset), desc, time)
     if not anonymous:
         results += f"`{cityname}, {fullc_n}`"
 
-    await edit_or_reply(weather, results)
+    await weather.eor(results)
 
 
 CMD_HELP.update(

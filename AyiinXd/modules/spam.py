@@ -13,8 +13,9 @@ from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, BLACKLIST_CHAT, LOGS
 from AyiinXd.modules.sql_helper.globals import addgvar, gvarstatus
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
-from AyiinXd.utils.tools import media_type
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from AyiinXd.ayiin.tools import media_type
+from Stringyins import get_string
 
 
 async def unsavegif(event, spammer):
@@ -58,27 +59,19 @@ async def spam_function(event, spammer, xnxx, sleeptimem, sleeptimet, DelaySpam=
             if DelaySpam is not True:
                 if event.is_private:
                     await event.client.send_message(
-                        BOTLOG_CHATID,
-                        "#SPAM\n"
-                        + f"Spam was executed successfully in [User](tg://user?id={event.chat_id}) chat with {counter} times with below message",
+                        BOTLOG_CHATID, get_string("spam_1").format(event.chat_id, counter)
                     )
                 else:
                     await event.client.send_message(
-                        BOTLOG_CHATID,
-                        "#SPAM\n"
-                        + f"Spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) with {counter} times with below message",
+                        BOTLOG_CHATID, get_string("spam_2").format(get_display_name(await event.get_chat()), event.chat_id, counter)
                     )
             elif event.is_private:
                 await event.client.send_message(
-                    BOTLOG_CHATID,
-                    "#DELAYSPAM\n"
-                    + f"Delay spam was executed successfully in [User](tg://user?id={event.chat_id}) chat with {counter} times with below message with delay {sleeptimet} seconds",
+                    BOTLOG_CHATID, get_string("spam_3").format(event.chat_id, counter, sleeptimet)
                 )
             else:
                 await event.client.send_message(
-                    BOTLOG_CHATID,
-                    "#DELAYSPAM\n"
-                    + f"Delay spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) with {counter} times with below message with delay {sleeptimet} seconds",
+                    BOTLOG_CHATID, get_string("spam_4").format(get_display_name(await event.get_chat()), event.chat_id, counter, sleeptimet)
                 )
 
             spammer = await event.client.send_file(BOTLOG_CHATID, spammer)
@@ -97,47 +90,34 @@ async def spam_function(event, spammer, xnxx, sleeptimem, sleeptimet, DelaySpam=
         if BOTLOG_CHATID:
             if event.is_private:
                 await event.client.send_message(
-                    BOTLOG_CHATID,
-                    "#SPAM\n"
-                    + f"Spam was executed successfully in [User](tg://user?id={event.chat_id}) chat with {counter} messages of \n"
-                    + f"`{spam_message}`",
+                    BOTLOG_CHATID, get_string("spam_5").format(event.chat_id, counter, spam_message)
                 )
             else:
                 await event.client.send_message(
-                    BOTLOG_CHATID,
-                    "#SPAM\n"
-                    + f"Spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat  with {counter} messages of \n"
-                    + f"`{spam_message}`",
+                    BOTLOG_CHATID, get_string("spam_6").format(get_display_name(await event.get_chat()), event.chat_id, counter, spam_message)
                 )
     elif BOTLOG_CHATID:
         if event.is_private:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                "#DELAYSPAM\n"
-                + f"Delay Spam was executed successfully in [User](tg://user?id={event.chat_id}) chat with delay {sleeptimet} seconds and with {counter} messages of \n"
-                + f"`{spam_message}`",
+                BOTLOG_CHATID, get_string("spam_7").format(event.chat_id, sleeptimet, counter, spam_message)
             )
         else:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                "#DELAYSPAM\n"
-                + f"Delay spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat with delay {sleeptimet} seconds and with {counter} messages of \n"
-                + f"`{spam_message}`",
+                BOTLOG_CHATID, get_string("spam_8").format(get_display_name(await event.get_chat()), event.chat_id, sleeptimet, counter, spam_message)
             )
 
 
 @ayiin_cmd(pattern="spam ([\\s\\S]*)")
 async def nyespam(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
+        return await event.edit(get_string("ayiin_1"))
     spammer = await event.get_reply_message()
     xnxx = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
     try:
         counter = int(xnxx[0])
     except Exception:
-        return await edit_delete(
-            event,
-            f"**Gunakan sintaks yang tepat untuk spam. Ketik** `{cmd}help spam` **bila butuh bantuan.**",
+        return await eod(
+            event, get_string("spam_9").format(cmd)
         )
     if counter > 50:
         sleeptimet = 0.5
@@ -153,19 +133,18 @@ async def nyespam(event):
 @ayiin_cmd(pattern="sspam$")
 async def stickerpack_spam(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
+        return await event.edit(get_string("ayiin_1"))
     reply = await event.get_reply_message()
     if not reply or media_type(
             reply) is None or media_type(reply) != "Sticker":
-        return await edit_delete(
-            event,
-            "**Balas stiker apa pun untuk mengirim semua stiker dalam paket itu**",
+        return await eod(
+            event, get_string("sspam_1")
         )
     try:
         stickerset_attr = reply.document.attributes[1]
-        xyz = await edit_or_reply(event, "`Mengambil detail Sticker Pack...`")
+        xyz = await eor(event, get_string("sspam_2"))
     except BaseException:
-        await edit_delete(event, "**Ini bukan stiker. Silahkan Reply ke stiker.")
+        await eod(event, get_string("sspam_3"))
         return
     try:
         get_stickerset = await event.client(
@@ -177,9 +156,8 @@ async def stickerpack_spam(event):
             )
         )
     except Exception:
-        return await edit_delete(
-            xyz,
-            "**Stiker ini bukan bagian dari sticker pack mana pun jadi saya tidak bisa kang paket stiker ini coba kang untuk stiker ini**",
+        return await eod(
+            xyz, get_string("sspam_4")
         )
     reqd_sticker_set = await event.client(
         functions.messages.GetStickerSetRequest(
@@ -197,15 +175,11 @@ async def stickerpack_spam(event):
     if BOTLOG_CHATID:
         if event.is_private:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                "#STICKERPACK_SPAM\n"
-                + f"Sticker Pack Spam was executed successfully in [User](tg://user?id={event.chat_id}) chat with pack ",
+                BOTLOG_CHATID, get_string("sspam_5").format(event.chat_id)
             )
         else:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                "#STICKERPACK_SPAM\n"
-                + f"Sticker Pack Spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat with pack",
+                BOTLOG_CHATID, get_string("sspam_6").format(get_display_name(await event.get_chat()), event.chat_id)
             )
         await event.client.send_file(BOTLOG_CHATID, reqd_sticker_set.documents[0])
 
@@ -213,7 +187,7 @@ async def stickerpack_spam(event):
 @ayiin_cmd(pattern="cspam ([\\s\\S]*)")
 async def tmeme(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
+        return await event.edit(get_string("ayiin_1"))
     cspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = cspam.replace(" ", "")
     await event.delete()
@@ -225,22 +199,18 @@ async def tmeme(event):
     if BOTLOG_CHATID:
         if event.is_private:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                "#CSPAM\n"
-                + f"Letter Spam was executed successfully in [User](tg://user?id={event.chat_id}) chat with : `{message}`",
+                BOTLOG_CHATID, get_string("cspam_1").format(event.chat_id, message)
             )
         else:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                "#CSPAM\n"
-                + f"Letter Spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat with : `{message}`",
+                BOTLOG_CHATID, get_string("cspam_2").format(get_display_name(await event.get_chat()), event.chat_id, message)
             )
 
 
 @ayiin_cmd(pattern="wspam ([\\s\\S]*)")
 async def tmeme(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
+        return await event.edit(get_string("ayiin_1"))
     wspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = wspam.split()
     await event.delete()
@@ -252,38 +222,32 @@ async def tmeme(event):
     if BOTLOG_CHATID:
         if event.is_private:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                "#WSPAM\n"
-                + f"Word Spam was executed successfully in [User](tg://user?id={event.chat_id}) chat with : `{message}`",
+                BOTLOG_CHATID, get_string("wspam_1").format(event.chat_id, message)
             )
         else:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                "#WSPAM\n"
-                + f"Word Spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat with : `{message}`",
+                BOTLOG_CHATID, get_string("wspam_2").format(get_display_name(await event.get_chat()), event.chat_id, message)
             )
 
 
 @ayiin_cmd(pattern="(delayspam|dspam) ([\\s\\S]*)")
 async def dlyspam(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
+        return await event.edit(get_string("ayiin_1"))
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
     try:
         sleeptimet = sleeptimem = float(input_str[0])
     except Exception:
-        return await edit_delete(
-            event,
-            f"**Gunakan sintaks yang tepat untuk delayspam. Ketik** `{cmd}help spam` **bila butuh bantuan.**",
+        return await eod(
+            event, get_string("dspam_1").format(cmd)
         )
     xnxx = input_str[1:]
     try:
         int(xnxx[0])
     except Exception:
-        return await edit_delete(
-            event,
-            f"**Gunakan sintaks yang tepat untuk delayspam. Ketik** `{cmd}help spam` **bila butuh bantuan.**",
+        return await eod(
+            event, get_string("dspam_1").format(cmd)
         )
     await event.delete()
     addgvar("spamwork", True)

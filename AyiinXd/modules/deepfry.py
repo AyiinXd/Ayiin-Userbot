@@ -38,7 +38,9 @@ from PIL import Image, ImageEnhance, ImageOps
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import check_media, edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from AyiinXd.ayiin import check_media
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="deepfry(?: |$)(.*)")
@@ -53,18 +55,18 @@ async def deepfryer(event):
         reply_message = await event.get_reply_message()
         data = await check_media(reply_message)
         if isinstance(data, bool):
-            return await edit_delete(event, "`I can't deep fry that!`")
+            return await eod(event, get_string("deep_1"))
     else:
-        return await edit_delete(
-            event, "`Reply to an image or sticker to deep fry it!`"
+        return await eod(
+            event, get_string("deep_2")
         )
     # download last photo (highres) as byte array
-    xx = await edit_or_reply(event, "`Downloading media…`")
+    xx = await eor(event, get_string("com_5"))
     image = io.BytesIO()
     await event.client.download_media(data, image)
     image = Image.open(image)
     # fry the image
-    await xx.edit("`Deep frying media…`")
+    await xx.edit(get_string("deep_3"))
     for _ in range(frycount):
         image = await deepfry(image)
     fried_io = io.BytesIO()

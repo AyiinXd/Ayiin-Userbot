@@ -40,9 +40,11 @@ from telethon.utils import get_input_location
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
+from AyiinXd.ayiin import eod, eor
 from AyiinXd.events import register
 from AyiinXd.modules.yinsping import absen
-from AyiinXd.utils import ayiin_cmd, edit_delete, edit_or_reply, get_user_from_event
+from AyiinXd.ayiin import ayiin_cmd, get_user_from_event
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="userid$")
@@ -61,7 +63,7 @@ async def useridgetter(target):
                 name = "@" + message.forward.sender.username
             else:
                 name = "*" + message.forward.sender.first_name + "*"
-        await edit_or_reply(target, f"**Username:** {name} \n**User ID:** `{user_id}`")
+        await eor(target, get_string("chat_1").format(name, user_id))
 
 
 @ayiin_cmd(pattern="link(?: |$)(.*)")
@@ -70,11 +72,11 @@ async def permalink(mention):
     if not user:
         return
     if custom:
-        await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
+        await eor(mention, get_string("link_2").format(custom, user.id))
     else:
         tag = (user.first_name.replace("\u2060", "")
                if user.first_name else user.username)
-        await edit_or_reply(mention, f"[{tag}](tg://user?id={user.id})")
+        await edit_or_reply(mention, get_string("link_2").format(tag, user.id))
 
 
 @ayiin_cmd(pattern="bots(?: |$)(.*)")
@@ -88,11 +90,11 @@ async def _(event):
     if not input_str:
         chat = to_write_chat
     else:
-        mentions = "Bot Dalam {} Group: \n".format(input_str)
+        mentions = get_string("bots_2").format(input_str)
         try:
             chat = await event.client.get_entity(input_str)
         except Exception as e:
-            await edit_or_reply(event, str(e))
+            await eor(event, get_string("error_1").format(str(e)))
             return None
     try:
         async for x in event.client.iter_participants(
@@ -100,15 +102,13 @@ async def _(event):
         ):
             if isinstance(x.participant, ChannelParticipantAdmin):
                 mentions += "\n 👑 [{}](tg://user?id={}) `{}`".format(
-                    x.first_name, x.id, x.id
-                )
+                    x.first_name, x.id, x.id)
             else:
                 mentions += "\n ⚜️ [{}](tg://user?id={}) `{}`".format(
-                    x.first_name, x.id, x.id
-                )
+                    x.first_name, x.id, x.id)
     except Exception as e:
         mentions += " " + str(e) + "\n"
-    await edit_or_reply(event, mentions)
+    await eor(event, mentions)
 
 
 @register(pattern=r"^\.absenall$", own=True)
@@ -118,14 +118,14 @@ async def _(event):
 
 @ayiin_cmd(pattern="chatinfo(?: |$)(.*)")
 async def info(event):
-    xx = await edit_or_reply(event, "`Menganalisis Obrolan Ini...`")
+    xx = await eor(event, get_string("com_7"))
     chat = await get_chatinfo(event)
     caption = await fetch_info(chat, event)
     try:
         await xx.edit(caption, parse_mode="html")
     except Exception as e:
         print("Exception:", e)
-        await xx.edit("**Terjadi Kesalah Yang Tidak Terduga.**")
+        await xx.edit(get_string("error_4"))
     return
 
 
@@ -150,18 +150,17 @@ async def get_chatinfo(event):
         try:
             chat_info = await event.client(GetFullChannelRequest(chat))
         except ChannelInvalidError:
-            await edit_or_reply(event, "`Invalid channel/group`")
+            await eor(event, get_string("failed5"))
             return None
         except ChannelPrivateError:
-            await edit_or_reply(
-                event, "`This is a private channel/group or I am banned from there`"
-            )
+            await eod(event, get_string("failed6")
+                      )
             return None
         except ChannelPublicGroupNaError:
-            await edit_or_reply(event, "`Channel or supergroup doesn't exist`")
+            await eod(event, get_string("failed7"))
             return None
         except (TypeError, ValueError):
-            await edit_or_reply(event, "`Invalid channel/group`")
+            await eod(event, get_string("failed5"))
             return None
     return chat_info
 
@@ -383,9 +382,8 @@ async def _(event):
         return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
-        await edit_or_reply(
-            event, f"`{cmd}invite` pengguna ke grup chat, bukan ke Pesan Pribadi"
-        )
+        await eor(event, get_string("invt_2")
+                  )
     else:
         if not event.is_channel and event.is_group:
             # https://lonamiwebs.github.io/Telethon/methods/messages/add_chat_user.html
@@ -399,7 +397,7 @@ async def _(event):
                         )
                     )
                 except Exception as e:
-                    return await edit_or_reply(event, str(e))
+                    return await eod(event, get_string("error_1").format(str(e)))
         else:
             # https://lonamiwebs.github.io/Telethon/methods/channels/invite_to_channel.html
             for user_id in to_add_users.split():
@@ -412,9 +410,9 @@ async def _(event):
                         )
                     )
                 except Exception as e:
-                    return await edit_or_reply(event, str(e))
+                    return await eor(event, get_string("error_1").format(str(e)))
 
-        await edit_delete(event, "`Invited Successfully`")
+        await eod(event, get_string("invt_3"))
 
 
 # inviteall Ported By @VckyouuBitch
@@ -428,39 +426,36 @@ async def get_users(event):
     chat_ayiin = ayiin_.lower()
     restricted = ["@AyiinXdSupport", "@ayiinxdsupport"]
     if chat_ayiin in restricted:
-        await edit_or_reply(event, "**Anda tidak dapat Mengundang Anggota dari sana.**")
+        await eor(event, get_string("inal_1"))
         await event.client.send_message(
-            -1001675396283, "**Maaf Telah Mencuri Member dari Sini.**"
+            -1001675396283, get_string("inal_2")
         )
         return
     if not ayiin_:
-        return await edit_or_reply(
-            event, "**Berikan Link Grup Chat untuk menculik membernya**"
+        return await eor(
+            event, get_string("inal_3")
         )
-    ayiin = await edit_or_reply(event, f"**Mengundang Member Dari Group {ayiin_}**")
+    ayiin = await eor(event, get_string("inal_5").format(ayiin_))
     ayiinuserbot = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await ayiin.edit(
-            "**Tidak bisa Menambahkan Member di sini Harap ketik di Grup Chat**"
-        )
+        return await ayiin.edit(get_string("inal_4")
+                                )
     s = 0
     f = 0
     error = "None"
-    await ayiin.edit("**Terminal Status**\n\n`Sedang Mengumpulkan Pengguna...`")
+    await ayiin.edit(get_string("inal_6"))
     async for user in event.client.iter_participants(ayiinuserbot.full_chat.id):
         try:
             await event.client(InviteToChannelRequest(channel=chat, users=[user.id]))
             s += 1
-            await ayiin.edit(
-                f"**Terminal Running**\n\n• **Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**\n\n**× LastError:** `{error}`"
-            )
+            await ayiin.edit(get_string("inal_8").format(s, f, error)
+                             )
         except Exception as e:
             error = str(e)
             f += 1
-    return await ayiin.edit(
-        f"**Terminal Finished** \n\n• **Berhasil Menambahkan** `{s}` **orang** \n• **Gagal Menambahkan** `{f}` **orang**"
-    )
+    return await ayiin.edit(get_string("inal_7").format(s, f)
+                            )
 
 
 # Scraper & Add Member Telegram
@@ -470,7 +465,7 @@ async def get_users(event):
 @ayiin_cmd(pattern="getmember$")
 async def scrapmem(event):
     chat = event.chat_id
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     members = await event.client.get_participants(chat, aggressive=True)
 
     with open("members.csv", "w", encoding="UTF-8") as f:
@@ -478,12 +473,12 @@ async def scrapmem(event):
         writer.writerow(["user_id", "hash"])
         for member in members:
             writer.writerow([member.id, member.access_hash])
-    await xx.edit("**Berhasil Mengumpulkan Member**")
+    await xx.edit(get_string("gmem_1"))
 
 
 @ayiin_cmd(pattern="addmember$")
 async def admem(event):
-    xx = await edit_or_reply(event, "**Proses Menambahkan** `0` **Member**")
+    xx = await eor(event, get_string("amem_1"))
     chat = await event.get_chat()
     users = []
     with open("members.csv", encoding="UTF-8") as f:
@@ -496,15 +491,14 @@ async def admem(event):
     for user in users:
         n += 1
         if n % 30 == 0:
-            await xx.edit(
-                f"**Sudah Mencapai 30 anggota, Tunggu Selama** `{900/60}` **menit**"
-            )
+            await xx.edit(get_string("amem_2").format(900 / 60)
+                          )
             await asyncio.sleep(900)
         try:
             userin = InputPeerUser(user["id"], user["hash"])
             await event.client(InviteToChannelRequest(chat, [userin]))
             await asyncio.sleep(random.randrange(5, 7))
-            await xx.edit(f"**Proses Menambahkan** `{n}` **Member**")
+            await xx.edit(get_string("amem_3").format(n))
         except TypeError:
             n -= 1
             continue

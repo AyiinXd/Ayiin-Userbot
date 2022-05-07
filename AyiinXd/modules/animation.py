@@ -6,7 +6,7 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.events import register as own_cmd
 from AyiinXd.modules.yinsping import absen
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import edit_or_reply, ayiin_cmd
 
 
 @ayiin_cmd(pattern="bulan$")

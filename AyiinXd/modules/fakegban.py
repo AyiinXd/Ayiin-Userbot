@@ -7,7 +7,8 @@ from telethon.tl.types import ChannelParticipantsAdmins
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, DEVS
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="fgban(?: |$)(.*)")
@@ -17,8 +18,8 @@ async def gbun(event):
     gbunVar = event.text
     gbunVar = gbunVar[6:]
     me = await event.client.get_me()
-    mentions = f"**Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By** {me.first_name}\n"
-    await edit_or_reply(event, "**Summoning out the mighty gban hammer ☠️**")
+    mentions = get_string("fake_2").format(me.first_name)
+    await eor(event, get_string("band_1"))
     asyncio.sleep(3.5)
     chat = await event.get_input_chat()
     async for _ in event.client.iter_participants(
@@ -34,31 +35,24 @@ async def gbun(event):
         idd = reply_message.sender_id
         # make meself invulnerable cuz why not xD
         if idd == DEVS:
-            await reply_message.reply(
-                "`Wait a second, This is my master!`\n**How dare you threaten to ban my master nigger!**\n\n__Your account has been hacked! Pay 6969$ to my master__ [Heyworld](tg://user?id=1036951071) __to release your account__😏"
-            )
+            await reply_message.reply(get_string("fake_3")
+                                      )
         else:
-            jnl = (
-                f"**𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By** {me.first_name}\n\n"
-                "**Frist Name: ** {}\n"
-                "**User ID : ** `{}`\n"
-            ).format(firstname, idd)
+            jnl = get_string("fake_4").format(me.first_name, firstname, idd)
             if usname is None:
-                jnl += "**Username: ** `Doesn't own a username!`\n"
+                jnl += get_string("fake_9")
             elif usname != "None":
-                jnl += "**Username** : @{}\n".format(usname)
+                jnl += get_string("fake_8").format(usname)
             if len(gbunVar) > 0:
                 gbunm = "`{}`".format(gbunVar)
-                gbunr = f"**Reason: **{gbunm}"
+                gbunr = get_string("fake_5").format(gbunm)
                 jnl += gbunr
             else:
-                no_reason = "**Reason: **`Jamet`"
+                no_reason = get_string("fake_7")
                 jnl += no_reason
             await reply_message.reply(jnl)
     else:
-        mention = (
-            f"**Warning!! User 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By** {me.first_name} \n**Reason:** `Jamet` "
-        )
+        mention = get_string("fake_6").format(me.first_name)
         await event.reply(mention)
     await event.delete()
 

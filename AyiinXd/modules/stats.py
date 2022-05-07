@@ -16,7 +16,8 @@ from telethon.tl.types import Channel, Chat, User
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 # Functions
@@ -35,7 +36,7 @@ def inline_mention(user):
 async def stats(
     event: NewMessage.Event,
 ) -> None:
-    stat = await edit_or_reply(event, "`Collecting stats...`")
+    stat = await eor(event, get_string("stats_1"))
     start_time = time.time()
     private_chats = 0
     bots = 0
@@ -85,23 +86,23 @@ async def stats(
     except BaseException:
         sp_count = 0
     full_name = inline_mention(await event.client.get_me())
-    response = f"📊 **Stats for {full_name}** \n\n"
-    response += f"**Private Chats:** {private_chats} \n"
-    response += f"**  •• **`Users: {private_chats - bots}` \n"
-    response += f"**  •• **`Bots: {bots}` \n"
-    response += f"**Groups:** {groups} \n"
-    response += f"**Channels:** {broadcast_channels} \n"
-    response += f"**Admin in Groups:** {admin_in_groups} \n"
-    response += f"**  •• **`Creator: {creator_in_groups}` \n"
-    response += f"**  •• **`Admin Rights: {admin_in_groups - creator_in_groups}` \n"
-    response += f"**Admin in Channels:** {admin_in_broadcast_channels} \n"
-    response += f"**  •• **`Creator: {creator_in_channels}` \n"
-    response += f"**  •• **`Admin Rights: {admin_in_broadcast_channels - creator_in_channels}` \n"
-    response += f"**Unread:** {unread} \n"
-    response += f"**Unread Mentions:** {unread_mentions} \n"
-    response += f"**Blocked Users:** {ct}\n"
-    response += f"**Total Stickers Pack Installed :** `{sp_count}`\n\n"
-    response += f"⏱ **__It Took:__** {stop_time:.02f}s \n"
+    response = get_string("stats_2").format(full_name)
+    response += get_string("stats_3").format(private_chats)
+    response += get_string("stats_4").format(private_chats - bots)
+    response += get_string("stats_5").format(bots)
+    response += get_string("stats_6").format(groups)
+    response += get_string("stats_7").format(broadcast_channels)
+    response += get_string("stats_8").format(admin_in_groups)
+    response += get_string("stats_9").format(creator_in_groups)
+    response += get_string("stats_10").format(admin_in_groups - creator_in_groups)
+    response += get_string("stats_11").format(admin_in_broadcast_channels)
+    response += get_string("stats_12").format(creator_in_channels)
+    response += get_string("stats_13").format(admin_in_broadcast_channels - creator_in_channels)
+    response += get_string("stats_14").format(unread)
+    response += get_string("stats_15").format(unread_mentions)
+    response += get_string("stats_16").format(ct)
+    response += get_string("stats_17").format(sp_count)
+    response += get_string("stats_18").format(stop_time:.02f)
     await stat.edit(response)
 
 
@@ -112,9 +113,8 @@ async def _(event):
     input_str = "".join(event.text.split(maxsplit=1)[1:])
     reply_message = await event.get_reply_message()
     if not input_str and not reply_message:
-        await edit_delete(
-            event,
-            "`Balas pesan pengguna atau berikan userid/username`",
+        await eod(
+            event, get_string("ustat_1")
         )
     if input_str:
         try:
@@ -123,14 +123,14 @@ async def _(event):
             try:
                 u = await event.client.get_entity(input_str)
             except ValueError:
-                await edit_delete(
-                    event, "`Berikan userid atau username untuk melihat riwayat group`"
+                await eod(
+                    event, get_string("ustat_2")
                 )
             uid = u.id
     else:
         uid = reply_message.sender_id
     chat = "@tgscanrobot"
-    sevent = await edit_or_reply(event, "`Processing...`")
+    sevent = await event.eor(get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             msg = await conv.send_message(f"{uid}")

@@ -21,7 +21,7 @@ from telethon.tl import types
 from telethon.utils import get_display_name, get_peer_id
 
 from AyiinXd import DEVS, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.utils import runcmd
+from AyiinXd.ayiin import runcmd
 
 
 async def async_searcher(

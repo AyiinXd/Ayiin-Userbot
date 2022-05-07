@@ -14,7 +14,8 @@ from github import Github
 # from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 # from AyiinXd.events import humanbytes, progress, time_formatter
 from AyiinXd import CMD_HELP, GIT_REPO_NAME, GITHUB_ACCESS_TOKEN, bot
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
 
 GIT_TEMP_DIR = "./AyiinXd/temp/"
 
@@ -24,32 +25,32 @@ async def download(event):
     if event.fwd_from:
         return
     if GITHUB_ACCESS_TOKEN is None:
-        await event.edit("`Please ADD Proper Access Token from github.com`")
+        await event.edit(get_string("comt_1"))
         return
     if GIT_REPO_NAME is None:
-        await event.edit("`Please ADD Proper Github Repo Name of your userbot`")
+        await event.edit(get_string("comt_2"))
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.reply(get_string("com_1"))
     if not os.path.isdir(GIT_TEMP_DIR):
         os.makedirs(GIT_TEMP_DIR)
     start = datetime.now()
     reply_message = await event.get_reply_message()
     try:
         time.time()
-        print("Downloading to TEMP directory")
+        print(get_string("comt_8"))
         downloaded_file_name = await bot.download_media(
             reply_message.media, GIT_TEMP_DIR
         )
     except Exception as e:
-        await mone.edit(str(e))
+        await mone.edit(get_string("error_1").format(str(e)))
     else:
         end = datetime.now()
         ms = (end - start).seconds
         await event.delete()
         await mone.edit(
-            "Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms)
+            get_string("comt_3").format(downloaded_file_name, ms)
         )
-        await mone.edit("Committing to Github....")
+        await mone.edit(get_string("comt_4"))
         await git_commit(downloaded_file_name, mone)
 
 
@@ -69,7 +70,7 @@ async def git_commit(file_name, mone):
     for i in content_list:
         create_file = True
         if i == 'ContentFile(path="' + file_name + '")':
-            return await mone.edit("`File Already Exists`")
+            return await mone.edit(get_string("comt_9"))
     file_name = "AyiinXd/modules/" + file_name
     if create_file:
         file_name = file_name.replace("./AyiinXd/temp/", "")
@@ -81,14 +82,13 @@ async def git_commit(file_name, mone):
             print("Committed File")
             ccess = GIT_REPO_NAME
             ccess = ccess.strip()
-            await mone.edit(
-                f"`Commited On Your Github Repo`\n\n[Your Modules](https://github.com/{ccess}/tree/sql-extended/AyiinXd/modules/)"
+            await mone.edit(get_string("comt_5").format(ccess)
             )
         except BaseException:
-            print("Cannot Create Plugin")
-            await mone.edit("Cannot Upload Plugin")
+            print(get_string("comt_6").format("membuat"))
+            await mone.edit(get_string("comt_6").format("mengunggah"))
     else:
-        return await mone.edit("`Committed Suicide`")
+        return await mone.edit(get_string("comt_7"))
 
 
 CMD_HELP.update(

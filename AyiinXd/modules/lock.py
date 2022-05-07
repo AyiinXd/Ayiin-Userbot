@@ -10,7 +10,8 @@ from telethon.tl.types import ChatBannedRights
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.events import register
-from AyiinXd.utils import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="lock ?(.*)")
@@ -72,10 +73,10 @@ async def locks(event):
         what = "Semuanya"
     else:
         if not input_str:
-            await edit_or_reply(event, "**Apa Yang Harus Saya Kunci?**")
+            await eor(event, get_string("lock_1"))
         else:
-            await edit_or_reply(
-                event, f"**Jenis Yang Mau Anda Kunci Tidak Valid** `{input_str}`"
+            await eor(
+                event, get_string("lock_2").format(input_str)
             )
         return
     lock_rights = ChatBannedRights(
@@ -96,11 +97,11 @@ async def locks(event):
         await event.client(
             EditChatDefaultBannedRightsRequest(peer=peer_id, banned_rights=lock_rights)
         )
-        await edit_or_reply(
-            event, f"**{me.first_name} Telah Mengunci {what} Untuk Obrolan Ini!!**"
+        await eor(
+            event, get_string("lock_3").format(me.first_name, what)
         )
     except BaseException as e:
-        await edit_or_reply(event, f"**ERROR:** {e}")
+        await eor(event, get_string("error_1").format(e))
 
         return
 
@@ -164,10 +165,10 @@ async def rem_locks(event):
         what = "Semuanya"
     else:
         if not input_str:
-            await edit_or_reply(event, "**Apa Yang Harus Saya Buka?**")
+            await eor(event, get_string("unlock_1"))
         else:
-            await edit_or_reply(
-                event, f"**Jenis Kunci Yang Mau Anda Buka Tidak Valid** `{input_str}`"
+            await eor(
+                event, get_string("unlock_2").format(input_str)
             )
         return
     unlock_rights = ChatBannedRights(
@@ -190,11 +191,11 @@ async def rem_locks(event):
                 peer=peer_id, banned_rights=unlock_rights
             )
         )
-        await edit_or_reply(
-            event, f"**{me.first_name} Telah Membuka Kunci {what} Untuk Obrolan Ini!!**"
+        await eor(
+            event, get_string("unlock_3").format(me.first_name, what)
         )
     except BaseException as e:
-        await edit_or_reply(event, f"**ERROR:** {e}")
+        await eor(event, get_string("error_1").format(e))
 
         return
 

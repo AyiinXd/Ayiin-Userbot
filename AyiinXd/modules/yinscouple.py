@@ -13,7 +13,7 @@ from telethon.tl.types import InputMessagesFilterPhotos
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, owner
-from AyiinXd.utils import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
 
 
 # ========================×========================

@@ -14,7 +14,9 @@ from pprint import pprint
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
+from Stringyins import get_string
+
 
 p, pp = print, pprint
 
@@ -23,18 +25,18 @@ p, pp = print, pprint
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
-        return await event.edit("**Berikan Code untuk di eksekusi.**")
+        return await event.eor(get_string("devs_3"))
     if expression in ("AyiinXd.session", "config.env"):
-        return await event.edit("**Itu operasi yang berbahaya! Tidak diperbolehkan!**")
+        return await event.eor(get_string("devs_2"))
     cmd = "".join(event.message.message.split(maxsplit=1)[1:])
     if not cmd:
-        return event.edit("**Apa yang harus saya jalankan?**")
+        return event.eor(get_string("devs_4"))
     cmd = (
         cmd.replace("sendmessage", "send_message")
         .replace("sendfile", "send_file")
         .replace("editmessage", "edit_message")
     )
-    xx = await event.edit("`Processing...`")
+    xx = await event.eor(get_string("com_1"))
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     old_stderr = sys.stderr
@@ -71,8 +73,8 @@ async def _(event):
     elif stdout:
         evaluation = stdout
     else:
-        evaluation = "Success"
-    final_output = f"**•  Eval : **\n`{cmd}` \n\n**•  Result : **\n`{evaluation}` \n"
+        evaluation = get_string("devs_6")
+    final_output = get_string("devs_5").format(cmd, evaluation)
 
     if len(final_output) > 4096:
         yins = final_output.replace(
@@ -102,10 +104,10 @@ async def _(event):
 async def run(event):
     code = event.pattern_match.group(1)
     if not code:
-        return await event.edit(f"**Read** `{cmd}help exec` **for an example.**")
+        return await event.eor(get_string("devs_1"))
     if code in ("AyiinXd.session", "config.env"):
-        return await event.edit("`Itu operasi yang berbahaya! Tidak diperbolehkan!`")
-    await event.edit("`Processing...`")
+        return await event.eor(get_string("devs_2"))
+    await event.eor(get_string("com_1"))
     if len(code.splitlines()) <= 5:
         codepre = code
     else:
@@ -133,7 +135,7 @@ async def run(event):
         stdout = str(stdout.decode().strip())
         stdout.encode("unicode-escape").decode().replace("\\\\", "\\")
     else:
-        stdout = "Success"
+        stdout = get_string("devs_6")
     if len(stdout) > 4096:
         with open("output.txt", "w+") as file:
             file.write(stdout)
@@ -145,17 +147,17 @@ async def run(event):
             caption="**Output terlalu besar, dikirim sebagai file**",
         )
         return remove("output.txt")
-    await event.edit(f"**Query:**\n`{codepre}`\n\n**Result:**\n`{stdout}`")
+    await event.eor(get_string("devs_5").format(codepre, stdout))
 
 
 @ayiin_cmd(pattern="term(?: |$|\n)([\\s\\S]*)")
 async def terminal_runner(event):
     command = event.pattern_match.group(1)
     if not command:
-        return await event.edit(f"`Give a command or use {cmd}help term for an example.`")
+        return await event.eod(get_string("devs_7"))
     if command in ("AyiinXd.session", "config.env"):
-        return await event.edit("`Itu operasi yang berbahaya! Tidak diperbolehkan!`")
-    await event.edit("`Processing...`")
+        return await event.eod(get_string("devs_2"))
+    await event.eor(get_string("com_1"))
     process = await asyncio.create_subprocess_shell(
         command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.STDOUT
     )
@@ -165,7 +167,7 @@ async def terminal_runner(event):
         result = str(stdout.decode().strip())
         result.encode("unicode-escape").decode().replace("\\\\", "\\")
     else:
-        result = "Success"
+        result = get_string("devs_6")
     if len(result) > 4096:
         with open("output.txt", "w+") as output:
             output.write(result)
@@ -178,7 +180,7 @@ async def terminal_runner(event):
         )
         return remove("output.txt")
 
-    await event.edit(f"**Command:**\n`{command}`\n\n**Result:**\n`{result}`")
+    await event.eor(get_string("devs_5").format(command, result))
 
 
 @ayiin_cmd(pattern="json$")

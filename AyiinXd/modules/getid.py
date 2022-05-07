@@ -2,8 +2,9 @@ from telethon.utils import pack_bot_file_id
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, LOGS
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
-from AyiinXd.utils.logger import logging
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from AyiinXd.ayiin.logger import logging
+from Stringyins import get_string
 
 LOGS = logging.getLogger(__name__)
 
@@ -15,46 +16,36 @@ async def _(event):
         try:
             p = await event.client.get_entity(input_str)
         except Exception as e:
-            return await edit_delete(event, f"`{e}`", 5)
+            return await eod(event, get_string("error_1").format(e), time=10)
         try:
             if p.first_name:
-                return await edit_or_reply(
-                    event, f"**User :** {input_str}\n"
-                           f"**ID** » `{p.id}`"
+                return await eor(
+                    event, get_string("getid_1").format("User", input_str, p.id)
                 )
         except Exception:
             try:
                 if p.title:
-                    return await edit_or_reply(
-                        event, f"**Name :** {p.title}\n"
-                               f"**ID** » `{p.id}`"
+                    return await eor(
+                        event, get_string("getid_1").format("Name", p.title, p.id)
                     )
             except Exception as e:
                 LOGS.info(str(e))
-        await edit_or_reply(event, "**Berikan Username atau Reply ke pesan pengguna**")
+        await eor(event, get_string("getid_2"))
     elif event.reply_to_msg_id:
         r_msg = await event.get_reply_message()
         if r_msg.media:
             bot_api_file_id = pack_bot_file_id(r_msg.media)
-            await edit_or_reply(
-                event,
-                "**💬 Message ID:** `{}`\n**🙋‍♂️ From User ID:** `{}`\n**💎 Bot API File ID:** `{}`".format(
-                    str(r_msg.id),
-                    str(r_msg.sender_id),
-                    bot_api_file_id,
-                ),
+            await eor(
+                event, get_string("getid_3").format(str(r_msg.id), str(r_msg.sender_id), bot_api_file_id)
             )
 
         else:
-            await edit_or_reply(
-                event,
-                "**👥 Chat ID:** `{}`\n**💬 Message ID:** `{}`\n**🙋‍♂️ From User ID:** `{}`".format(
-                    str(event.chat_id), str(r_msg.id), str(r_msg.sender_id)
-                ),
+            await eor(
+                event, get_string("getid_4").format(str(event.chat_id), str(r_msg.id), str(r_msg.sender_id))
             )
 
     else:
-        await edit_or_reply(event, f"**👥 Chat ID: **`{event.chat_id}`")
+        await eor(event, get_string("getid_5").format(event.chat_id))
 
 
 CMD_HELP.update(

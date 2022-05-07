@@ -16,7 +16,8 @@ from telethon.tl.types import ChannelParticipantsKicked
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, LOGS
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="open(?: |$)(.*)")
@@ -24,10 +25,10 @@ async def _(event):
     b = await event.client.download_media(await event.get_reply_message())
     with open(b, "r") as a:
         c = a.read()
-    await edit_or_reply(event, "**Berhasil Membaca Berkas**")
+    await eor(event, get_string("opn_1"))
     if len(c) > 4095:
-        await edit_or_reply(
-            event, c, deflink=True, linktext="**Berhasil Membaca Berkas**"
+        await eor(
+            event, c, deflink=True, linktext=get_string("opn_1")
         )
     else:
         await event.client.send_message(event.chat_id, f"`{c}`")
@@ -42,10 +43,10 @@ async def _(event):
     chat = str(event.pattern_match.group(1).split(" ", 1)[0])
     link = str(event.pattern_match.group(1).split(" ", 1)[1])
     if not link:
-        return await edit_or_reply(event, "**Maaf BOT Tidak Merespond.**")
+        return await eor(event, get_string("sendbot_1"))
 
     botid = await event.client.get_entity(chat)
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -60,8 +61,8 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         except BaseException:
-            await edit_delete(xx, "**Tidak dapat menemukan bot itu 🥺**")
-        await xx.edit(f"**Pesan Terkirim:** `{link}`\n**Kepada: {chat}**")
+            await eod(xx, get_string("sendbot_2"))
+        await xx.edit(get_string("sendbot_3").format(link, chat))
         await event.client.send_message(event.chat_id, response.message)
         await event.client.send_read_acknowledge(event.chat_id)
         await event.client.delete_messages(conv.chat_id, [msg.id, response.id])
@@ -69,7 +70,7 @@ async def _(event):
 
 @ayiin_cmd(pattern="allunban$")
 async def _(event):
-    xx = await edit_or_reply(event, "`Searching Participant Lists...`")
+    xx = await eor(event, get_string("alunban_1"))
     p = 0
     title = (await event.get_chat()).title
     async for i in event.client.iter_participants(
@@ -84,7 +85,7 @@ async def _(event):
             pass
         except BaseException as er:
             LOGS.exeption(er)
-    await xx.edit(f"**Berhasil unbanned** `{p}` **Orang di Grup {title}**")
+    await xx.edit(get_string("alunban_2").format(p, title))
 
 
 @ayiin_cmd(pattern="(?:dm)\\s?(.*)?")
@@ -99,40 +100,40 @@ async def _(event):
     mssg = await event.get_reply_message()
     if event.reply_to_msg_id:
         await event.client.send_message(chat_id, mssg)
-        await edit_or_reply(event, "**Berhasil Mengirim Pesan Anda.**")
+        await eor(event, get_string("dm_1"))
     msg = "".join(f"{i} " for i in m[1:])
     if not msg:
         return
     try:
         await event.client.send_message(chat_id, msg)
-        await edit_or_reply(event, "**Berhasil Mengirim Pesan Anda.**")
+        await eor(event, get_string("dm_1"))
     except BaseException:
-        await edit_delete(event, "**ERROR: Gagal Mengirim Pesan.**", 10)
+        await eod(event, get_string("error_1").format("**Gagal Mengirim Pesan.**"), time=10)
 
 
 @ayiin_cmd(pattern="fwdreply ?(.*)")
 async def _(e):
     message = e.pattern_match.group(1)
     if not e.reply_to_msg_id:
-        return await edit_or_reply(e, "`Mohon Reply ke pesan seseorang.`")
+        return await eor(e, get_string("gban_8"))
     if not message:
-        return await edit_or_reply(e, "`Tidak ditemukan pesan untuk disampaikan`")
+        return await eor(e, get_string("replymsg_1"))
     msg = await e.get_reply_message()
     fwd = await msg.forward_to(msg.sender_id)
     await fwd.reply(message)
-    await edit_delete(e, "**Silahkan Check di Private**", 10)
+    await eod(e, get_string("replymsg_2"), time=10)
 
 
 @ayiin_cmd(pattern="getlink(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     try:
         e = await event.client(
             ExportChatInviteRequest(event.chat_id),
         )
-        await xx.edit(f"**Link Invite: {e.link}**")
+        await xx.edit(get_string("getlink_1").format(e.link))
     except ChatAdminRequiredError:
-        return await xx.edit("**Maaf anda Bukan Admin 👮**")
+        return await xx.edit(get_string("no_admn"))
 
 
 @ayiin_cmd(pattern="tmsg (.*)")
@@ -141,20 +142,19 @@ async def _(event):
     u = event.pattern_match.group(1)
     if k:
         a = await event.client.get_messages(event.chat_id, 0, from_user=k.sender_id)
-        return await event.edit(
-            f"**Total ada** `{a.total}` **Chat Yang dikirim Oleh** {u} **di Grup Chat ini**"
+        return await event.edit(get_string("tmsg_1").format(a.total, u)
         )
     if not u:
         u = "me"
     a = await event.client.get_messages(event.chat_id, 0, from_user=u)
-    await edit_or_reply(
-        event, f"**Total ada `{a.total}` Chat Yang dikirim Oleh saya di Grup Chat ini**"
+    await eor(
+        event, get_string("tmsg").format(a.total, "**saya**")
     )
 
 
 @ayiin_cmd(pattern="limit(?: |$)(.*)")
 async def _(event):
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     async with event.client.conversation("@SpamBot") as conv:
         try:
             response = conv.wait_event(
@@ -175,13 +175,13 @@ async def _(event):
 async def _(event):
     reply_message = await event.get_reply_message()
     if not reply_message:
-        await edit_or_reply(event, "**Mohon Reply ke Link**")
+        await eor(event, get_string("view_1"))
         return
     if not reply_message.text:
-        await edit_or_reply(event, "**Mohon Reply ke Link**")
+        await eor(event, get_string("view_1"))
         return
     chat = "@chotamreaderbot"
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -196,7 +196,7 @@ async def _(event):
             response = await response
             await event.client.send_read_acknowledge(conv.chat_id)
         if response.text.startswith(""):
-            await xx.edit("Am I Dumb Or Am I Dumb?")
+            await xx.edit(get_string("view_2"))
         else:
             await xx.delete()
             await event.client.send_message(event.chat_id, response.message)

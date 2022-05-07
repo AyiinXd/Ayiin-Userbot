@@ -11,38 +11,39 @@ from telethon.tl.types import DocumentAttributeFilename
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import bash, edit_or_reply, ayiin_cmd, progress
+from AyiinXd.ayiin import ayiin_cmd, bash, eor, progress
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="ssvideo(?: |$)(.*)")
 async def ssvideo(event):
     if not event.reply_to_msg_id:
-        await edit_or_reply(event, "`Reply to any media..`")
+        await eor(event, get_string("failed3"))
         return
     reply_message = await event.get_reply_message()
     if not reply_message.media:
-        await edit_or_reply(event, "`reply to a video..`")
+        await eor(event, get_string("ssvideo_4"))
         return
     try:
         frame = int(event.pattern_match.group(1))
         if frame > 10:
-            return await edit_or_reply(event, "`hey..dont put that much`")
+            return await eor(event, get_string("ssvideo_1"))
     except BaseException:
-        return await edit_or_reply(event, "`Please input number of frame!`")
+        return await eor(event, get_string("ssvideo_2"))
     if reply_message.photo:
-        return await edit_or_reply(event, "`Hey..this is an image!`")
+        return await eor(event, get_string("ssvideo_3"))
     if (
         DocumentAttributeFilename(file_name="AnimatedSticker.tgs")
         in reply_message.media.document.attributes
     ):
-        return await edit_or_reply(event, "`Unsupported files..`")
+        return await eor(event, get_string("error_5"))
     if (
         DocumentAttributeFilename(file_name="sticker.webp")
         in reply_message.media.document.attributes
     ):
-        return await edit_or_reply(event, "`Unsupported files..`")
+        return await eor(event, get_string("error_5"))
     c_time = time.time()
-    await edit_or_reply(event, "`Downloading media..`")
+    await eor(event, get_string("com_5"))
     ss = await event.client.download_media(
         reply_message,
         "anu.mp4",
@@ -51,7 +52,7 @@ async def ssvideo(event):
         ),
     )
     try:
-        await edit_or_reply(event, "`Proccessing..`")
+        await eor(event, get_string("com_1"))
         command = f"vcsi -g {frame}x{frame} {ss} -o ss.png "
         await bash(command)
         await event.client.send_file(
@@ -65,7 +66,7 @@ async def ssvideo(event):
     except BaseException as e:
         await bash("rm -rf *.png")
         await bash("rm -rf *.mp4")
-        return await edit_or_reply(event, f"{e}")
+        return await eor(event, get_string("error_1").format(e))
 
 
 CMD_HELP.update(

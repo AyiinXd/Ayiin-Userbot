@@ -11,7 +11,8 @@ from telethon.tl.functions.messages import DeleteHistoryRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="sosmed(?: |$)(.*)")
@@ -22,11 +23,10 @@ async def insta(event):
     elif event.is_reply:
         link = await event.get_reply_message()
     else:
-        return await edit_delete(
-            event,
-            "**Berikan Link Sosmed atau Reply Link Sosmed Untuk di Download**",
+        return await eod(
+            event, get_string("sosmed_1")
         )
-    xx = await edit_or_reply(event, "`Processing Download...`")
+    xx = await eor(event, get_string("com_5"))
     chat = "@SaveAsbot"
     async with event.client.conversation(chat) as conv:
         try:
@@ -40,7 +40,7 @@ async def insta(event):
             await event.client.send_message(chat, link)
             response = await response
         if response.text.startswith("Forward"):
-            await xx.edit("Forward Private .")
+            await xx.edit(get_string("sosmed_2"))
         else:
             await xx.delete()
             await event.client.send_file(
@@ -58,11 +58,11 @@ async def DeezLoader(event):
         return
     dlink = event.pattern_match.group(1)
     if ".com" not in dlink:
-        await edit_delete(
-            event, "`Mohon Berikan Link Deezloader yang ingin di download`"
+        await eod(
+            event, get_string("sosdez_1")
         )
     else:
-        await edit_or_reply(event, "`Sedang Mendownload Lagu...`")
+        await eor(event, get_string("com_5"))
     chat = "@DeezLoadBot"
     async with event.client.conversation(chat) as conv:
         try:
@@ -94,11 +94,10 @@ async def _(event):
     elif event.is_reply:
         d_link = await event.get_reply_message()
     else:
-        return await edit_delete(
-            event,
-            "**Berikan Link Tiktok Pesan atau Reply Link Tiktok Untuk di Download**",
+        return await eod(
+            event, get_string("sostik_1")
         )
-    xx = await edit_or_reply(event, "`Video Sedang Diproses...`")
+    xx = await eor(event, get_string("sostik_2"))
     chat = "@thisvidbot"
     async with event.client.conversation(chat) as conv:
         try:

@@ -9,7 +9,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 Heroku = heroku3.from_key(HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
@@ -22,12 +23,11 @@ async def sudo(event):
     users = sudousers
     listsudo = users.replace(" ", "\n» ")
     if sudo == "True":
-        await edit_or_reply(
-            event,
-            f"🔮 **Sudo:** `Enabled`\n\n📚 ** List Sudo Users:**\n» `{listsudo}`\n\n**SUDO_HANDLER:** `{SUDO_HANDLER}`",
+        await eor(
+            event, get_string("sudo_1").format(listsudo, SUDO_HANDLER)
         )
     else:
-        await edit_delete(event, "🔮 **Sudo:** `Disabled`")
+        await eod(event, get_string("sudo_2"))
 
 
 @ayiin_cmd(pattern="addsudo(?:\\s|$)([\\s\\S]*)", allow_sudo=False)
@@ -35,25 +35,22 @@ async def add(event):
     suu = event.text[9:]
     if f"{cmd}add " in event.text:
         return
-    xxnx = await edit_or_reply(event, "`Processing...`")
+    xxnx = await eor(event, get_string("com_1")
     var = "SUDO_USERS"
     reply = await event.get_reply_message()
     if not suu and not reply:
-        return await edit_delete(
-            xxnx,
-            "Balas ke pengguna atau berikan user id untuk menambahkannya ke daftar pengguna sudo anda.",
-            45,
+        return await eod(
+            xxnx, get_string("adsu_1"),
+            time=45,
         )
     if suu and not suu.isnumeric():
-        return await edit_delete(
-            xxnx, "Berikan User ID atau reply ke pesan penggunanya.", 45
+        return await eod(
+            xxnx, get_string("adsu_2"), time=45
         )
     if HEROKU_APP_NAME is not None:
         app = Heroku.app(HEROKU_APP_NAME)
     else:
-        await edit_delete(
-            xxnx,
-            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan pengguna sudo**",
+        await eod(xxnx, get_string("adsu_3")
         )
         return
     heroku_Config = app.config()
@@ -66,8 +63,7 @@ async def add(event):
     suudo = f"{sudousers} {target}"
     newsudo = suudo.replace("{", "")
     newsudo = newsudo.replace("}", "")
-    await xxnx.edit(
-        f"**Berhasil Menambahkan** `{target}` **ke Pengguna Sudo.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+    await xxnx.edit(get_string("adsu_4").format(target)
     )
     heroku_Config[var] = newsudo
 
@@ -75,24 +71,21 @@ async def add(event):
 @ayiin_cmd(pattern="delsudo(?:\\s|$)([\\s\\S]*)", allow_sudo=False)
 async def _(event):
     suu = event.text[8:]
-    xxx = await edit_or_reply(event, "`Processing...`")
+    xxx = await eor(event, get_string("com_1"))
     reply = await event.get_reply_message()
     if not suu and not reply:
-        return await edit_delete(
-            xxx,
-            "Balas ke pengguna atau berikan user id untuk menghapusnya dari daftar pengguna sudo Anda.",
-            45,
+        return await eod(
+            xxx, get_string("dlsu_1"),
+            time=45,
         )
     if suu and not suu.isnumeric():
-        return await edit_delete(
-            xxx, "Berikan User ID atau reply ke pesan penggunanya.", 45
+        return await eod(
+            xxx, get_string("adsu_2"), time=45
         )
     if HEROKU_APP_NAME is not None:
         app = Heroku.app(HEROKU_APP_NAME)
     else:
-        await edit_delete(
-            xxx,
-            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menghapus pengguna sudo**",
+        await eod(xxx, get_string("dlsu_2")
         )
         return
     heroku_Config = app.config()
@@ -105,14 +98,12 @@ async def _(event):
     gett = str(target)
     if gett in sudousers:
         newsudo = sudousers.replace(gett, "")
-        await xxx.edit(
-            f"**Berhasil Menghapus** `{target}` **dari Pengguna Sudo.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+        await xxx.edit(get_string("dlsu_3").format(target)
         )
         var = "SUDO_USERS"
         heroku_Config[var] = newsudo
     else:
-        await edit_delete(
-            xxx, "**Pengguna ini tidak ada dalam Daftar Pengguna Sudo anda.**", 45
+        await eod(xxx, get_string("dlsu_4"), time=45
         )
 
 

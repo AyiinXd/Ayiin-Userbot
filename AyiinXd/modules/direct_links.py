@@ -16,7 +16,8 @@ from humanize import naturalsize
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, LOGS
-from AyiinXd.utils import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="direct(?: |$)([\\s\\S]*)")
@@ -27,16 +28,15 @@ async def direct_link_generator(event):
         if textx:
             message = textx.text
         else:
-            return await edit_delete(
+            return await eod(
                 event,
-                f"**Gunakan:** `{cmd}direct <url>` **Bila butuh bantuan ketik** `.help direct`",
+                get_string("dili_1")
             )
-    xxnx = await edit_or_reply(event, "`Processing...`")
+    xxnx = await eor(event, get_string("com_1"))
     reply = ""
     links = re.findall(r"\bhttps?://.*\.\S+", message)
     if not links:
-        reply = "**Tidak ada Link URL yang ditemukan!**"
-        await xxnx.edit(reply)
+        await xxnx.edit(get_string("dili_2"))
     for link in links:
         if "drive.google.com" in link:
             reply += gdrive(link)

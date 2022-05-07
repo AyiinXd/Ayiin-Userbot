@@ -9,7 +9,8 @@ from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, LOGS
 from AyiinXd.modules.sql_helper import broadcast_sql as sql
-from AyiinXd.utils import ayiin_cmd, parse_pre
+from AyiinXd.ayiin import ayiin_cmd, eor, parse_pre
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern=r"sendto ?(.*)")
@@ -18,26 +19,22 @@ async def catbroadcast_send(event):
         return
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
-        return await event.edit(
-            "**Ke kategori mana saya harus mengirim pesan ini?**", parse_mode=parse_pre
-        )
+        return await eor(event, get_string("bd_10"), parse_mode=parse_pre
+                         )
     reply = await event.get_reply_message()
     if not reply:
-        return await event.edit(
-            "**apa yang harus saya kirim ke kategori ini?**", parse_mode=parse_pre
-        )
+        return await eor(event, get_string("bd_1"), parse_mode=parse_pre
+                         )
     keyword = catinput_str.lower()
     no_of_chats = sql.num_broadcastlist_chat(keyword)
     if no_of_chats == 0:
-        return await event.edit(
-            f"**Tidak ada kategori dengan nama** `{keyword}` **Check** `.bclistall`",
-            parse_mode=parse_pre,
-        )
+        return await event.edit(event, get_string("bd_2").format(keyword, cmd),
+                                parse_mode=parse_pre,
+                                )
     chats = sql.get_chat_broadcastlist(keyword)
-    catevent = await event.edit(
-        "**mengirim pesan ini ke semua grup dalam kategori**",
-        parse_mode=parse_pre,
-    )
+    catevent = await eor(event, get_string("bd_3"),
+                         parse_mode=parse_pre,
+                         )
     i = 0
     for chat in chats:
         try:
@@ -48,12 +45,11 @@ async def catbroadcast_send(event):
         except Exception as e:
             LOGS.info(str(e))
         await sleep(0.5)
-    resultext = f"**Pesan dikirim ke** `{i}` **obrolan keluar** `{no_of_chats}` **obrolan dalam kategori** `{keyword}`"
+    resultext = get_string("bd_4").format(i, no_of_chats, keyword)
     await catevent.edit(resultext)
     if BOTLOG_CHATID:
         await event.client.send_message(
-            BOTLOG_CHATID,
-            f"**Sebuah pesan dikirim ke** `{i}` **obrolan keluar** `{no_of_chats}` **obrolan dalam kategori** `{keyword}`",
+            BOTLOG_CHATID, get_string("bd_5").format(i, no_of_chats, keyword),
             parse_mode=parse_pre,
         )
 
@@ -64,26 +60,21 @@ async def catbroadcast_send(event):
         return
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
-        return await event.edit(
-            "**Ke kategori mana saya harus mengirim pesan ini?**", parse_mode=parse_pre
-        )
+        return await eor(event, get_string("bd_10"), parse_mode=parse_pre
+                         )
     reply = await event.get_reply_message()
     if not reply:
-        return await event.edit(
-            "**apa yang harus saya kirim ke kategori ini?**", parse_mode=parse_pre
-        )
+        return await eor(event, get_string("bd_1"), parse_mode=parse_pre
+                         )
     keyword = catinput_str.lower()
     no_of_chats = sql.num_broadcastlist_chat(keyword)
     if no_of_chats == 0:
-        return await event.edit(
-            f"**Tidak ada kategori dengan nama** `{keyword}` **Check** '.bclistall'",
-            parse_mode=parse_pre,
-        )
+        return await event.eor(get_string("bd_2").format(keyword, cmd),
+                               parse_mode=parse_pre,
+                               )
     chats = sql.get_chat_broadcastlist(keyword)
-    catevent = await event.edit(
-        "**mengirim pesan ini ke semua grup dalam kategori**",
-        parse_mode=parse_pre,
-    )
+    catevent = await event.eor(get_string("bd_3"), parse_mode=parse_pre,
+                               )
     i = 0
     for chat in chats:
         try:
@@ -94,12 +85,11 @@ async def catbroadcast_send(event):
         except Exception as e:
             LOGS.info(str(e))
         await sleep(0.5)
-    resultext = f"**Pesan dikirim ke** {i} **obrolan keluar** {no_of_chats} **obrolan dalam kategori** `{keyword}`"
+    resultext = get_string("bd_4").format(i, no_of_chats, keyword)
     await catevent.edit(resultext)
     if BOTLOG_CHATID:
         await event.client.send_message(
-            BOTLOG_CHATID,
-            f"**Sebuah pesan diteruskan ke** `{i}` **obrolan keluar** `{no_of_chats}` **obrolan dalam kategori** `{keyword}`",
+            BOTLOG_CHATID, get_string("bd_5").format(i, no_of_chats, keyword),
             parse_mode=parse_pre,
         )
 
@@ -110,32 +100,27 @@ async def catbroadcast_add(event):
         return
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
-        return await event.edit(
-            "Di kategori mana saya harus menambahkan obrolan ini?", parse_mode=parse_pre
-        )
+        return await event.eor(get_string("bd_6"), parse_mode=parse_pre
+                               )
     keyword = catinput_str.lower()
     check = sql.is_in_broadcastlist(keyword, event.chat_id)
     if check:
-        return await event.edit(
-            f"Obrolan ini sudah ada dalam kategori ini {keyword}",
-            parse_mode=parse_pre,
-        )
+        return await event.eor(get_string("bd_7").format(keyword),
+                               parse_mode=parse_pre,
+                               )
     sql.add_to_broadcastlist(keyword, event.chat_id)
-    await event.edit(
-        f"Obrolan ini Sekarang ditambahkan ke kategori {keyword}", parse_mode=parse_pre
-    )
+    await event.eor(get_string("bd_8").format(keyword), parse_mode=parse_pre
+                    )
     chat = await event.get_chat()
     if BOTLOG_CHATID:
         try:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                f"Obrolan {chat.title} ditambahkan ke kategori {keyword}",
+                BOTLOG_CHATID, get_string("bd_9").format(chat.title, keyword),
                 parse_mode=parse_pre,
             )
         except Exception:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                f"Pengguna {chat.first_name} ditambahkan ke kategori {keyword}",
+                BOTLOG_CHATID, get_string("bd_11").format(chat.first_name, keyword),
                 parse_mode=parse_pre,
             )
 
@@ -146,32 +131,27 @@ async def catbroadcast_remove(event):
         return
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
-        return await event.edit(
-            "Dari kategori mana saya harus menghapus obrolan ini", parse_mode=parse_pre
-        )
+        return await event.eor(get_string("bd_12"), parse_mode=parse_pre
+                               )
     keyword = catinput_str.lower()
     check = sql.is_in_broadcastlist(keyword, event.chat_id)
     if not check:
-        return await event.edit(
-            f"Obrolan ini tidak ada dalam kategori {keyword}", parse_mode=parse_pre
-        )
+        return await event.eor(get_string("bd_13").format(keyword), parse_mode=parse_pre
+                               )
     sql.rm_from_broadcastlist(keyword, event.chat_id)
-    await event.edit(
-        f"Obrolan ini Sekarang dihapus dari kategori {keyword}",
-        parse_mode=parse_pre,
-    )
+    await event.eor(get_string("bd_14").format(keyword),
+                    parse_mode=parse_pre,
+                    )
     chat = await event.get_chat()
     if BOTLOG_CHATID:
         try:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                f"Obrolan {chat.title} dihapus dari kategori {keyword}",
+                BOTLOG_CHATID, get_string("bd_15").format(chat.title, keyword),
                 parse_mode=parse_pre,
             )
         except Exception:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                f"pengguna {chat.first_name} dihapus dari kategori {keyword}",
+                BOTLOG_CHATID, get_string("bd_16").format(chat.first_name, keyword),
                 parse_mode=parse_pre,
             )
 
@@ -182,22 +162,19 @@ async def catbroadcast_list(event):
         return
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
-        return await event.edit(
-            "Obrolan kategori mana yang harus saya daftarkan?\nCheck `.bclistall`",
-            parse_mode=parse_pre,
-        )
+        return await event.edit(get_string("bd_17").format(cmd),
+                                parse_mode=parse_pre,
+                                )
     keyword = catinput_str.lower()
     no_of_chats = sql.num_broadcastlist_chat(keyword)
     if no_of_chats == 0:
-        return await event.edit(
-            f"Tidak ada kategori dengan nama {keyword}. Check `.bclistall`",
-            parse_mode=parse_pre,
-        )
+        return await event.edit(get_string("bd_18").format(keyword, cmd),
+                                parse_mode=parse_pre,
+                                )
     chats = sql.get_chat_broadcastlist(keyword)
-    catevent = await event.edit(
-        f"Fetching info of the category {keyword}", parse_mode=parse_pre
-    )
-    resultlist = f"**kategori `{keyword}` memiliki `{no_of_chats}` obrolan dan ini tercantum di bawah ini :**\n\n"
+    catevent = await event.edit(get_string("bd_19").format(keyword), parse_mode=parse_pre
+                                )
+    resultlist = get_string("bd_20").format(keyword, no_of_chats)
     errorlist = ""
     for chat in chats:
         try:
@@ -210,8 +187,8 @@ async def catbroadcast_list(event):
             except AttributeError:
                 resultlist += f" 👉 👤 **User** \n  •  **Name : **{chatinfo.first_name} \n  •  **id : **`{int(chat)}`\n\n"
         except Exception:
-            errorlist += f" 👉 __ID ini {int(chat)} dalam basis data mungkin Anda meninggalkan obrolan/saluran atau mungkin id tidak valid.\
-                            \nHapus id ini dari database dengan menggunakan perintah ini__ `.frmfrom {keyword} {int(chat)}` \n\n"
+            errorlist += get_string("bd_21").format(int(chat),
+                                                    cmd, keyword, int(chat))
     finaloutput = resultlist + errorlist
     await catevent.edit(finaloutput)
 
@@ -221,14 +198,14 @@ async def catbroadcast_list(event):
     if event.fwd_from:
         return
     if sql.num_broadcastlist_chats() == 0:
-        return await event.edit(
-            "Anda belum membuat setidaknya satu kategori, periksa info untuk bantuan lebih lanjut",
-            parse_mode=parse_pre,
-        )
+        return await event.edit(get_string("bd_22"),
+                                parse_mode=parse_pre,
+                                )
     chats = sql.get_broadcastlist_chats()
     resultext = "**Berikut adalah daftar kategori Anda :**\n\n"
     for i in chats:
-        resultext += f" 👉 `{i}` __contains {sql.num_broadcastlist_chat(i)} chats__\n"
+        resultext += get_string("bd_24").format(i,
+                                                sql.num_broadcastlist_chat(i))
     await event.efit(resultext)
 
 
@@ -238,15 +215,13 @@ async def catbroadcast_remove(event):
         return
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
-        return await event.edit(
-            "Dari kategori mana saya harus menghapus obrolan ini", parse_mode=parse_pre
-        )
+        return await event.edit(get_string("bd_12"), parse_mode=parse_pre
+                                )
     args = catinput_str.split(" ")
     if len(args) != 2:
-        return await event.edit(
-            "Gunakan sintaks yang tepat seperti yang ditunjukkan .frmfrom category_name groupid",
-            parse_mode=parse_pre,
-        )
+        return await event.edit(get_string("bd_25").format(cmd),
+                                parse_mode=parse_pre,
+                                )
     try:
         groupid = int(args[0])
         keyword = args[1].lower()
@@ -256,29 +231,24 @@ async def catbroadcast_remove(event):
             keyword = args[0].lower()
         except ValueError:
             return await event.edit(
-                event,
-                "Gunakan sintaks yang tepat seperti yang ditunjukkan .frmfrom category_name groupid",
+                event, get_string("bd_25").format(cmd),
                 parse_mode=parse_pre,
             )
     keyword = keyword.lower()
     check = sql.is_in_broadcastlist(keyword, int(groupid))
     if not check:
-        return await event.edit(
-            f"Obrolan ini {groupid} tidak termasuk dalam kategori {keyword}",
-            parse_mode=parse_pre,
-        )
+        return await event.edit(get_string("bd_26").format(groupid, keyword),
+                                parse_mode=parse_pre,
+                                )
     sql.rm_from_broadcastlist(keyword, groupid)
-    await event.edit(
-        event,
-        f"Obrolan ini {groupid} sekarang dihapus dari kategori {keyword}",
-        parse_mode=parse_pre,
-    )
+    await event.edit(get_string("bd_27").format(groupid, keyword),
+                     parse_mode=parse_pre,
+                     )
     chat = await event.get_chat()
     if BOTLOG_CHATID:
         try:
             await event.client.send_message(
-                BOTLOG_CHATID,
-                f"Obrolan ini {chat.title} dihapus dari kategori {keyword}",
+                BOTLOG_CHATID, get_string("bd_27").format(chat.title, keyword),
                 parse_mode=parse_pre,
             )
         except Exception:
@@ -296,21 +266,18 @@ async def catbroadcast_delete(event):
     catinput_str = event.pattern_match.group(1)
     check1 = sql.num_broadcastlist_chat(catinput_str)
     if check1 < 1:
-        return await event.edit(
-            f"Apakah Anda yakin ada kategori? {catinput_str}",
-            parse_mode=parse_pre,
-        )
+        return await event.edit(get_string("bd_28").format(catinput_str),
+                                parse_mode=parse_pre,
+                                )
     try:
         sql.del_keyword_broadcastlist(catinput_str)
-        await event.edit(
-            f"Berhasil menghapus kategori {catinput_str}",
-            parse_mode=parse_pre,
-        )
+        await event.edit(get_string("bd_29").format(catinput_str),
+                         parse_mode=parse_pre,
+                         )
     except Exception as e:
-        await event.edit(
-            str(e),
-            parse_mode=parse_pre,
-        )
+        await event.edit(get_string("error_1").format(e),
+                         parse_mode=parse_pre,
+                         )
 
 
 CMD_HELP.update(

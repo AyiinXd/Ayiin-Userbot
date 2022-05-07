@@ -8,7 +8,7 @@ from telethon.tl.functions.contacts import UnblockRequest
 
 from AyiinXd import CMD_HELP
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd.utils import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd
 
 chat = "@BotFather"
 
