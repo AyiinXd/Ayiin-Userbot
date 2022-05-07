@@ -22,7 +22,17 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import BOT_USERNAME, CMD_HELP, bot
 from AyiinXd.ayiin import ayiin_cmd, eor
 from Stringyins import get_languages, language, get_string
-from .button import BTN_URL_REGEX, build_keyboard
+from .button import BTN_URL_REGEX
+
+
+def build_keyboards(buttons):
+    keyb = []
+    for btn in buttons:
+        if btn[0] and keyb:
+            keyb[0].append(Button.url(btn[0], btn[0]))
+        else:
+            keyb.append([Button.url(btn[0], btn[0])])
+    return keyb
 
 
 Y_BUTTONS = [
@@ -87,7 +97,7 @@ async def settt(event):
 @ayiin_cmd(pattern="string(?:\\s|$)([\\s\\S]*)")
 async def test_string(event):
     ayiin = await eor(event, get_string("com_1"))
-    buttons = build_keyboard(Y_BUTTONS)
+    buttons = build_keyboards(Y_BUTTONS)
     if buttons:
         try:
             results = await bot.inline_query(  # pylint:disable=E0602
