@@ -459,7 +459,7 @@ async def _(event):
         elif response.text.startswith(
             "You don't have any sticker packs yet. You can create one using the /newpack command."
         ):
-            await xx.edit(get_string("delstk_3")
+            await xx.edit(get_string("delstk_3"))
         elif response.text.startswith("Please send me the sticker."):
             await xx.edit(get_string("delstk_1"))
         elif response.text.startswith("Invalid pack selected."):
@@ -478,7 +478,7 @@ async def _(event):
     reply_message = await event.get_reply_message()
     emot = event.pattern_match.group(1)
     if reply_message.sender.bot:
-        await eod(event, get_string("stkr_13")
+        await eod(event, get_string("stkr_13"))
         return
     xx = await eor(event, get_string("com_1"))
     if emot == "":
@@ -544,7 +544,7 @@ async def sticker_to_png(sticker):
 async def cb_sticker(event):
     query = event.pattern_match.group(1)
     if not query:
-        return await edit_delete(event, get_string("stk_1")
+        return await edit_delete(event, get_string("stk_1"))
     xx = await eor(event, get_string("com_2"))
     text = requests.get("https://combot.org/telegram/stickers?q=" + query).text
     soup = bs(text, "lxml")
