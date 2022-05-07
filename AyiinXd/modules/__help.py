@@ -6,7 +6,7 @@
 """ Userbot help command """
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import BOT_USERNAME, CMD_HELP, ch
+from AyiinXd import BOT_USERNAME, CMD_HELP, bot, ch
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from Stringyins import get_string
 
