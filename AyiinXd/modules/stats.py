@@ -102,7 +102,7 @@ async def stats(
     response += get_string("stats_15").format(unread_mentions)
     response += get_string("stats_16").format(ct)
     response += get_string("stats_17").format(sp_count)
-    response += get_string("stats_18").format(stop_time:.02f)
+    response += f"⏱ **__It Took:__** {stop_time:.02f}s \n"
     await stat.edit(response)
 
 
