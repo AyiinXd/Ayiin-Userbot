@@ -77,7 +77,7 @@ async def kang(args):
         xx = await eor(args, f"`{choice(KANGING_STR)}`")
         photo = await create_quotly(message)
     elif message.file and "image" in message.file.mime_type.split("/"):
-        xx = await edit_or_reply(args, f"`{choice(KANGING_STR)}`")
+        xx = await eor(args, f"`{choice(KANGING_STR)}`")
         photo = io.BytesIO()
         await args.client.download_file(message.media.document, photo)
         if (
@@ -88,7 +88,7 @@ async def kang(args):
             if emoji != "✨":
                 emojibypass = True
     elif message.file and "tgsticker" in message.file.mime_type:
-        xx = await edit_or_reply(args, f"`{choice(KANGING_STR)}`")
+        xx = await eor(args, f"`{choice(KANGING_STR)}`")
         await args.client.download_file(message.media.document, "AnimatedSticker.tgs")
         attributes = message.media.document.attributes
         for attribute in attributes:
