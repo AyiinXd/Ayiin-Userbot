@@ -7,15 +7,13 @@ import re
 
 from telethon import Button
 
-from AyiinXd import BOT_USERNAME
-from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, tgbot
-from AyiinXd.ayiin import edit_delete, ayiin_cmd, reply_id
+from userbot import CMD_HANDLER as cmd
+from userbot import CMD_HELP, tgbot
+from userbot.utils import ayiin_cmd, edit_delete, reply_id
 
 # regex obtained from:
 # https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
-BTN_URL_REGEX = re.compile(
-    r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
+BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
 
 @ayiin_cmd(pattern="cbutton(?:\\s|$)([\\s\\S]*)")
@@ -39,12 +37,8 @@ async def _(event):
             n_escapes += 1
             to_check -= 1
         if n_escapes % 2 == 0:
-            buttons.append(
-                (match.group(2),
-                 match.group(3),
-                 bool(
-                    match.group(4))))
-            note_data += markdown_note[prev: match.start(1)]
+            buttons.append((match.group(2), match.group(3), bool(match.group(4))))
+            note_data += markdown_note[prev : match.start(1)]
             prev = match.end(1)
         elif n_escapes % 2 == 1:
             note_data += markdown_note[prev:to_check]
@@ -86,6 +80,8 @@ async def _(event):
             event, "**Teks apa yang harus saya gunakan di pesan button?**"
         )
     catinput = "Inline buttons " + markdown_note
+    AyiinUBOT = await tgbot.get_me()
+    BOT_USERNAME = AyiinUBOT.username
     results = await event.client.inline_query(BOT_USERNAME, catinput)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
