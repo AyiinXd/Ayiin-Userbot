@@ -135,7 +135,7 @@ async def _(event):
         try:
             msg = await conv.send_message(f"{uid}")
         except Exception:
-            await edit_delete(sevent, "**Unblock @tgscanrobot dan coba lagi**")
+            await eod(sevent, get_string("ustat_3"))
         response = await conv.get_response()
         await event.client.send_read_acknowledge(conv.chat_id)
         await sevent.edit(response.text)

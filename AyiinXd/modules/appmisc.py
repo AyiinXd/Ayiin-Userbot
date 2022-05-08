@@ -27,8 +27,7 @@ from telethon.tl.types import (
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
-from AyiinXd.ayiin import eod, eor
-from AyiinXd.ayiin import edit_delete, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from Stringyins import get_string
 
 
@@ -162,7 +161,7 @@ async def apk(e):
         await eor(xx, get_string("appmis_1"), time=20
                   )
     except Exception as err:
-        await edit_delete(xx, "Exception Occured:- " + str(err))
+        await eod(xx, "Exception Occured:- " + str(err))
 
 
 @ayiin_cmd(pattern="calc(?: |$)(.*)")
@@ -171,7 +170,7 @@ async def _(event):
         return
     input = event.pattern_match.group(1)  # get input
     exp = "Given expression is " + input  # report back input
-    xx = await edit_or_reply(event, "`Processing...`")
+    xx = await eor(event, get_string("com_1"))
     # lazy workaround to add support for two digits
     final_input = tuple(input)
     term1part1 = final_input[0]
@@ -199,7 +198,7 @@ async def _(event):
     elif operator == "%":
         await xx.edit("Solution -->\n" + exp + "\n" + str(final_term1 % final_term2))
     else:
-        await xx.edit("**Ketik** `$help calc` **bila butuh bantuan**")
+        await xx.edit(f"**Ketik** `{cmd}help calc` **bila butuh bantuan**")
 
 
 @ayiin_cmd(pattern="xcd(?: |$)(.*)")
@@ -296,7 +295,7 @@ async def _(event):
             if "m" in input_str:
                 status, e = await ban_user(event.chat_id, i, rights)
                 if not status:
-                    await edit_delete(
+                    await eod(
                         xx,
                         "**Saya memerlukan hak admin untuk melakukan tindakan ini!**",
                     )
@@ -318,7 +317,7 @@ async def _(event):
             if "o" in input_str:
                 status, e = await ban_user(event.chat_id, i, rights)
                 if not status:
-                    await edit_delete(xx, get_string("hk_admn")
+                    await eod(xx, get_string("hk_admn")
                                       )
                     e.append(str(e))
                     break
@@ -442,7 +441,7 @@ async def _(event):
         else:
             await eod(xx, get_string("error_3").format(input_str))
     else:
-        await edit_delete(xx, "Syntax // .rnupload filename.extension <reply ke media>")
+        await eod(xx, "Syntax // .rnupload filename.extension <reply ke media>")
 
 
 @ayiin_cmd(pattern="grab(?: |$)(.*)")
@@ -474,7 +473,7 @@ async def potocmd(event):
             await event.client.send_file(event.chat_id, send_photos)
             await xx.delete()
         else:
-            return await edit_delete(xx, get_string("failed2"))
+            return await eod(xx, get_string("failed2"))
 
 
 @ayiin_cmd(pattern="res(?: |$)(.*)")

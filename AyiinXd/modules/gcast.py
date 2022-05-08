@@ -116,7 +116,7 @@ async def sudo(event):
             event, get_string("blkls_1").format(list, cmd)
         )
     else:
-        await edit_delete(event, get_string("blkls_2"))
+        await eod(event, get_string("blkls_2"))
 
 
 @ayiin_cmd(pattern="addblacklist(?:\\s|$)([\\s\\S]*)")

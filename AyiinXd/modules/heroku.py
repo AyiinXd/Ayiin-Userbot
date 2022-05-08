@@ -92,7 +92,7 @@ async def variable(var):
 @ayiin_cmd(pattern="set var (\\w*) ([\\s\\S]*)", allow_sudo=False)
 async def set_var(var):
     if app is None:
-        return await edit_or_reply(
+        return await eor(
             var, "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **dan** `HEROKU_API_KEY`"
         )
     xx = await eor(var, get_string("com_1"))

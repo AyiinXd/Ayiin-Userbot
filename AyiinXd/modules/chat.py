@@ -76,7 +76,7 @@ async def permalink(mention):
     else:
         tag = (user.first_name.replace("\u2060", "")
                if user.first_name else user.username)
-        await edit_or_reply(mention, get_string("link_2").format(tag, user.id))
+        await eor(mention, get_string("link_2").format(tag, user.id))
 
 
 @ayiin_cmd(pattern="bots(?: |$)(.*)")

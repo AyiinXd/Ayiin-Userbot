@@ -188,7 +188,7 @@ async def gsearch(q_event):
             try:
                 gresults = await ysearch.async_search(*search_args)
             except Exception as e:
-                return await edit_delete(yins, f"**ERROR:**\n`{e}`", time=10)
+                return await eod(yins, get_string("error_1").format(e), time=10)
     msg = ""
     for i in range(lim):
         if i > len(gresults["links"]):
@@ -482,7 +482,7 @@ async def download_video(v_url):
             xx, get_string("scryt_8")
         )
     except XAttrMetadataError as XAME:
-        return await edit_delete(xx, f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
+        return await eod(xx, f"`{XAME.code}: {XAME.msg}\n{XAME.reason}`")
     except ExtractorError:
         return await eod(xx, get_string("scryt_9"))
     except Exception as e:
@@ -614,7 +614,7 @@ async def kbg(remob):
             else:
                 await eod(xx, get_string("scrbg_2"))
         except Exception as e:
-            await edit_delete(xx, str(e))
+            await eod(xx, get_string("error_1").format(str(e)))
             return
     elif input_str:
         await eod(
@@ -764,7 +764,7 @@ async def bq(event):
         await event.client.send_file(event.chat_id, filename, reply_to=reply_msg_id)
         os.remove(filename)
     except Exception as e:
-        return await edit_delete(xx, f"{e}")
+        return await eod(xx, get_string("error_1").format(e))
     await xx.delete()
 
 

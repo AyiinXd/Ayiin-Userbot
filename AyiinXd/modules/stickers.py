@@ -544,7 +544,7 @@ async def sticker_to_png(sticker):
 async def cb_sticker(event):
     query = event.pattern_match.group(1)
     if not query:
-        return await edit_delete(event, get_string("stk_1"))
+        return await eod(event, get_string("stk_1"))
     xx = await eor(event, get_string("com_2"))
     text = requests.get("https://combot.org/telegram/stickers?q=" + query).text
     soup = bs(text, "lxml")

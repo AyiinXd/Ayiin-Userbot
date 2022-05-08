@@ -98,7 +98,7 @@ async def repeat(event):
     for _ in range(replyCount - 1):
         replyText += toBeRepeated + "\n"
 
-    await edit_or_reply(event, replyText)
+    await eor(event, replyText)
 
 
 @ayiin_cmd(pattern="repo$")

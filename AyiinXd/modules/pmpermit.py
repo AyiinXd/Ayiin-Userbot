@@ -196,7 +196,7 @@ async def approvepm(apprvpm):
         try:
             user = await apprvpm.client.get_entity(inputArgs)
         except BaseException:
-            return await edit_delete(apprvpm, "**Invalid username/ID.**")
+            return await eod(apprvpm, "**Invalid username/ID.**")
 
         if not isinstance(user, User):
             return await eod(apprvpm, get_string("prmt_8")
