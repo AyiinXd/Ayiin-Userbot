@@ -18,6 +18,7 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from AyiinXd.ayiin.misc import create_quotly
+from Stringyins import get_string
 
 from .carbon import all_col
 
