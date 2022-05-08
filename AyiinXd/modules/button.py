@@ -7,9 +7,9 @@ import re
 
 from telethon import Button
 
-from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, tgbot
-from userbot.utils import ayiin_cmd, edit_delete, reply_id
+from AyiinXd import CMD_HANDLER as cmd
+from AyiinXd import CMD_HELP, tgbot
+from AyiinXd.ayiin import ayiin_cmd, edit_delete, reply_id
 
 # regex obtained from:
 # https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
