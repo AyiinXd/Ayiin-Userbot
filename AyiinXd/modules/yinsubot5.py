@@ -13,7 +13,8 @@ from time import sleep
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 # ========================×========================
@@ -22,12 +23,12 @@ from AyiinXd.ayiin import edit_or_reply, ayiin_cmd
 
 
 @ayiin_cmd(pattern=r"ganteng(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "`Lu Mau Tau Sebuah Fakta?`")
+async def _(y):
+    ayiin = await y.eor(get_string("yins_36"))
     sleep(3)
-    await ayiin.edit("`Fakta Yang Belum Terbongkar Selama Ini`")
+    await ayiin.edit(get_string("yins_37"))
     sleep(3)
-    await ayiin.edit("`**GUA GANTENG FIX NO DEBAT😏**`")
+    await ayiin.edit(get_string("yins_38"))
 
 
 # ========================×========================
@@ -36,12 +37,12 @@ async def _(event):
 
 
 @ayiin_cmd(pattern=r"wibu(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "`Kata Emak`")
+async def _(i):
+    ayiin = await i.eor(get_string("yins_39"))
     sleep(2)
-    await ayiin.edit("`Kalo Ketemu Wibuu`")
+    await ayiin.edit(get_string("yins_40"))
     sleep(3)
-    await ayiin.edit("`Harus Lari Sekenceng Mungkin🏃🏻`")
+    await ayiin.edit(get_string("yins_41"))
     sleep(3)
     await ayiin.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻`")
     await ayiin.edit("`ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ🏃🏻💨`")
@@ -63,23 +64,23 @@ async def _(event):
     await ayiin.edit("`ㅤㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
     await ayiin.edit("`ㅤ🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
     await ayiin.edit("`🏃🏻💨ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ`")
-    await ayiin.edit("`🧎🏻‍♂️ huhh... akhirnya bisa lolos dari wibu mematikan`")
+    await ayiin.edit(get_string("yins_42"))
 
 # create by ayiin
 
 
 @ayiin_cmd(pattern=r"senggol(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "`Bapaknya Udin Di Makan Singkong`")
+async def _(n):
+    ayiin = await n.eor(get_string("yins_43"))
     sleep(2)
-    await ayiin.edit("`Cuma Sendiri ni Senggol Dong`")
+    await ayiin.edit(get_string("yins_44"))
 
 
 @ayiin_cmd(pattern=r"^P(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "`Awali perkataan dengan dengan salam`")
+async def _(s):
+    ayiin = await s.eor(get_string("yins_45"))
     sleep(1)
-    await ayiin.edit("`Assalamualaikum Sayang`")
+    await ayiin.edit(get_string("yins_46"))
 
 
 CMD_HELP.update(

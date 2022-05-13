@@ -13,131 +13,132 @@ from time import sleep
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern=r"sadboy(?: |$)(.*)")
-async def _(event):
-    ayiin = edit_or_reply(event, "`Pertama-tama kamu cantik`")
+async def _(a):
+    ayiin = a.eor(get_string("yibot_1"))
     sleep(2)
-    await ayiin.edit("`Kedua kamu manis`")
+    await ayiin.edit(get_string("yibot_2"))
     sleep(1)
-    await ayiin.edit("`Dan yang terakhir adalah kamu bukan milikku`")
-
+    await ayiin.edit(get_string("yibot_3"))
 
 # Create by myself @localheart
 
 
 @ayiin_cmd(pattern=r"lah(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "**Lah, Lu tolol?**")
+async def _(y):
+    ayiin = await y.eor(get_string("yibot_4"))
     sleep(1)
-    await ayiin.edit("**Apa dongok?**")
+    await ayiin.edit(get_string("yibot_5"))
     sleep(1)
-    await ayiin.edit("**Gausah sok keras**")
+    await ayiin.edit(get_string("yibot_6"))
     sleep(1)
-    await ayiin.edit("**Gua ga ketrigger sama bocah baru nyemplung!**")
+    await ayiin.edit(get_string("yibot_7"))
 
 
 @ayiin_cmd(pattern=r"sok(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "**WOII**")
+async def _(i):
+    ayiin = await i.eor(get_string("yibot_8"))
     sleep(2)
-    await ayiin.edit("**KONTOL**")
+    await ayiin.edit(get_string("yibot_9"))
     sleep(2)
-    await ayiin.edit("**KALO MENTAL MASIH PATUNGAN**")
+    await ayiin.edit(get_string("yibot_10"))
     sleep(2)
-    await ayiin.edit("**GAUSAH SOK KERAS DEH**")
+    await ayiin.edit(get_string("yibot_11"))
     sleep(2)
-    await ayiin.edit("**GA KEREN LO BEGITU NGENTOT**")
+    await ayiin.edit(get_string("yibot_12"))
 
 
 @ayiin_cmd(pattern=r"wah(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "**Wahh, War nya keren bang**")
+async def _(i):
+    ayiin = await i.eor(get_string("yibot_13"))
     sleep(2)
-    await ayiin.edit("**Tapi, Yang gua liat, kok Kaya lawakan**")
+    await ayiin.edit(get_string("yibot_14"))
     sleep(2)
-    await ayiin.edit("**Oh iya, Kan lo badut 🤡**")
+    await ayiin.edit(get_string("yibot_15"))
     sleep(2)
-    await ayiin.edit("**Kosa kata pas ngelawak, Jangan di pake war bang**")
+    await ayiin.edit(get_string("yibot_16"))
     sleep(2)
-    await ayiin.edit("**Kesannya lo ngasih kita hiburan.**")
+    await ayiin.edit(get_string("yibot_17"))
     sleep(2)
-    await ayiin.edit("**Kasian badut🤡, Ga di hargain pengunjung, Eh lampiaskan nya ke Tele, Wkwkwk**")
+    await ayiin.edit(get_string("yibot_18"))
     sleep(3)
-    await ayiin.edit("**Dah sana cabut, Makasih hiburannya, Udah bikin Gua tawa ngakak**")
+    await ayiin.edit(get_string("yibot_19"))
 
 
 @ayiin_cmd(pattern=r"alay(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "eh kamu, iya kamu")
+async def _(n):
+    ayiin = await n.eor(get_string("yibot_20"))
     sleep(2)
-    await ayiin.edit("**ALAY bnget sih**")
+    await ayiin.edit(get_string("yibot_21"))
     sleep(2)
-    await ayiin.edit("**spam bot mulu**")
+    await ayiin.edit(get_string("yibot_22"))
     sleep(2)
-    await ayiin.edit("**baru jadi userbot ya?? xixixi**")
+    await ayiin.edit(get_string("yibot_23"))
     sleep(2)
-    await ayiin.edit("**pantes NORAK**")
+    await ayiin.edit(get_string("yibot_24"))
 
 
 @ayiin_cmd(pattern=r"erpe(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "Hai, Kamu Anak Erpe Ya")
+async def _(x):
+    ayiin = await x.eor(get_string("yibot_25"))
     sleep(1)
-    await ayiin.edit("Kok Pake Muka Orang sih?")
+    await ayiin.edit(get_string("yibot_26"))
     sleep(1)
-    await ayiin.edit("Oh iya, Muka Anak Erpe Kan")
+    await ayiin.edit(get_string("yibot_27"))
     sleep(1)
-    await ayiin.edit("**BURIK - BURIK**")
+    await ayiin.edit(get_string("yibot_28"))
     sleep(1)
-    await ayiin.edit("Jadinya Pake Muka Orang")
+    await ayiin.edit(get_string("yibot_29"))
     sleep(1)
-    await ayiin.edit("Karena Muka Anak erpe")
+    await ayiin.edit(get_string("yibot_30"))
     sleep(1)
-    await ayiin.edit("**BURIK - BURIK**")
+    await ayiin.edit(get_string("yibot_31"))
     sleep(1)
-    await ayiin.edit("Canda **BURIK**")
+    await ayiin.edit(get_string("yibot_32"))
     sleep(1)
-    await ayiin.edit("Lari Ada Plastik KePanasan")
+    await ayiin.edit(get_string("yibot_33"))
 
 
 @ayiin_cmd(pattern=r"tittle(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "**OI ANAK TITLE**")
+async def _(d):
+    ayiin = await d.eor(get_string("yibot_34"))
     sleep(2)
-    await ayiin.edit("**OOO INI YANG SOK JADI PAHLAWAN DI TELEGRAM?**")
-    sleep(3)
-    await ayiin.edit("**TITLE KEMANA MANA SAMPE MENUHIN NAMA**")
+    await ayiin.edit(get_string("yibot_35"))
     sleep(2)
-    await ayiin.edit("**ADA YANG SAMPE 18+ LAH SEGALA MACEM**")
+    await ayiin.edit(get_string("yibot_36"))
     sleep(2)
-    await ayiin.edit("**LO KIRA KEREN KEK GITU?**")
+    await ayiin.edit(get_string("yibot_37"))
     sleep(2)
-    await ayiin.edit("**KERJAAN CUMA NGURUSIN GRUP DI TELEGRAM SAMA NGAJAK ORANG WAR**")
+    await ayiin.edit(get_string("yibot_38"))
+    sleep(2)
+    await ayiin.edit(get_string("yibot_39"))
+    sleep(2)
+    await ayiin.edit(get_string("yibot_40"))
+    sleep(2)
+    await ayiin.edit(get_string("yibot_41"))
+    sleep(2)
+    await ayiin.edit(get_string("yibot_42"))
+    sleep(2)
+    await ayiin.edit(get_string("yibot_43"))
+    sleep(2)
+    await ayiin.edit(get_string("yibot_44"))
+    sleep(2)
+    await ayiin.edit(get_string("yibot_45"))
+    sleep(2)
+    await ayiin.edit(get_string("yibot_46"))
     sleep(4)
-    await ayiin.edit("**YAELAH BRO MENTAL LO CUMA DI SOSMED APA GIMANE?**")
+    await ayiin.edit(get_string("yibot_47"))
     sleep(2)
-    await ayiin.edit("**PERASAAN DULU TELEGRAM GAADA DEH BOCAH BOCAH SOK JAGO KEK GINI**")
-    sleep(2)
-    await ayiin.edit("**GILIRAN TITLE NYA DI EJEK NGADU KE OWNER NYA**")
-    sleep(4)
-    await ayiin.edit("**TRUS NGAJAK WAR**")
-    sleep(2)
-    await ayiin.edit("**BUSET DAH BANG**")
-    sleep(2)
-    await ayiin.edit("**UDAH SEJAGO APESI SAMPE GC DIBELA BELA**")
+    await ayiin.edit(get_string("yibot_48"))
     sleep(3)
-    await ayiin.edit("**ORANG TUA LO NOH ADA YANG NAGIH UTANG UDA LO BELA BELOM?**")
-    sleep(4)
-    await ayiin.edit("**RELA NGUTANG DEMI NGIDUPIN LU**")
-    sleep(2)
-    await ayiin.edit("**EH ANAKNYA MALAH NGEBELAIN GC GAJELAS HAHAHA**")
+    await ayiin.edit(get_string("yibot_49"))
     sleep(3)
-    await ayiin.edit("**MANA VIRTUAL LAGI, SOK JAGO LAGI DUH**")
-    sleep(3)
-    await ayiin.edit("**SEMOGA CEPET SADAR YA HAHAHAHA**")
+    await ayiin.edit(get_string("yibot_50"))
+
 
 CMD_HELP.update(
     {

@@ -20,7 +20,8 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
 from AyiinXd.ayiin.truthdare import Dare as d
 from AyiinXd.ayiin.truthdare import Truth as t
-from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 Tod = ["Truth", "Dare"]
@@ -31,28 +32,20 @@ async def truth_or_dare(tord):
     trod = tord.pattern_match.group(1).strip()
     troll = choice(Tod)
     if trod == "":
-        await tord.edit(f"    __Truth Or Dare ???__\n\n"
-                        f"__Didapatkan Secara Acak__\n"
-                        f"**      »» {troll} ««**"
-                        )
+        await tord.edit(get_string("tod_1").format(troll))
 
     if trod == "truth":
-        Ayiin = await edit_or_reply(tord, "__Truth Or Dare__")
+        Ayiin = await tord.eor(get_string("tod_2"))
         sleep(1)
         trth = choice(t)
-        await Ayiin.edit(f"__Mendapatkan Hasil Truth Tod__\n\n"
-                         f"**»** __Truth__ :\n"
-                         f"**»** __{trth}__")
+        await Ayiin.edit(get_string("tod_3").format(trth))
         return
 
     if trod == "dare":
-        Xd = await edit_or_reply(tord, "__Truth Or Dare__")
+        Xd = await tord.eor(get_string("tod_4"))
         sleep(1)
         dr = choice(d)
-        await Xd.edit(f"__Mendapatkan Hasil Dare Tod__\n\n"
-                      f"**»** __Dare__ :\n"
-                      f"**»** __{dr}__"
-                      )
+        await Xd.edit(get_string("tod_5").format(dr))
 
         return
 

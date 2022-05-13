@@ -13,7 +13,8 @@ from time import sleep
 from AyiinXd import BLACKLIST_CHAT
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import ayiin_cmd, edit_or_reply, edit_delete
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 # ========================×========================
@@ -21,145 +22,142 @@ from AyiinXd.ayiin import ayiin_cmd, edit_or_reply, edit_delete
 # ========================×========================
 
 @ayiin_cmd(pattern=r"ywc(?: |$)(.*)")
-async def _(event):
-    yins = await edit_or_reply(event, "**Ok Sama Sama**")
-    await yins.edit("**Ok Sama Sama 😘**")
+async def _(a):
+    await a.edit(get_string("yins_1"))
 
 
 @ayiin_cmd(pattern=r"jamet(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "**WOII**")
+async def _(y):
+    ayiin = await y.eor(get_string("yins_2"))
     sleep(1.5)
-    await ayiin.edit("**JAMET**")
+    await ayiin.edit(get_string("yins_3"))
     sleep(1.5)
-    await ayiin.edit("**CUMA MAU BILANG**")
+    await ayiin.edit(get_string("yins_4"))
     sleep(1.5)
-    await ayiin.edit("**GAUSAH SO ASIK**")
+    await ayiin.edit(get_string("yins_5"))
     sleep(1.5)
-    await ayiin.edit("**EMANG KENAL?**")
+    await ayiin.edit(get_string("yins_6"))
     sleep(1.5)
-    await ayiin.edit("**GAUSAH REPLY**")
+    await ayiin.edit(get_string("yins_7"))
     sleep(1.5)
-    await ayiin.edit("**KITA BUKAN KAWAN**")
+    await ayiin.edit(get_string("yins_8"))
     sleep(1.5)
-    await ayiin.edit("**GASUKA PC ANJING**")
+    await ayiin.edit(get_string("yins_9"))
     sleep(1.5)
-    await ayiin.edit("**BOCAH KAMPUNG**")
+    await ayiin.edit(get_string("yins_10"))
     sleep(1.5)
-    await ayiin.edit("**MENTAL TEMPE**")
+    await ayiin.edit(get_string("yins_11"))
     sleep(1.5)
-    await ayiin.edit("**LEMBEK NGENTOT🔥**")
+    await ayiin.edit(get_string("yins_12"))
 
 
 @ayiin_cmd(pattern=r"pp(?: |$)(.*)")
-async def _(event):
-    await edi_or_reply(event, "**PASANG PP DULU GOBLOK,BIAR ORANG-ORANG PADA TAU BETAPA HINA NYA MUKA LU 😆**")
+async def _(i):
+    await i.eor(get_string("yins_13"))
 
 
 @ayiin_cmd(pattern=r"dp(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**MUKA LU HINA, GAUSAH SOK KERAS YA ANJENGG!!**")
+async def _(i):
+    await i.eor(get_string("yins_14"))
 
 
 @ayiin_cmd(pattern=r"so(?: |$)(.*)")
-async def _(event):
-    await event.client.send_message(event, "**GAUSAH SOKAB SAMA GUA GOBLOK, LU BABU GA LEVEL!!**")
+async def _(n):
+    await n.eor(get_string("yins_15"))
 
 
 @ayiin_cmd(pattern=r"nb(?: |$)(.*)")
-async def _(event):
+async def _(x):
     if event.chat_id in BLACKLIST_CHAT:
-        return await edit_delete(event, "**Perintah ini Dilarang digunakan di Group ini**")
-    await edit_or_reply(event, "**MAEN BOT MULU ALAY NGENTOTT, KESANNYA NORAK GOBLOK!!!**")
-    await event.delete()
+        return await eod(x, get_string("ayiin_1"), time=50)
+    await x.eor(get_string("yins_16"))
+    await x.delete()
 
 
 @ayiin_cmd(pattern=r"met(?: |$)(.*)")
-async def _(event):
-    await event.client.send_message(event, "**NAMANYA JUGA JAMET CAPER SANA SINI BUAT CARI NAMA**")
+async def _(d):
+    await d.eor(get_string("yins_17"))
 
 
 @ayiin_cmd(pattern=r"war(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**WAR WAR PALAK BAPAK KAU WAR, SOK KERAS BANGET GOBLOK, DI TONGKRONGAN JADI BABU, DI TELE SOK JAGOAN...**")
-    await event.delete()
+async def _(a):
+    await a.eor(get_string("yins_18"))
+    await a.delete()
 
 
 @ayiin_cmd(pattern=r"wartai(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**WAR WAR TAI ANJING, KETRIGGER MINTA SHARELOK LU KIRA MAU COD-AN GOBLOK, BACOTAN LU AJA KGA ADA KERAS KERASNYA GOBLOK**")
-    await event.delete()
+async def _(y):
+    await y.eor(get_string("yins_19"))
+    await y.delete()
 
 
 @ayiin_cmd(pattern=r"kismin(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**CUIHHHH, MAKAN AJA MASIH NGEMIS LO GOBLOK, JANGAN SO NINGGI YA KONTOL GA KEREN LU KEK GITU GOBLOK!!**")
-    await event.delete()
+async def _(i):
+    await i.eor(get_string("yins_20"))
+    await i.delete()
 
 
 @ayiin_cmd(pattern=r"ded(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**MATI AJA LU GOBLOK, GAGUNA LU HIDUP DI BUMI**")
-    await event.delete()
+async def _(i):
+    await i.eor(get_string("yins_21"))
+    await i.delete()
 
 
 @ayiin_cmd(pattern=r"sokab(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**SOKAB BET LU GOBLOK, KAGA ADA ISTILAH NYA BAWAHAN TEMENAN AMA BOS!!**")
-    await event.delete()
+async def _(n):
+    await n.eor(get_string("yins_22"))
+    await n.delete()
 
 
 @ayiin_cmd(pattern=r"gembel(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**MUKA BAPAK LU KEK KELAPA SAWIT ANJING, GA USAH NGATAIN ORANG, MUKA LU AJA KEK GEMBEL TEXAS GOBLOK!!**")
-    await event.delete()
+async def _(x):
+    await x.eor(get_string("yins_23"))
+    await x.delete()
 
 
 @ayiin_cmd(pattern=r"cuih(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**GAK KEREN LO KEK BEGITU GOBLOK, KELUARGA LU BAWA SINI GUA LUDAHIN SATU-SATU. CUIHH!!!**")
-    await event.delete()
+async def _(d):
+    await d.eor(get_string("yins_24"))
+    await d.delete()
 
 
 @ayiin_cmd(pattern=r"dih(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**DIHHH NAJISS ANAK HARAM LO GOBLOK, JANGAN BELAGU DIMARI KAGA KEREN LU KEK BGITU TOLOL!**")
-    await event.delete()
+async def _(y):
+    await y.eor(get_string("yins_25"))
+    await y.delete()
 
 
 @ayiin_cmd(pattern=r"gcs(?: |$)(.*)")
-async def _(event):
-    if event.chat_id in BLACKLIST_CHAT:
-        return await edit_delete(event, "**Perintah ini Dilarang digunakan di Group ini**")
-    await edit_or_reply(event, "**GC SAMPAH KAYA GINI, BUBARIN AJA GOBLOK!!**")
-    await event.delete()
+async def _(i):
+    if i.chat_id in BLACKLIST_CHAT:
+        return await eod(i, get_string("ayiin_1"))
+    await i.eor(get_string("yins_26"))
+    await i.delete()
 
 
 @ayiin_cmd(pattern=r"skb(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**EMANG KITA KENAL? KAGA GOBLOK SOKAB BANGET LU GOBLOK**")
-    await event.delete()
+async def _(n):
+    await n.eor(get_string("yins_27"))
+    await n.delete()
 
 
 @ayiin_cmd(pattern=r"virtual(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "**OOOO**")
+async def _(s):
+    ayiin = await s.eor(get_string("yins_28"))
     sleep(1.5)
-    await ayiin.edit("**INI YANG VIRTUAL**")
+    await ayiin.edit(get_string("yins_29"))
     sleep(1.5)
-    await ayiin.edit("**YANG KATANYA SAYANG BANGET**")
+    await ayiin.edit(get_string("yins_30"))
     sleep(1.5)
-    await ayiin.edit("**TAPI TETEP AJA DI TINGGAL**")
+    await ayiin.edit(get_string("yins_31"))
     sleep(1.5)
-    await ayiin.edit("**NI INGET**")
+    await ayiin.edit(get_string("yins_32"))
     sleep(1.5)
-    await ayiin.edit("**TANGANNYA AJA GA BISA DI PEGANG**")
+    await ayiin.edit(get_string("yins_33"))
     sleep(1.5)
-    await ayiin.edit("**APALAGI OMONGANNYA**")
+    await ayiin.edit(get_string("yins_34"))
     sleep(1.5)
-    await ayiin.edit("**BHAHAHAHA**")
-    sleep(1.5)
-    await ayiin.edit("**KASIAN MANA MASIH MUDA**")
+    await ayiin.edit(get_string("yins_35"))
 
 
 CMD_HELP.update(

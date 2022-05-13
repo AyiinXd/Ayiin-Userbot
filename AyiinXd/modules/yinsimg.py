@@ -22,7 +22,8 @@ import numpy as np
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import ayiin_cmd, edit_or_reply, edit_delete
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 # ========================×========================
@@ -33,13 +34,13 @@ from AyiinXd.ayiin import ayiin_cmd, edit_or_reply, edit_delete
 @ayiin_cmd(pattern=r"sketch(?: |$)(.*)")
 async def sketch(e):
     ureply = await e.get_reply_message()
-    xx = await edit_or_reply(e, "`Sabar Ya Kentod...`")
+    xx = await e.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(e, "`Balas Ke Foto Atau Sticker Bego...`")
+        return await eod(xx, get_string("failed9"))
 
     yins = await ureply.download_media()
     if yins.endswith(".tgs"):
-        await xx.edit("`Sabar Kentod...`")
+        await xx.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", yins, "ayiin.png"]
         file = "ayiin.png"
         process = await asyncio.create_subprocess_exec(
@@ -51,7 +52,7 @@ async def sketch(e):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await xx.edit("`Sabar Tod Sedang Menyiapkan Media...`")
+        await xx.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(yins)
         heh, lol = img.read()
         cv2.imwrite("ayiin.png", lol)
@@ -64,7 +65,7 @@ async def sketch(e):
     pencil_sketch_IMG = cv2.divide(
         gray_image, inverted_blurred_img, scale=256.0)
     cv2.imwrite("ayiinxd.png", pencil_sketch_IMG)
-    await xx.respond("⍟ 𝙎𝙠𝙚𝙩𝙘𝙝 𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚 𝙗𝙮 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ⍟", file="ayiinxd.png")
+    await xx.respond(get_string("yimg_3"), file="ayiinxd.png")
     await xx.delete()
     os.remove(file)
     os.remove("ayiinxd.png")
@@ -73,13 +74,13 @@ async def sketch(e):
 @ayiin_cmd(pattern=r"grey(?: |$)(.*)")
 async def xnxx(event):
     ureply = await event.get_reply_message()
-    yins = await edit_or_reply(event, "`Sabar Ya Kentod...`")
+    yins = await event.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(event, "`Balas Ke Foto Atau Sticker Bego...`")
+        return await eod(yins, get_string("failed9"))
 
     ayiin = await ureply.download_media()
     if ayiin.endswith(".tgs"):
-        await yins.edit("`Gua Proses Sekarang Tod...`")
+        await yins.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", ayiin, "yin.png"]
         file = "yin.png"
         process = await asyncio.create_subprocess_exec(
@@ -91,7 +92,7 @@ async def xnxx(event):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await yins.edit("`Sabar Tod Sedang Menyiapkan Media...`")
+        await yins.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(ayiin)
         heh, lol = img.read()
         cv2.imwrite("yin.png", lol)
@@ -114,13 +115,13 @@ async def xnxx(event):
 @ayiin_cmd(pattern=r"blur(?: |$)(.*)")
 async def ayiin(event):
     ureply = await event.get_reply_message()
-    xd = await edit_or_reply(event, "`Sabar Tod...`")
+    xd = await event.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(event, "`Balas Ke Foto Atau Sticker Bego...`")
+        return await eod(xd, get_string("failed9"))
 
     yins = await ureply.download_media()
     if yins.endswith(".tgs"):
-        await xd.edit("`Gua Proses Sekarang...`")
+        await xd.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", yins, "yin.png"]
         file = "yin.png"
         process = await asyncio.create_subprocess_exec(
@@ -132,7 +133,7 @@ async def ayiin(event):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await xd.edit("`Tunggu Tod Sedang Menyiapkan Media...`")
+        await xd.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(yins)
         heh, lol = img.read()
         cv2.imwrite("yin.png", lol)
@@ -155,13 +156,13 @@ async def ayiin(event):
 @ayiin_cmd(pattern=r"negative(?: |$)(.*)")
 async def yinsxd(event):
     ureply = await event.get_reply_message()
-    ayiin = await edit_or_reply(event, "**Sabar,** `Orang Sabar Disayang Tuhan...`")
+    ayiin = await event.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(event, "`Balas Ke Foto Atau Sticker Bego...`")
+        return await eod(ayiin, get_string("failed9"))
 
     ayiinxd = await ureply.download_media()
     if ayiinxd.endswith(".tgs"):
-        await ayiin.edit("`Sedang Memproses Tod...`")
+        await ayiin.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", ayiinxd, "yin.png"]
         file = "yin.png"
         process = await asyncio.create_subprocess_exec(
@@ -173,7 +174,7 @@ async def yinsxd(event):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await ayiin.edit("`Sabar Tod Sedang Menyiapkan Media...`")
+        await ayiin.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(ayiinxd)
         heh, lol = img.read()
         cv2.imwrite("yin.png", lol)
@@ -196,13 +197,13 @@ async def yinsxd(event):
 @ayiin_cmd(pattern=r"miror(?: |$)(.*)")
 async def kntl(event):
     ureply = await event.get_reply_message()
-    kentu = await edit_or_reply(event, "`Sabar Ya Anak Babi...`")
+    kentu = await event.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(event, "`Balas Ke Foto Atau Sticker Bego...`")
+        return await eod(kentu, get_string("failed9"))
 
     xnxx = await ureply.download_media()
     if xnxx.endswith(".tgs"):
-        await kentu.edit("`Memproses Dakjal Selfie...`")
+        await kentu.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", xnxx, "yin.png"]
         file = "yin.png"
         process = await asyncio.create_subprocess_exec(
@@ -214,7 +215,7 @@ async def kntl(event):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await kentu.edit("`Sabar Tod Sedang Menyiapkan Media...`")
+        await kentu.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(xnxx)
         kont, tol = img.read()
         cv2.imwrite("yin.png", tol)
@@ -238,13 +239,13 @@ async def kntl(event):
 @ayiin_cmd(pattern=r"flp(?: |$)(.*)")
 async def ayiin(kontol):
     ureply = await kontol.get_reply_message()
-    mmk = await edit_or_reply(kontol, "`Sabar Ya Kentod...`")
+    mmk = await kontol.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(kontol, "`Balas Ke Foto Atau Sticker Bego...`")
+        return await eod(mmk, get_string("failed9"))
 
     ayiinxd = await ureply.download_media()
     if ayiinxd.endswith(".tgs"):
-        await mmk.edit("`Sedang Memproses Tod...`")
+        await mmk.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", ayiinxd, "yins.png"]
         file = "yins.png"
         process = await asyncio.create_subprocess_exec(
@@ -256,7 +257,7 @@ async def ayiin(kontol):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await mmk.edit("`Sabar Tod Sedang Menyiapkan Media...`")
+        await mmk.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(ayiinxd)
         kon, tol = img.read()
         cv2.imwrite("yins.png", tol)
@@ -281,13 +282,13 @@ async def ayiin(kontol):
 @ayiin_cmd(pattern=r"quad(?: |$)(.*)")
 async def ayiin(memek):
     ureply = await memek.get_reply_message()
-    kntl = await edit_or_reply(memek, "`Sabar Ya Anjng...`")
+    kntl = await memek.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(memek, "`Balas Ke Foto Atau Sticker Bego...`")
+        return await eod(kntl, get_string("failed9"))
 
     yinsex = await ureply.download_media()
     if yinsex.endswith(".tgs"):
-        await kntl.edit("`Sedang Memproses Tod...`")
+        await kntl.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", yinsex, "yins.png"]
         file = "yins.png"
         process = await asyncio.create_subprocess_exec(
@@ -299,7 +300,7 @@ async def ayiin(memek):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await kntl.edit("`Sabar Tod Sedang Menyiapkan Media...`")
+        await kntl.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(yinsex)
         kon, tol = img.read()
         cv2.imwrite("yins.png", tol)
@@ -326,13 +327,13 @@ async def ayiin(memek):
 @ayiin_cmd(pattern=r"toon(?: |$)(.*)")
 async def yins(event):
     ureply = await event.get_reply_message()
-    xd = await edit_or_reply(event, "`Sabar Ya Babi...`")
+    xd = await event.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(event, "`Balas Ke Foto Atau Sticker Bego...`")
+        return await eod(xd, get_string("failed9"))
 
     yinsex = await ureply.download_media()
     if yinsex.endswith(".tgs"):
-        await xd.edit("`Sedang Memproses Tod...`")
+        await xd.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", yinsex, "yins.png"]
         file = "yins.png"
         process = await asyncio.create_subprocess_exec(
@@ -344,7 +345,7 @@ async def yins(event):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await xd.edit("Sabar Tod Sedang Menyiapkan Media...")
+        await xd.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(yinsex)
         kon, tol = img.read()
         cv2.imwrite("yins.png", tol)
@@ -384,13 +385,13 @@ async def yins(event):
 @ayiin_cmd(pattern=r"danger(?: |$)(.*)")
 async def ayiin(event):
     ureply = await event.get_reply_message()
-    ayiin = await edit_or_reply(event, "`Sabar Ya Kentod...`")
+    ayiin = await ayiin.eor(get_string("com_1"))
     if not (ureply and (ureply.media)):
-        return await edit_delete(event, "Balas Ke Foto Atau Sticker Bego...")
+        return await eod(ayiin, get_string("failed9"))
 
     ayiinxd = await ureply.download_media()
     if ayiinxd.endswith(".tgs"):
-        await ayiin.edit("`Sedang Memproses Tod...`")
+        await ayiin.edit(get_string("com_1"))
         cmd = ["lottie_convert.py", ayiinxd, "yins.png"]
         file = "yins.png"
         process = await asyncio.create_subprocess_exec(
@@ -402,7 +403,7 @@ async def ayiin(event):
         stderr.decode().strip()
         stdout.decode().strip()
     else:
-        await ayiin.edit("Sabar Tod Sedang Menyiapkan Media...")
+        await ayiin.edit(get_string("yimg_1"))
         img = cv2.VideoCapture(ayiinxd)
         kon, tol = img.read()
         cv2.imwrite("yins.png", tol)
@@ -427,7 +428,7 @@ async def ayiin(event):
 async def ayiixd(event):
     mmk = await event.get_reply_message()
     if not (mmk and (mmk.photo or mmk.sticker)):
-        return await edit_delete(event, "`Balas Ke Sticker Atau Foto Bego...`")
+        return await eod(event, get_string("failed9"))
     kntl = event.pattern_match.group(1).strip()
     wh = 20
     if not kntl:
@@ -440,7 +441,7 @@ async def ayiixd(event):
                 kntl = col_[0]
             kntl = [int(kntl) for kntl in kntl.split(",")[:2]]
         except ValueError:
-            return await edit_delete(event, "`Ketik Yang Bener Anj...`")
+            return await eod(event, get_string("yimg_2"))
     yups = await mmk.download_media()
     img1 = cv2.imread(yups)
     constant = cv2.copyMakeBorder(
@@ -456,13 +457,13 @@ async def ayiixd(event):
 async def pixelator(event):
     reply_message = await event.get_reply_message()
     if not (reply_message and reply_message.photo):
-        return await edit_delete(event, "`Balas Ke Fotonya Bego...`")
+        return await eod(event, get_string("failed9"))
     hw = 50
     try:
         hw = int(event.pattern_match.group(1).strip())
     except (ValueError, TypeError):
         pass
-    yins = await edit_or_reply(event, "`Sabar Ya Tod...`")
+    yins = await event.eor(get_string("com_1"))
     imayiin = await reply_message.download_media()
     input_ = cv2.imread(imayiin)
     height, width = input_.shape[:2]
@@ -470,7 +471,7 @@ async def pixelator(event):
     temp = cv2.resize(input_, (w, h), interpolation=cv2.INTER_LINEAR)
     output = cv2.resize(temp, (width, height), interpolation=cv2.INTER_NEAREST)
     cv2.imwrite("output.jpg", output)
-    await yins.respond("⍟ 𝙋𝙞𝙭𝙚𝙡𝙖𝙩𝙤𝙧 𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚 𝙗𝙮 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩 ⍟", file="output.jpg")
+    await yins.respond(get_string("yimg_4"), file="output.jpg")
     await yins.delete()
     os.remove("output.jpg")
     os.remove(imayiin)

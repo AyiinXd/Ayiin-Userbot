@@ -1,9 +1,9 @@
 # Ayiin - Userbot
 # Copyright (C) 2022-2023 @AyiinXd
 #
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# This file is a part of < https://github.com/AyiinXd/Ayiin-Userbot/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# <https://www.github.com/AyiinXd/Ayiin-Userbot/blob/main/LICENSE/>.
 #
 # FROM Ayiin-Userbot <https://github.com/AyiinXd/Ayiin-Userbot>
 # t.me/AyiinXdSupport & t.me/AyiinSupport
@@ -17,37 +17,38 @@
 from time import sleep
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="cacad(?: |$)(.*)")
-async def _(cacad):
-    yins = await edit_or_reply(cacad, "**Cacad 😏**")
+async def _(x):
+    yins = await x.eor(get_string("yins_47"))
     sleep(2)
-    await yins.edit("**Najis Akunnya Cacad 😂**")
+    await yins.edit(get_string("yins_48"))
     sleep(1)
-    await yins.edit("**Hahahaha Cacad 🤣**")
+    await yins.edit(get_string("yins_49"))
     sleep(2)
-    await yins.edit("**Canda Akun Cacad 😂🤣**")
+    await yins.edit(get_string("yins_50"))
 
 
 @ayiin_cmd(pattern="hayo(?: |$)(.*)")
-async def _(hylo):
-    ayiin = await edit_or_reply(hylo, "**Hayolo 😂**")
+async def _(d):
+    ayiin = await d.eor(get_string("yins_51"))
     sleep(1)
-    await ayiin.edit("**Hayoloo 😂**")
+    await ayiin.edit(get_string("yins_52"))
     sleep(1)
-    await ayiin.edit("**Hayolooo 😂**")
+    await ayiin.edit(get_string("yins_53"))
     sleep(1)
-    await ayiin.edit("**Hayoloooo 😂**")
+    await ayiin.edit(get_string("yins_54"))
     sleep(3)
-    await ayiin.edit("**Hayolooooo 🤣**")
+    await ayiin.edit(get_string("yins_55"))
     sleep(2)
-    await ayiin.edit("**Haayolooooo 🤣**")
+    await ayiin.edit(get_string("yins_56"))
     sleep(2)
-    await ayiin.edit("**Botnya Mati Ya?**")
+    await ayiin.edit(get_string("yins_57"))
     sleep(2)
-    await ayiin.edit("**Botnya Mati Ya? kasiaaaan** 😂")
+    await ayiin.edit(get_string("yins_58"))
 
 
 # ========================×========================
@@ -57,7 +58,7 @@ async def _(hylo):
 
 CMD_HELP.update(
     {
-        "yinsubot7": f"**Plugin : **`yinsubot7`\
+        "yinsubot6": f"**Plugin : **`yinsubot6`\
         \n\n  »  **Perintah :** `{cmd}cacad`\
         \n  »  **Kegunaan :** Coba Sendiri Tod.\
         \n\n  »  **Perintah :** `{cmd}hayolo`\

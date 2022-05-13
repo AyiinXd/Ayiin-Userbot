@@ -1,117 +1,118 @@
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="d(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**BACOT NGENTOTTT!!BAPA LU SURUH RIBUT SAMA GUA**")
+async def _(a):
+    await a.eor(get_string("yitxc_1"))
 
 
 @ayiin_cmd(pattern="e(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**GAK USAH SOK KERAS GOBLOK!!KENCING MASIH BERDIRI AJA BELAGU**")
+async def _(y):
+    await y.eor(get_string("yitxc_2"))
 
 
 @ayiin_cmd(pattern="f(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**MUKA LU SEMUA KAYA KONTOL HAHAHAHA!!**")
+async def _(i):
+    await i.eor(get_string("yitxc_3"))
 
 
 @ayiin_cmd(pattern="i(?: |$)(.*)")
-async def _(event):
-    await edit_or_reply(event, "**KONTOL MASIH BENGKOK AJA BANGGA LU HAHAHAHA!!**")
+async def _(n):
+    await n.eor(get_string("yitxc_4"))
 
 
 @ayiin_cmd(pattern="r(?: |$)(.*)")
-async def _(rcun):
-    await edit_or_reply(rcun, "**KONTOL KONTOL APA YANG BESAR?KONTOL LU LAH HAHAHAHA!!**")
+async def _(x):
+    await x.eor(get_string("yitxc_5"))
 
 
 @ayiin_cmd(pattern="t(?: |$)(.*)")
-async def _(toxic):
-    await edit_or_reply(toxic, "**BABI!!KONTOL!!NGENTOT!!!**")
+async def _(d):
+    await d.eor(get_string("yitxc_6"))
 
 
 @ayiin_cmd(pattern="u(?: |$)(.*)")
-async def _(stycol):
-    await edit_or_reply(stycol, "**BABI LU GOBLOK!!GANTENGAN JUGA GUA HAHAHAHA**")
+async def _(a):
+    await a.eor(get_string("yitxc_7"))
 
 
 @ayiin_cmd(pattern="w(?: |$)(.*)")
-async def _(babi):
-    await edit_or_reply(babi, "**BABI LU GOBLOK!!CANTIKAN JUGA GUA HAHAHAHA**")
+async def _(a):
+    await a.eor(get_string("yitxc_8"))
 
 
 @ayiin_cmd(pattern="bct(?: |$)(.*)")
-async def _(bicit):
-    await edit_or_reply(bicit, "**BACOTAN LU GAK BIKIN GUA TREMOR GOBLOK HAHAHAHA!!**")
+async def _(a):
+    await a.eor(get_string("yitxc_9"))
 
 
 @ayiin_cmd(pattern="n(?: |$)(.*)")
-async def _(gembel):
-    await edit_or_reply(gembel, "**GIMANA KABAR KAMU SAYANG??APAKAH BAIK?**")
+async def _(a):
+    await a.eor(get_string("yitxc_10"))
 
 
 @ayiin_cmd(pattern="b(?: |$)(.*)")
-async def _(sok):
-    await edit_or_reply(sok, "**ELEEEHHHH SOK BANGET KEPINTERAN KAMU!!**")
+async def _(a):
+    await a.eor(get_string("yitxc_11"))
 
 
 @ayiin_cmd(pattern="m(?: |$)(.*)")
-async def _(gckuburan):
-    await edit_or_reply(gckuburan, "**INI GRUB APA KUBURAN SEPI BANGET ASTAGFIRULLAH!!**")
+async def _(y):
+    await y.eor(get_string("yitxc_12"))
 
 
 @ayiin_cmd(pattern="c(?: |$)(.*)")
-async def _(ngyl):
-    await edit_or_reply(ngyl, "**KAN UDAH GUA BILANG??MAKANYA JANGAN NGEYEL!!**")
+async def _(y):
+    await y.eor(get_string("yitxc_13"))
 
 
 @ayiin_cmd(pattern="x(?: |$)(.*)")
-async def _(sokap):
-    await edit_or_reply(sokap, "**GAUSAH SOKAP DEH KAMU!!**")
+async def _(a):
+    await a.eor(get_string("yitxc_14"))
 
 
 @ayiin_cmd(pattern="v(?: |$)(.*)")
-async def _(gkbnr):
-    await edit_or_reply(gkbnr, "**MACAM BAGUS AE LU BEGITU HMM!!**")
+async def _(y):
+    await y.eor(get_string("yitxc_15"))
 
 
 @ayiin_cmd(pattern="j(?: |$)(.*)")
-async def _(jagoan):
-    await edit_or_reply(jagoan, "**MAAF BUKAN JAGOAN HAHAHAHA!!**")
+async def _(i):
+    await i.eor(get_string("yitxc_16"))
 
 
 @ayiin_cmd(pattern="z(?: |$)(.*)")
-async def _(lipcol):
-    await edit_or_reply(lipcol, "**BISMILLAH SLEEP CALL!!😁**")
+async def _(i):
+    await i.eor(get_string("yitxc_17"))
 
 
 @ayiin_cmd(pattern="g(?: |$)(.*)")
-async def _(gntng):
-    await gntng.edit("**GANTENG LU BEGITU???**")
+async def _(n):
+    await n.eor(get_string("yitxc_18"))
 
 
 @ayiin_cmd(pattern="y(?: |$)(.*)")
-async def _(wrwr):
-    await edit_or_reply(wrwr, "**War War Tai anjing, Ketrigger minta sharelok, Udah di sharelok Ga nyamperin,Keras di sosmed Bhakss...**")
-
+async def _(x):
+    await x.eor(get_string("yitxc_19"))
 
 @ayiin_cmd(pattern="h(?: |$)(.*)")
-async def _(cntk):
-    await edit_or_reply(cntk, "**CANTIK LU BEGITU???**")
+async def _(d):
+    await d.eor(get_string("yitxc_20"))
 
 
 @ayiin_cmd(pattern="o(?: |$)(.*)")
-async def _(ucel):
-    await edit_or_reply(ucel, "**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**")
+async def _(a):
+    await a.eor(get_string("yitxc_21"))
 
 
 @ayiin_cmd(pattern="a(?: |$)(.*)")
-async def _(norak):
-    await edit_or_reply(norak, "**NORAK LU KONTOL!! MAKE USERBOT CUMAN BUAT WAR MALAH SOK KERAS**")
+async def _(a):
+    await a.eor(get_string("yitxc_22"))
+
 
 CMD_HELP.update(
     {

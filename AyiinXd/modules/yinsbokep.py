@@ -7,19 +7,21 @@
 #            Jangan Hapus Credit Ngentod
 # ========================×========================
 
-import random
+from secrets import choice
 
 from telethon.tl.types import InputMessagesFilterVideo
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, BLACKLIST_CHAT, owner
-from AyiinXd.ayiin import ayiin_cmd
+from AyiinXd import CMD_HELP, BLACKLIST_CHAT
+from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="bokp$")
 async def _(ayiin):
     if ayiin.chat_id in BLACKLIST_CHAT:
-        return await ayiin.edit("**[ᴋᴏɴᴛᴏʟ]** - Perintah Itu Dilarang Di Gc Ini Goblok...")
+        return await eod(ayiin, get_string("ayiin_1"), time=45)
+    yins = await ayiin.eor(get_string("com_1"))
     try:
         asuyins = [
             asupan
@@ -30,12 +32,12 @@ async def _(ayiin):
         awake = await ayiin.client.get_me()
         await ayiin.client.send_file(
             ayiin.chat_id,
-            file=random.choice(asuyins),
-            caption=f"Crott terus sampe lemas [{owner}](tg://user?id={awake.id})",
+            file=choice(asuyins),
+            caption=get_string("yibkp_1").format(awake.first_name, awake.id)
         )
-        await ayiin.delete()
+        await yins.delete()
     except Exception:
-        await ayiin.edit("**Maaf tod tidak bisa menemukan video asupan.**")
+        await yins.edit(get_string("yibkp_2"))
 
 
 # ========================×========================

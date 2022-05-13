@@ -1,9 +1,9 @@
 # Ayiin - Userbot
 # Copyright (C) 2022-2023 @AyiinXd
 #
-# This file is a part of < https://github.com/TeamUltroid/Ultroid/ >
+# This file is a part of < https://github.com/AyiinXd/Ayiin-Userbot/ >
 # PLease read the GNU Affero General Public License in
-# <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
+# <https://www.github.com/AyiinXd/Ayiin-Userbot/blob/main/LICENSE/>.
 #
 # FROM Ayiin-Userbot <https://github.com/AyiinXd/Ayiin-Userbot>
 # t.me/AyiinXdSupport & t.me/AyiinSupport
@@ -18,62 +18,63 @@ from time import sleep
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 @ayiin_cmd(pattern="ceking(?: |$)(.*)")
 async def _(mnghna):
-    Ayiin = await edit_or_reply(mnghna, "**GIGI KUNING MATA MERAH BADAN KURUS CEKING EMANG PANTES...**")
+    Ayiin = await mnghna.eor(get_string("yitxc_74"))
     sleep(1)
-    await Ayiin.edit("**DI KENCINGIN JAHANAM**")
+    await Ayiin.edit(get_string("yitxc_75"))
     sleep(1)
-    await Ayiin.edit("**ORANG KAYA LUH ITU...**")
+    await Ayiin.edit(get_string("yitxc_76"))
     sleep(1)
-    await Ayiin.edit("**CUMAN SEMPIT SEMPITIN ISI DUNIA DOANG KONTOL SEMPAK**")
+    await Ayiin.edit(get_string("yitxc_77"))
     sleep(1.5)
-    await Ayiin.edit("**GUA KASIH TAU NIH YAH USUS LUH TUH UDAH MELINTIR KONTOL**")
+    await Ayiin.edit(get_string("yitxc_78"))
     sleep(1.5)
-    await Ayiin.edit("**KERONGKONGAN LUH ITU UDAH RUSAK TOLOL...**")
+    await Ayiin.edit(get_string("yitxc_79"))
     sleep(1)
-    await Ayiin.edit("**MASIH AJA MAKSAIN BUAT ADU ROASTING AMA GUA BEGO BANGET SIH LUH...**")
+    await Ayiin.edit(get_string("yitxc_80"))
 
 
 @ayiin_cmd(pattern="hina(?: |$)(.*)")
 async def _(war):
-    xd = await edit_or_reply(war, "**IZIN PANTUN BANG...**")
+    Xd = await war.eor(get_string("yitxc_81"))
     sleep(1.5)
-    await xd.edit("**KETEMU SI MAMAS DIAJAKIN KE CIBINONG...**")
+    await Xd.edit(get_string("yitxc_82"))
     sleep(1)
-    await xd.edit("**PULANG NYE DIANTERIN MAKE KOPAJA...**")
+    await Xd.edit(get_string("yitxc_83"))
     sleep(1)
-    await xd.edit("**EH BOCAH AMPAS TITISAN DAJJAL...**")
+    await Xd.edit(get_string("yitxc_84"))
     sleep(1.5)
-    await xd.edit("**MUKA HINA KEK ODONG ODONG**")
+    await Xd.edit(get_string("yitxc_85"))
     sleep(1)
-    await xd.edit("**GA USAH SO KERAS DEH LU KALO MENTAL BLOM SEKERAS BAJA...**")
+    await Xd.edit(get_string("yitxc_86"))
     sleep(1.5)
-    await xd.edit("**LUH ITU MANUSIA...**")
+    await Xd.edit(get_string("yitxc_87"))
     sleep(1)
-    await xd.edit("**MANUSIA HINA YANG DI CIPTAKAN DENGAN SECARA HINA**")
+    await Xd.edit(get_string("yitxc_88"))
     sleep(1)
-    await xd.edit("**MANUSIA HINA YANG DI CIPTAKAN DENGAN SECARA HINA EMANG PANTES UNTUK DI HINA HINA...**")
+    await Xd.edit(get_string("yitxc_89"))
 
 
 @ayiin_cmd(pattern="ngaca(?: |$)(.*)")
 async def _(mikir):
-    Yins = await edit_or_reply(mikir, "**IZIN NUMPANG PANTUN BANG...**")
+    Yins = await mikir.eor(get_string("yitxc_90"))
     sleep(1.5)
-    await Yins.edit("**BELI SEPATU KACA KE CHINA...**")
+    await Yins.edit(get_string("yitxc_91"))
     sleep(1)
-    await Yins.edit("**ASEEEKKKK 🤪**")
+    await Yins.edit(get_string("yitxc_92"))
     sleep(1)
-    await Yins.edit("**NGACA DULU BARU NGEHINA KONTOL...**")
+    await Yins.edit(get_string("yitxc_93"))
     sleep(1)
-    await Yins.edit("**UDAH BULUK ITEM PENDEK BERPONI BAJU KEGEDEAN KAYAK JAMET**")
+    await Yins.edit(get_string("yitxc_94"))
     sleep(1.5)
-    await Yins.edit("**UDAH BULUK ITEM PENDEK BERPONI BAJU KEGEDEAN KAYAK JAMET SOK-SOK AN MAU NGEHINA GUA KONTOL**")
+    await Yins.edit(get_string("yitxc_95"))
     sleep(1.5)
-    await Yins.edit("**KENA KAN MENTAL LU...**")
+    await Yins.edit(get_string("yitxc_96"))
 
 
 # ========================×========================

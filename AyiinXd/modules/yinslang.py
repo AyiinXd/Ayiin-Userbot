@@ -76,8 +76,7 @@ async def settt(event):
     if lang == "id":
         try:
             os.environ.setdefault("language", lang)
-            await event.edit(
-                f"Your language has been set to {languages[lang]['asli']} [{lang}].",
+            await event.edit(get_string("lang_2").format(languages[lang]['asli'], lang)
             )
         except Exception as e:
             await eor(event, get_string("error_1").format(e)
@@ -86,8 +85,7 @@ async def settt(event):
     if lang == "en":
         try:
             os.environ.setdefault("language", lang)
-            await event.edit(
-                f"Your language has been set to {languages[lang]['asli']} [{lang}].",
+            await event.edit(get_string("lang_2").format(languages[lang]['asli'], lang)
             )
         except Exception as e:
             await eor(event, get_string("error_1").format(e)

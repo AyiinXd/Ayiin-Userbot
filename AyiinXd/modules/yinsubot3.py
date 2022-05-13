@@ -12,7 +12,8 @@ from time import sleep
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 # ========================×========================
@@ -21,44 +22,42 @@ from AyiinXd.ayiin import edit_or_reply, ayiin_cmd
 
 
 @ayiin_cmd(pattern=r"yins(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "𝙃𝙖𝙞 𝙋𝙚𝙧𝙠𝙚𝙣𝙖𝙡𝙠𝙖𝙣 𝙉𝙖𝙢𝙖 𝙂𝙪𝙖 𝘼𝙮𝙞𝙞𝙣")
+async def _(y):
+    ayiin = await y.eor(get_string("yibot_77"))
     sleep(3)
-    await ayiin.edit("23 𝙏𝙖𝙝𝙪𝙣")
+    await ayiin.edit(get_string("yibot_78"))
     sleep(2)
-    await ayiin.edit("𝙏𝙞𝙣𝙜𝙜𝙖𝙡 𝘿𝙞 𝘽𝙖𝙡𝙞...")
+    await ayiin.edit(get_string("yibot_79"))
     sleep(3)
-    await ayiin.edit("𝙊𝙬𝙣𝙚𝙧 𝘿𝙖𝙧𝙞 𝘼𝙮𝙞𝙞𝙣-𝙐𝙨𝙚𝙧𝙗𝙤𝙩, 𝙎𝙖𝙡𝙖𝙢 𝙆𝙚𝙣𝙖𝙡 😁")
+    await ayiin.edit(get_string("yibot_80"))
 # Create by myself @AyiinXd
 
 
 @ayiin_cmd(pattern=r"sayang(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "𝘼𝙠𝙪 𝘾𝙪𝙢𝙖 𝙈𝙖𝙪 𝘽𝙞𝙡𝙖𝙣𝙜 👉👈")
+async def _(i):
+    await i.eor(get_string("yibot_81"))
     sleep(3)
-    await ayiin.edit("𝘼𝙠𝙪 𝙎𝙖𝙮𝙖𝙣𝙜 𝙆𝙖𝙢𝙪 😘")
-    sleep(1)
-    await ayiin.edit("𝙈𝙪𝙖𝙖𝙘𝙘𝙝𝙝𝙝 😘💕")
+    await i.reply(get_string("yibot_82"))
 # Create by myself @AyiinXd
 
 
 @ayiin_cmd(pattern=r"semangat(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "𝘼𝙥𝙖𝙥𝙪𝙣 𝙔𝙖𝙣𝙜 𝙏𝙚𝙧𝙟𝙖𝙙𝙞")
+async def _(n):
+    ayiin = await n.eor(get_string("yibot_83"))
     sleep(3)
-    await ayiin.edit("𝙏𝙚𝙩𝙖𝙥𝙡𝙖𝙝 𝘽𝙚𝙧𝙣𝙖𝙥𝙖𝙨")
+    await ayiin.edit(get_string("yibot_84"))
     sleep(1)
-    await ayiin.edit("𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝘽𝙚𝙧𝙨𝙮𝙪𝙠𝙪𝙧")
+    await ayiin.edit(get_string("yibot_85"))
 # Create by myself @AyiinXd
 
 
 @ayiin_cmd(pattern=r"mengeluh(?: |$)(.*)")
-async def _(event):
-    ayiin = await edit_or_reply(event, "𝘼𝙥𝙖𝙥𝙪𝙣 𝙔𝙖𝙣𝙜 𝙏𝙚𝙧𝙟𝙖𝙙𝙞")
+async def _(s):
+    ayiin = await s.eor(get_string("yibot_83"))
     sleep(3)
-    await ayiin.edit("𝙏𝙚𝙩𝙖𝙥𝙡𝙖𝙝 𝙈𝙚𝙣𝙜𝙚𝙡𝙪𝙝")
+    await ayiin.edit(get_string("yibot_86"))
     sleep(1)
-    await ayiin.edit("𝘿𝙖𝙣 𝙎𝙚𝙡𝙖𝙡𝙪 𝙋𝙪𝙩𝙪𝙨 𝘼𝙨𝙖")
+    await ayiin.edit(get_string("yibot_87"))
 # Create by myself @AyiinXd
 
 

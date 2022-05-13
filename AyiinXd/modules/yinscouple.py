@@ -12,8 +12,9 @@ from secrets import choice
 from telethon.tl.types import InputMessagesFilterPhotos
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, owner
-from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
+from AyiinXd import CMD_HELP
+from AyiinXd.ayiin import ayiin_cmd, eor
+from Stringyins import get_string
 
 
 # ========================×========================
@@ -23,7 +24,7 @@ from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
 
 @ayiin_cmd(pattern="couple(?: |$)(.*)")
 async def couple(bucin):
-    await edit_or_reply(bucin, "`Processing Tod...`")
+    copl = await bucin.eor(get_string("com_1"))
     try:
         bucinan = [
             coupl
@@ -35,11 +36,11 @@ async def couple(bucin):
         await bucin.client.send_file(
             bucin.chat_id,
             file=choice(bucinan),
-            caption=f" Ambil Ni Pp Bucin Lu [{owner}](tg://user?id={cang.id})",
+            caption=get_string("yicpl_1"). format(cang.first_name, cang.id)
         )
-        await bucin.delete()
+        await copl.delete()
     except Exception:
-        await bucin.edit("**[ᴇʀʀᴏʀ]** Maaf Tod Gagal Dikarenakan Lu Jomblo...")
+        await copl.edit(get_string("yicpl_2"))
 
 
 CMD_HELP.update(

@@ -752,7 +752,7 @@ with bot:
                         0,
                         "image/jpeg",
                         []),
-                    text="❏ Silahkan Pilih Untuk Membuat String Session Anda\n╭╼┅━━━━━╍━━━━━┅╾\n├▹ Bot Untuk Membuat di bot [AyiinString]\n├▹ Replit Untuk Membuat Di Web [AyiinString]\n╰╼┅━━━━━╍━━━━━┅╾",
+                    text=get_string("lang_4"),
                     buttons=[
                         [
                             custom.Button.url(
@@ -791,7 +791,7 @@ with bot:
                         0,
                         "image/jpeg",
                         []),
-                    text="❏ Silahkan Pilih Bahasa Yang Ingin Anda Gunakan.\n╭╼┅━━━━━╍━━━━━┅╾\n├▹ Bahasa Asli Indonesia [id]\n╰╼┅━━━━━╍━━━━━┅╾",
+                    text=get_string("lang_1"),
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -918,7 +918,7 @@ with bot:
                 try:
                     os.environ.setdefault("language", lang)
                     await event.edit(
-                        f"•Berhasil• Bahasa Telah Diubah Menjadi {languages[lang]['asli']} [{lang}].",
+                        get_string("lang_2").format(languages[lang]['asli'], lang),
                         file=logoyins,
                         link_preview=True,
                         buttons=[Button.inline("ʙᴀᴄᴋ", data="yins_close")]
@@ -1150,7 +1150,7 @@ with bot:
         )
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                await event.edit("Bahasa Telah Ditutup", file=logoyins)
+                await event.edit(get_string("lang_3"), file=logoyins)
                 await event.delete()
 
         @tgbot.on(
