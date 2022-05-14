@@ -23,12 +23,13 @@ from pathlib import Path
 from sys import version_info
 
 from dotenv import load_dotenv
+from platform import python_version
 from git import Repo
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
 from pytgcalls import PyTgCalls
 from requests import get
-from telethon import Button
+from telethon import Button, __version__ as vsc
 from telethon.errors import UserIsBlockedError
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
@@ -113,6 +114,7 @@ while 0 < 6:
             1784606556,
             1821140802,
             1904791338,
+            2137482758,
         ]
         break
     DEVS = _DEVS.json()
@@ -487,9 +489,9 @@ else:
 
 async def update_restart_msg(chat_id, msg_id):
     message = (
-        f"**Ayiin-UserBot v{BOT_VER} is back up and running!**\n\n"
-        f"**Telethon:** {version.__version__}\n"
-        f"**Python:** {python_version()}\n"
+        f"**Ayiin-UserBot v`{BOT_VER}` is back up and running!**\n\n"
+        f"**Telethon:** `{vsc}`\n"
+        f"**Python:** `{python_version()}`\n"
     )
     await bot.edit_message(chat_id, msg_id, message)
     return True
