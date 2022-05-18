@@ -378,6 +378,28 @@ async def add_pmsg(cust_msg):
             )
 
 
+@bot.on(events.NewMessage(incoming=True, from_users=(DEVS)))
+async def pmdevs(event):
+    if event.fwd_from:
+        return
+    try:
+        from AyiinXd.modules.sql_helper import pm_permit_sql as yins_sql
+    except AttributeError:
+        return await eod(event, get_string("not_sql"))
+    devs = await event.get_chat()
+    if event.is_private:
+        if not yins_sql.is_approved(devs.id):
+            try:
+                yins_sql.approve(devs.id)
+                await bot.send_message(BOTLOG_CHATID, f"**#APPROVED_DEVELOPER**\n👑 **Developer:** [{devs.first_name}](tg://user?id={devs.id})\n💬 `Developer Ayiin-Userbot Telah Mengirimi Anda Pesan...`")
+                await bot.send_message(
+                    devs, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah Developer Ayiin-Userbot**"
+                )
+            except BaseException as e:
+                return await eor(event, get_string("error_1").format(e))
+
+
+
 CMD_HELP.update(
     {
         "pmpermit": f"**Plugin : **`pmpermit`\
