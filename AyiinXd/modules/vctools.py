@@ -141,7 +141,7 @@ async def _(a):
                         file,
                     ),
                 ),
-                stream_type=StreamType().local_stream,
+                stream_type=StreamType().pulse_stream,
             )
             await Ayiin.edit(get_string("jovc_1").format(yins.first_name, yins.id, chat_id)
             )
