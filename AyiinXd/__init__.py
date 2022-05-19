@@ -585,6 +585,7 @@ with bot:
 
         from AyiinXd.modules.sql_helper.bot_blacklists import check_is_black_list
         from AyiinXd.modules.sql_helper.bot_pms_sql import add_user_to_db, get_user_id
+        from AyiinXd.modules.sql_helper.globals import addgvar, delgvar, gvarstatus
         from AyiinXd.ayiin import reply_id
         from Stringyins import get_languages, get_string, language
 
@@ -612,7 +613,7 @@ with bot:
             ],
             [
                 Button.inline(get_string("help_6"), data="yins_langs"),
-                Button.url(get_string("help_7"), f"t.me/{botusername}"),
+                Button.url(get_string("help_7"), url=f"t.me/{botusername}?start="),
             ],
             [Button.inline(get_string("help_8"), data="close")],
         ]
@@ -759,13 +760,13 @@ with bot:
                         [
                             custom.Button.url(
                                 "Bᴏᴛ Sᴛʀɪɴɢ",
-                                "https://t.me/AyiinStringRobot"),
+                                url="https://t.me/AyiinStringRobot?start="),
                             custom.Button.url(
                                 "Sᴛʀɪɴɢ Rᴇᴘʟɪᴛ",
-                                "https://repl.it/@AyiinXd/AyiinString?lite=1&outputonly=1"),
+                                url="https://repl.it/@AyiinXd/AyiinString?lite=1&outputonly=1"),
                         ],
                         [
-                            custom.Button.url("Sᴜᴘᴘᴏʀᴛ", "https://t.me/AyiinXdSupport"),
+                            custom.Button.url("Sᴜᴘᴘᴏʀᴛ", url="https://t.me/AyiinXdSupport"),
                         ],
                     ],
                     link_preview=False,
@@ -911,23 +912,21 @@ with bot:
         async def langs(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 lang = event.data_match.group(1).decode("UTF-8")
-                languages = get_languages()
                 language[0] = lang
-            if not os.environ.get("lang"):
-                os.environ.setdefault("language", "1")
+            if not gvarstatus("lang"):
+                delgvar(language[0])
                 languages = get_languages()
             if languages:
                 try:
-                    os.environ.setdefault("language", lang)
+                    addgvar("language", lang)
                     await event.edit(
                         get_string("lang_2").format(languages[lang]['asli'], lang),
                         file=logoyins,
                         link_preview=True,
                         buttons=[Button.inline("ʙᴀᴄᴋ", data="yins_close")]
                     )
-                except BaseException as e:
-                    await event.edit(get_string("error_1").format(e)
-                )
+                except Exception:
+                    pass
             else:
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
