@@ -146,7 +146,7 @@ async def gunben(userbot):
         await dark.edit(get_string("gban_8"))
     try:
         if ungmute(user.id) is False:
-            return await dark.edit(get_string("ungban_5"))
+            return await dark.edit("**Error! Pengguna Sedang Tidak Di Global Banned.**")
     except BaseException:
         pass
     return await dark.edit(get_string("ungban_4").format(user.first_name, user.id, user.id, me.first_name)
