@@ -383,21 +383,29 @@ async def pmdevs(event):
     if event.fwd_from:
         return
     try:
+        from AyiinXd.modules.sql_helper.globals import gvarstatus
         from AyiinXd.modules.sql_helper import pm_permit_sql as yins_sql
     except AttributeError:
         return await eod(event, get_string("not_sql"))
     devs = await event.get_chat()
     if event.is_private:
+        # Get user custom msg
+        getmsg = gvarstatus("unapproved_msg")
+        UNAPPROVED_MSG = getmsg if getmsg is not None else DEF_UNAPPROVED_MSG
+        async for message in event.client.iter_messages(
+            devs.id, from_user="me", search=UNAPPROVED_MSG
+        ):
+            await message.delete()
+
         if not yins_sql.is_approved(devs.id):
             try:
                 yins_sql.approve(devs.id)
-                await bot.send_message(BOTLOG_CHATID, f"**#APPROVED_DEVELOPER**\n👑 **Developer:** [{devs.first_name}](tg://user?id={devs.id})\n💬 `Developer Ayiin-Userbot Telah Mengirimi Anda Pesan...`")
+                await bot.send_message(BOTLOG_CHATID, f"**#AUTO_APPROVED_DEVELOPER**\n\n👑 **Developer:** [{devs.first_name}](tg://user?id={devs.id})\n💬 `Developer Ayiin-Userbot Telah Mengirimi Anda Pesan...`")
                 await bot.send_message(
-                    devs, f"**Menerima Pesan!, Pengguna Terdeteksi Adalah Developer Ayiin-Userbot**"
+                    devs, f"**Menerima Pesan!!!**\n**Terdeteksi [{devs.first_name}](tg://user?id={devs.id}) Adalah Developer Ayiin-Userbot**"
                 )
             except BaseException as e:
                 return await eor(event, get_string("error_1").format(e))
-
 
 
 CMD_HELP.update(
