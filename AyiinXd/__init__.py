@@ -913,20 +913,22 @@ with bot:
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 lang = event.data_match.group(1).decode("UTF-8")
                 language[0] = lang
-            if not gvarstatus("lang"):
-                delgvar(language[0])
-                languages = get_languages()
-            if languages:
-                try:
-                    addgvar("language", lang)
-                    await event.edit(
-                        get_string("lang_2").format(languages[lang]['asli'], lang),
-                        file=logoyins,
-                        link_preview=True,
-                        buttons=[Button.inline("ʙᴀᴄᴋ", data="yins_close")]
-                    )
-                except Exception:
-                    pass
+                if not gvarstatus("lang"):
+                    delgvar(language[0])
+                    languages = get_languages()
+                if languages:
+                    try:
+                        addgvar("language", lang)
+                        await event.edit(
+                            get_string("lang_2").format(
+                                languages[lang]['asli'], lang),
+                            file=logoyins,
+                            link_preview=True,
+                            buttons=[Button.inline("ʙᴀᴄᴋ", data="yins_close")]
+                        )
+                    except Exception:
+                        pass
+
             else:
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -1152,7 +1154,6 @@ with bot:
         async def on_plug_in_callback_query_handler(event):
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 await event.edit(get_string("lang_3"), file=logoyins)
-                await event.delete()
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(
