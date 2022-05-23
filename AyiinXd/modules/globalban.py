@@ -95,8 +95,8 @@ async def gban(event):
         )
 
 
-@ayiin_cmd(pattern="ungband(?: |$)(.*)")
-@register(pattern=r"^\$cungban(?: |$)(.*)", sudo=True)
+@ayiin_cmd(pattern="ungban(?: |$)(.*)")
+@register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
 async def ungban(event):
     if event.fwd_from:
         return
