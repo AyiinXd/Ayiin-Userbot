@@ -38,8 +38,8 @@ async def handler(tele):
                         return
 
 
-@ayiin_cmd(pattern="gban(?: |$)(.*)")
-@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
+@ayiin_cmd(pattern="gband(?: |$)(.*)")
+@register(pattern=r"^\.cgband(?: |$)(.*)", sudo=True)
 async def gben(userbot):
     dc = userbot
     sender = await dc.get_sender()
@@ -98,8 +98,8 @@ async def gben(userbot):
     )
 
 
-@ayiin_cmd(pattern=r"ungban(?: |$)(.*)")
-@register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
+@ayiin_cmd(pattern=r"ungband(?: |$)(.*)")
+@register(pattern=r"^\.cungband(?: |$)(.*)", sudo=True)
 async def gunben(userbot):
     dc = userbot
     sender = await dc.get_sender()
