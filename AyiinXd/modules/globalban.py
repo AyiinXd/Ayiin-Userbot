@@ -38,8 +38,8 @@ def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
 
 
-@ayiin_cmd(pattern="gband(?: |$)(.*)")
-@register(pattern=r"^\$cgband(?: |$)(.*)", sudo=True)
+@ayiin_cmd(pattern="gban(?: |$)(.*)")
+@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
 async def gban(event):
     if event.fwd_from:
         return
