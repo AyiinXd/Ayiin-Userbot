@@ -81,7 +81,7 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
 
 
-@ayiin_cmd(pattern="setgpic( -s| -d)$")
+@ayiin_cmd(pattern="setgpic( -s| -d)$", group_only=True)
 @register(pattern=r"^\.csetgpic( -s| -d)$", sudo=True)
 async def set_group_photo(event):
     "For changing Group dp"
@@ -118,7 +118,7 @@ async def set_group_photo(event):
         await event.eor(get_string("sgp_1", time=30))
 
 
-@ayiin_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="promote(?:\\s|$)([\\s\\S]*)", group_only=True)
 @register(pattern=r"^\.cpromote(?:\s|$)([\s\S]*)", sudo=True)
 async def promote(event):
     new_rights = ChatAdminRights(
@@ -143,7 +143,7 @@ async def promote(event):
     await eor(event, get_string("prom_2"), time=30)
 
 
-@ayiin_cmd(pattern="demote(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="demote(?:\\s|$)([\\s\\S]*)", group_only=True)
 @register(pattern=r"^\.cdemote(?:\s|$)([\s\S]*)", sudo=True)
 async def demote(event):
     "To demote a person in group"
@@ -168,7 +168,7 @@ async def demote(event):
     await event.eor(get_string("deot_2"), time=30)
 
 
-@ayiin_cmd(pattern="ban(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="ban(?:\\s|$)([\\s\\S]*)", group_only=True)
 @register(pattern=r"^\.cban(?:\s|$)([\s\S]*)", sudo=True)
 async def ban(bon):
     me = await bon.client.get_me()
@@ -193,7 +193,7 @@ async def ban(bon):
                          )
 
 
-@ayiin_cmd(pattern="unban(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="unban(?:\\s|$)([\\s\\S]*)", group_only=True)
 @register(pattern=r"^\.cunban(?:\s|$)([\s\S]*)", sudo=True)
 async def nothanos(unbon):
     chat = await unbon.get_chat()
@@ -213,7 +213,7 @@ async def nothanos(unbon):
         await unbon.eor(get_string("band_5"), time=10)
 
 
-@ayiin_cmd(pattern="mute(?: |$)(.*)")
+@ayiin_cmd(pattern="mute(?: |$)(.*)", group_only=True)
 @register(pattern=r"^\.cmute(?: |$)(.*)", sudo=True)
 async def spider(spdr):
     try:
@@ -251,7 +251,7 @@ async def spider(spdr):
         return await spdr.eor(get_string("error_2"), time=10)
 
 
-@ayiin_cmd(pattern="unmute(?: |$)(.*)")
+@ayiin_cmd(pattern="unmute(?: |$)(.*)", group_only=True)
 @register(pattern=r"^\.cunmute(?: |$)(.*)", sudo=True)
 async def unmoot(unmot):
     chat = await unmot.get_chat()
@@ -309,7 +309,7 @@ async def muter(moot):
             await moot.delete()
 
 
-@ayiin_cmd(pattern="ungmute(?: |$)(.*)")
+@ayiin_cmd(pattern="ungmute(?: |$)(.*)", group_only=True)
 @register(pattern=r"^\.cungmute(?: |$)(.*)", sudo=True)
 async def ungmoot(un_gmute):
     chat = await un_gmute.get_chat()
@@ -333,7 +333,7 @@ async def ungmoot(un_gmute):
         await un_gmute.eor(get_string("ungm_3"), time=10)
 
 
-@ayiin_cmd(pattern="gmute(?: |$)(.*)")
+@ayiin_cmd(pattern="gmute(?: |$)(.*)", group_only=True)
 @register(pattern=r"^\.cgmute(?: |$)(.*)", sudo=True)
 async def gspider(gspdr):
     chat = await gspdr.get_chat()
@@ -367,7 +367,7 @@ async def gspider(gspdr):
                          )
 
 
-@ayiin_cmd(pattern="zombies(?: |$)(.*)")
+@ayiin_cmd(pattern="zombies(?: |$)(.*)", group_only=True)
 async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
@@ -415,7 +415,7 @@ async def rm_deletedacc(show):
         )
 
 
-@ayiin_cmd(pattern="admins$")
+@ayiin_cmd(pattern="admins$", group_only=True)
 async def get_admin(show):
     info = await show.client.get_entity(show.chat_id)
     title = info.title or "Grup Ini"
@@ -474,7 +474,7 @@ async def pin(event):
     await event.eor(get_string("upin_3"))
 
 
-@ayiin_cmd(pattern="kick(?: |$)(.*)")
+@ayiin_cmd(pattern="kick(?: |$)(.*)", group_only=True)
 @register(pattern=r"^\.ckick(?: |$)(.*)", sudo=True)
 async def kick(usr):
     chat = await usr.get_chat()

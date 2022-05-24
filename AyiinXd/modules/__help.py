@@ -6,7 +6,7 @@
 """ Userbot help command """
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import BOT_USERNAME, CMD_HELP, bot, ch
+from AyiinXd import CMD_HELP, bot, tgbot, ch
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from Stringyins import get_string
 
@@ -21,7 +21,9 @@ async def help(event):
             await eod(event, get_string("help_10").format(args, cmd))
     else:
         try:
-            results = await bot.inline_query(  # pylint:disable=E0602
+            AyiinUBOT = await tgbot.get_me()
+            BOT_USERNAME = AyiinUBOT.username
+            results = await event.client.inline_query(  # pylint:disable=E0602
                 BOT_USERNAME, "@AyiinXdSupport"
             )
             await results[0].click(

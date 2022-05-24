@@ -3,17 +3,30 @@
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
+import asyncio
 import inspect
 import re
 from pathlib import Path
 
 from telethon import events
+from telethon.errors import (
+    AlreadyInConversationError,
+    BotInlineDisabledError,
+    BotResponseTimeoutError,
+    ChatSendInlineForbiddenError,
+    ChatSendMediaForbiddenError,
+    ChatSendStickersForbiddenError,
+    FloodWaitError,
+    MessageIdInvalidError,
+    MessageNotModifiedError,
+)
 
 from AyiinXd import (
     BL_CHAT,
     CMD_HANDLER,
     CMD_LIST,
     LOAD_PLUG,
+    LOGS,
     AYIIN2,
     AYIIN3,
     AYIIN4,
@@ -29,10 +42,15 @@ from AyiinXd import (
     tgbot,
 )
 
+from .toolsyins import eod, eor
+
 
 def ayiin_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
+    group_only: bool = False,
+    admins_only: bool = False,
+    private_only: bool = False,
     disable_edited: bool = False,
     forword=False,
     command: str = None,
@@ -91,25 +109,93 @@ def ayiin_cmd(
                 CMD_LIST.update({file_test: [cmd1]})
 
     def decorator(func):
+        async def wrapper(event):
+            chat = event.chat
+            if admins_only:
+                if event.is_private:
+                    return await eor(
+                        event, "**Perintah ini hanya bisa digunakan di grup.**", time=10
+                    )
+                if not (chat.admin_rights or chat.creator):
+                    return await eor(
+                        event, f"**Maaf anda bukan admin di {chat.title}**", time=10
+                    )
+            if group_only and not event.is_group:
+                return await eor(
+                    event, "**Perintah ini hanya bisa digunakan di grup.**", time=10
+                )
+            if private_only and not event.is_private:
+                return await eor(
+                    event, "**Perintah ini hanya bisa digunakan di private chat.**", time=10
+                )
+            try:
+                await func(event)
+            # Credits: @mrismanaziz
+            # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
+            # t.me/SharingUserbot & t.me/Lunatic0de
+            except MessageNotModifiedError as er:
+                LOGS.error(er)
+            except MessageIdInvalidError as er:
+                LOGS.error(er)
+            except BotInlineDisabledError:
+                await eor(
+                    event, "**Silahkan aktifkan mode Inline untuk bot**", time=10
+                )
+            except ChatSendStickersForbiddenError:
+                await eor(
+                    event, "**Tidak dapat mengirim stiker di obrolan ini**", time=10
+                )
+            except BotResponseTimeoutError:
+                await eod(
+                    event, "**The bot didnt answer to your query in time**"
+                )
+            except ChatSendMediaForbiddenError:
+                await eor(
+                    event, "**Tidak dapat mengirim media dalam obrolan ini**", time=10
+                )
+            except AlreadyInConversationError:
+                await eod(
+                    event,
+                    "**Percakapan sudah terjadi dengan obrolan yang diberikan. coba lagi setelah beberapa waktu.**",
+                )
+            except ChatSendInlineForbiddenError:
+                await eor(
+                    event,
+                    "**Tidak dapat mengirim pesan inline dalam obrolan ini.**",
+                    time=10,
+                )
+            except FloodWaitError as e:
+                LOGS.error(
+                    f"Telah Terjadi flood wait error tunggu {e.seconds} detik dan coba lagi"
+                )
+                await event.delete()
+                await asyncio.sleep(e.seconds + 5)
+            except events.StopPropagation:
+                raise events.StopPropagation
+            except KeyboardInterrupt:
+                pass
+            except BaseException as e:
+                LOGS.exception(e)
+
         if bot:
             if not disable_edited:
                 bot.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
-            bot.add_event_handler(func, events.NewMessage(
+            bot.add_event_handler(wrapper, events.NewMessage(
                 **args, outgoing=True, pattern=ayiin_reg))
         if bot:
             if allow_sudo:
                 if not disable_edited:
                     bot.add_event_handler(
-                        func,
+                        wrapper,
                         events.MessageEdited(
                             **args,
                             from_users=list(SUDO_USERS),
                             pattern=sudo_reg),
                     )
                 bot.add_event_handler(
-                    func,
+                    wrapper,
                     events.NewMessage(
                         **args, from_users=list(SUDO_USERS), pattern=sudo_reg
                     ),
@@ -117,80 +203,80 @@ def ayiin_cmd(
         if AYIIN2:
             if not disable_edited:
                 AYIIN2.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN2.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN3:
             if not disable_edited:
                 AYIIN3.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN3.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN4:
             if not disable_edited:
                 AYIIN4.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN4.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN5:
             if not disable_edited:
                 AYIIN5.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN5.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN6:
             if not disable_edited:
                 AYIIN6.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN6.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN7:
             if not disable_edited:
                 AYIIN7.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN7.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN8:
             if not disable_edited:
                 AYIIN8.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN8.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN9:
             if not disable_edited:
                 AYIIN9.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN9.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         if AYIIN10:
             if not disable_edited:
                 AYIIN10.add_event_handler(
-                    func, events.MessageEdited(
+                    wrapper, events.MessageEdited(
                         **args, outgoing=True, pattern=ayiin_reg))
             AYIIN10.add_event_handler(
-                func, events.NewMessage(
+                wrapper, events.NewMessage(
                     **args, outgoing=True, pattern=ayiin_reg))
         try:
-            LOAD_PLUG[file_test].append(func)
+            LOAD_PLUG[file_test].append(wrapper)
         except Exception:
-            LOAD_PLUG.update({file_test: [func]})
-        return func
+            LOAD_PLUG.update({file_test: [wrapper]})
+        return wrapper
 
     return decorator
 

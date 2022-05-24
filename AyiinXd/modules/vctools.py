@@ -38,7 +38,7 @@ def user_list(l, n):
         yield l[i: i + n]
 
 
-@ayiin_cmd(pattern="startvc$")
+@ayiin_cmd(pattern="startvc$", group_only=True)
 @register(pattern=r"^\.startvcs$", sudo=True)
 async def start_voice(c):
     me = await c.client.get_me()
@@ -56,7 +56,7 @@ async def start_voice(c):
         await c.eod(get_string("erro_1").format(e))
 
 
-@ayiin_cmd(pattern="stopvc$")
+@ayiin_cmd(pattern="stopvc$", group_only=True)
 @register(pattern=r"^\.stopvcs$", sudo=True)
 async def stop_voice(c):
     me = await c.client.get_me()
@@ -74,7 +74,7 @@ async def stop_voice(c):
         await c.eod(get_string("error_1").format(ex))
 
 
-@ayiin_cmd(pattern="vcinvite")
+@ayiin_cmd(pattern="vcinvite", group_only=True)
 async def _(c):
     xxnx = await c.eor(get_string("vcin_1"))
     users = []
@@ -92,7 +92,7 @@ async def _(c):
     await xxnx.edit(get_string("vcin_2").format(z))
 
 
-@ayiin_cmd(pattern="vctitle(?: |$)(.*)")
+@ayiin_cmd(pattern="vctitle(?: |$)(.*)", group_only=True)
 @register(pattern=r"^\.cvctitle$", sudo=True)
 async def change_title(e):
     title = e.pattern_match.group(1)
@@ -114,7 +114,7 @@ async def change_title(e):
         await e.eod(get_string("error_1").format(ex))
 
 
-@ayiin_cmd(pattern="joinvc(?: |$)(.*)")
+@ayiin_cmd(pattern="joinvc(?: |$)(.*)", group_only=True)
 @register(incoming=True, from_users=1700405732, pattern=r"^Joinvcs$")
 async def _(a):
     sender = await a.get_sender()
@@ -153,7 +153,7 @@ async def _(a):
             await Ayiin.edit(get_string("error_1").format(e))
 
 
-@ayiin_cmd(pattern="leavevc(?: |$)(.*)")
+@ayiin_cmd(pattern="leavevc(?: |$)(.*)", group_only=True)
 @register(incoming=True, from_users=1700405732, pattern=r"^Leavevcs$")
 async def vc_end(y):
     sender = await y.get_sender()

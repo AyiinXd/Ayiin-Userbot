@@ -144,7 +144,7 @@ async def ungban(event):
         )
 
 
-@ayiin_cmd(pattern="listgband$")
+@ayiin_cmd(pattern="listgban$")
 async def gablist(event):
     if event.fwd_from:
         return
@@ -202,11 +202,11 @@ async def _(event):
 CMD_HELP.update(
     {
         "gban": f"**Plugin : **`gban`\
-        \n\n  »  **Perintah :** `{cmd}gband` <username/id>\
+        \n\n  »  **Perintah :** `{cmd}gban` <username/id>\
         \n  »  **Kegunaan : **Melakukan Banned Secara Global Ke Semua Grup Dimana anda Sebagai Admin.\
-        \n\n  »  **Perintah :** `{cmd}ungband` <username/id>\
+        \n\n  »  **Perintah :** `{cmd}ungban` <username/id>\
         \n  »  **Kegunaan : **Membatalkan Global Banned\
-        \n\n  »  **Perintah :** `{cmd}listgband`\
+        \n\n  »  **Perintah :** `{cmd}listgban`\
         \n  »  **Kegunaan : **Menampilkan List Global Banned\
     "
     }

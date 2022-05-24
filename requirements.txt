@@ -58,6 +58,7 @@ pySmartDL
 python-barcode
 python-dotenv
 pytz
+PyYAML>5.0
 qrcode
 rarfile
 randomstuff.py

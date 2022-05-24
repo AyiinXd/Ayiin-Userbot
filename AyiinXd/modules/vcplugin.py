@@ -113,7 +113,7 @@ async def skip_current_song(chat_id: int):
     return [songname, link, type]
 
 
-@ayiin_cmd(pattern="play(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="play(?:\\s|$)([\\s\\S]*)", group_only=True)
 async def vc_play(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
@@ -213,7 +213,7 @@ async def vc_play(event):
                 await botyins.edit(f"`{ep}`")
 
 
-@ayiin_cmd(pattern="vplay(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="vplay(?:\\s|$)([\\s\\S]*)", group_only=True)
 async def vc_vplay(event):
     title = event.pattern_match.group(1)
     replied = await event.get_reply_message()
@@ -384,7 +384,7 @@ async def vc_vplay(event):
                     await xnxx.edit(get_string("error_1").format(ep))
 
 
-@ayiin_cmd(pattern="end$")
+@ayiin_cmd(pattern="end$", group_only=True)
 async def vc_end(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -398,7 +398,7 @@ async def vc_end(event):
         await eod(event, get_string("eplay_2"))
 
 
-@ayiin_cmd(pattern="skip(?:\\s|$)([\\s\\S]*)")
+@ayiin_cmd(pattern="skip(?:\\s|$)([\\s\\S]*)", group_only=True)
 async def vc_skip(event):
     chat_id = event.chat_id
     if len(event.text.split()) < 2:
@@ -426,7 +426,7 @@ async def vc_skip(event):
             await event.edit(DELQUE)
 
 
-@ayiin_cmd(pattern="pause$")
+@ayiin_cmd(pattern="pause$", group_only=True)
 async def vc_pause(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -439,7 +439,7 @@ async def vc_pause(event):
         await eor(event, get_string("eplay_2"))
 
 
-@ayiin_cmd(pattern="resume$")
+@ayiin_cmd(pattern="resume$", group_only=True)
 async def vc_resume(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -452,7 +452,7 @@ async def vc_resume(event):
         await eod(event, get_string("eplay_2"))
 
 
-@ayiin_cmd(pattern=r"volume(?: |$)(.*)")
+@ayiin_cmd(pattern=r"volume(?: |$)(.*)", group_only=True)
 async def vc_volume(event):
     query = event.pattern_match.group(1)
     me = await event.client.get_me()
@@ -474,7 +474,7 @@ async def vc_volume(event):
         await eod(event, get_string("eplay_2"))
 
 
-@ayiin_cmd(pattern="playlist$")
+@ayiin_cmd(pattern="playlist$", group_only=True)
 async def vc_playlist(event):
     chat_id = event.chat_id
     if chat_id in QUEUE:

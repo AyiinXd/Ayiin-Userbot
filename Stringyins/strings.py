@@ -1,19 +1,48 @@
 import os
+import sys
 from os import listdir, path
 from typing import Any, Dict, List, Union
 
 from AyiinXd import LOGS
-from AyiinXd.ayiin.logger import logging
+try:
+    from google_trans_new import google_translator
+    Trs = google_translator()
+except ImportError:
+    LOGS.error("'google_trans_new' tidak terpasang!")
+    Trs = None
 
-from google_trans_new import google_translator
-from yaml import safe_load
+try:
+    from yaml import safe_load
+except ModuleNotFoundError:
 
-LOGS = logging.getLogger(__name__)
+    def _get_value(stri):
+        try:
+            value = eval(stri.strip())
+        except Exception as er:
+            LOGS.debug(er)
+            value = stri.strip()
+        return value
+
+    def safe_load(file, *args, **kwargs):
+        read = file.readlines()
+        out = {}
+        for line in read:
+            if ":" in line: # Ignores Empty & Invalid lines
+                spli = line.split(":", maxsplit=1)
+                key = spli[0].strip()
+                value = _get_value(spli[1])
+                out.update({key: value or []})
+            elif "-" in line:
+                spli = line.split("-", maxsplit=1)
+                where = out[list(out.keys())[-1]]
+                if isinstance(where, list):
+                    value = _get_value(spli[1])
+                    if value:
+                        where.append(value)
+        return out
 
 language = [os.environ.get("language") or "id"]
 languages = {}
-
-Trs = google_translator()
 
 strings_folder = path.join(path.dirname(path.realpath(__file__)), "strings")
 
@@ -21,7 +50,8 @@ for file in listdir(strings_folder):
     if file.endswith(".yml"):
         code = file[:-4]
         try:
-            languages[code] = safe_load(open(path.join(strings_folder, file), encoding="UTF-8"),
+            languages[code] = safe_load(
+                open(path.join(strings_folder, file), encoding="UTF-8"),
             )
         except Exception as er:
             LOGS.info(f"Kesalahan dalam {file[:-4]} file bahasa")
@@ -35,6 +65,8 @@ def get_string(key: str) -> Any:
     except KeyError:
         try:
             id_ = languages["id"][key]
+            if not Trs:
+                return id_
             tr = Trs.translate(id_, lang_tgt=lang).replace("\ N", "\n")
             if id_.count("{}") != tr.count("{}"):
                 tr = id_
@@ -45,9 +77,11 @@ def get_string(key: str) -> Any:
             return tr
         except KeyError:
             return f"Peringatan: tidak dapat memuat string apa pun dengan kunci `{key}`"
+        except TypeError:
+            pass
         except Exception as er:
             LOGS.exception(er)
-            return languages["id"].get(key) or f"Gagal Memuat Pengaturan Bahasa  '{key}'"
+        return languages["id"].get(key) or f"Gagal memuat string bahasa '{key}'"
 
 
 def get_languages() -> Dict[str, Union[str, List[str]]]:

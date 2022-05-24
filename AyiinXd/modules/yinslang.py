@@ -19,7 +19,7 @@ import os
 from telethon import Button, custom
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import BOT_USERNAME, CMD_HELP, bot
+from AyiinXd import CMD_HELP, bot, tgbot
 from AyiinXd.ayiin import ayiin_cmd, eor
 from Stringyins import get_languages, language, get_string
 from .button import BTN_URL_REGEX
@@ -52,7 +52,9 @@ async def setlang(event):
     languages = get_languages()
     if languages:
         try:
-            yinslang = await bot.inline_query(  # pylint:disable=E0602
+            AyiinUBOT = await tgbot.get_me()
+            BOT_USERNAME = AyiinUBOT.username
+            yinslang = await event.client.inline_query(  # pylint:disable=E0602
                 BOT_USERNAME, "lang",
             )
             await yinslang[0].click(
@@ -98,7 +100,9 @@ async def test_string(event):
     buttons = build_keyboards(Y_BUTTONS)
     if buttons:
         try:
-            results = await bot.inline_query(  # pylint:disable=E0602
+            AyiinUBOT = await tgbot.get_me()
+            BOT_USERNAME =AyiinUBOT.username
+            results = await event.client.inline_query(  # pylint:disable=E0602
                 BOT_USERNAME, "string",
             )
             await results[0].click(

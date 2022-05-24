@@ -28,7 +28,7 @@ import re
 import shlex
 import time
 from os.path import basename
-from typing import Optional, Union
+from typing import Optional, Tuple, Union
 
 from emoji import get_emoji_regexp
 from hachoir.metadata import extractMetadata
@@ -60,22 +60,23 @@ async def md5(fname: str) -> str:
 
 
 def media_type(message):
-    if message and message.photo:
-        return "Photo"
-    if message and message.audio:
-        return "Audio"
-    if message and message.voice:
-        return "Voice"
-    if message and message.video_note:
-        return "Round Video"
-    if message and message.gif:
-        return "Gif"
-    if message and message.sticker:
-        return "Sticker"
-    if message and message.video:
-        return "Video"
-    if message and message.document:
-        return "Document"
+    if message:
+        if message.photo:
+            return "Photo"
+        if message.audio:
+            return "Audio"
+        if message.voice:
+            return "Voice"
+        if message.video_note:
+            return "Round Video"
+        if message.gif:
+            return "Gif"
+        if message.sticker:
+            return "Sticker"
+        if message.video:
+            return "Video"
+        if message.document:
+            return "Document"
     return None
 
 
@@ -83,13 +84,13 @@ def humanbytes(size: Union[int, float]) -> str:
     if size is None or isinstance(size, str):
         return ""
 
-    power = 2 ** 10
+    power = 2**10
     raised_to_pow = 0
     dict_power_n = {0: "", 1: "Ki", 2: "Mi", 3: "Gi", 4: "Ti"}
     while size > power:
         size /= power
         raised_to_pow += 1
-    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
+    return f"{str(round(size, 2))} {dict_power_n[raised_to_pow]}B"
 
 
 def time_formatter(seconds: int) -> str:
@@ -97,11 +98,12 @@ def time_formatter(seconds: int) -> str:
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     tmp = (
-        ((str(days) + " hari, ") if days else "")
-        + ((str(hours) + " jam, ") if hours else "")
-        + ((str(minutes) + " menit, ") if minutes else "")
-        + ((str(seconds) + " detik, ") if seconds else "")
+        (f"{str(days)} hari, " if days else "")
+        + (f"{str(hours)} jam, " if hours else "")
+        + (f"{str(minutes)} menit, " if minutes else "")
+        + (f"{str(seconds)} detik, " if seconds else "")
     )
+
     return tmp[:-2]
 
 
@@ -136,12 +138,12 @@ async def extract_time(yins, time_val):
 
 def human_to_bytes(size: str) -> int:
     units = {
-        "M": 2 ** 20,
-        "MB": 2 ** 20,
-        "G": 2 ** 30,
-        "GB": 2 ** 30,
-        "T": 2 ** 40,
-        "TB": 2 ** 40,
+        "M": 2**20,
+        "MB": 2**20,
+        "G": 2**30,
+        "GB": 2**30,
+        "T": 2**40,
+        "TB": 2**40,
     }
 
     size = size.upper()
@@ -159,7 +161,7 @@ async def is_admin(chat_id, user_id):
     )
 
 
-async def runcmd(cmd: str) -> tuple[str, str, int, int]:
+async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
     """run command in terminal"""
     args = shlex.split(cmd)
     process = await asyncio.create_subprocess_exec(
@@ -184,8 +186,7 @@ async def take_screen_shot(
         duration,
     )
     ttl = duration // 2
-    thumb_image_path = path or os.path.join(
-        "./temp/", f"{basename(video_file)}.jpg")
+    thumb_image_path = path or os.path.join("./temp/", f"{basename(video_file)}.jpg")
     command = f"ffmpeg -ss {ttl} -i '{video_file}' -vframes 1 '{thumb_image_path}'"
     err = (await runcmd(command))[1]
     if err:
@@ -218,7 +219,7 @@ async def edit_or_reply(
     reply_to = await event.get_reply_message()
     if len(text) < 4096 and not deflink:
         parse_mode = parse_mode or "md"
-        if event.sender_id in SUDO_USERS:
+        if not event.out and event.sender_id in SUDO_USERS:
             if reply_to:
                 return await reply_to.reply(
                     text, parse_mode=parse_mode, link_preview=link_preview
@@ -233,8 +234,8 @@ async def edit_or_reply(
     if aslink or deflink:
         linktext = linktext or "**Pesan Terlalu Panjang**"
         response = await paste_message(text, pastetype="s")
-        text = linktext + f" [Lihat Disini]({response})"
-        if event.sender_id in SUDO_USERS:
+        text = f"{linktext} [Lihat Disini]({response})"
+        if not event.out and event.sender_id in SUDO_USERS:
             if reply_to:
                 return await reply_to.reply(text, link_preview=link_preview)
             return await event.reply(text, link_preview=link_preview)
@@ -248,13 +249,16 @@ async def edit_or_reply(
         await reply_to.reply(caption, file=file_name)
         await event.delete()
         return os.remove(file_name)
-    if event.sender_id in SUDO_USERS:
+    if not event.out and event.sender_id in SUDO_USERS:
         await event.reply(caption, file=file_name)
         await event.delete()
         return os.remove(file_name)
     await event.client.send_file(event.chat_id, file_name, caption=caption)
     await event.delete()
     os.remove(file_name)
+
+
+eor = edit_or_reply
 
 
 async def check_media(reply_message):
@@ -284,7 +288,7 @@ async def check_media(reply_message):
     return data
 
 
-async def run_cmd(cmd: list) -> tuple[bytes, bytes]:
+async def run_cmd(cmd: list) -> Tuple[bytes, bytes]:
     process = await asyncio.create_subprocess_exec(
         *cmd,
         stdout=asyncio.subprocess.PIPE,
@@ -329,7 +333,7 @@ async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None
     parse_mode = parse_mode or "md"
     link_preview = link_preview or False
     time = time or 15
-    if event.sender_id in SUDO_USERS:
+    if not event.out and event.sender_id in SUDO_USERS:
         reply_to = await event.get_reply_message()
         newevent = (
             await reply_to.reply(text, link_preview=link_preview, parse_mode=parse_mode)
@@ -346,6 +350,9 @@ async def edit_delete(event, text, time=None, parse_mode=None, link_preview=None
     return await newevent.delete()
 
 
+eod = edit_delete
+
+
 async def media_to_pic(event, reply):
     mediatype = media_type(reply)
     if mediatype not in ["Photo", "Round Video", "Gif", "Sticker", "Video"]:
@@ -357,15 +364,19 @@ async def media_to_pic(event, reply):
     media = await reply.download_media(file="./temp")
     event = await edit_or_reply(event, "`Transfiguration Time! Converting....`")
     file = os.path.join("./temp/", "meme.png")
-    if mediatype == "Sticker":
-        if media.endswith(".tgs"):
-            await runcmd(
-                f"lottie_convert.py --frame 0 -if lottie -of png '{media}' '{file}'"
-            )
-        elif media.endswith(".webp"):
-            im = Image.open(media)
-            im.save(file)
-    elif mediatype in ["Round Video", "Video", "Gif"]:
+    if mediatype == "Sticker" and media.endswith(".tgs"):
+        await runcmd(
+            f"lottie_convert.py --frame 0 -if lottie -of png '{media}' '{file}'"
+        )
+    elif (
+        mediatype == "Sticker"
+        and not media.endswith(".tgs")
+        and media.endswith(".webp")
+        or mediatype not in ["Sticker", "Round Video", "Video", "Gif"]
+    ):
+        im = Image.open(media)
+        im.save(file)
+    elif mediatype != "Sticker" or media.endswith(".tgs") or media.endswith(".webp"):
         extractMetadata(createParser(media))
         await runcmd(f"rm -rf '{file}'")
         await take_screen_shot(media, 0, file)
@@ -375,9 +386,6 @@ async def media_to_pic(event, reply):
                 f"**Maaf. Saya tidak dapat mengekstrak gambar dari ini {mediatype}**",
             )
             return None
-    else:
-        im = Image.open(media)
-        im.save(file)
     await runcmd(f"rm -rf '{media}'")
     return [event, file, mediatype]
 
