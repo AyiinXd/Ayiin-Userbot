@@ -629,7 +629,7 @@ async def _(event):
 
 @ayiin_cmd(pattern="y(?: |$)(.*)")
 async def _(event):
-    await typew.edit(
+    await edit_or_reply(
         event,
         "‡‡‡‡‡‡‡‡‡‡‡‡▄▄▄▄\n"
         "‡‡‡‡‡‡‡‡‡‡‡█‡‡‡‡█\n"
