@@ -16,7 +16,8 @@ from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, DEVS, WHITELIST, blacklistayiin
 from AyiinXd.events import register
-from AyiinXd.ayiin import chataction, edit_or_reply, get_user_from_event, ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, chataction, edit_or_reply, get_user_from_event
+from Stringyins import get_string
 
 from .admin import BANNED_RIGHTS, UNBAN_RIGHTS
 
@@ -39,11 +40,17 @@ def mentionuser(name, userid):
 
 
 @ayiin_cmd(pattern="gban(?: |$)(.*)")
-@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
+@register(incoming=True, from_users=DEVS,
+          pattern=r"^\.cgban(?: |$)(.*)")
 async def gban(event):
     if event.fwd_from:
         return
-    gbun = await edit_or_reply(event, "`𝙂𝙗𝙖𝙣𝙣𝙞𝙣𝙜...`")
+    sender = await event.get_sender()
+    me = await event.client.get_me()
+    if sender.id != me.id:
+        gbun = await event.reply(get_string("gban_2"))
+    else:
+        gbun = await edit_or_reply(event, get_string("gban_2"))
     start = datetime.now()
     user, reason = await get_user_from_event(event, gbun)
     if not user:
@@ -52,10 +59,10 @@ async def gban(event):
         await gbun.edit("**𝙉𝙜𝙖𝙥𝙖𝙞𝙣 𝙉𝙜𝙚𝙂𝙗𝙖𝙣 𝘿𝙞𝙧𝙞 𝙎𝙚𝙣𝙙𝙞𝙧𝙞 𝙂𝙤𝙗𝙡𝙤𝙠 🐽**")
         return
     if user.id in DEVS:
-        await gbun.edit("**𝙂𝙖𝙜𝙖𝙡 𝙂𝙗𝙖𝙣 𝙏𝙤𝙙 𝙆𝙖𝙧𝙚𝙣𝙖 𝘿𝙞𝙖 𝘼𝙙𝙖𝙡𝙖𝙝 𝙋𝙚𝙢𝙗𝙪𝙖𝙩 𝙎𝙖𝙮𝙖 🗿**")
+        await gbun.edit(get_string("gban_5"))
         return
     if user.id in WHITELIST:
-        await gbun.edit("**Gagal GBAN karena dia adalah admin suhu cuaca 🗿**")
+        await gbun.edit(get_string("gban_6"))
         return
     if gban_sql.is_gbanned(user.id):
         await gbun.edit(
@@ -87,20 +94,26 @@ async def gban(event):
     timetaken = (end - start).seconds
     if reason:
         await gbun.edit(
-            f"**𝙂𝘽𝙖𝙣𝙣𝙚𝙙** [{user.first_name}](tg://user?id={user.id}) **𝙄𝙣** `{count}` **𝙂𝙧𝙤𝙪𝙥𝙨 𝙄𝙣** `{timetaken}` **𝙎𝙚𝙘𝙤𝙣𝙙𝙨**!!\n**𝙍𝙚𝙖𝙨𝙤𝙣 :** `{reason}`"
+            f"**\\#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧//**\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙂𝘽𝙖𝙣𝙣𝙚𝙙 𝙄𝙣 {count} **𝙂𝙧𝙤𝙪𝙥𝙨`\n**𝘿𝙪𝙧𝙖𝙩𝙞𝙤𝙣 𝙂𝙗𝙖𝙣𝙣𝙚𝙙 :** `{timetaken}` **𝙎𝙚𝙘𝙤𝙣𝙙𝙨**!!\n**𝙍𝙚𝙖𝙨𝙤𝙣 :** `{reason}`\n**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
         )
     else:
         await gbun.edit(
-            f"**𝙂𝘽𝙖𝙣𝙣𝙚𝙙** [{user.first_name}](tg://user?id={user.id}) **𝙄𝙣** `{count}` **𝙂𝙧𝙤𝙪𝙥𝙨 𝙄𝙣** `{timetaken}` **𝙎𝙚𝙘𝙤𝙣𝙙𝙨**!!\n**𝘼𝙙𝙙𝙚𝙙 𝙏𝙤 𝙂𝙗𝙖𝙣𝙡𝙞𝙨𝙩.**"
+            f"**\\#𝙂𝘽𝙖𝙣𝙣𝙚𝙙_𝙐𝙨𝙚𝙧//**\n\n**𝙁𝙞𝙧𝙨𝙩 𝙉𝙖𝙢𝙚 :** [{user.first_name}](tg://user?id={user.id})\n**𝙐𝙨𝙚𝙧 𝙄𝘿 :** `{user.id}`\n**𝘼𝙘𝙩𝙞𝙤𝙣 :** `𝙂𝘽𝙖𝙣𝙣𝙚𝙙 𝙄𝙣 {count} **𝙂𝙧𝙤𝙪𝙥𝙨`\n**𝘿𝙪𝙧𝙖𝙩𝙞𝙤𝙣 𝙂𝙗𝙖𝙣𝙣𝙚𝙙 :** `{timetaken}` **𝙎𝙚𝙘𝙤𝙣𝙙𝙨**!!\n**𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : ✧ 𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ✧**"
         )
 
 
 @ayiin_cmd(pattern="ungban(?: |$)(.*)")
-@register(pattern=r"^\.cungban(?: |$)(.*)", sudo=True)
+@register(incoming=True, from_users=DEVS,
+          pattern=r"^\.cungban(?: |$)(.*)")
 async def ungban(event):
     if event.fwd_from:
         return
-    ungbun = await edit_or_reply(event, "`𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙞𝙣𝙜...`")
+    sender = await event.get_sender()
+    me = await event.client.get_me()
+    if sender.id != me.id:
+        ungbun = await event.reply("`𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙞𝙣𝙜...`")
+    else:
+        ungbun = await edit_or_reply(event, "`𝙐𝙣𝙂𝙗𝙖𝙣𝙣𝙞𝙣𝙜...`")
     start = datetime.now()
     user, reason = await get_user_from_event(event, ungbun)
     if not user:
