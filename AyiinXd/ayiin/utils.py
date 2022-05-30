@@ -15,7 +15,9 @@ from random import randint
 import heroku3
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.errors import ChannelsTooMuchError
-from telethon.tl.functions.channels import CreateChannelRequest
+from telethon.tl.functions.channels import CreateChannelRequest, EditPhotoRequest
+from telethon.tl.types import ChatPhotoEmpty, InputChatUploadedPhoto
+from telethon.utils import get_peer_id
 
 from AyiinXd import (
     BOT_TOKEN,
@@ -26,6 +28,9 @@ from AyiinXd import (
     LOGS,
     bot,
 )
+
+from .tools import download_file
+
 
 heroku_api = "https://api.heroku.com"
 if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
@@ -52,7 +57,7 @@ async def autopilot():
     try:
         r = await bot(
             CreateChannelRequest(
-                title="⍟ Aʏɪɪɴ-Usᴇʀʙᴏᴛ Lᴏɢs ⍟",
+                title="Aʏɪɪɴ-Usᴇʀʙᴏᴛ Lᴏɢs",
                 about="» Group log Created by: Ayiin-Userbot\n\n» Support : @AyiinXdSupport\n» Support: @AyiinSupport",
                 megagroup=True,
             ),
@@ -67,11 +72,23 @@ async def autopilot():
             "Terjadi kesalahan, Buat sebuah grup lalu isi id nya di config var BOTLOG_CHATID."
         )
         exit(1)
-    chat_id = r.chats[0].id
-    if not str(chat_id).startswith("-100"):
-        heroku_var["BOTLOG_CHATID"] = "-100" + str(chat_id)
+    chat = r.chats[0]
+    channel = get_peer_id(chat)
+    if isinstance(chat.photo, ChatPhotoEmpty):
+        photo = await download_file(
+            "https://telegra.ph/file/b88d710cee9a6d6783abc.jpg", "photoyins.jpg"
+        )
+        ll = await bot.upload_file(photo)
+        try:
+            await bot(
+                EditPhotoRequest(int(channel), InputChatUploadedPhoto(ll))
+            )
+        except BaseException as er:
+            LOGS.exception(er)
+    if not str(chat.id).startswith("-100"):
+        heroku_var["BOTLOG_CHATID"] = "-100" + str(chat.id)
     else:
-        heroku_var["BOTLOG_CHATID"] = str(chat_id)
+        heroku_var["BOTLOG_CHATID"] = str(chat.id)
 
 
 async def autobot():

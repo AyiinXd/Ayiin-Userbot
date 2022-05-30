@@ -20,6 +20,8 @@
 #
 
 
+import aiofiles
+import aiohttp
 import asyncio
 import hashlib
 import os
@@ -29,6 +31,7 @@ import shlex
 import time
 from os.path import basename
 from typing import Optional, Tuple, Union
+from urllib.request import urlretrieve
 
 from emoji import get_emoji_regexp
 from hachoir.metadata import extractMetadata
@@ -406,3 +409,16 @@ def download_lagu(url: str) -> str:
     info = ydl.extract_info(url, download=False)
     ydl.download([url])
     return os.path.join("downloads", f"{info['id']}.{info['ext']}")
+
+
+async def download_file(link, name):
+    """for files, without progress callback with aiohttp"""
+    if not aiohttp:
+        urlretrieve(link, name)
+        return name
+    async with aiohttp.ClientSession() as ses:
+        async with ses.get(link) as re_ses:
+            file = await aiofiles.open(name, "wb")
+            await file.write(await re_ses.read())
+            await file.close()
+    return name

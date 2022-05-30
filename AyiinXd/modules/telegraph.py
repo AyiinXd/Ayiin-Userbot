@@ -14,6 +14,7 @@ from telegraph import Telegraph, exceptions, upload_file
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from Stringyins import get_string
 
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")

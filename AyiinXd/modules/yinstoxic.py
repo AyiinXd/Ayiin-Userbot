@@ -95,7 +95,7 @@ async def _(n):
     await n.eor(get_string("yitxc_18"))
 
 
-@ayiin_cmd(pattern="y(?: |$)(.*)")
+@ayiin_cmd(pattern="yy(?: |$)(.*)")
 async def _(x):
     await x.eor(get_string("yitxc_19"))
 
@@ -153,7 +153,7 @@ CMD_HELP.update(
         \n  »  **Kegunaan : **Cobain sendiri tod\
         \n\n  »  **Perintah :** `{cmd}g`\
         \n  »  **Kegunaan : **Cobain sendiri tod\
-        \n\n  »  **Perintah :** `{cmd}y`\
+        \n\n  »  **Perintah :** `{cmd}yy`\
         \n  »  **Kegunaan : **Cobain sendiri tod\
         \n\n  »  **Perintah :** `{cmd}h`\
         \n  »  **Kegunaan : **Cobain sendiri tod\

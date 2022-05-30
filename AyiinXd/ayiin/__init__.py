@@ -26,6 +26,7 @@ from .tools import (
     bash,
     check_media,
     deEmojify,
+    download_file,
     download_lagu,
     edit_delete,
     edit_or_reply,
