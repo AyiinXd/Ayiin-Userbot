@@ -15,8 +15,8 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeVideo
 
-from Ayiin import CMD_HANDLER as cmd
-from Ayiin import CMD_HELP, LASTFM_USERNAME, bot, lastfm
+from AyiinXd import CMD_HANDLER as cmd
+from AyiinXd import CMD_HELP, LASTFM_USERNAME, bot, lastfm
 from AyiinXd.ayiin import ayiin_cmd, chrome, progress
 
 
