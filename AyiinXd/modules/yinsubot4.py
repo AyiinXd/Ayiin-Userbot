@@ -28,7 +28,7 @@ async def _(a):
 
 @ayiin_cmd(pattern=r"jamet(?: |$)(.*)")
 async def _(y):
-    ayiin = await y.eor(get_string("yins_2"))
+    ayiin = await eor(y, get_string("yins_2"))
     sleep(1.5)
     await ayiin.edit(get_string("yins_3"))
     sleep(1.5)
@@ -53,77 +53,77 @@ async def _(y):
 
 @ayiin_cmd(pattern=r"pp(?: |$)(.*)")
 async def _(i):
-    await i.eor(get_string("yins_13"))
+    await eor(i, get_string("yins_13"))
 
 
 @ayiin_cmd(pattern=r"dp(?: |$)(.*)")
 async def _(i):
-    await i.eor(get_string("yins_14"))
+    await eor(i, get_string("yins_14"))
 
 
 @ayiin_cmd(pattern=r"so(?: |$)(.*)")
 async def _(n):
-    await n.eor(get_string("yins_15"))
+    await eor(n, get_string("yins_15"))
 
 
 @ayiin_cmd(pattern=r"nb(?: |$)(.*)")
 async def _(x):
     if event.chat_id in BLACKLIST_CHAT:
         return await eod(x, get_string("ayiin_1"), time=50)
-    await x.eor(get_string("yins_16"))
+    await eor(x, get_string("yins_16"))
     await x.delete()
 
 
 @ayiin_cmd(pattern=r"met(?: |$)(.*)")
 async def _(d):
-    await d.eor(get_string("yins_17"))
+    await eor(d, get_string("yins_17"))
 
 
 @ayiin_cmd(pattern=r"war(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yins_18"))
+    await eor(a, get_string("yins_18"))
     await a.delete()
 
 
 @ayiin_cmd(pattern=r"wartai(?: |$)(.*)")
 async def _(y):
-    await y.eor(get_string("yins_19"))
+    await eor(y, get_string("yins_19"))
     await y.delete()
 
 
 @ayiin_cmd(pattern=r"kismin(?: |$)(.*)")
 async def _(i):
-    await i.eor(get_string("yins_20"))
+    await eor(i, get_string("yins_20"))
     await i.delete()
 
 
 @ayiin_cmd(pattern=r"ded(?: |$)(.*)")
 async def _(i):
-    await i.eor(get_string("yins_21"))
+    await eor(i, get_string("yins_21"))
     await i.delete()
 
 
 @ayiin_cmd(pattern=r"sokab(?: |$)(.*)")
 async def _(n):
-    await n.eor(get_string("yins_22"))
+    await eor(n, get_string("yins_22"))
     await n.delete()
 
 
 @ayiin_cmd(pattern=r"gembel(?: |$)(.*)")
 async def _(x):
-    await x.eor(get_string("yins_23"))
+    await eor(x, get_string("yins_23"))
     await x.delete()
 
 
 @ayiin_cmd(pattern=r"cuih(?: |$)(.*)")
 async def _(d):
-    await d.eor(get_string("yins_24"))
+    await eor(d, get_string("yins_24"))
     await d.delete()
 
 
 @ayiin_cmd(pattern=r"dih(?: |$)(.*)")
 async def _(y):
-    await y.eor(get_string("yins_25"))
+    await eor(y, get_string("yins_25"))
     await y.delete()
 
 
@@ -131,19 +131,19 @@ async def _(y):
 async def _(i):
     if i.chat_id in BLACKLIST_CHAT:
         return await eod(i, get_string("ayiin_1"))
-    await i.eor(get_string("yins_26"))
+    await eor(i, get_string("yins_26"))
     await i.delete()
 
 
 @ayiin_cmd(pattern=r"skb(?: |$)(.*)")
 async def _(n):
-    await n.eor(get_string("yins_27"))
+    await eor(n, get_string("yins_27"))
     await n.delete()
 
 
 @ayiin_cmd(pattern=r"virtual(?: |$)(.*)")
 async def _(s):
-    ayiin = await s.eor(get_string("yins_28"))
+    ayiin = await eor(s, get_string("yins_28"))
     sleep(1.5)
     await ayiin.edit(get_string("yins_29"))
     sleep(1.5)

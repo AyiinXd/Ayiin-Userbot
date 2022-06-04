@@ -24,7 +24,7 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern="ceking(?: |$)(.*)")
 async def _(mnghna):
-    Ayiin = await mnghna.eor(get_string("yitxc_74"))
+    Ayiin = await mnghneor(a, get_string("yitxc_74"))
     sleep(1)
     await Ayiin.edit(get_string("yitxc_75"))
     sleep(1)
@@ -41,7 +41,7 @@ async def _(mnghna):
 
 @ayiin_cmd(pattern="hina(?: |$)(.*)")
 async def _(war):
-    Xd = await war.eor(get_string("yitxc_81"))
+    Xd = await eor(war, get_string("yitxc_81"))
     sleep(1.5)
     await Xd.edit(get_string("yitxc_82"))
     sleep(1)
@@ -62,7 +62,7 @@ async def _(war):
 
 @ayiin_cmd(pattern="ngaca(?: |$)(.*)")
 async def _(mikir):
-    Yins = await mikir.eor(get_string("yitxc_90"))
+    Yins = await eor(mikir, get_string("yitxc_90"))
     sleep(1.5)
     await Yins.edit(get_string("yitxc_91"))
     sleep(1)

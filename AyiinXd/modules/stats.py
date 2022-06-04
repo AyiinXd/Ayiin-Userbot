@@ -130,7 +130,7 @@ async def _(event):
     else:
         uid = reply_message.sender_id
     chat = "@tgscanrobot"
-    sevent = await event.eor(get_string("com_1"))
+    sevent = await eor(event, get_string("com_1"))
     async with event.client.conversation(chat) as conv:
         try:
             msg = await conv.send_message(f"{uid}")

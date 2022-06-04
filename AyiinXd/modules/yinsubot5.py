@@ -24,7 +24,7 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern=r"ganteng(?: |$)(.*)")
 async def _(y):
-    ayiin = await y.eor(get_string("yins_36"))
+    ayiin = await eor(y, get_string("yins_36"))
     sleep(3)
     await ayiin.edit(get_string("yins_37"))
     sleep(3)
@@ -38,7 +38,7 @@ async def _(y):
 
 @ayiin_cmd(pattern=r"wibu(?: |$)(.*)")
 async def _(i):
-    ayiin = await i.eor(get_string("yins_39"))
+    ayiin = await eor(i, get_string("yins_39"))
     sleep(2)
     await ayiin.edit(get_string("yins_40"))
     sleep(3)
@@ -71,14 +71,14 @@ async def _(i):
 
 @ayiin_cmd(pattern=r"senggol(?: |$)(.*)")
 async def _(n):
-    ayiin = await n.eor(get_string("yins_43"))
+    ayiin = await eor(n, get_string("yins_43"))
     sleep(2)
     await ayiin.edit(get_string("yins_44"))
 
 
 @ayiin_cmd(pattern=r"^P(?: |$)(.*)")
 async def _(s):
-    ayiin = await s.eor(get_string("yins_45"))
+    ayiin = await eor(s, get_string("yins_45"))
     sleep(1)
     await ayiin.edit(get_string("yins_46"))
 

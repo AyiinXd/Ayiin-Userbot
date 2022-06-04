@@ -7,111 +7,111 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern="d(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_1"))
+    await eor(a, get_string("yitxc_1"))
 
 
 @ayiin_cmd(pattern="e(?: |$)(.*)")
 async def _(y):
-    await y.eor(get_string("yitxc_2"))
+    await eor(y, get_string("yitxc_2"))
 
 
 @ayiin_cmd(pattern="f(?: |$)(.*)")
 async def _(i):
-    await i.eor(get_string("yitxc_3"))
+    await eor(i, get_string("yitxc_3"))
 
 
 @ayiin_cmd(pattern="i(?: |$)(.*)")
 async def _(n):
-    await n.eor(get_string("yitxc_4"))
+    await eor(n, get_string("yitxc_4"))
 
 
 @ayiin_cmd(pattern="r(?: |$)(.*)")
 async def _(x):
-    await x.eor(get_string("yitxc_5"))
+    await eor(x, get_string("yitxc_5"))
 
 
 @ayiin_cmd(pattern="t(?: |$)(.*)")
 async def _(d):
-    await d.eor(get_string("yitxc_6"))
+    await eor(d, get_string("yitxc_6"))
 
 
 @ayiin_cmd(pattern="u(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_7"))
+    await eor(a, get_string("yitxc_7"))
 
 
 @ayiin_cmd(pattern="w(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_8"))
+    await eor(a, get_string("yitxc_8"))
 
 
 @ayiin_cmd(pattern="bct(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_9"))
+    await eor(a, get_string("yitxc_9"))
 
 
 @ayiin_cmd(pattern="n(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_10"))
+    await eor(a, get_string("yitxc_10"))
 
 
 @ayiin_cmd(pattern="b(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_11"))
+    await eor(a, get_string("yitxc_11"))
 
 
 @ayiin_cmd(pattern="m(?: |$)(.*)")
 async def _(y):
-    await y.eor(get_string("yitxc_12"))
+    await eor(y, get_string("yitxc_12"))
 
 
 @ayiin_cmd(pattern="c(?: |$)(.*)")
 async def _(y):
-    await y.eor(get_string("yitxc_13"))
+    await eor(y, get_string("yitxc_13"))
 
 
 @ayiin_cmd(pattern="x(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_14"))
+    await eor(a, get_string("yitxc_14"))
 
 
 @ayiin_cmd(pattern="v(?: |$)(.*)")
 async def _(y):
-    await y.eor(get_string("yitxc_15"))
+    await eor(y, get_string("yitxc_15"))
 
 
 @ayiin_cmd(pattern="j(?: |$)(.*)")
 async def _(i):
-    await i.eor(get_string("yitxc_16"))
+    await eor(i, get_string("yitxc_16"))
 
 
 @ayiin_cmd(pattern="z(?: |$)(.*)")
 async def _(i):
-    await i.eor(get_string("yitxc_17"))
+    await eor(i, get_string("yitxc_17"))
 
 
 @ayiin_cmd(pattern="g(?: |$)(.*)")
 async def _(n):
-    await n.eor(get_string("yitxc_18"))
+    await eor(n, get_string("yitxc_18"))
 
 
 @ayiin_cmd(pattern="yy(?: |$)(.*)")
 async def _(x):
-    await x.eor(get_string("yitxc_19"))
+    await eor(x, get_string("yitxc_19"))
 
 @ayiin_cmd(pattern="h(?: |$)(.*)")
 async def _(d):
-    await d.eor(get_string("yitxc_20"))
+    await eor(d, get_string("yitxc_20"))
 
 
 @ayiin_cmd(pattern="o(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_21"))
+    await eor(a, get_string("yitxc_21"))
 
 
 @ayiin_cmd(pattern="a(?: |$)(.*)")
 async def _(a):
-    await a.eor(get_string("yitxc_22"))
+    await eor(a, get_string("yitxc_22"))
 
 
 CMD_HELP.update(

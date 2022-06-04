@@ -25,18 +25,18 @@ p, pp = print, pprint
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
-        return await event.eor(get_string("devs_3"))
+        return await eor(event, get_string("devs_3"))
     if expression in ("AyiinXd.session", "config.env"):
-        return await event.eor(get_string("devs_2"))
+        return await eor(event, get_string("devs_2"))
     cmd = "".join(event.message.message.split(maxsplit=1)[1:])
     if not cmd:
-        return event.eor(get_string("devs_4"))
+        return eor(event, get_string("devs_4"))
     cmd = (
         cmd.replace("sendmessage", "send_message")
         .replace("sendfile", "send_file")
         .replace("editmessage", "edit_message")
     )
-    xx = await event.eor(get_string("com_1"))
+    xx = await eor(event, get_string("com_1"))
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     old_stderr = sys.stderr
@@ -104,10 +104,10 @@ async def _(event):
 async def run(event):
     code = event.pattern_match.group(1)
     if not code:
-        return await event.eor(get_string("devs_1"))
+        return await eor(event, get_string("devs_1"))
     if code in ("AyiinXd.session", "config.env"):
-        return await event.eor(get_string("devs_2"))
-    await event.eor(get_string("com_1"))
+        return await eor(event, get_string("devs_2"))
+    await eor(event, get_string("com_1"))
     if len(code.splitlines()) <= 5:
         codepre = code
     else:
@@ -147,17 +147,17 @@ async def run(event):
             caption="**Output terlalu besar, dikirim sebagai file**",
         )
         return remove("output.txt")
-    await event.eor(get_string("devs_5").format(codepre, stdout))
+    await eor(event, get_string("devs_5").format(codepre, stdout))
 
 
 @ayiin_cmd(pattern="term(?: |$|\n)([\\s\\S]*)")
 async def terminal_runner(event):
     command = event.pattern_match.group(1)
     if not command:
-        return await event.eod(get_string("devs_7"))
+        return await eod(event, get_string("devs_7"))
     if command in ("AyiinXd.session", "config.env"):
-        return await event.eod(get_string("devs_2"))
-    await event.eor(get_string("com_1"))
+        return await eod(event, get_string("devs_2"))
+    await eor(event, get_string("com_1"))
     process = await asyncio.create_subprocess_shell(
         command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.STDOUT
     )
@@ -180,7 +180,7 @@ async def terminal_runner(event):
         )
         return remove("output.txt")
 
-    await event.eor(get_string("devs_5").format(command, result))
+    await eor(event, get_string("devs_5").format(command, result))
 
 
 @ayiin_cmd(pattern="json$")

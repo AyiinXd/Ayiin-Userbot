@@ -21,7 +21,7 @@ from Stringyins import get_string
 async def _(ayiin):
     if ayiin.chat_id in BLACKLIST_CHAT:
         return await eod(ayiin, get_string("ayiin_1"), time=45)
-    yins = await ayiin.eor(get_string("com_1"))
+    yins = await eor(ayiin, get_string("com_1"))
     try:
         asuyins = [
             asupan

@@ -499,7 +499,7 @@ async def _(event):
             await event.client.forward_messages(chat, reply_message)
             response = await response
         if response.text.startswith(""):
-            await event.eod(get_string("error_2"))
+            await eod(event, get_string("error_2"))
         else:
             await xx.delete()
             await event.client.send_message(event.chat_id, response.message)

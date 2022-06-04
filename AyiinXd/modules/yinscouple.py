@@ -24,7 +24,7 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern="couple(?: |$)(.*)")
 async def couple(bucin):
-    copl = await bucin.eor(get_string("com_1"))
+    copl = await eor(bucin, get_string("com_1"))
     try:
         bucinan = [
             coupl

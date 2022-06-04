@@ -18,7 +18,7 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern=r"lipkol(?: |$)(.*)")
 async def _(a):
-    ayiin = await a.eor(get_string("yibot_51"))
+    ayiin = await eor(a, get_string("yibot_51"))
     sleep(2)
     await ayiin.edit(get_string("yibot_52"))
     sleep(1)
@@ -30,7 +30,7 @@ async def _(a):
 
 @ayiin_cmd(pattern=r"nakal(?: |$)(.*)")
 async def _(y):
-    ayiin = await y.eor(get_string("yibot_54"))
+    ayiin = await eor(y, get_string("yibot_54"))
     sleep(1)
     await ayiin.edit(get_string("yibot_55"))
     sleep(1)
@@ -41,7 +41,7 @@ async def _(y):
 
 @ayiin_cmd(pattern=r"favboy(?: |$)(.*)")
 async def _(i):
-    ayiin = await i.eor(get_string("yibot_58"))
+    ayiin = await eor(i, get_string("yibot_58"))
     sleep(1.5)
     await ayiin.edit(get_string("yibot_59"))
     sleep(1.5)
@@ -54,7 +54,7 @@ async def _(i):
 
 @ayiin_cmd(pattern=r"favgirl(?: |$)(.*)")
 async def _(i):
-    ayiin = await i.eor(get_string("yibot_63"))
+    ayiin = await eor(i, get_string("yibot_63"))
     sleep(2)
     await ayiin.edit(get_string("yibot_64"))
     sleep(2)
@@ -67,7 +67,7 @@ async def _(i):
 
 @ayiin_cmd(pattern=r"canlay(?: |$)(.*)")
 async def _(n):
-    ayiin = await n.eor(get_string("yibot_68"))
+    ayiin = await eor(n, get_string("yibot_68"))
     sleep(2)
     await ayiin.edit(get_string("yibot_69"))
     sleep(2)
@@ -80,7 +80,7 @@ async def _(n):
 
 @ayiin_cmd(pattern=r"ganlay(?: |$)(.*)")
 async def _(x):
-    ayiin = await x.eor(get_string("yibot_73"))
+    ayiin = await eor(x, get_string("yibot_73"))
     sleep(2)
     await ayiin.edit(get_string("yibot_69"))
     sleep(2)
@@ -93,7 +93,7 @@ async def _(x):
 
 @ayiin_cmd(pattern=r"ange(?: |$)(.*)")
 async def _(d):
-    ayiin = await d.eor(get_string("yibot_74"))
+    ayiin = await eor(d, get_string("yibot_74"))
     sleep(1)
     await ayiin.edit(get_string("yibot_75"))
     sleep(1)

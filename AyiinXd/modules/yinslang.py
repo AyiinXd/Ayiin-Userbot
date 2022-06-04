@@ -48,7 +48,7 @@ Y_BUTTONS = [
 
 @ayiin_cmd(pattern=r"lang(?: |$)(.*)")
 async def setlang(event):
-    await event.eor(get_string("com_1"))
+    await eor(event, get_string("com_1"))
     languages = get_languages()
     if languages:
         try:
@@ -68,7 +68,7 @@ async def setlang(event):
 
 @ayiin_cmd(pattern=r"set( id| en|$)(.*)")
 async def settt(event):
-    await event.eor(get_string("com_1"))
+    await eor(event, get_string("com_1"))
     lang = event.pattern_match.group(1).strip()
     languages = get_languages()
     language[0] = lang

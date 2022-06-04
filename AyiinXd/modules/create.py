@@ -39,7 +39,8 @@ async def _(grop):
                     peer=created_chat_id,
                 )
             )
-            await grop.eor(
+            await eor(
+                grop,
                 get_string("create_1").format(
                     group_name, group_name, result.link
                 )
@@ -62,7 +63,8 @@ async def _(grop):
                     peer=created_chat_id,
                 )
             )
-            await grop.eor(
+            await eor(
+                grop,
                 get_string("create_1").format(
                     group_name, group_name, result.link
                 )

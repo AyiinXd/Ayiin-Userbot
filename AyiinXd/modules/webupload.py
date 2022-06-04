@@ -17,7 +17,7 @@ from Stringyins import get_string
 async def _(event):
     if event.fwd_from:
         return
-    xx = await event.eor(get_string("com_1"))
+    xx = await eor(event, get_string("com_1"))
     PROCESS_RUN_TIME = 100
     input_str = event.pattern_match.group(1)
     selected_transfer = event.pattern_match.group(2)

@@ -41,42 +41,44 @@ def user_list(l, n):
 @ayiin_cmd(pattern="startvc$", group_only=True)
 @register(pattern=r"^\.startvcs$", sudo=True)
 async def start_voice(c):
+    xd = await eor(c, get_string("com_1"))
     me = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await c.eod(get_string("stvc_1").format(me.first_name))
+        await eod(xd, get_string("stvc_1").format(me.first_name))
         return
     try:
         await c.client(startvc(c.chat_id))
-        await c.eor(get_string("stvc_2"))
+        await xd.edit(get_string("stvc_2"))
     except Exception as ex:
-        await c.eod(get_string("erro_1").format(e))
+        await eod(xd, get_string("erro_1").format(e))
 
 
 @ayiin_cmd(pattern="stopvc$", group_only=True)
 @register(pattern=r"^\.stopvcs$", sudo=True)
 async def stop_voice(c):
+    yins = await eor(c, get_string("com_1"))
     me = await c.client.get_me()
     chat = await c.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
 
     if not admin and not creator:
-        await c.eod(get_string("stvc_1").format(me.first_name))
+        await eod(yins, get_string("stvc_1").format(me.first_name))
         return
     try:
         await c.client(stopvc(await get_call(c)))
-        await c.eor(get_string("stvc_3"))
+        await yins.edit(get_string("stvc_3"))
     except Exception as ex:
-        await c.eod(get_string("error_1").format(ex))
+        await eod(yins, get_string("error_1").format(ex))
 
 
 @ayiin_cmd(pattern="vcinvite", group_only=True)
 async def _(c):
-    xxnx = await c.eor(get_string("vcin_1"))
+    xxnx = await eor(c, get_string("vcin_1"))
     users = []
     z = 0
     async for x in c.client.iter_participants(c.chat_id):
@@ -95,6 +97,7 @@ async def _(c):
 @ayiin_cmd(pattern="vctitle(?: |$)(.*)", group_only=True)
 @register(pattern=r"^\.cvctitle$", sudo=True)
 async def change_title(e):
+    ayin = await eor(e, get_string("com_1"))
     title = e.pattern_match.group(1)
     me = await e.client.get_me()
     chat = await e.get_chat()
@@ -102,16 +105,16 @@ async def change_title(e):
     creator = chat.creator
 
     if not title:
-        return await e.eod(get_string("vcti_1"))
+        return await eod(ayin, get_string("vcti_1"))
 
     if not admin and not creator:
-        await e.eod(get_string("stvc_1").format(me.first_name))
+        await eod(ayin, get_string("stvc_1").format(me.first_name))
         return
     try:
         await e.client(settitle(call=await get_call(e), title=title.strip()))
-        await e.eor(get_string("vcti_2").format(title))
+        await ayin.edit(get_string("vcti_2").format(title))
     except Exception as ex:
-        await e.eod(get_string("error_1").format(ex))
+        await eod(ayin, get_string("error_1").format(ex))
 
 
 @ayiin_cmd(pattern="joinvc(?: |$)(.*)", group_only=True)
@@ -122,7 +125,7 @@ async def _(a):
     if sender.id != yins.id:
         Ayiin = await a.reply(get_string("com_1"))
     else: 
-        Ayiin = await a.eor(get_string("com_1"))
+        Ayiin = await eor(a, get_string("com_1"))
     if len(a.text.split()) > 1:
         chat_id = a.text.split()[1]
         try:
@@ -161,7 +164,7 @@ async def vc_end(y):
     if sender.id != yins.id:
         Ayiin = await y.reply(get_string("com_1"))
     else: 
-        Ayiin = await y.eor(get_string("com_1"))
+        Ayiin = await eor(y, get_string("com_1"))
     if len(y.text.split()) > 1:
         chat_id = y.text.split()[1]
         try:

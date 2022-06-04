@@ -23,7 +23,7 @@ async def testing(ayiinxd):
     if not admin and not creator:
         await eod(ayiinxd, get_string("stvc_1").format(yins.first_name))
         return
-    xnxx = await ayiinxd.eor(get_string("yiban_1"))
+    xnxx = await eor(ayiinxd, get_string("yiban_1"))
 # Thank for Dark_Cobra
     ayiinkontol = await ayiinxd.client.get_participants(ayiinxd.chat_id)
     for user in ayiinkontol:
@@ -39,7 +39,7 @@ async def testing(ayiinxd):
 
 @ayiin_cmd(pattern="unbanall(?: |$)(.*)")
 async def _(ayiin):
-    yins = await ayiin.eor(get_string("yiban_3"))
+    yins = await eor(ayiin, get_string("yiban_3"))
     p = 0
     (await ayiin.get_chat()).title
     async for i in ayiin.client.iter_participants(

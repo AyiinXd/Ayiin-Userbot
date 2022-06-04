@@ -29,7 +29,7 @@ async def impostor(event):
         return
     xx = await eor(event, get_string("com_1"))
     if "restore" in inputArgs:
-        await event.eor(get_string("clon_1"))
+        await eor(event, get_string("clon_1"))
         if not STORAGE.userObj:
             return await xx.edit(get_string("clon_2"))
         await updateProfile(event, STORAGE.userObj, restore=True)

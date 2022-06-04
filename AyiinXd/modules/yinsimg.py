@@ -34,7 +34,7 @@ from Stringyins import get_string
 @ayiin_cmd(pattern=r"sketch(?: |$)(.*)")
 async def sketch(e):
     ureply = await e.get_reply_message()
-    xx = await e.eor(get_string("com_1"))
+    xx = await eor(e, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(xx, get_string("failed9"))
 
@@ -74,7 +74,7 @@ async def sketch(e):
 @ayiin_cmd(pattern=r"grey(?: |$)(.*)")
 async def xnxx(event):
     ureply = await event.get_reply_message()
-    yins = await event.eor(get_string("com_1"))
+    yins = await eor(event, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(yins, get_string("failed9"))
 
@@ -115,7 +115,7 @@ async def xnxx(event):
 @ayiin_cmd(pattern=r"blur(?: |$)(.*)")
 async def ayiin(event):
     ureply = await event.get_reply_message()
-    xd = await event.eor(get_string("com_1"))
+    xd = await eor(event, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(xd, get_string("failed9"))
 
@@ -156,7 +156,7 @@ async def ayiin(event):
 @ayiin_cmd(pattern=r"negative(?: |$)(.*)")
 async def yinsxd(event):
     ureply = await event.get_reply_message()
-    ayiin = await event.eor(get_string("com_1"))
+    ayiin = await eor(event, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(ayiin, get_string("failed9"))
 
@@ -197,7 +197,7 @@ async def yinsxd(event):
 @ayiin_cmd(pattern=r"miror(?: |$)(.*)")
 async def kntl(event):
     ureply = await event.get_reply_message()
-    kentu = await event.eor(get_string("com_1"))
+    kentu = await eor(event, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(kentu, get_string("failed9"))
 
@@ -239,7 +239,7 @@ async def kntl(event):
 @ayiin_cmd(pattern=r"flp(?: |$)(.*)")
 async def ayiin(kontol):
     ureply = await kontol.get_reply_message()
-    mmk = await kontol.eor(get_string("com_1"))
+    mmk = await eor(kontol, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(mmk, get_string("failed9"))
 
@@ -282,7 +282,7 @@ async def ayiin(kontol):
 @ayiin_cmd(pattern=r"quad(?: |$)(.*)")
 async def ayiin(memek):
     ureply = await memek.get_reply_message()
-    kntl = await memek.eor(get_string("com_1"))
+    kntl = await eor(memek, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(kntl, get_string("failed9"))
 
@@ -327,7 +327,7 @@ async def ayiin(memek):
 @ayiin_cmd(pattern=r"toon(?: |$)(.*)")
 async def yins(event):
     ureply = await event.get_reply_message()
-    xd = await event.eor(get_string("com_1"))
+    xd = await eor(event, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(xd, get_string("failed9"))
 
@@ -385,7 +385,7 @@ async def yins(event):
 @ayiin_cmd(pattern=r"danger(?: |$)(.*)")
 async def ayiin(event):
     ureply = await event.get_reply_message()
-    ayiin = await ayiin.eor(get_string("com_1"))
+    ayiin = await eor(ayiin, get_string("com_1"))
     if not (ureply and (ureply.media)):
         return await eod(ayiin, get_string("failed9"))
 
@@ -463,7 +463,7 @@ async def pixelator(event):
         hw = int(event.pattern_match.group(1).strip())
     except (ValueError, TypeError):
         pass
-    yins = await event.eor(get_string("com_1"))
+    yins = await eor(event, get_string("com_1"))
     imayiin = await reply_message.download_media()
     input_ = cv2.imread(imayiin)
     height, width = input_.shape[:2]

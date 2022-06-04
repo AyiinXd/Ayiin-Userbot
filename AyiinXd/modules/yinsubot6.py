@@ -23,7 +23,7 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern="cacad(?: |$)(.*)")
 async def _(x):
-    yins = await x.eor(get_string("yins_47"))
+    yins = await eor(x, get_string("yins_47"))
     sleep(2)
     await yins.edit(get_string("yins_48"))
     sleep(1)
@@ -34,7 +34,7 @@ async def _(x):
 
 @ayiin_cmd(pattern="hayo(?: |$)(.*)")
 async def _(d):
-    ayiin = await d.eor(get_string("yins_51"))
+    ayiin = await eor(d, get_string("yins_51"))
     sleep(1)
     await ayiin.edit(get_string("yins_52"))
     sleep(1)

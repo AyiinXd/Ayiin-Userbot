@@ -35,14 +35,14 @@ async def truth_or_dare(tord):
         await tord.edit(get_string("tod_1").format(troll))
 
     if trod == "truth":
-        Ayiin = await tord.eor(get_string("tod_2"))
+        Ayiin = await eor(tord, get_string("tod_2"))
         sleep(1)
         trth = choice(t)
         await Ayiin.edit(get_string("tod_3").format(trth))
         return
 
     if trod == "dare":
-        Xd = await tord.eor(get_string("tod_4"))
+        Xd = await eor(tord, get_string("tod_4"))
         sleep(1)
         dr = choice(d)
         await Xd.edit(get_string("tod_5").format(dr))

@@ -19,7 +19,7 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern=r"sadboy(?: |$)(.*)")
 async def _(a):
-    ayiin = a.eor(get_string("yibot_1"))
+    ayiin = eor(a, get_string("yibot_1"))
     sleep(2)
     await ayiin.edit(get_string("yibot_2"))
     sleep(1)
@@ -30,7 +30,7 @@ async def _(a):
 
 @ayiin_cmd(pattern=r"lah(?: |$)(.*)")
 async def _(y):
-    ayiin = await y.eor(get_string("yibot_4"))
+    ayiin = await eor(y, get_string("yibot_4"))
     sleep(1)
     await ayiin.edit(get_string("yibot_5"))
     sleep(1)
@@ -41,7 +41,7 @@ async def _(y):
 
 @ayiin_cmd(pattern=r"sok(?: |$)(.*)")
 async def _(i):
-    ayiin = await i.eor(get_string("yibot_8"))
+    ayiin = await eor(i, get_string("yibot_8"))
     sleep(2)
     await ayiin.edit(get_string("yibot_9"))
     sleep(2)
@@ -54,7 +54,7 @@ async def _(i):
 
 @ayiin_cmd(pattern=r"wah(?: |$)(.*)")
 async def _(i):
-    ayiin = await i.eor(get_string("yibot_13"))
+    ayiin = await eor(i, get_string("yibot_13"))
     sleep(2)
     await ayiin.edit(get_string("yibot_14"))
     sleep(2)
@@ -71,7 +71,7 @@ async def _(i):
 
 @ayiin_cmd(pattern=r"alay(?: |$)(.*)")
 async def _(n):
-    ayiin = await n.eor(get_string("yibot_20"))
+    ayiin = await eor(n, get_string("yibot_20"))
     sleep(2)
     await ayiin.edit(get_string("yibot_21"))
     sleep(2)
@@ -84,7 +84,7 @@ async def _(n):
 
 @ayiin_cmd(pattern=r"erpe(?: |$)(.*)")
 async def _(x):
-    ayiin = await x.eor(get_string("yibot_25"))
+    ayiin = await eor(x, get_string("yibot_25"))
     sleep(1)
     await ayiin.edit(get_string("yibot_26"))
     sleep(1)
@@ -105,7 +105,7 @@ async def _(x):
 
 @ayiin_cmd(pattern=r"tittle(?: |$)(.*)")
 async def _(d):
-    ayiin = await d.eor(get_string("yibot_34"))
+    ayiin = await eor(d, get_string("yibot_34"))
     sleep(2)
     await ayiin.edit(get_string("yibot_35"))
     sleep(2)

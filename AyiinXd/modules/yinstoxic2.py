@@ -8,7 +8,7 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern=r"ngentot(?: |$)(.*)")
 async def _(ayiin):
-    yins = await ayiin.eor(get_string("yitxc_23"))
+    yins = await eor(ayiin, get_string("yitxc_23"))
     sleep(1)
     await yins.edit(get_string("yitxc_24"))
     sleep(1)
@@ -32,7 +32,7 @@ async def _(ayiin):
 
 @ayiin_cmd(pattern=r"goblok(?: |$)(.*)")
 async def _(gblk):
-    ayiin = await gblk.eor(get_string("yitxc_33"))
+    ayiin = await eor(gblk, get_string("yitxc_33"))
     sleep(1)
     await ayiin.edit(get_string("yitxc_34"))
     sleep(1)
@@ -56,7 +56,7 @@ async def _(gblk):
 
 @ayiin_cmd(pattern=r"ngatain(?: |$)(.*)")
 async def _(kntl):
-    xd = await kntl.eor(get_string("yitxc_43"))
+    xd = await eor(kntl, get_string("yitxc_43"))
     sleep(1)
     await xd.edit(get_string("yitxc_44"))
     sleep(1)
@@ -80,7 +80,7 @@ async def _(kntl):
 
 @ayiin_cmd(pattern=r"yatim(?: |$)(.*)")
 async def _(ytim):
-    ayiinxd = await ytim.eor(get_string("yitxc_53"))
+    ayiinxd = await eor(ytim, get_string("yitxc_53"))
     sleep(1)
     await ayiinxd.edit(get_string("yitxc_54"))
     sleep(1)
@@ -104,7 +104,7 @@ async def _(ytim):
 
 @ayiin_cmd(pattern=r"kont(?: |$)(.*)")
 async def _(kontol):
-    yins = await kontol.eor(get_string("yitxc_23"))
+    yins = await eor(kontol, get_string("yitxc_23"))
     sleep(1.5)
     await yins.edit(get_string("yitxc_63"))
     sleep(1.5)

@@ -23,7 +23,7 @@ from Stringyins import get_string
 
 @ayiin_cmd(pattern=r"yins(?: |$)(.*)")
 async def _(y):
-    ayiin = await y.eor(get_string("yibot_77"))
+    ayiin = await eor(y, get_string("yibot_77"))
     sleep(3)
     await ayiin.edit(get_string("yibot_78"))
     sleep(2)
@@ -35,15 +35,15 @@ async def _(y):
 
 @ayiin_cmd(pattern=r"sayang(?: |$)(.*)")
 async def _(i):
-    await i.eor(get_string("yibot_81"))
+    xx = await eor(i, get_string("yibot_81"))
     sleep(3)
-    await i.reply(get_string("yibot_82"))
+    await xx.edit(get_string("yibot_82"))
 # Create by myself @AyiinXd
 
 
 @ayiin_cmd(pattern=r"semangat(?: |$)(.*)")
 async def _(n):
-    ayiin = await n.eor(get_string("yibot_83"))
+    ayiin = await eor(n, get_string("yibot_83"))
     sleep(3)
     await ayiin.edit(get_string("yibot_84"))
     sleep(1)
@@ -53,7 +53,7 @@ async def _(n):
 
 @ayiin_cmd(pattern=r"mengeluh(?: |$)(.*)")
 async def _(s):
-    ayiin = await s.eor(get_string("yibot_83"))
+    ayiin = await eor(s, get_string("yibot_83"))
     sleep(3)
     await ayiin.edit(get_string("yibot_86"))
     sleep(1)

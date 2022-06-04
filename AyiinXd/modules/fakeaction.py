@@ -32,7 +32,7 @@ async def _(e):
         t = math.ceil((await extract_time(e, t)) - time.time())
     else:
         t = 60
-    await e.eod(get_string("fake_1").format(act, t), time=3)
+    await eod(e, get_string("fake_1").format(act, t), time=3)
     async with e.client.action(e.chat_id, act):
         await asyncio.sleep(t)
 
