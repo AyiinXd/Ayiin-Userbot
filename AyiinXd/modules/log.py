@@ -100,10 +100,12 @@ async def log_tagged_messages(event):
     full = None
     try:
         full = await event.client.get_entity(event.message.from_id)
+        nameyins = full.first_name
+        idyins = full.id
     except Exception as e:
         LOGS.info(str(e))
     messaget = media_type(event)
-    resalt = f"<b>📨 #TAGS #MESSAGE</b>\n<b> • Dari : </b>{_format.htmlmentionuser(full.first_name , full.id)}"
+    resalt = f"<b>📨 #TAGS #MESSAGE</b>\n<b> • Dari : </b>{_format.htmlmentionuser(nameyins, idyins)}"
     if full is not None:
         resalt += f"\n<b> • Grup : </b><code>{xnxx.title}</code>"
     if messaget is not None:

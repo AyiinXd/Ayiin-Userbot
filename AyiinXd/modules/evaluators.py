@@ -150,7 +150,7 @@ async def run(event):
     await eor(event, get_string("devs_5").format(codepre, stdout))
 
 
-@ayiin_cmd(pattern="term(?: |$|\n)([\\s\\S]*)")
+@ayiin_cmd(pattern="bash(?: |$|\n)([\\s\\S]*)")
 async def terminal_runner(event):
     command = event.pattern_match.group(1)
     if not command:
@@ -244,8 +244,8 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "term": f"**Plugin : **`term`\
-        \n\n  »  **Perintah :** `{cmd}term` <cmd>\
+        "bash": f"**Plugin : **`bash`\
+        \n\n  »  **Perintah :** `{cmd}bash` <cmd>\
         \n  »  **Kegunaan : **Jalankan perintah dan skrip bash di server Anda.\
     "
     }

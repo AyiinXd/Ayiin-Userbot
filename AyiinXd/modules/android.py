@@ -67,7 +67,7 @@ async def device_info(request):
     elif textx:
         device = textx.text
     else:
-        return await request.edit("`Usage: .device <codename> / <model>`")
+        return await request.edit(f"`Usage: {cmd}device <codename> / <model>`")
     try:
         found = get(DEVICES_DATA).json()[device]
     except KeyError:

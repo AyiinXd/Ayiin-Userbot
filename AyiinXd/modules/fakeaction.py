@@ -14,7 +14,7 @@ import time
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import ayiin_cmd, extract_time
+from AyiinXd.ayiin import ayiin_cmd, eod, extract_time
 from Stringyins import get_string
 
 
