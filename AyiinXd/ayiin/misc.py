@@ -181,12 +181,17 @@ async def create_quotly(
         request = await async_searcher(url, post=True, json=content, re_json=True)
     except ContentTypeError as er:
         if url != O_API:
-            return await create_quotly(O_API, post=True, json=content, re_json=True)
+            return await create_quotly(event,
+                    url=O_API,
+                    bg=bg,
+                    sender=sender,
+                    reply=reply,
+                    file_name=file_name,
+            )
         raise er
     if request.get("ok"):
         with open(file_name, "wb") as file:
-            image = base64.decodebytes(
-                request["result"]["image"].encode("utf-8"))
+            image = base64.decodebytes(request["result"]["image"].encode("utf-8"))
             file.write(image)
         return file_name
     raise Exception(str(request))
