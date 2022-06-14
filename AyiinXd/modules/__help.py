@@ -49,7 +49,7 @@ async def helpyins(event):
                 await results[0].click(
                     event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
                 )
-                await event.delete()timout
+                await event.delete()
             except timout:
                 return await eor(event, f"Bot tidak menanggapi inline kueri.\nSilahkan Ketik `{cmd}restart`"
                 )
