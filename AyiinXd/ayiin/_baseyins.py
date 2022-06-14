@@ -61,9 +61,16 @@ def get_data(self_, key):
 
 
 MONGO_URI = os.environ.get("MONGO_URI", None)
-REDIS_URI = os.environ.get("REDIS_URI", None)
-REDIS_PASSWORD = os.environ.get("REDIS_PASSWORD", None)
+REDIS_URI = (
+    sys.argv[4]
+    if len(sys.argv) > 4
+    else (os.environ.get("REDIS_URI", None) or os.environ.get("REDIS_URL", None))
+)
+REDIS_PASSWORD = (
+    sys.argv[5] if len(sys.argv) > 5 else os.environ.get("REDIS_PASSWORD", None)
+)
 REDISHOST = os.environ.get("REDISHOST", None)
+REDISPASSWORD = os.environ.get("REDISPASSWORD", None)
 REDISPORT = os.environ.get("REDISPORT", None)
 REDISUSER = os.environ.get("REDISUSER", None)
 
