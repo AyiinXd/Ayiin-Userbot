@@ -1,5 +1,9 @@
+#==============×==============#
+#      Created by: Alfa-Ex
+#=========× AyiinXd ×=========#
+
 FROM ayiinxd/ayiin-userbot:buster
-#AyiinXd
+
 RUN git clone -b Ayiin-Userbot https://github.com/AyiinXd/Ayiin-Userbot /home/ayiinuserbot/ \
     && chmod 777 /home/ayiinuserbot \
     && mkdir /home/ayiinuserbot/bin/
@@ -7,5 +11,7 @@ RUN git clone -b Ayiin-Userbot https://github.com/AyiinXd/Ayiin-Userbot /home/ay
 COPY ./sample_config.env ./config.env* /home/ayiinuserbot/
 
 WORKDIR /home/ayiinuserbot/
+
+RUN pip install -r requirements.txt
 
 CMD ["bash","start"]

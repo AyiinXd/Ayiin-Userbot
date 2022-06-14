@@ -14,14 +14,16 @@ from AyiinXd import BOT_VER as version
 from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import AYIIN2, AYIIN3, AYIIN4, AYIIN5, AYIIN6, AYIIN7, AYIIN8, AYIIN9, AYIIN10, bot, branch, tgbot
-from AyiinXd.ayiin import checking
+from AyiinXd.ayiin import ayiin_version as py_ver
+from AyiinXd.ayiin import HOSTED_ON, checking
 
 MSG_ON = """
-❏  ᴀʏɪɪɴ - ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ
+❏ ᴀʏɪɪɴ - ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ
 ╭╼┅━━━━━╍━━━━━┅╾
-├▹ ᴜsᴇʀʙᴏᴛ ᴠᴇʀsɪᴏɴ - {}
+├▹ Aʏɪɪɴ Vᴇʀsɪᴏɴ - {} •[{}]•
+├▹ Usᴇʀʙᴏᴛ Vᴇʀsɪᴏɴ - {}
 ├▹ @{}
-├▹ ᴋᴇᴛɪᴋ {}alive ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴄᴇᴋ ʙᴏᴛ
+├▹ Kᴇᴛɪᴋ {}alive Uɴᴛᴜᴋ Mᴇɴɢᴇᴄᴇᴋ Bᴏᴛ
 ╰╼┅━━━━━╍━━━━━┅╾
 """
 
@@ -59,7 +61,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await bot.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -70,7 +72,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN2.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -81,7 +83,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN3.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -92,7 +94,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN4.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -103,7 +105,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN5.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -114,7 +116,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN6.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -125,7 +127,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN7.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -136,7 +138,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN8.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -147,7 +149,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN9.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass
@@ -158,7 +160,7 @@ async def ayiin_userbot_on():
             if BOTLOG_CHATID != 0:
                 await AYIIN10.send_message(
                     BOTLOG_CHATID,
-                    MSG_ON.format(version, branch, cmd),
+                    MSG_ON.format(py_ver, HOSTED_ON, version, branch, cmd),
                 )
     except BaseException:
         pass

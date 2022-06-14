@@ -17,6 +17,7 @@
 # Thanks @Spechide.
 
 from telethon.errors.rpcerrorlist import BotInlineDisabledError as noinline
+from telethon.errors.rpcerrorlist import BotResponseTimeoutError as timout
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
@@ -48,7 +49,10 @@ async def helpyins(event):
                 await results[0].click(
                     event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
                 )
-                await event.delete()
+                await event.delete()timout
+            except timout:
+                return await eor(event, f"Bot tidak menanggapi inline kueri.\nSilahkan Ketik `{cmd}restart`"
+                )
             except noinline:
                 xx = await eor(event, "**Inline Mode Tidak aktif.**\n__Sedang Menyalakannya, Harap Tunggu Sebentar...__",
                                )

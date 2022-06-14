@@ -14,6 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from . import format as _format
+from ._baseyins import AyiinDB
+from ._hosting import HOSTED_ON
 from .chrome import chrome, options
 from .decorator import asst_cmd, callback, chataction, ayiin_cmd, ayiin_handler
 from .events import checking, get_user_from_event
@@ -44,3 +46,4 @@ from .tools import (
     time_formatter,
 )
 from .utils import autobot, autopilot, load_module, remove_plugin, start_assistant
+from .version import __version__, ayiin_version

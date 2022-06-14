@@ -9,7 +9,10 @@
 
 import sys
 
-from AyiinXd import LOAD, LOGS, NO_LOAD
+from AyiinXd import DEVS, LOAD, LOGS, NO_LOAD
+from AyiinXd.ayiin._baseyins import AyiinDB
+
+adB = AyiinDB()
 
 
 def __list_all_modules():
@@ -41,13 +44,9 @@ def __list_all_modules():
 
 
 ALL_MODULES = sorted(__list_all_modules())
-LOGS.info(
-        """
-                    -----------------------------------
-                            Starting Deployment
-                    -----------------------------------
-    """
-    )
+LOGS.info(f"Connecting to {adB.name}...")
+if adB.ping():
+    LOGS.info(f"Connected to {adB.name} Successfully!")
 LOGS.info("Starting To Load Plugins")
 LOGS.info(
     f"Succesfully Load {len(ALL_MODULES)} Plugins",

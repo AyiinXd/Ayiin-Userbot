@@ -24,7 +24,16 @@ from telethon import __version__, version
 from AyiinXd import ALIVE_EMOJI, ALIVE_LOGO, ALIVE_TEKS_CUSTOM, BOT_VER, CHANNEL
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, GROUP, StartTime
-from AyiinXd.ayiin import bash, edit_or_reply, ayiin_cmd
+from AyiinXd.ayiin import __version__ as py_ver
+from AyiinXd.ayiin import (
+    AyiinDB,
+    HOSTED_ON,
+    ayiin_version,
+    bash,
+    edit_or_reply,
+    ayiin_cmd,
+)
+
 
 from .ping import get_readable_time
 
@@ -56,50 +65,52 @@ async def _(e):
 @ayiin_cmd(pattern=r"spc")
 async def psu(event):
     uname = platform.uname()
-    softw = "**Informasi Sistem**\n"
-    softw += f"`Sistem   : {uname.system}`\n"
-    softw += f"`Rilis    : {uname.release}`\n"
-    softw += f"`Versi    : {uname.version}`\n"
-    softw += f"`Mesin    : {uname.machine}`\n"
+    softw = "**Iɴғᴏʀᴍᴀsɪ Sɪsᴛᴇᴍ**\n"
+    softw += f"**Sɪsᴛᴇᴍ   :** `{uname.system}`\n"
+    softw += f"**Rɪʟɪs    :** `{uname.release}`\n"
+    softw += f"**Vᴇʀsɪ    :** `{uname.version}`\n"
+    softw += f"**Mᴇsɪɴ    :** `{uname.machine}`\n"
     # Boot Time
     boot_time_timestamp = psutil.boot_time()
     bt = datetime.fromtimestamp(boot_time_timestamp)
-    softw += f"`Waktu Hidup: {bt.day}/{bt.month}/{bt.year}  {bt.hour}:{bt.minute}:{bt.second}`\n"
+    softw += f"**Wᴀᴋᴛᴜ Hɪᴅᴜᴘ:** `{bt.day}/{bt.month}/{bt.year}  {bt.hour}:{bt.minute}:{bt.second}`\n"
     # CPU Cores
-    cpuu = "**Informasi CPU**\n"
-    cpuu += "`Physical cores   : " + \
+    cpuu = "**Iɴғᴏʀᴍᴀsɪ CPU**\n"
+    cpuu += "**Pʜʏsɪᴄᴀʟ Cᴏʀᴇs   :** `" + \
         str(psutil.cpu_count(logical=False)) + "`\n"
-    cpuu += "`Total cores      : " + \
+    cpuu += "**Tᴏᴛᴀʟ Cᴏʀᴇs      :** `" + \
         str(psutil.cpu_count(logical=True)) + "`\n"
     # CPU frequencies
     cpufreq = psutil.cpu_freq()
-    cpuu += f"`Max Frequency    : {cpufreq.max:.2f}Mhz`\n"
-    cpuu += f"`Min Frequency    : {cpufreq.min:.2f}Mhz`\n"
-    cpuu += f"`Current Frequency: {cpufreq.current:.2f}Mhz`\n\n"
+    cpuu += f"**Mᴀx Fʀᴇǫᴜᴇɴᴄʏ    :** `{cpufreq.max:.2f}Mhz`\n"
+    cpuu += f"**Mɪɴ Fʀᴇǫᴜᴇɴᴄʏ    :** `{cpufreq.min:.2f}Mhz`\n"
+    cpuu += f"**Cᴜʀʀᴇɴᴛ Fʀᴇǫᴜᴇɴᴄʏ:** `{cpufreq.current:.2f}Mhz`\n\n"
     # CPU usage
-    cpuu += "**CPU Usage Per Core**\n"
+    cpuu += "**CPU Usᴀɢᴇ Pᴇʀ Cᴏʀᴇ**\n"
     for i, percentage in enumerate(psutil.cpu_percent(percpu=True)):
-        cpuu += f"`Core {i}  : {percentage}%`\n"
-    cpuu += "**Total CPU Usage**\n"
-    cpuu += f"`Semua Core: {psutil.cpu_percent()}%`\n"
+        cpuu += f"**Cᴏʀᴇ {i}  :** `{percentage}%`\n"
+    cpuu += "**Tᴏᴛᴀʟ CPU Usᴀɢᴇ**\n"
+    cpuu += f"**Sᴇᴍᴜᴀ Cᴏʀᴇ:** `{psutil.cpu_percent()}%`\n"
     # RAM Usage
     svmem = psutil.virtual_memory()
-    memm = "**Memori Digunakan**\n"
-    memm += f"`Total     : {get_size(svmem.total)}`\n"
-    memm += f"`Available : {get_size(svmem.available)}`\n"
-    memm += f"`Used      : {get_size(svmem.used)}`\n"
-    memm += f"`Percentage: {svmem.percent}%`\n"
+    memm = "**Mᴇᴍᴏʀʏ Dɪɢᴜɴᴀᴋᴀɴ**\n"
+    memm += f"**Tᴏᴛᴀʟ     :** `{get_size(svmem.total)}`\n"
+    memm += f"**Aᴠᴀɪʟᴀʙʟᴇ :** `{get_size(svmem.available)}`\n"
+    memm += f"**Usᴇᴅ      :** `{get_size(svmem.used)}`\n"
+    memm += f"**Pᴇʀᴄᴇɴᴛᴀɢᴇ:** `{svmem.percent}%`\n"
     # Bandwidth Usage
-    bw = "**Bandwith Digunakan**\n"
-    bw += f"`Unggah  : {get_size(psutil.net_io_counters().bytes_sent)}`\n"
-    bw += f"`Download: {get_size(psutil.net_io_counters().bytes_recv)}`\n"
+    bw = "**Bᴀɴᴅᴡɪᴛʜ Dɪɢᴜɴᴀᴋᴀɴ**\n"
+    bw += f"**Uɴɢɢᴀʜ  :** `{get_size(psutil.net_io_counters().bytes_sent)}`\n"
+    bw += f"**Dᴏᴡɴʟᴏᴀᴅ:** `{get_size(psutil.net_io_counters().bytes_recv)}`\n"
     help_string = f"{softw}\n"
     help_string += f"{cpuu}\n"
     help_string += f"{memm}\n"
     help_string += f"{bw}\n"
-    help_string += "**Informasi Mesin**\n"
-    help_string += f"`Python {sys.version}`\n"
-    help_string += f"`Telethon {__version__}`"
+    help_string += "**Iɴғᴏʀᴍᴀsɪ Mᴇsɪɴ**\n"
+    help_string += f"**Pʏᴛʜᴏɴ :** `{sys.version}`\n"
+    help_string += f"**Tᴇʟᴇᴛʜᴏɴ :**`{__version__}`\n"
+    help_string += f"**Pʏ-Aʏɪɪɴ :** `{py_ver}`\n"
+    help_string += f"**Aʏɪɪɴ-Vᴇʀsɪᴏɴ :** `{ayiin_version} [{HOSTED_ON}]`"
     await edit_or_reply(event, help_string)
 
 
@@ -170,23 +181,26 @@ async def bot_ver(event):
 
 @ayiin_cmd(pattern="(?:alive|yinson)\\s?(.)?")
 async def amireallyalive(alive):
+    adB = AyiinDB()
     user = await alive.client.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
     await alive.edit("😈")
     await asyncio.sleep(3)
     output = (
-        f"**[𝙰𝚈𝙸𝙸𝙽-𝚄𝚂𝙴𝚁𝙱𝙾𝚃](https://github.com/AyiinXd/Ayiin-Userbot)ㅤ𝚄𝙳𝙰𝙷 𝙰𝙺𝚃𝙸𝙵 𝚃𝙾𝙳.**\n\n"
+        f"**Tʜᴇ [Aʏɪɪɴ-Usᴇʀʙᴏᴛ](https://github.com/AyiinXd/Ayiin-Userbot)**\n\n"
         f"**{alive_text}**\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
-        f"{emoji} **𝙼𝙰𝚂𝚃𝙴𝚁 :** [{user.first_name}](tg://user?id={user.id}) \n"
-        f"{emoji} **𝙼𝙾𝙳𝚄𝙻𝙴𝚂 :** `{len(modules)} Modules` \n"
-        f"{emoji} **𝙱𝙾𝚃 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 :** `{BOT_VER}` \n"
-        f"{emoji} **𝙿𝚈𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 :** `{python_version()}` \n"
-        f"{emoji} **𝙿𝚈𝚃𝙶𝙲𝙰𝙻𝙻𝚂 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 :** `{pytgcalls.__version__}` \n"
-        f"{emoji} **𝚃𝙴𝙻𝙴𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 :** `{version.__version__}` \n"
-        f"{emoji} **𝙱𝙾𝚃 𝚄𝙿𝚃𝙸𝙼𝙴 :** `{uptime}` \n"
-        f"╰✠╼━━━━━━━━━━━━━━━✠╯\n\n"
-        f"    **[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/{GROUP})** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/{CHANNEL})** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={user.id})**"
+        f"{emoji} **Bᴀsᴇ Oɴ :** ••{adB.name}••\n"
+        f"{emoji} **Oᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id}) \n"
+        f"{emoji} **Mᴏᴅᴜʟᴇs :** `{len(modules)} Modules` \n"
+        f"{emoji} **Bᴏᴛ Vᴇʀsɪᴏɴ :** `{BOT_VER}` \n"
+        f"{emoji} **Pʏᴛʜᴏɴ Vᴇʀsɪᴏɴ :** `{python_version()}` \n"
+        f"{emoji} **PʏTɢCᴀʟʟs Vᴇʀsɪᴏɴ :** `{pytgcalls.__version__}` \n"
+        f"{emoji} **Tᴇʟᴇᴛʜᴏɴ Vᴇʀsɪᴏɴ :** `{version.__version__}` \n"
+        f"{emoji} **Pʏ-Aʏɪɪɴ Vᴇʀsɪᴏɴ :** `{py_ver}`\n"
+        f"{emoji} **Aʏɪɪɴ Vᴇʀsɪᴏɴ :** `{ayiin_version}` [{HOSTED_ON}]\n"
+        f"{emoji} **Bᴏᴛ Uᴘᴛɪᴍᴇ :** `{uptime}`\n"
+        "╰✠╼━━━━━━━━━━━━━━━✠╯\n\n"
     )
     if ALIVE_LOGO:
         try:
