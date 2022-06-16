@@ -14,13 +14,23 @@ import aiohttp
 import heroku3
 import urllib3
 
+from random import choice
+from time import sleep
+
 from AyiinXd import BOTLOG_CHATID
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME
+from AyiinXd import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, LOGS
 from AyiinXd.modules.sql_helper.globals import addgvar, delgvar, gvarstatus
-from AyiinXd.ayiin import ayiin_cmd, eod, eor
+from AyiinXd.ayiin import (
+    ayiin_cmd,
+    eod,
+    eor,
+    humanbytes,
+)
+from AyiinXd.ayiin.misc import async_searcher
+from AyiinXd.ayiin.my_heroku import db_usage, get_full_usage, heroku_usage, simple_usage
 from Stringyins import get_string
-from time import sleep
+
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 heroku_api = "https://api.heroku.com"
@@ -118,64 +128,21 @@ async def set_var(var):
 """
 
 
-@ayiin_cmd(pattern="(usage|kuota|dyno)(?: |$)")
+@ayiin_cmd(pattern="usage( db| heroku|)(?: |$)")
 async def dyno_usage(dyno):
-    if app is None:
-        return await dyno.edit(get_string("heroku_12")
-        )
-    xx = await eor(dyno, "🤖")
-    useragent = (
-        "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/81.0.4044.117 Mobile Safari/537.36"
-    )
-    user_id = Heroku.account().id
-    headers = {
-        "User-Agent": useragent,
-        "Authorization": f"Bearer {HEROKU_API_KEY}",
-        "Accept": "application/vnd.heroku+json; version=3.account-quotas",
-    }
-    path = "/accounts/" + user_id + "/actions/get-quota"
-    async with aiohttp.ClientSession() as session, session.get(
-        heroku_api + path, headers=headers
-    ) as r:
-        if r.status != 200:
-            await dyno.client.send_message(
-                dyno.chat_id, f"`{r.reason}`", reply_to=dyno.id
-            )
-            await xx.edit(get_string("usage_1"))
-            return False
-        result = await r.json()
-        quota = result["account_quota"]
-        quota_used = result["quota_used"]
+    x = await dyno.eor(get_string("com_1"))
+    try:
+        opt = dyno.text.split(" ", maxsplit=1)[1]
+    except IndexError:
+        return await x.edit(simple_usage())
 
-        """ - User Quota Limit and Used - """
-        remaining_quota = quota - quota_used
-        percentage = math.floor(remaining_quota / quota * 100)
-        minutes_remaining = remaining_quota / 60
-        hours = math.floor(minutes_remaining / 60)
-        minutes = math.floor(minutes_remaining % 60)
-        day = math.floor(hours / 24)
-
-        """ - User App Used Quota - """
-        Apps = result["apps"]
-        for apps in Apps:
-            if apps.get("app_uuid") == app.id:
-                AppQuotaUsed = apps.get("quota_used") / 60
-                AppPercentage = math.floor(
-                    apps.get("quota_used") * 100 / quota)
-                break
-        else:
-            AppQuotaUsed = 0
-            AppPercentage = 0
-
-        AppHours = math.floor(AppQuotaUsed / 60)
-        AppMinutes = math.floor(AppQuotaUsed % 60)
-
-        sleep(3)
-        await xx.edit(get_string("usage_2").format(app.name, AppHours, AppMinutes, AppPercentage, hours, minutes, percentage, day)
-        )
-        return True
+    if opt == "db":
+        await x.edit(db_usage())
+    elif opt == "heroku":
+        is_hk, hk = await heroku_usage()
+        await x.edit(hk)
+    else:
+        await x.edit(await get_full_usage())
 
 
 @ayiin_cmd(pattern="usange(?: |$)")
@@ -252,8 +219,8 @@ CMD_HELP.update(
         \n  »  **Kegunaan : **Dapatkan Variabel Yang Ada,Harap Gunakan Di Grup Private Anda!\
         \n\n  »  **Perintah :** `{cmd}del var <nama var>`\
         \n  »  **Kegunaan : **Untuk Menghapus var heroku\
-        \n\n  »  **Perintah :** `{cmd}usage` atau `{cmd}kuota`\
-        \n  »  **Kegunaan : **Check Kouta Dyno Heroku\
+        \n\n  »  **Perintah :** `{cmd}usage` <db/heroku>`\
+        \n  »  **Kegunaan : **Check dyno Heroku dan check penyimpanan database.\
         \n\n  »  **Perintah :** `{cmd}usange`\
         \n  »  **Kegunaan : **Fake Check Kouta Dyno Heroku jadi 9999jam Untuk menipu temanmu wkwk\
     "
