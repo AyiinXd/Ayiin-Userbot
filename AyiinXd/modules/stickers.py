@@ -73,9 +73,6 @@ async def kang(args):
     elif isinstance(message.media, MessageMediaUnsupported):
         await eod(args, get_string("stkr_2")
         )
-    elif message.message:
-        xx = await eor(args, f"`{choice(KANGING_STR)}`")
-        photo = await create_quotly(message)
     elif message.file and "image" in message.file.mime_type.split("/"):
         xx = await eor(args, f"`{choice(KANGING_STR)}`")
         photo = io.BytesIO()
