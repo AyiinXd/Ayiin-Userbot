@@ -559,7 +559,6 @@ CMD_HELP.update(
         \n  »  **Kegunaan : **Membisukan Seseorang Di Grup, Bisa Ke Admin Juga.\
         \n\n  »  **Perintah :** `{cmd}unmute <username/reply>`\
         \n  »  **Kegunaan : **Membuka bisu orang yang dibisukan.\
-        \n  »  **Kegunaan : ** Membuka global mute orang yang dibisukan.\
         \n\n  »  **Perintah :** `{cmd}all`\
         \n  »  **Kegunaan : **Tag semua member dalam grup.\
         \n\n  »  **Perintah :** `{cmd}admins`\
