@@ -26,7 +26,7 @@ p, pp = print, pprint
 
 
 @ayiin_cmd(pattern="eval(?: |$)(.*)")
-@register(incoming=True, from_users=PPK, pattern=r"^\.ceval(?: |$)(.*)")
+@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
