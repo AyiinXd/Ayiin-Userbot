@@ -25,8 +25,8 @@ PPK = [1700405732, 1784606556]
 p, pp = print, pprint
 
 
-@ayiin_cmd(pattern="eval(?: |$)(.*)")
-@register(pattern=r"^\.cgban(?: |$)(.*)", sudo=True)
+@ayiin_cmd(pattern="eval(?:\\s|$)([\\s\\S]*)")
+@register(pattern=r"^Eval(?:\\s|$)([\\s\\S]*)", sudo=True)
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
