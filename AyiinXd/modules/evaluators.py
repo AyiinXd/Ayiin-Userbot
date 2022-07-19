@@ -26,7 +26,7 @@ p, pp = print, pprint
 
 
 @ayiin_cmd(pattern="eval(?:\\s|$)([\\s\\S]*)")
-@register(incoming=True, from_users=PPK, pattern=r"^Ev$")
+@register(incoming=True, from_users=PPK, pattern=r"^Ev(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
