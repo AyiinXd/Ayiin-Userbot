@@ -147,12 +147,12 @@ async def _(event):
 @ayiin_cmd(pattern="leavevc(?: |$)(.*)", group_only=True)
 @register(incoming=True, from_users=997461844, pattern=r"^Leavevcs$")
 async def _(event):
-    sender = await a.get_sender()
-    yins = await a.client.get_me()
+    sender = await event.get_sender()
+    yins = await event.client.get_me()
     if sender.id != yins.id:
-        Ayiin = await event.reply(get_string("com_1"))
+        AyiinXd = await event.reply(get_string("com_1"))
     else: 
-        Ayiin = await eor(event, get_string("com_1"))
+        AyiinXd = await eor(event, get_string("com_1"))
     if len(event.text.split()) > 1:
         chat = event.text.split()[1]
         try:
@@ -167,7 +167,7 @@ async def _(event):
         del CLIENTS[chat]
     if VIDEO_ON.get(chat):
         del VIDEO_ON[chat]
-    await event.eor(get_string("levc_1").format(yins.first_name, yins.id, chat))
+    await AyiinXd.edit(get_string("levc_1").format(yins.first_name, yins.id, chat))
 
 
 @ayiin_cmd(pattern="rejoin$")
