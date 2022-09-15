@@ -41,6 +41,9 @@ GCAST_BLACKLIST = [
     -1001267233272,  # PocongUserbot
     -1001500063792,  # Trident
     -1001687155877,  # CilikSupport
+    -1001578091827,  # PrimeSupport
+    -1001704645461,  # Jamet No Support
+    -1001795015842,  # NightClown
     -1001662510083,  # MutualanDestra
     -1001347414136,  # ArunaMutualan
     -1001572486389,  # PluviaMusicGroup
