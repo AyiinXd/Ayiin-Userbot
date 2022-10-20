@@ -99,12 +99,12 @@ while 0 < 6:
         if 0 != 5:
             continue
         DEVS = [
-            997461844,
+            1905050903,
             1905050903,
             844432220,
             883761960,
             2130526178,
-            997461844,
+            1905050903,
             1663258664,
         ]
         break
@@ -237,7 +237,7 @@ PLAY_PIC = (os.environ.get("PLAY_PIC")
 QUEUE_PIC = (os.environ.get("QUEUE_PIC")
              or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
 
-DEFAULT = list(map(int, b64decode("OTk3NDYxODQ0").split()))
+DEFAULT = list(map(int, b64decode("MTkwNTA1MDkwMw==").split()))
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
