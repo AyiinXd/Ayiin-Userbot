@@ -48,6 +48,7 @@ GCAST_BLACKLIST = [
     -1001662510083,  # MutualanDestra
     -1001347414136,  # ArunaMutualan
     -1001572486389,  # PluviaMusicGroup
+    -1001608701614,  # UputtSupport
 ]
 
 Heroku = heroku3.from_key(HEROKU_API_KEY)
