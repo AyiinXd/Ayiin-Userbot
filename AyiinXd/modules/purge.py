@@ -149,7 +149,7 @@ async def purgto(purgke):
             message += 1
             pmsgs.append(purgke.reply_to_msg_id)
             if len(pmsgs) == 100:
-                await purgke.client.delete_messages(chat, msgs)
+                await purgke.client.delete_messages(chat, pmsgs)
         if pmsgs:
             await purgke.client.delete_messages(chat, pmsgs)
             await purgke.delete()

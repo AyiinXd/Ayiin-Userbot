@@ -481,16 +481,17 @@ async def kick(usr):
     admin = chat.admin_rights
     creator = chat.creator
     if not admin and not creator:
-        return await eor(event, get_string("no_admn"))
+        return await eor(usr, get_string("no_admn"))
     user, reason = await get_user_from_event(usr)
     if not user:
-        return await eor(event, get_string("kick_1"))
-    xxnx = await eor(event, get_string("com_1"))
+        return await eor(usr, get_string("kick_1"))
+    xxnx = await eor(usr, get_string("com_1"))
     try:
         await usr.client.kick_participant(usr.chat_id, user.id)
         await sleep(0.5)
     except Exception as e:
-        return await eod(usr, f"{NO_PERM}\n{e}")
+        noperm = get_string("no_perm") + "\n" + e
+        return await eod(usr, noperm)
     if reason:
         await xxnx.edit(get_string("kick_2").format(user.first_name, user.id, reason)
                         )

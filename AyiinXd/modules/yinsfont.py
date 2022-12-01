@@ -13,6 +13,7 @@
 #            Jangan Hapus Credit Ngentod
 # ========================×========================
 
+import requests
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
@@ -518,8 +519,8 @@ async def fonts(text):
         return "check syntax once more"
     with open("chat_id", "msg") as f:
         f.write(requests.get(geng).content)
-    text = await event.send_message("fonts").convert("text")
-    event.get_message("fonts", "text")
+    text = await text.client.send_message("fonts").convert("text")
+    text.client.get_message("fonts", "text")
     return "fonts"
 
 

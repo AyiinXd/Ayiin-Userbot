@@ -29,7 +29,7 @@ async def handler(tele):
                 creator = chat.creator
                 if admin or creator:
                     try:
-                        await client.edit_permissions(
+                        await tele.client.edit_permissions(
                             tele.chat_id, guser.id, view_messages=False
                         )
                         await tele.reply(get_string("gban_1").format(guser.id, guser.id)

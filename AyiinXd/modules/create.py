@@ -9,7 +9,7 @@ from telethon.tl import functions
 
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP
-from AyiinXd.ayiin import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, eor
 from Stringyins import get_string
 
 

@@ -26,7 +26,7 @@ from telethon.tl.types import (
 )
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from AyiinXd import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, WATCH_COUNTRY
 from AyiinXd.ayiin import ayiin_cmd, eod, eor
 from Stringyins import get_string
 
@@ -457,7 +457,7 @@ async def potocmd(event):
     if id.strip() == "":
         try:
             await event.client.send_file(event.chat_id, photos)
-        except a:
+        except Exception:
             photo = await event.client.download_profile_photo(chat)
             await event.client.send_file(event.chat_id, photo)
     else:
@@ -511,7 +511,7 @@ def get_stream_data(query):
 
     # Compatibility for Current Userge Users
     try:
-        country = Config.WATCH_COUNTRY
+        country = WATCH_COUNTRY
     except Exception:
         country = "IN"
 

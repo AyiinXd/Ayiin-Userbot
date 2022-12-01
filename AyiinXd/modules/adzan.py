@@ -21,7 +21,7 @@ async def get_adzan(adzan):
     url = f"http://muslimsalat.com/{LOKASI}.json?key=bd099c5825cbedb9aa934e255a81a5fc"
     request = requests.get(url)
     if request.status_code != 200:
-        return await eor(adzan, get_string("adzan1").format(LOCATION), time=120
+        return await eor(adzan, get_string("adzan1").format(LOKASI), time=120
                                )
     result = json.loads(request.text)
     catresult = f"<b>Jadwal Shalat Hari Ini:</b>\

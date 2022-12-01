@@ -3,7 +3,7 @@
 from sqlalchemy.exc import IntegrityError
 
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP
+from AyiinXd import CMD_HELP, bot
 from AyiinXd.ayiin import ayiin_cmd
 from Stringyins import get_string
 

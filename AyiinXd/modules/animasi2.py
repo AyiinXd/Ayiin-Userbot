@@ -3,7 +3,7 @@
 from time import sleep
 from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd import CMD_HELP, bot
-from AyiinXd.ayiin import ayiin_cmd
+from AyiinXd.ayiin import ayiin_cmd, edit_or_reply
 from telethon import events
 import asyncio
 
