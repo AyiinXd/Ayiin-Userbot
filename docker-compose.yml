@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+
+  worker:
+
+    build: .
+
+    environment:
+
+      API_ID: $API_ID
+
+      API_HASH: $API_HASH
+
+      STRING_SESSION: $STRING_SESSION
+
+      BOT_TOKEN: $BOT_TOKEN
+
+      BOT_USERNAME: $BOT_USERNAME
+
+      BOTLOG_CHATID: $BOTLOG_CHATID
+
+      DATABASE_URL: $DATABASE_URL
+      
+      REDIS_URI: $REDIS_URI
+      
+      REDIS_PASSWORD: $REDIS_PASSWORD
+
+      PM_AUTO_BAN: $PM_AUTO_BAN
