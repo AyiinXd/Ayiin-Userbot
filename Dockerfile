@@ -8,7 +8,7 @@ RUN git clone -b Ayiin-Userbot https://github.com/AyiinXd/Ayiin-Userbot /home/ay
     && chmod 777 /home/ayiinuserbot \
     && mkdir /home/ayiinuserbot/bin/
 
-COPY ./sample.env ./.env* /home/ayiinuserbot/
+#COPY ./sample.env ./.env* /home/ayiinuserbot/
 
 WORKDIR /home/ayiinuserbot/
 
