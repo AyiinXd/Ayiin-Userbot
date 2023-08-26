@@ -19,14 +19,6 @@ from AyiinXd.ayiin import (
 
 from . import cmd
 
-def sangmata_seperator(sanga_list):
-    string = "".join(info[info.find("\n") + 1 :] for info in sanga_list)
-    string = re.sub(r"^$\n", "", string, flags=re.MULTILINE)
-    name, username = string.split("Usernames**")
-    name = name.split("Names")[1]
-    return name, username
-
-
 @ayiin_cmd(pattern="sg(u)?(?:\\s|$)([\\s\\S]*)")
 async def _(event):
     input_str = "".join(event.text.split(maxsplit=1)[1:])
@@ -72,7 +64,12 @@ async def _(event):
             ayiin = True
             await yinsevent.edit(i, parse_mode=_format.parse_pre)
 
-
+async def sangmata_seperator(sanga_list):
+    string = "".join(info[info.find("\n") + 1 :] for info in sanga_list)
+    string = re.sub(r"^$\n", "", string, flags=re.MULTILINE)
+    name, username = string.split("Usernames**")
+    name = name.split("Names")[1]
+    return name, username
 # async def sangamata_seperator(sanga_list):
 #     for i in sanga_list:
 #         if i.startswith("🔗"):
