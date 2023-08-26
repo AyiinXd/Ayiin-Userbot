@@ -2,7 +2,7 @@
 # Ported by @mrismanaziz
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
-
+import re
 import asyncio
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
@@ -19,6 +19,13 @@ from AyiinXd.ayiin import (
 
 from . import cmd
 
+def sangmata_seperator(sanga_list):
+    string = "".join(info[info.find("\n") + 1 :] for info in sanga_list)
+    string = re.sub(r"^$\n", "", string, flags=re.MULTILINE)
+    name, username = string.split("Usernames**")
+    name = name.split("Names")[1]
+    return name, username
+
 
 @ayiin_cmd(pattern="sg(u)?(?:\\s|$)([\\s\\S]*)")
 async def _(event):
@@ -34,14 +41,14 @@ async def _(event):
     if not user:
         return
     uid = user.id
-    chat = "@SangMataInfo_bot"
+    chat = "@SangMata_BOT"
     yinsevent = await eor(event, "**Memproses....**")
     async with event.client.conversation(chat) as conv:
         try:
-            await conv.send_message(f"/search_id {uid}")
+            await conv.send_message(f"{uid}")
         except YouBlockedUserError:
             await event.client(UnblockRequest(chat))
-            await conv.send_message(f"/search_id {uid}")
+            await conv.send_message(f"{uid}")
         responses = []
         while True:
             try:
@@ -54,10 +61,10 @@ async def _(event):
         await eod(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", time=90)
     if "No records found" in responses:
         await eod(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", time=90)
-    names, usernames = await sangamata_seperator(responses)
+    names, usernames = await sangmata_seperator(responses)
     cmd = event.pattern_match.group(1)
     ayiin = None
-    check = usernames if cmd == "u" else names
+    check = (usernames, "Username") if cmd == "u" else (names, "Name")
     for i in check:
         if ayiin:
             await event.reply(i, parse_mode=_format.parse_pre)
@@ -66,18 +73,18 @@ async def _(event):
             await yinsevent.edit(i, parse_mode=_format.parse_pre)
 
 
-async def sangamata_seperator(sanga_list):
-    for i in sanga_list:
-        if i.startswith("🔗"):
-            sanga_list.remove(i)
-    s = 0
-    for i in sanga_list:
-        if i.startswith("Username History"):
-            break
-        s += 1
-    usernames = sanga_list[s:]
-    names = sanga_list[:s]
-    return names, usernames
+# async def sangamata_seperator(sanga_list):
+#     for i in sanga_list:
+#         if i.startswith("🔗"):
+#             sanga_list.remove(i)
+#     s = 0
+#     for i in sanga_list:
+#         if i.startswith("Username History"):
+#             break
+#         s += 1
+#     usernames = sanga_list[s:]
+#     names = sanga_list[:s]
+#     return names, usernames
 
 
 CMD_HELP.update(
@@ -85,8 +92,6 @@ CMD_HELP.update(
         "sangmata": f"**Plugin : **`sangmata`\
         \n\n  »  **Perintah :** `{cmd}sg` <sambil reply chat>\
         \n  »  **Kegunaan : **Mendapatkan Riwayat Nama Pengguna selama di telegram.\
-        \n\n  »  **Perintah :** `{cmd}sgu` <sambil reply chat>\
-        \n  »  **Kegunaan : **Mendapatkan Riwayat Username Pengguna selama di telegram.\
     "
     }
 )
