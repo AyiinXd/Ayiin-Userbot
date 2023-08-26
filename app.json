@@ -18,6 +18,18 @@
       "description": "Dapatkan String Session di Grup » https://t.me/AyiinChats » Lalu ketik /get string",
       "required": true
     },
+    "BOT_TOKEN": {
+      "description": "Tambahkan Bot Token Anda.",
+      "required": true
+    },
+    "BOT_USERNAME": {
+      "description": "Tambahkan Bot Username Anda.",
+      "required": true
+    },
+    "BOTLOG_CHATID": {
+      "description": "Tambahkan Botlog Chat Id Anda.",
+      "required": true
+    },
     "HEROKU_APP_NAME": {
       "description": "Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
       "required": true
@@ -25,11 +37,6 @@
     "HEROKU_API_KEY": {
       "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
       "required": true
-    },
-    "PM_AUTO_BAN": {
-      "description": "PM Auto-Ban adalah module untuk bot welcome otomatis ketika ada orang ngePC kamu, jika Mau di matikan ubah ke False",
-      "value": "True",
-      "required": false
     }
   },
   "addons": [
