@@ -57,12 +57,13 @@ async def _(event):
     cmd = event.pattern_match.group(1)
     ayiin = None
     check = (usernames, "Username") if cmd == "u" else (names, "Name")
-    for i in check:
-        if ayiin:
-            await event.reply(i, parse_mode=_format.parse_pre)
-        else:
-            ayiin = True
-            await yinsevent.edit(i, parse_mode=_format.parse_pre)
+    user_name = (
+        f"{userinfo.first_name} {userinfo.last_name}"
+        if userinfo.last_name
+        else userinfo.first_name
+    )
+    output = f"** User Info :**  {_format.mentionuser(user_name, userinfo.id)}\n** {check[1]} History :**\n{check[0]}"
+    await eor(yinsevent, output)
 
 async def sangmata_seperator(sanga_list):
     string = "".join(info[info.find("\n") + 1 :] for info in sanga_list)
