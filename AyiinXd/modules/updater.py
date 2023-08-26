@@ -105,7 +105,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         await install_requirements()
-        args = [sys.executable, "-m", "pyAyiin"]
+        args = [sys.executable, "-m", "AyiinXd"]
         execle(sys.executable, *args, environ)
 
 
