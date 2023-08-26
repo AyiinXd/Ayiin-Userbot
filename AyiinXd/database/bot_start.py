@@ -4,6 +4,10 @@ conn = db.get_conn()
 
 
 def get_starter_details(user_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = conn.execute(
         '''
         SELECT * FROM bot_starter WHERE user_id = ?
@@ -24,6 +28,10 @@ def add_starter_to_db(
     date,
     username,
 ):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     to_check = get_starter_details(user_id)
     if not to_check:
         conn.execute(
@@ -51,6 +59,10 @@ def add_starter_to_db(
 
 
 def del_starter_from_db(user_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     conn.execute(
         '''
         DELETE FROM bot_starter WHERE user_id = ?
@@ -61,6 +73,10 @@ def del_starter_from_db(user_id):
 
 
 def get_all_starters():
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = conn.execute(
         '''
         SELECT * FROM bot_starter

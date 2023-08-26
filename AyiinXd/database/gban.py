@@ -8,7 +8,10 @@ conn = db.get_conn()
 #               GLOBAL BANNED DATABASE
 # ========================×========================
 def cek_gbanned(user_id: int):
-    """check if user_id is blacklisted"""
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = conn.execute(
         '''
         SELECT * FROM gbanned WHERE user_id = ?
@@ -27,7 +30,10 @@ def add_gbanned(
     first_name: str,
     reason
 ):
-    """add the user to the blacklist"""
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     to_check = cek_gbanned(user_id)
     if not to_check:
         conn.execute(
@@ -54,7 +60,10 @@ def add_gbanned(
 
 
 def del_gbanned(user_id: int):
-    """remove the user from the blacklist"""
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     conn.execute(
         '''
         DELETE FROM gbanned WHERE user_id = ?
@@ -63,6 +72,10 @@ def del_gbanned(user_id: int):
 
 
 def get_gbanned():
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     get = conn.execute(
         '''
         SELECT * FROM gbanned

@@ -8,7 +8,10 @@ conn = db.get_conn()
 #               BLACKLIST USER DATABASE
 # ========================×========================
 def check_is_black_list(user_id: int):
-    """check if user_id is blacklisted"""
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = conn.execute(
         '''
         SELECT * FROM bot_blacklist WHERE user_id = ?
@@ -29,7 +32,10 @@ def add_user_to_bl(
     reason: str,
     date: str
 ):
-    """add the user to the blacklist"""
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     to_check = check_is_black_list(user_id)
     if not to_check:
         conn.execute(
@@ -58,7 +64,10 @@ def add_user_to_bl(
 
 
 def rem_user_from_bl(user_id: int):
-    """remove the user from the blacklist"""
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     conn.execute(
         '''
         DELETE FROM bot_blacklist WHERE user_id = ?
@@ -67,6 +76,10 @@ def rem_user_from_bl(user_id: int):
 
 
 def get_all_bl_users():
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     get = conn.execute(
         '''
         SELECT * FROM bot_blacklist

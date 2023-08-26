@@ -4,6 +4,10 @@ con = db.get_conn()
 
 
 def cek_is_braodcast(keyword):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = con.execute(
         '''
         SELECT gcast_id FROM broadcast WHERE keyword = ?
@@ -19,6 +23,10 @@ def cek_is_braodcast(keyword):
 
 
 def add_broadcast(keyword, chat_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     ok = cek_is_braodcast(keyword)
     if ok:
         xx = eval(ok)
@@ -52,6 +60,10 @@ def del_broadcast(keyword, chat_id):
 
 
 def get_broadcast():
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = con.execute(
         '''
         SELECT * FROM broadcast

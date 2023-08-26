@@ -7,6 +7,10 @@ con = db.get_conn()
 #              BLACKLIST FILTER DATABASE
 # ========================×========================
 def get_chat_blacklist(chat_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = con.execute(
         '''
         SELECT * FROM blacklist_filter WHERE chat_id = ?
@@ -21,6 +25,10 @@ def get_chat_blacklist(chat_id):
 
 
 def add_to_blacklist(chat_id, chat_title, trigger):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cek = get_chat_blacklist()
     if cek:
         con.execute(
@@ -45,6 +53,10 @@ def add_to_blacklist(chat_id, chat_title, trigger):
 
 
 def rm_from_blacklist(chat_id, trigger):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     con.execute(
         '''
         DELETE FROM blacklist_filter WHERE chat_id = ? AND trigger = ?
@@ -55,6 +67,10 @@ def rm_from_blacklist(chat_id, trigger):
 
 
 def get_all_chat_blacklist():
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = con.execute(
         '''
         SELECT * FROM blacklist_filter

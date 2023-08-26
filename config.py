@@ -140,7 +140,7 @@ class Config(object):
     # untuk perintah teks costum .alive
     ALIVE_TEKS_CUSTOM = getenv(
         "ALIVE_TEKS_CUSTOM",
-        "Hey, Saya pengguna Melvant")
+        "Hey, Saya pengguna Ayiin-Userbot")
 
     # Default .alive name
     ALIVE_NAME = getenv("ALIVE_NAME", "AyiinXd")

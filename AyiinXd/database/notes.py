@@ -4,6 +4,10 @@ con = db.get_conn()
 
 
 def get_note(chat_id, keyword):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cur = con.execute(
         '''
         SELECT * FROM notes WHERE chat_id = ? AND keyword = ?
@@ -18,6 +22,10 @@ def get_note(chat_id, keyword):
 
 
 def get_notes(chat_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cur = con.execute(
         '''
         SELECT * FROM notes WHERE chat_id = ?
@@ -27,6 +35,10 @@ def get_notes(chat_id):
 
 
 def add_note(chat_id, keyword, reply, f_mesg_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     con.execute(
         '''
         INSERT INTO notes (
@@ -43,6 +55,10 @@ def add_note(chat_id, keyword, reply, f_mesg_id):
 
 
 def update_note(chat_id, keyword, reply, f_mesg_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     con.execute(
         '''
         UPDATE notes 
@@ -55,6 +71,10 @@ def update_note(chat_id, keyword, reply, f_mesg_id):
 
 
 def rm_note(chat_id, keyword):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     con.execute(
         '''
         DELETE FROM notes WHERE chat_id = ? AND keyword = ?

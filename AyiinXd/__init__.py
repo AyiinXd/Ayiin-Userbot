@@ -104,8 +104,8 @@ repo = Repo()
 branch = repo.active_branch.name
 
 
-ch = str(b64decode("QEF5aWluU3VwcG9ydA=="))[2:15]
-gc = str(b64decode("QEF5aWluWGRTdXBwb3J0"))[2:17]
+ch = str(b64decode("QEF5aWluQ2hhbm5lbA=="))[2:15]
+gc = str(b64decode("QEF5aWluQ2hhdHM="))[2:13]
 
 
 async def bot_on():

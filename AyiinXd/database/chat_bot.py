@@ -4,6 +4,10 @@ con = db.get_conn()
 
 
 def is_chatbot(chat_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = con.execute(
         '''
         SELECT status FROM chat_bot WHERE chat_id = ?
@@ -19,6 +23,10 @@ def is_chatbot(chat_id):
 
 
 def set_chatbot(chat_id, status: bool = None):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     ok = is_chatbot(chat_id)
     if ok:
         get_status = True if status is not None else False

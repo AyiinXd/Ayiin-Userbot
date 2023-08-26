@@ -42,6 +42,10 @@ def get_mode_permit():
 
 
 def set_mode_permit(mode):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cek = get_mode_permit()
     if cek and cek[0] is not None:
         conn.execute("""UPDATE permit_mode SET mode = ?""", (mode,))
@@ -119,6 +123,10 @@ def get_permit_message():
 
 
 def set_permit_message(permit):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cek = get_permit_message()
     if cek:
         conn.execute("""UPDATE permit_message SET permit_msg = ?""", (permit,))
@@ -128,6 +136,10 @@ def set_permit_message(permit):
 
 
 def del_permit_message():
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cek = get_permit_message()
     if cek:
         conn.execute("DELETE from permit_message")

@@ -4,6 +4,10 @@ conn = db.get_conn()
 
 
 def cek_var():
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cursor = conn.execute(
         '''
         SELECT * FROM variable
@@ -12,6 +16,10 @@ def cek_var():
     return cursor.fetchall()
 
 def get_var(var):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cur = conn.execute(
         '''
         SELECT value FROM variable WHERE vars = ?
@@ -26,6 +34,10 @@ def get_var(var):
 
 
 def set_var(var, value):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cek = get_var(var)
     if cek:
         conn.execute(
@@ -43,6 +55,10 @@ def set_var(var, value):
 
 
 def del_var(var):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     conn.execute(
     """
     DELETE FROM variable WHERE vars = ?

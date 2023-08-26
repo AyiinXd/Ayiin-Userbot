@@ -4,6 +4,10 @@ con = db.get_conn()
 
 
 def get_user_id(message_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cur = con.execute(
         '''
         SELECT * FROM bot_pms WHERE message_id = ?
@@ -25,6 +29,10 @@ def add_user_to_db(
     logger_id,
     result_id
 ):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     check = get_user_id(message_id)
     if check:
         con.execute(
@@ -54,6 +62,10 @@ def add_user_to_db(
 
 
 def del_user_from_db(message_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     con.execute(
         '''
         DELETE FROM bot_pms WHERE message_id = ?
@@ -63,6 +75,10 @@ def del_user_from_db(message_id):
 
 
 def get_user_reply(reply_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cur = con.execute(
         '''
         SELECT reply_id FROM bot_pms WHERE reply_id = ?
@@ -77,6 +93,10 @@ def get_user_reply(reply_id):
 
 
 def get_user_results(result_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cur = con.execute(
         '''
         SELECT result_id FROM bot_pms WHERE result_id = ?
@@ -91,6 +111,10 @@ def get_user_results(result_id):
 
 
 def get_user_logging(logger_id):
+    """
+    KANG COPAS GAUSAH MAIN HAPUS KONTOL
+    Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
+    """
     cur = con.execute(
         '''
         SELECT logger_id FROM bot_pms WHERE logger_id = ?

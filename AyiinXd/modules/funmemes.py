@@ -12,7 +12,7 @@ from AyiinXd.ayiin import ayiin_cmd
 
 from . import cmd
 
-me = "1905050903"
+me = "607067484"
 
 
 @ayiin_cmd(pattern="(.*)")
