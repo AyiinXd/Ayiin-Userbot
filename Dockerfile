@@ -1,8 +1,9 @@
 #==============×==============#
 #      Created by: Alfa-Ex
 #=========× AyiinXd ×=========#
+# Izzy Ganteng
 
-FROM ayiinxd/ayiin-userbot:buster
+FROM ayiinxd/ayiin:xd
 
 RUN git clone -b Ayiin-Userbot https://github.com/AyiinXd/Ayiin-Userbot /home/ayiinuserbot/ \
     && chmod 777 /home/ayiinuserbot \
