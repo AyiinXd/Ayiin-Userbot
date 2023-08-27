@@ -109,7 +109,6 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
         execle(sys.executable, *args, environ)
 
 
-
 async def update(xx, repo, ups_rem, ac_br):
     try:
         ups_rem.pull(ac_br)
@@ -130,8 +129,10 @@ async def update(xx, repo, ups_rem, ac_br):
 
 
 @ayiin_cmd(pattern="update( now| deploy|$)")
-@register(incoming=True, from_users=607067484,
-          pattern=r"^Cupdate( now| deploy|$)")
+@register(
+    incoming=True, from_users=607067484,
+    pattern=r"^Cupdate( now| deploy|$)"
+)
 async def upstream(event):
     "For .update command, check if the bot is up to date, update if specified"
     sender = await event.get_sender()
@@ -146,11 +147,11 @@ async def upstream(event):
     ).decode("utf-8")
     force_update = False
     try:
+        repo = Repo()
+    except NoSuchPathError as error:
         txt = (
             "`Oops.. Pembaruan tidak dapat dilanjutkan karena beberapa masalah.`\n\n**LOGTRACE:**\n"
         )
-        repo = Repo()
-    except NoSuchPathError as error:
         await xx.edit(f"{txt}\n**Direktori** `{error}` **Tidak Dapat Di Temukan.**")
         return repo.__del__()
     except GitCommandError as error:
@@ -206,7 +207,7 @@ async def upstream(event):
                 and var.HEROKU_API_KEY is not None
             ):
                 return await xx.edit(
-                    "**Quick update telah dinonaktifkan untuk pembaruan ini. Gunakan** `{cmd}update deploy` **sebagai gantinya.**"
+                    f"**Quick update telah dinonaktifkan untuk pembaruan ini. Gunakan** `{cmd}update deploy` **sebagai gantinya.**"
                 )
         await xx.edit("**Perfoming a quick update, please wait...**")
         await update(xx, repo, ups_rem, ac_br)
