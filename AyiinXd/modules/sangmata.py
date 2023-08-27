@@ -8,7 +8,7 @@ import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
-from AyiinXd import CMD_HELP
+from AyiinXd import CMD_HELP, Ayiin
 from AyiinXd.ayiin import (
     _format,
     ayiin_cmd,
@@ -53,6 +53,7 @@ async def _(event):
         await eod(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", time=90)
     if "No records found" in responses:
         await eod(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", time=90)
+    userinfo = await event.client.get_entity(user)
     names, usernames = await sangmata_seperator(responses)
     cmd = event.pattern_match.group(1)
     ayiin = None
