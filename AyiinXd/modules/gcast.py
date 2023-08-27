@@ -32,7 +32,8 @@ async def gcast(event):
     if xx := event.pattern_match.group(1):
         msg = xx
     elif event.is_reply:
-        msg = await event.get_reply_message()
+        reply = await event.get_reply_message()
+        msg = reply.text
     else:
         return await eod(event, "**Berikan Sebuah Pesan atau Reply**")
     kk = await eor(event, "`Sedang Mengirim Mohon Bersabar... Kalo Limit Jangan Salahin Saya...`")
@@ -43,12 +44,12 @@ async def gcast(event):
             chat = x.id
             if chat not in GCAST_BLACKLIST and chat not in BLACKLIST_GCAST:
                 try:
-                    await event.client.send_message(chat, msg)
+                    await event.client.send_message(chat, msg, file=reply.media if reply else None)
                     await asyncio.sleep(0.1)
                     done += 1
                 except FloodWaitError as anj:
                     await asyncio.sleep(int(anj.seconds))
-                    await event.client.send_message(chat, msg)
+                    await event.client.send_message(chat, msg, file=reply.media if reply else None)
                     done += 1
                 except BaseException:
                     er += 1
@@ -62,7 +63,8 @@ async def gucast(event):
     if xx := event.pattern_match.group(1):
         msg = xx
     elif event.is_reply:
-        msg = await event.get_reply_message()
+        reply = await event.get_reply_message()
+        msg = reply.text
     else:
         return await eod(event, "**Berikan Sebuah Pesan atau Reply**")
     kk = await eor(event, "`Sedang Mengirim Mohon Bersabar... Kalo Limit Jangan Salahin Saya...`")
@@ -73,17 +75,17 @@ async def gucast(event):
             chat = x.id
             if chat not in DEVS:
                 try:
-                    await event.client.send_message(chat, msg)
+                    await event.client.send_message(chat, msg, file=reply.media if reply else None)
                     await asyncio.sleep(0.1)
                     done += 1
                 except FloodWaitError as anj:
                     await asyncio.sleep(int(anj.seconds))
-                    await event.client.send_message(chat, msg)
+                    await event.client.send_message(chat, msg, file=reply.media if reply else None)
                     done += 1
                 except BaseException:
                     er += 1
     await kk.edit(
-                  f"**Berhasil Mengirim Pesan Ke** {done} **Chat Tod.**\n**Sorry Tod Gagal Mengirim Pesan Ke** {er} **Chat.**"
+        f"**Berhasil Mengirim Pesan Ke** {done} **Chat Tod.**\n**Sorry Tod Gagal Mengirim Pesan Ke** {er} **Chat.**"
     )
 
 
