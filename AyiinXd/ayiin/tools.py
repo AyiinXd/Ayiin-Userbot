@@ -541,22 +541,22 @@ def heroku():
 
 
 async def set_var_value(vars, value):
-    if HOSTED == "Heroku":
-        if var.HEROKU_API_KEY is None or var.HEROKU_APP_NAME is None:
-            logs.info(
-                "Pastikan HEROKU_API dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku"
-            )
-        Heroku = heroku3.from_key(var.HEROKU_API_KEY)
-        happ = Heroku.app(var.HEROKU_APP_NAME)
-        heroku_config = happ.config()
-        if vars not in heroku_config:
-            heroku_config[vars] = value
-            logs.info(f"Berhasil Menambahkan Vars {vars}")
-            return True
+    if HOSTED == "heroku":
+        if var.HEROKU_API_KEY and var.HEROKU_APP_NAME:
+            Heroku = heroku3.from_key(var.HEROKU_API_KEY)
+            happ = Heroku.app(var.HEROKU_APP_NAME)
+            heroku_config = happ.config()
+            if vars not in heroku_config:
+                heroku_config[vars] = value
+                logs.info(f"Berhasil Menambahkan Vars {vars}")
+                return True
         else:
-            pass
+            logs.info(
+                "Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku"
+            )
+            return
     else:
-        path = dotenv.find_dotenv(".env")
+        path = dotenv.find_dotenv()
         if not path:
             logs.info(".env file not found.")
         if not dotenv.get_key(path, vars):

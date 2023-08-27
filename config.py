@@ -5,7 +5,7 @@ from distutils.util import strtobool as sb
 from base64 import b64decode
 
 
-load_dotenv(".env")
+load_dotenv()
 
 
 

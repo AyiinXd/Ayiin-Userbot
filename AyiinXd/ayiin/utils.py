@@ -96,9 +96,10 @@ async def autobot():
         await Ayiin.start()
         await asyncio.sleep(15)
         await Ayiin.send_message(
-            var.BOTLOG_CHATID, "**SABAR KENTOD LAGI BUAT ASSISTANT BOT LU DI @BotFather**"
+            var.BOTLOG_CHATID,
+            "**MOHON TUNGGU SEBENTAR, SEDANG MEMBUAT ASSISTANT BOT ANDA DI @BotFather**"
         )
-        LOGS.info("TUNGGU SEBENTAR TOD. SEDANG MEMBUAT ASSISTANT BOT UNTUK ELU")
+        LOGS.info("MOHON TUNGGU SEBENTAR, SEDANG MEMBUAT ASSISTANT BOT ANDA.")
         who = await Ayiin.get_me()
         name = f"{who.first_name} Assistant Bot"
         if who.username:
@@ -193,7 +194,7 @@ async def autobot():
                     pass
                 await Ayiin.send_message(
                     var.BOTLOG_CHATID,
-                    "**SEDANG MERESTART USERBOT HARAP TUNGGU KONTOL.**",
+                    "**SEDANG MERESTART USERBOT HARAP TUNGGU.**",
                 )
                 await set_var_value("BOT_TOKEN", token)
                 await set_var_value("BOT_USERNAME", f"{username}")
@@ -249,7 +250,7 @@ async def autobot():
                 pass
             await Ayiin.send_message(
                 var.BOTLOG_CHATID,
-                "**SEDANG MERESTART USERBOT HARAP TUNGGU KONTOL.**",
+                "**SEDANG MERESTART USERBOT HARAP TUNGGU.**",
             )
             await set_var_value("BOT_TOKEN", token)
             await set_var_value("BOT_USERNAME", f"{username}")
