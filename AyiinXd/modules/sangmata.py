@@ -8,7 +8,7 @@ import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 
-from AyiinXd import CMD_HELP, Ayiin
+from AyiinXd import CMD_HELP
 from AyiinXd.ayiin import (
     _format,
     ayiin_cmd,
@@ -53,17 +53,16 @@ async def _(event):
         await eod(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", time=90)
     if "No records found" in responses:
         await eod(yinsevent, "**Orang Ini Belum Pernah Mengganti Namanya**", time=90)
-    userinfo = await event.client.get_entity(user)
     names, usernames = await sangmata_seperator(responses)
     cmd = event.pattern_match.group(1)
     ayiin = None
     check = (usernames, "Username") if cmd == "u" else (names, "Name")
     user_name = (
-        f"{userinfo.first_name} {userinfo.last_name}"
-        if userinfo.last_name
-        else userinfo.first_name
+        f"{user.first_name} {user.last_name}"
+        if user.last_name
+        else user.first_name
     )
-    output = f"** User Info :**  {_format.mentionuser(user_name, userinfo.id)}\n** {check[1]} History :**\n{check[0]}"
+    output = f"** User Info :**  {_format.mentionuser(user_name, user.id)}\n** {check[1]} History :**\n{check[0]}"
     await eor(yinsevent, output)
 
 async def sangmata_seperator(sanga_list):
