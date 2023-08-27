@@ -58,11 +58,11 @@ async def _(event):
     ayiin = None
     check = (usernames, "Username") if cmd == "u" else (names, "Name")
     user_name = (
-        f"{userinfo.first_name} {userinfo.last_name}"
-        if userinfo.last_name
-        else userinfo.first_name
+        f"{user.first_name} {user.last_name}"
+        if user.last_name
+        else user.first_name
     )
-    output = f"** User Info :**  {_format.mentionuser(user_name, userinfo.id)}\n** {check[1]} History :**\n{check[0]}"
+    output = f"** User Info :**  {_format.mentionuser(user_name, user.id)}\n** {check[1]} History :**\n{check[0]}"
     await eor(yinsevent, output)
 
 async def sangmata_seperator(sanga_list):
@@ -71,25 +71,14 @@ async def sangmata_seperator(sanga_list):
     name, username = string.split("Usernames**")
     name = name.split("Names")[1]
     return name, username
-# async def sangamata_seperator(sanga_list):
-#     for i in sanga_list:
-#         if i.startswith("🔗"):
-#             sanga_list.remove(i)
-#     s = 0
-#     for i in sanga_list:
-#         if i.startswith("Username History"):
-#             break
-#         s += 1
-#     usernames = sanga_list[s:]
-#     names = sanga_list[:s]
-#     return names, usernames
-
 
 CMD_HELP.update(
     {
         "sangmata": f"**Plugin : **`sangmata`\
         \n\n  »  **Perintah :** `{cmd}sg` <sambil reply chat>\
         \n  »  **Kegunaan : **Mendapatkan Riwayat Nama Pengguna selama di telegram.\
+        \n\n  »  **Perintah :** `{cmd}sgu` <sambil reply chat>\
+        \n  »  **Kegunaan : **Mendapatkan Riwayat Username Pengguna selama di telegram.\
     "
     }
 )
