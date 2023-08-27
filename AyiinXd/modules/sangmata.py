@@ -90,6 +90,8 @@ CMD_HELP.update(
         "sangmata": f"**Plugin : **`sangmata`\
         \n\n  »  **Perintah :** `{cmd}sg` <sambil reply chat>\
         \n  »  **Kegunaan : **Mendapatkan Riwayat Nama Pengguna selama di telegram.\
+        \n\n  »  **Perintah :** `{cmd}sgu` <sambil reply chat>\
+        \n  »  **Kegunaan : **Mendapatkan Riwayat Username Pengguna selama di telegram.\
     "
     }
 )
