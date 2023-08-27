@@ -71,19 +71,6 @@ async def sangmata_seperator(sanga_list):
     name, username = string.split("Usernames**")
     name = name.split("Names")[1]
     return name, username
-# async def sangamata_seperator(sanga_list):
-#     for i in sanga_list:
-#         if i.startswith("🔗"):
-#             sanga_list.remove(i)
-#     s = 0
-#     for i in sanga_list:
-#         if i.startswith("Username History"):
-#             break
-#         s += 1
-#     usernames = sanga_list[s:]
-#     names = sanga_list[:s]
-#     return names, usernames
-
 
 CMD_HELP.update(
     {
