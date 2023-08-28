@@ -53,9 +53,9 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan userbot ini dengan bijak
 
  • `pip3 install -U -r requirements.txt`
 
- • `mv sample_config.env .env`
+ • `mv sample.env .env`
 
- • `nano config.env`
+ • `nano .env`
   - isi vars
   - Jika sudah 
   - ketik ctrl + S
