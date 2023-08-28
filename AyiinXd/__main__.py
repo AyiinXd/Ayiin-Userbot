@@ -20,7 +20,7 @@ from telethon import version
 from telethon.tl.alltlobjects import LAYER
 
 from AyiinXd import Ayiin, LOGS, LOOP, bot, bot_on
-from AyiinXd.ayiin import autobot, autopilot, heroku
+from AyiinXd.ayiin import autobot, autopilot, checking, heroku
 from AyiinXd.modules import ALL_MODULES
 
 from .database.core import db
@@ -47,6 +47,7 @@ async def AyiinMain():
         LOGS.info(f"Userbot Version - {var.BOT_VER}")
         LOGS.info(f"Ayiin Version - 4.0.0")
         LOGS.info("[✨ BERHASIL DIAKTIFKAN! ✨]")
+        await checking(Ayiin)
         await bot_on()
     except (ConnectionError, KeyboardInterrupt, NotImplementedError, SystemExit):
         pass
