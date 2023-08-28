@@ -50,8 +50,14 @@ async def _(ping):
     duration = (end - start).microseconds / 1000
     user = await ping.client.get_me()
     message = "**✧ ᴀʏɪɪɴ-ᴜsᴇʀʙᴏᴛ ✧**\n\n✧ **ᴘɪɴɢᴇʀ :** `{} ms`\n✧ **ᴜᴘᴛɪᴍᴇ :** `{}`\n✧ **ᴏᴡɴᴇʀ :** `{}`\n✧ **ɪᴅ :** `{}`"
-    await ping.reply(message.format(duration, uptime, user.first_name, user.id)
-                     )
+    await ping.reply(
+        message.format(
+            duration,
+            uptime,
+            user.first_name,
+            user.id
+        )
+    )
 
 
 # KALO NGEFORK absen ini GA USAH DI HAPUS YA GOBLOK 😡
