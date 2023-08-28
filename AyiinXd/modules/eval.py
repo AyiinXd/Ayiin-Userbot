@@ -10,7 +10,6 @@ import io
 import sys
 import traceback
 
-from base64 import b64decode, b64encode
 from os import remove
 from pprint import pprint
 from sqlite3 import IntegrityError, OperationalError
@@ -170,7 +169,7 @@ async def run(event):
 async def terminal_runner(event):
     command = event.pattern_match.group(1)
     if not command:
-        return await eod(event, "`Berikan perintah atau gunakan {}help term sebagai contoh.`")
+        return await eod(event, f"`Berikan perintah atau gunakan {cmd}help term sebagai contoh.`")
     if command in ("AyiinXd.session", "config.env"):
         return await eod(event, "**Itu operasi yang berbahaya! Tidak diperbolehkan!**")
     await eor(event, '**Memproses...**')
@@ -259,25 +258,9 @@ async def execsql(event):
                 bio,
             )
         else:
-            await eor(event, f"<code>{res}</code>")
+            await eor(event, f"`{res}`")
     else:
         await eod(event, "SQL executed successfully and without any return.")
-
-
-@ayiin_cmd(pattern="b64(?:\\s|$)([\\s\\S]*)")
-async def base64(event):
-    argv = event.pattern_match.group(1)
-    args = argv.split(" ", 1)
-    if len(args) < 2 or args[0] not in ["en", "de"]:
-        await event.reply(f"<b>Gunakan</b> <code>{cmd}b64</code> <code>en</code> <b>atau</b> <code>de</code>")
-        return
-    args[1] = args[1].replace("`", "")
-    if args[0] == "en":
-        lething = str(b64encode(bytes(args[1], "utf-8")))[2:]
-        await event.reply(f"<b>Input:</b> <code>{args[1]}</code>\n\n<b>Encoded:</b> <code>{lething[:-1]}</code>")
-    else:
-        lething = str(base64.b64decode(bytes(args[1], 'utf-8')))[2:]
-        await event.reply(f"<b>Input:</b> <code>{args[1]}</code>\n\n<b>Decoded:</b> <code>{lething[:-1]}</code>")
 
 
 CMD_HELP.update(
