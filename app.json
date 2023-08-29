@@ -25,6 +25,10 @@
     "HEROKU_API_KEY": {
       "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
       "required": true
+    },
+    "OPENAI_API_KEY": {
+      "description": "Ambil key OPENAI_API_KEY mu disini » https://platform.openai.com/account/api-keys",
+      "required": false
     }
   },
   "addons": [

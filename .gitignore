@@ -17,3 +17,4 @@ AyiinXd/modules/sql_helper/__pycache__/*
 bin/*
 venv
 *.pyc 
+.env

@@ -63,6 +63,8 @@ class Config(object):
     BOT_TOKEN = getenv("BOT_TOKEN", None)
     BOT_USERNAME = getenv("BOT_USERNAME", None)
 
+    OPENAI_API_KEY = getenv("OPENAI_API_KEY", None)
+
     SUDO_USERS = {int(x) for x in getenv("SUDO_USERS", "").split()}
     BL_CHAT = {int(x) for x in getenv("BL_CHAT", "").split()}
     BLACKLIST_GCAST = {
