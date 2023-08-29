@@ -23,15 +23,9 @@ from AyiinXd import Ayiin, LOGS, LOOP, bot, bot_on
 from AyiinXd.ayiin import autobot, autopilot, checking, heroku
 from AyiinXd.modules import ALL_MODULES
 
-from .database.core import db
-
 
 async def AyiinMain():
     from config import var
-
-    if db.is_connected:
-        db.close()
-    db.connect()
 
     await Ayiin.start()
     if not var.BOTLOG_CHATID:

@@ -306,10 +306,10 @@ async def on_plug_in_callback_query_handler(event):
 »  **Perintah : **`{cmd}stopvc`
 »  **Kegunaan :** __Untuk Memberhentikan voice chat group.__
 
-»  **Perintah :** `{cmd}joinvc` atau `{cmd}joinvc` <chatid/username gc>
+»  **Perintah :** `{cmd}joinvc`
 »  **Kegunaan :** __Untuk Bergabung ke voice chat group.__
 
-»  **Perintah : **`{cmd}leavevc` atau `{cmd}leavevc` <chatid/username gc>
+»  **Perintah : **`{cmd}leavevc`
 »  **Kegunaan :** __Untuk Turun dari voice chat group.__
 
 »  **Perintah : **`{cmd}vctitle` <title vcg>

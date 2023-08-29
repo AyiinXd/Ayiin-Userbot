@@ -150,7 +150,7 @@ class DatabaseXd:
         Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
         """
         if not self.is_connected:
-            raise RuntimeError("Database anda sudah terhubung.")
+            self.connect()
 
         return self.conn
 
