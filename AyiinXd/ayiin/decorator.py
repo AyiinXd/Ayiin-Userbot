@@ -30,7 +30,9 @@ from AyiinXd import (
     bot
 )
 
+from .tools import AyiinChanger
 from .toolsyins import eod, eor
+from ..database.sudoer import sudoer
 
 
 def ayiin_cmd(
@@ -102,19 +104,27 @@ def ayiin_cmd(
             if admins_only:
                 if event.is_private:
                     return await eor(
-                        event, "**Perintah ini hanya bisa digunakan di grup.**", time=10
+                        event,
+                        "**Perintah ini hanya bisa digunakan di grup.**",
+                        time=10
                     )
                 if not (chat.admin_rights or chat.creator):
                     return await eor(
-                        event, f"**Maaf anda bukan admin di {chat.title}**", time=10
+                        event,
+                        f"**Maaf anda bukan admin di {chat.title}**",
+                        time=10
                     )
             if group_only and not event.is_group:
                 return await eor(
-                    event, "**Perintah ini hanya bisa digunakan di grup.**", time=10
+                    event,
+                    "**Perintah ini hanya bisa digunakan di grup.**",
+                    time=10
                 )
             if private_only and not event.is_private:
                 return await eor(
-                    event, "**Perintah ini hanya bisa digunakan di private chat.**", time=10
+                    event,
+                    "**Perintah ini hanya bisa digunakan di private chat.**",
+                    time=10
                 )
             try:
                 await func(event)
@@ -127,19 +137,26 @@ def ayiin_cmd(
                 LOGS.error(er)
             except BotInlineDisabledError:
                 await eor(
-                    event, "**Silahkan aktifkan mode Inline untuk bot**", time=10
+                    event,
+                    "**Silahkan aktifkan mode Inline untuk bot**",
+                    time=10
                 )
             except ChatSendStickersForbiddenError:
                 await eor(
-                    event, "**Tidak dapat mengirim stiker di obrolan ini**", time=10
+                    event,
+                    "**Tidak dapat mengirim stiker di obrolan ini**",
+                    time=10
                 )
             except BotResponseTimeoutError:
                 await eod(
-                    event, "**The bot didnt answer to your query in time**"
+                    event,
+                    "**The bot didnt answer to your query in time**"
                 )
             except ChatSendMediaForbiddenError:
                 await eor(
-                    event, "**Tidak dapat mengirim media dalam obrolan ini**", time=10
+                    event,
+                    "**Tidak dapat mengirim media dalam obrolan ini**",
+                    time=10
                 )
             except AlreadyInConversationError:
                 await eod(
@@ -169,9 +186,18 @@ def ayiin_cmd(
             if not disable_edited:
                 Ayiin.add_event_handler(
                     wrapper, events.MessageEdited(
-                        **args, outgoing=True, pattern=ayiin_reg))
-            Ayiin.add_event_handler(wrapper, events.NewMessage(
-                **args, outgoing=True, pattern=ayiin_reg))
+                        **args,
+                        outgoing=True,
+                        pattern=ayiin_reg
+                    )
+                )
+            Ayiin.add_event_handler(
+                wrapper, events.NewMessage(
+                    **args,
+                    outgoing=True,
+                    pattern=ayiin_reg
+                )
+            )
         if Ayiin:
             if allow_sudo:
                 if not disable_edited:
@@ -179,13 +205,16 @@ def ayiin_cmd(
                         wrapper,
                         events.MessageEdited(
                             **args,
-                            from_users=list(var.SUDO_USERS),
-                            pattern=sudo_reg),
+                            from_users=AyiinChanger(sudoer()),
+                            pattern=sudo_reg
+                        ),
                     )
                 Ayiin.add_event_handler(
                     wrapper,
                     events.NewMessage(
-                        **args, from_users=list(var.SUDO_USERS), pattern=sudo_reg
+                        **args,
+                        from_users=AyiinChanger(sudoer()),
+                        pattern=sudo_reg
                     ),
                 )
         try:
