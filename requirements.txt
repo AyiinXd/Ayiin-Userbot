@@ -45,7 +45,7 @@ pafy
 pendulum
 pillow==9.5.0
 psutil
-#pytgcalls==3.0.0.dev22
+pytgcalls==3.0.0.dev24
 pyaztro
 pybase64
 pyfiglet

@@ -19,12 +19,11 @@ from math import ceil
 from pathlib import Path
 
 from platform import python_version
+from pytgcalls import GroupCallFactory
 from git import Repo
-from requests import get
 from telethon import Button, __version__ as vsc
 from telethon.sync import custom
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
-from telethon.sessions import StringSession
 from telethon.sync import TelegramClient
 
 from config import Config
@@ -51,6 +50,14 @@ try:
         connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
+    )
+    setattr(
+        Ayiin,
+        "calls",
+        GroupCallFactory(
+            Ayiin,
+            GroupCallFactory.MTPROTO_CLIENT_TYPE.TELETHON,
+        ).get_group_call()
     )
 except Exception as e:
     print(f"STRING_SESSION - {e}")
