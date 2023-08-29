@@ -41,6 +41,7 @@ markdown
 natsort
 nekos.py
 opencv-python-headless
+openai
 pafy
 pendulum
 pillow==9.5.0
