@@ -1,5 +1,5 @@
-
 # (C) 2020-2023 by TgCatUB@Github.
+
 
 import openai
 from AyiinXd import CMD_HELP
