@@ -19,11 +19,11 @@ async def chatgpt(event):
     reply = await event.get_reply_message()
     chat_id = event.chat_id
     if "-r" in text:
-        text = text.replace("-e", "").strip()
+        text = text.replace("-r", "").strip()
         if not reply or not reply.text or not text:
             return await eod(
                 event,
-                "Balas ke pesan dan berikan pesan instruksi setelah tag -e.__",
+                "Balas ke pesan dan berikan pesan instruksi setelah tag -r.__",
             )
         await eor(event, "`Searching edited text..`")
         response = gen_edited_resp(reply.text, text)
