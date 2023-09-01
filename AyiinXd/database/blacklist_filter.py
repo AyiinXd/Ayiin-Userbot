@@ -45,7 +45,7 @@ def add_to_blacklist(chat_id, chat_title, trigger):
                 chat_title,
                 trigger
             )
-            VALUES (?, ?)
+            VALUES (?, ?, ?)
             ''',
             (chat_id, chat_title, trigger)
         )
