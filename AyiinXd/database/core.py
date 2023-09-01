@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS blacklist_gcast(
     bl_gcast JSON
 );
 CREATE TABLE IF NOT EXISTS blacklist_filter(
-    chat_id INTEGER PRIMARY KEY,
+    chat_id INTEGER,
     chat_title TEXT,
     trigger TEXT
 );

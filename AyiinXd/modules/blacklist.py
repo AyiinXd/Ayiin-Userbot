@@ -8,17 +8,26 @@
 
 import io
 import re
-from asyncio import sleep
 
 from AyiinXd import CMD_HELP
 from AyiinXd.ayiin import ayiin_cmd, ayiin_handler, eor
 from AyiinXd.database.blacklist_filter import (
     add_to_blacklist,
     get_chat_blacklist,
-    rm_from_blacklist
+    rm_from_blacklist,
+    update_to_blacklist
 )
 
 from . import cmd
+
+
+def check_for_blacklist(chat_id, trigger):
+    all_filters = get_chat_blacklist(chat_id)
+    for keywords in all_filters:
+        keyword = keywords[1]
+        if trigger == keyword:
+            return True
+    return False
 
 
 @ayiin_handler(incoming=True)
@@ -48,10 +57,14 @@ async def on_new_message(event):
 async def on_add_black_list(addbl):
     text = addbl.pattern_match.group(1)
     to_blacklist = list(
-        {trigger.strip() for trigger in text.split("\n") if trigger.strip()}
+        {trigger.strip() for trigger in text.split("\n") if text.strip()}
     )
     for trigger in to_blacklist:
-        add_to_blacklist(addbl.chat_id, addbl.chat.title, trigger.lower())
+        cek = check_for_blacklist(addbl.chat_id, trigger.lower())
+        if cek:
+            update_to_blacklist(addbl.chat_id, addbl.chat.title, trigger.lower())
+        else:
+            add_to_blacklist(addbl.chat_id, addbl.chat.title, trigger.lower())
     await eor(
         addbl,
         f"Berhasil: `{text}` Memasukan Daftar Kata Terlarang di sini."
@@ -62,9 +75,9 @@ async def on_add_black_list(addbl):
 async def on_view_blacklist(listbl):
     all_blacklisted = get_chat_blacklist(listbl.chat_id)
     if all_blacklisted:
-        OUT_STR = f"Daftar Kata Terlarang Di {all_blacklisted[0]} :\n\n"
+        OUT_STR = f"Daftar Kata Terlarang Di {all_blacklisted[0][1]} :\n\n"
         for trigger in all_blacklisted:
-            OUT_STR += f"`{trigger[1]}`\n"
+            OUT_STR += f"`{trigger[2]}`\n"
         if len(OUT_STR) > 4096:
             with io.BytesIO(str.encode(OUT_STR)) as out_file:
                 out_file.name = "blacklist.text"
