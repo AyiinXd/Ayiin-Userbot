@@ -62,7 +62,7 @@ async def on_add_black_list(addbl):
 async def on_view_blacklist(listbl):
     all_blacklisted = get_chat_blacklist(listbl.chat_id)
     if all_blacklisted:
-        OUT_STR = f"Daftar Kata Terlarang Di {all_blacklisted[0][0]} :\n\n"
+        OUT_STR = f"Daftar Kata Terlarang Di {all_blacklisted[0]} :\n\n"
         for trigger in all_blacklisted:
             OUT_STR += f"`{trigger[1]}`\n"
         if len(OUT_STR) > 4096:

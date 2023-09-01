@@ -19,7 +19,7 @@ def get_chat_blacklist(chat_id):
     try:
         ok = cursor.fetchone()
         cursor.close()
-        return ok
+        return ok[0]
     except:
         return None
 
