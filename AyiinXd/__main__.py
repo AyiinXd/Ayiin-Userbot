@@ -10,8 +10,8 @@
 #
 """ Userbot start point """
 
-
 import sys
+
 from importlib import import_module
 from platform import python_version
 from traceback import format_exc
@@ -19,9 +19,21 @@ from traceback import format_exc
 from telethon import version
 from telethon.tl.alltlobjects import LAYER
 
-from AyiinXd import Ayiin, LOGS, LOOP, bot, bot_on
-from AyiinXd.ayiin import autobot, autopilot, checking, heroku
+from AyiinXd import Ayiin, LOGS, LOOP, bot
+from AyiinXd.ayiin import HOSTED_ON, autobot, autopilot, checking, heroku
 from AyiinXd.modules import ALL_MODULES
+
+
+ON = '''
+❏ ᴀʏɪɪɴ - ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ
+╭╼┅━━━━━╍━━━━━┅╾
+├▹ ᴀʏɪɪɴ ᴠᴇʀsɪᴏɴ : {} •[{}]•
+├▹ ᴜsᴇʀʙᴏᴛ ɪᴅ : {}
+├▹ ᴜsᴇʀʙᴏᴛ ɴᴀᴍᴇ : {}
+├▹ ᴀssɪsᴛᴀɴᴛ ɪᴅ : {}
+├▹ ᴀssɪsᴛᴀɴᴛ ɴᴀᴍᴇ : {}
+╰╼┅━━━━━╍━━━━━┅╾
+'''
 
 
 async def AyiinMain():
@@ -35,14 +47,15 @@ async def AyiinMain():
     try:
         for module_name in ALL_MODULES:
             imported_module = import_module(f"AyiinXd.modules.{module_name}")
-        await bot.start()
         LOGS.info(f"Python Version - {python_version()}")
         LOGS.info(f"Telethon Version - {version.__version__} [Layer: {LAYER}]")
         LOGS.info(f"Userbot Version - {var.BOT_VER}")
         LOGS.info(f"Ayiin Version - 4.0.0")
         LOGS.info("[✨ BERHASIL DIAKTIFKAN! ✨]")
         await checking(Ayiin)
-        await bot_on()
+        me = await Ayiin.get_me()
+        bo = await bot.get_me()
+        await Ayiin.send_message(var.BOTLOG_CHATID, ON.format(var.BOT_VER, HOSTED_ON, me.id, me.first_name, bo.id, bo.first_name))
     except (ConnectionError, KeyboardInterrupt, NotImplementedError, SystemExit):
         pass
     except BaseException as e:
