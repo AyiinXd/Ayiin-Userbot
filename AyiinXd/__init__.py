@@ -118,32 +118,33 @@ gc = str(b64decode("QEF5aWluQ2hhdHM="))[2:13]
 async def bot_on():
     from AyiinXd.ayiin._hosting import where_hosted
 
-    if bot is not None:
+    if bot:
         A_user = await Ayiin.get_me()
         B_user = await bot.get_me()
-        await bot.send_message(
-            var.BOTLOG_CHATID,
-            message=f'''
-❏ ᴀʏɪɪɴ - ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ
-╭╼┅━━━━━╍━━━━━┅╾
-├▹ ᴀʏɪɪɴ ᴠᴇʀsɪᴏɴ : {var.BOT_VER} •[{where_hosted()}]•
-├▹ ᴜsᴇʀʙᴏᴛ ɪᴅ : {A_user.id}
-├▹ ᴜsᴇʀʙᴏᴛ ɴᴀᴍᴇ : {A_user.first_name}
-├▹ ᴀssɪsᴛᴀɴᴛ ɪᴅ : {B_user.id}
-├▹ ᴀssɪsᴛᴀɴᴛ ɴᴀᴍᴇ : {B_user.first_name}
-╰╼┅━━━━━╍━━━━━┅╾
-            ''',
-            link_preview=False,
-            buttons=[
-                [
-                    Button.url("•• ᴄʜᴀɴɴᴇʟ", url="https://t.me/AyiinChannel"),
-                    Button.url("ɢʀᴏᴜᴘ ••", url="https://t.me/AyiinChats"),
+        if var.BOTLOG_CHATID != 0:
+            await bot.send_message(
+                var.BOTLOG_CHATID,
+                message=f'''
+    ❏ ᴀʏɪɪɴ - ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ
+    ╭╼┅━━━━━╍━━━━━┅╾
+    ├▹ ᴀʏɪɪɴ ᴠᴇʀsɪᴏɴ : {var.BOT_VER} •[{where_hosted()}]•
+    ├▹ ᴜsᴇʀʙᴏᴛ ɪᴅ : {A_user.id}
+    ├▹ ᴜsᴇʀʙᴏᴛ ɴᴀᴍᴇ : {A_user.first_name}
+    ├▹ ᴀssɪsᴛᴀɴᴛ ɪᴅ : {B_user.id}
+    ├▹ ᴀssɪsᴛᴀɴᴛ ɴᴀᴍᴇ : {B_user.first_name}
+    ╰╼┅━━━━━╍━━━━━┅╾
+                ''',
+                link_preview=False,
+                buttons=[
+                    [
+                        Button.url("•• ᴄʜᴀɴɴᴇʟ", url="https://t.me/AyiinChannel"),
+                        Button.url("ɢʀᴏᴜᴘ ••", url="https://t.me/AyiinChats"),
+                    ],
+                    [
+                        Button.url("•• ʀᴇᴘᴏ ••", url="https://github.com/AyiinXd/Ayiin-Userbot"),
+                    ]
                 ],
-                [
-                    Button.url("•• ʀᴇᴘᴏ ••", url="https://github.com/AyiinXd/Ayiin-Userbot"),
-                ]
-            ],
-        )
+            )
 
 
 async def update_restart_msg(chat_id, msg_id):
