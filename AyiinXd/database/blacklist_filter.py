@@ -29,7 +29,7 @@ def add_to_blacklist(chat_id, chat_title, trigger):
     KANG COPAS GAUSAH MAIN HAPUS KONTOL
     Copyright (C) 2023-present AyiinXd <https://github.com/AyiinXd>
     """
-    cek = get_chat_blacklist()
+    cek = get_chat_blacklist(chat_id)
     if cek:
         con.execute(
             '''
