@@ -122,7 +122,7 @@ async def bot_on():
         A_user = await Ayiin.get_me()
         B_user = await bot.get_me()
         await bot.send_message(
-            entity=var.BOTLOG_CHATID,
+            var.BOTLOG_CHATID,
             message=f'''
 ❏ ᴀʏɪɪɴ - ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ
 ╭╼┅━━━━━╍━━━━━┅╾
