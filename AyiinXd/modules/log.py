@@ -124,7 +124,7 @@ async def log_tagged_messages(event: Message):
         )
 
 
-@ayiin_cmd(pattern="save(?: |$)(.*)")
+@ayiin_cmd(pattern="savelog(?: |$)(.*)")
 async def log(log_text):
     if var.BOTLOG_CHATID:
         if log_text.reply_to_msg_id:
@@ -231,7 +231,7 @@ async def set_gruplog(event):
 CMD_HELP.update(
     {
         "log": f"**Plugin : **`log`\
-        \n\n  »  **Perintah :** `{cmd}save`\
+        \n\n  »  **Perintah :** `{cmd}savelog`\
         \n  »  **Kegunaan : **__Untuk Menyimpan pesan yang ditandai ke grup pribadi.__\
         \n\n  »  **Perintah :** `{cmd}log`\
         \n  »  **Kegunaan : **__Untuk mengaktifkan Log Chat dari obrolan/grup itu.__\
