@@ -399,7 +399,7 @@ async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not get_mode_permit():
         return await cust_msg.edit(
-            f"**Anda Harus Mengaktifkan PM_PERMIT Terlebih dahulu**\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}pmpermit on`"
+            f"**Anda Harus Mengaktifkan PM_PERMIT Terlebih dahulu**\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}permit on`"
         )
     await cust_msg.edit('**Memproses...**')
     conf = cust_msg.pattern_match.group(1)
