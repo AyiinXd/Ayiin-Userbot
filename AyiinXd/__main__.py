@@ -50,7 +50,6 @@ async def AyiinMain():
         LOGS.info(f"Python Version - {python_version()}")
         LOGS.info(f"Telethon Version - {version.__version__} [Layer: {LAYER}]")
         LOGS.info(f"Userbot Version - {var.BOT_VER}")
-        LOGS.info(f"Ayiin Version - 4.0.0")
         LOGS.info("[✨ BERHASIL DIAKTIFKAN! ✨]")
         await checking(Ayiin)
         me = await Ayiin.get_me()

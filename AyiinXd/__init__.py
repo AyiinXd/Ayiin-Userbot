@@ -19,7 +19,7 @@ from math import ceil
 from pathlib import Path
 
 from platform import python_version
-from pytgcalls import GroupCallFactory
+from velar import GroupCallFactory
 from git import Repo
 from telethon import Button, __version__ as vsc
 from telethon.sync import custom
