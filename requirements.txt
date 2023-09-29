@@ -69,7 +69,7 @@ setuptools
 spamwatch
 speedtest-cli
 telegraph
-telethon
+telethon==1.24.0
 telethon-session-sqlalchemy
 telethon-tgcrypto
 urbandict

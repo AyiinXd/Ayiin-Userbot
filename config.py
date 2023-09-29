@@ -171,7 +171,7 @@ class Config(object):
     BITLY_TOKEN = getenv("BITLY_TOKEN", None)
 
     # Bot version
-    BOT_VER = getenv("BOT_VER", "3.6.9")
+    BOT_VER = getenv("BOT_VER", "4.0.0")
 
     # Default .alive logo
     ALIVE_LOGO = (getenv("ALIVE_LOGO")
