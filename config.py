@@ -29,6 +29,7 @@ GCAST_BLACKLIST = [
     -1001050982793,  # Python
     -1001256902287,  # DurovsChat
     -1001433238829,  # TedeSupport
+    -1001642830120,  # Aditya Discus
     -1001476936696,  # AnosSupport
     -1001327032795,  # UltroidSupport
     -1001294181499,  # UserBotIndo
