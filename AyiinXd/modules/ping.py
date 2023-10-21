@@ -51,11 +51,11 @@ async def get_readable_time(seconds: int) -> str:
 async def _(ping):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    Ayiin = await edit_or_reply(ping, "**✧**")
-    await Ayiin.edit("**✧✧**")
-    await Ayiin.edit("**✧✧✧**")
-    await Ayiin.edit("**✧✧✧✧**")
-    await Ayiin.edit("**✧✧✧✧✧**")
+    Ayiin = await edit_or_reply(ping, "**🌹**")
+    await Ayiin.edit("**🌹🌹**")
+    await Ayiin.edit("**🌹🌹🌹**")
+    await Ayiin.edit("**🌹🌹🌹🌹**")
+    await Ayiin.edit("**🌹🌹🌹🌹🌹**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     user = await ping.client.get_me()
@@ -88,10 +88,10 @@ async def _(ping):
 async def _(ping):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    lping = await edit_or_reply(ping, "**★ PING ★**")
-    await lping.edit("**★★ PING ★★**")
-    await lping.edit("**★★★ PING ★★★**")
-    await lping.edit("**★★★★ PING ★★★★**")
+    lping = await edit_or_reply(ping, "**🌹 PING 🌹**")
+    await lping.edit("**🌹🌹 PING 🌹🌹**")
+    await lping.edit("**🌹🌹🌹 PING 🌹🌹🌹**")
+    await lping.edit("**🌹🌹🌹🌹 PING 🌹🌹🌹🌹**")
     await lping.edit("**✦҈͜͡➳ PONG!**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
