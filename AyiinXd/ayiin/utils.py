@@ -43,13 +43,6 @@ new_rights = ChatAdminRights(
 
 async def autopilot():
     LOGS.info("TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA")
-    if var.BOTLOG_CHATID and str(var.BOTLOG_CHATID).startswith("-100"):
-        return
-    y = []  # To Refresh private ids
-    async for x in Ayiin.iter_dialogs():
-        y.append(x.id)
-    if var.BOTLOG_CHATID:
-        return
     try:
         r = await Ayiin(
             CreateChannelRequest(
@@ -90,8 +83,6 @@ async def autopilot():
 
 
 async def autobot():
-    if var.BOT_TOKEN:
-        return
     try:
         await Ayiin.start()
         await asyncio.sleep(15)
