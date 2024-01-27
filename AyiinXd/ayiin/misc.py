@@ -149,12 +149,12 @@ async def _format_quote(event, reply=None, sender=None, type_="private"):
     return message
 
 
-O_API = "https://bot.lyo.su/quote/generate"
+O_API = "https://api.quotexd.tech/v1/quote"
 
 
 async def create_quotly(
     event,
-    url="https://qoute-api-akashpattnaik.koyeb.app/generate",
+    url="https://api.quotexd.tech/v1/quote",
     reply={},
     bg=None,
     sender=None,
@@ -182,16 +182,16 @@ async def create_quotly(
     except ContentTypeError as er:
         if url != O_API:
             return await create_quotly(event,
-                    url=O_API,
-                    bg=bg,
-                    sender=sender,
-                    reply=reply,
-                    file_name=file_name,
-            )
+                                       url=O_API,
+                                       bg=bg,
+                                       sender=sender,
+                                       reply=reply,
+                                       file_name=file_name,
+                                       )
         raise er
-    if request.get("ok"):
+    if request.get("image"):
         with open(file_name, "wb") as file:
-            image = base64.decodebytes(request["result"]["image"].encode("utf-8"))
+            image = base64.decodebytes(request["image"].encode("utf-8"))
             file.write(image)
         return file_name
     raise Exception(str(request))
